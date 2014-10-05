@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvSettingProjectItemDescript"
+        style="@style/appSettingTitlefontDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settingProjectItemDescript" />
+
+    <FrameLayout
+        android:id="@+id/flSettingProjectItemAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/ivSettingProjectItemAddBG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/devTemp"
+            android:src="@drawable/addmoras" />
+
+        <ImageView
+            android:id="@+id/ivSettingProjectItemAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:contentDescription="@string/devTemp"
+            android:src="@drawable/addmoras" />
+    </FrameLayout>
+
+    <com.mobeta.android.dslv.DragSortListView
+        xmlns:dslv="http://schemas.android.com/apk/res/com.pavkoo.franklin"
+        android:id="@+id/dslvMorals"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/flSettingProjectItemAdd"
+        android:layout_below="@+id/tvSettingProjectItemDescript"
+        android:fastScrollEnabled="true"
+        android:layoutAnimation="@anim/main_content_item"
+        android:padding="@dimen/appBorderPadding"
+        android:divider="@null"
+        dslv:collapsed_height="2dp"
+        dslv:drag_enabled="true"
+        dslv:drag_handle_id="@id/drag_handle"
+        dslv:fling_handle_id="@+id/remove_handle"
+        dslv:drag_scroll_start="0.99"
+        dslv:drag_start_mode="onDown"
+        dslv:float_alpha="0.6"
+        dslv:max_drag_scroll_speed="0.6"
+        dslv:remove_enabled="true"
+        dslv:remove_mode="flingRemove"
+        dslv:slide_shuffle_speed="0.5"
+        dslv:sort_enabled="true"
+        dslv:track_drag_sort="true"
+        dslv:use_default_controller="true" />
+
+</RelativeLayout>

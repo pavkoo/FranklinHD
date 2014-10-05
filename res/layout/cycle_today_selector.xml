@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/llReview"
+        style="@style/appReviewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent" >
+
+            <com.pavkoo.franklin.controls.PredicateLayout
+                android:id="@+id/grpReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layoutAnimation="@anim/main_content_item" >
+            </com.pavkoo.franklin.controls.PredicateLayout>
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llToday"
+        style="@style/appTodayLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.pavkoo.franklin.controls.Today
+            android:id="@+id/today"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutAnimation="@anim/today_init" >
+        </com.pavkoo.franklin.controls.Today>
+    </LinearLayout>
+
+</LinearLayout>

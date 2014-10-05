@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_app_bg_secondary"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/appBorderPadding" >
+
+    <TextView
+        android:id="@+id/tvChart2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/finishDone"
+        android:textSize="60sp" />
+
+    <LinearLayout
+        android:id="@+id/llFinishVictory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/ivFinishDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/textPadding"
+            android:contentDescription="@string/devTemp"
+            android:src="@drawable/victory" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvFinishOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/textPadding"
+        android:gravity="center_vertical"
+        android:text="@string/finishOneTime" />
+
+    <TextView
+        android:id="@+id/tvFinishStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/textPadding"
+        android:background="@drawable/setting_roundrect_selector"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:padding="@dimen/textPadding"
+        android:text="@string/store"
+        android:textColor="@color/white_app_txt_white" />
+
+    <TextView
+        android:id="@+id/tvFinishOr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/textPadding"
+        android:gravity="center_vertical"
+        android:text="@string/or" />
+
+    <TextView
+        android:id="@+id/tvFinishModify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/textPadding"
+        android:background="@drawable/setting_roundrect_selector"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:padding="@dimen/textPadding"
+        android:text="@string/Finishmodify"
+        android:textColor="@color/white_app_txt_white" />
+
+</LinearLayout>

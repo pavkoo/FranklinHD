@@ -1,0 +1,246 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/llAppBottom"
+        style="@style/appBottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:layoutAnimation="@anim/home_button"
+        android:orientation="horizontal" >
+
+        <TableRow
+            android:id="@+id/trHomeToolBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-3dp"
+            android:layout_toRightOf="@+id/ivHome"
+            android:background="@drawable/toolbar"
+            android:paddingLeft="3dp"
+            android:scaleX="0"
+            android:transformPivotX="0dp" >
+
+            <TextView
+                android:id="@+id/txtSetting"
+                style="@style/appBottomToolBarTextLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/textPadding"
+                android:layout_weight="1"
+                android:background="@drawable/toolbar_selector"
+                android:clickable="true"
+                android:drawableLeft="@drawable/appsetting"
+                android:gravity="center"
+                android:text="@string/main_toolbar_setting" />
+
+            <TextView
+                android:id="@+id/txtHelp"
+                style="@style/appBottomToolBarTextLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@drawable/toolbar_selector"
+                android:clickable="true"
+                android:drawableLeft="@drawable/help"
+                android:gravity="center"
+                android:text="@string/main_toolbar_help" />
+
+            <TextView
+                android:id="@+id/txtContactMe"
+                style="@style/appBottomToolBarTextLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@drawable/toolbar_selector"
+                android:clickable="true"
+                android:drawableLeft="@drawable/contectme"
+                android:gravity="center"
+                android:text="@string/main_toolbar_contactme" />
+        </TableRow>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/devTemp"
+            android:src="@drawable/home2" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llAppMessageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/llAppBottom"
+        android:background="@color/white_app_bg_white"
+        android:orientation="vertical" >
+
+        <com.pavkoo.franklin.controls.AnimMessage
+            android:id="@+id/amMainMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/llAppMessageContainer"
+        android:animationCache="false"
+        android:clipToPadding="false"
+        android:layoutAnimation="@anim/main_content_item"
+        android:stretchColumns="0" >
+
+        <TableRow>
+
+            <LinearLayout
+                android:id="@+id/llTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_app_primary"
+                android:orientation="horizontal"
+                tools:ignore="UselessParent" >
+
+                <TextView
+                    android:id="@+id/tvMainTitle"
+                    style="@style/appTitlefont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical" />
+
+                <TextView
+                    android:id="@+id/tvMainDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:alpha="0.5"
+                    android:background="@drawable/main_date"
+                    android:textColor="@color/white_app_txt_white"
+                    android:layout_marginLeft="@dimen/textPadding"
+                    android:layout_marginRight="@dimen/textPadding"
+                    android:paddingLeft="@dimen/textPadding"
+                    android:paddingRight="@dimen/textPadding"
+                    android:visibility="gone" />
+
+                <ViewFlipper
+                    android:id="@+id/vfMainFlopper"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical" >
+
+                    <TextView
+                        android:id="@+id/tvMainTimeHide"
+                        style="@style/appTitleTimefont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tvMainTime"
+                        style="@style/appTitleTimefont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </ViewFlipper>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow>
+
+            <LinearLayout
+                android:id="@+id/llTitleDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="UselessParent" >
+
+                <TextView
+                    android:id="@+id/tvMainTitleDescrible"
+                    style="@style/appTitlefontDes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical" />
+
+                <RelativeLayout
+                    style="@style/appTitleMotto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/appTitleMottoQuitesBegin"
+                        style="@style/appTitlefontMottoQuotes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/quotesBegin" />
+
+                    <TextView
+                        android:id="@+id/tvMainTitleMotto"
+                        style="@style/appTitlefontMotto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/appTitleMottoQuitesEnd"
+                        android:layout_toRightOf="@+id/appTitleMottoQuitesBegin"
+                        android:gravity="left|center_vertical" />
+
+                    <TextView
+                        android:id="@+id/appTitleMottoQuitesEnd"
+                        style="@style/appTitlefontMottoQuotes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/quotesEnd"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow android:layout_weight="1" >
+
+            <com.pavkoo.franklin.controls.CyclePager
+                android:id="@+id/clcpagerContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </com.pavkoo.franklin.controls.CyclePager>
+        </TableRow>
+
+        <TableRow>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_app_bg_secondary"
+                android:gravity="center"
+                tools:ignore="UselessParent" >
+
+                <View
+                    android:id="@+id/viewIndicatiorLeft"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:background="@drawable/review_ring" />
+
+                <View
+                    android:id="@+id/viewIndicatiorCenter"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginLeft="@dimen/appBorderPadding"
+                    android:layout_marginRight="@dimen/appBorderPadding"
+                    android:background="@drawable/review_ring" />
+
+                <View
+                    android:id="@+id/viewIndicatiorRight"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:background="@drawable/review_ring" />
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

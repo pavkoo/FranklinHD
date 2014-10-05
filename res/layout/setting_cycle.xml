@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutAnimation="@anim/main_content_item"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/llSettingCycleSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/appBorderPadding"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SettingCycleSeekbar" />
+
+        <SeekBar
+            android:id="@+id/sbCycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="7"
+            android:progress="1" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/flSettingCycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/llSettingCycleSeekBar"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvSettingCycleBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/review_ring"
+            android:scaleX="0.5"
+            android:scaleY="0.5" />
+
+        <TextView
+            android:id="@+id/tvSettingCycleText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/review_ring_inner"
+            android:gravity="center"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:textSize="60sp" />
+
+        <TextView
+            style="@style/appSettingTitlefontDes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/SettingCycleDescription" />
+    </FrameLayout>
+
+</RelativeLayout>

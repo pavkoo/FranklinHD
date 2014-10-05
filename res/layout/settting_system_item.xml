@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvSettingSystemitem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/appBorderPadding"
+        android:paddingTop="@dimen/appBorderPadding"
+        android:drawablePadding="@dimen/textPadding" 
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:textColor="@color/white_app_txt_black"/>
+
+</LinearLayout>

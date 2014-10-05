@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="@dimen/appBorderPadding"
+    android:background="@color/white_app_bg_secondary"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent" >
+
+        <LinearLayout
+            android:id="@+id/llReportTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/textPadding"
+           
+            android:gravity="center" >
+
+            <TextView
+                style="@style/appReportTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/statistics"
+                android:gravity="bottom"
+                android:text="@string/reportTitle" />
+        </LinearLayout>
+
+        <TableLayout
+            android:id="@+id/llReportBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/textPadding"
+            android:layout_marginTop="@dimen/textPadding" >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/appReportBottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/totalUsedCount" />
+
+                    <TextView
+                        android:id="@+id/tvCycleReprotAppCount"
+                        style="@style/appReportBottomNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" 
+                        android:background="@drawable/cycle_history_report_selector"
+                        android:gravity="center"
+                        android:clickable="true"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white_app_bg_division_line" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/appReportBottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/totalReflectiveCount" />
+
+                    <TextView
+                        android:id="@+id/tvCycleReportUserCheckedCount"
+                        style="@style/appReportBottomNumber"
+                        android:background="@drawable/cycle_history_report_selector"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:clickable="true"/>
+                </LinearLayout>
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white_app_bg_division_line" >
+            </LinearLayout>
+        </TableLayout>
+
+        <com.pavkoo.franklin.controls.BlemishReport
+            android:id="@+id/blemishReport"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/llReportBottom"
+            android:layout_below="@+id/llReportTop" />
+    </RelativeLayout>
+
+</LinearLayout>

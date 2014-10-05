@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_app_bg_secondary"
+    android:padding="@dimen/appBorderPadding" >
+
+    <TextView
+        style="@style/appReportTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:drawableLeft="@drawable/comments"
+        android:gravity="bottom"
+        android:text="@string/commentTitle" />
+
+    <ListView
+        android:id="@+id/lvComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@android:color/transparent" >
+    </ListView>
+
+    <ImageView
+        android:id="@+id/ivCommentNomore"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/devTemp"
+        android:gravity="center_vertical"
+        android:scaleType="centerInside"
+        android:src="@drawable/nomore" >
+    </ImageView>
+
+</LinearLayout>

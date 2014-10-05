@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textMinestPadding">3dp</dimen>
+    <dimen name="textMinPadding">5dp</dimen>
+    <dimen name="textPadding">10dp</dimen>
+    <dimen name="appBorderPadding">20dp</dimen>
+    <dimen name="bigPadding">40dp</dimen>
+</resources>

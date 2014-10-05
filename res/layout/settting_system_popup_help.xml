@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/appBorderPadding"
+    android:background="@drawable/popup_background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bookcover"
+        android:drawablePadding="@dimen/textPadding"
+        android:gravity="center_vertical|left"
+        android:padding="@dimen/textPadding"
+        android:text="@string/book"
+        android:textColor="@color/white_app_txt_black"
+        android:textSize="26sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white_app_bg_darkgray" />
+
+    <ScrollView
+        android:id="@+id/svSettingSystemPopupHelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvsettingSystemHelpContentTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/textPadding"
+                android:text="@string/bookcontenttitle1"
+                android:textColor="@color/white_app_txt_black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvsettingSystemHelpContent1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.3"
+                android:textSize="14sp"
+                android:padding="@dimen/textPadding"
+                android:textColor="@color/white_app_txt_gray" />
+
+            <TextView
+                android:id="@+id/tvSettingSystemHelplPopupNext1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/appBorderPadding"
+                android:layout_marginLeft="@dimen/textPadding"
+                android:layout_marginRight="@dimen/textPadding"
+                android:layout_marginTop="@dimen/textPadding"
+                android:layout_weight="1"
+                android:background="@drawable/setting_roundrect_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:padding="@dimen/textPadding"
+                android:text="@string/nextPage1"
+                android:textColor="@color/white_app_txt_white" />
+
+            <TextView
+                android:id="@+id/tvsettingSystemHelpContentTitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:textSize="14sp"
+                android:padding="@dimen/textPadding"
+                android:text="@string/bookcontenttitle2"
+                android:textColor="@color/white_app_txt_black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvsettingSystemHelpContent2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:lineSpacingMultiplier="1.3"
+                android:textSize="14sp"
+                android:padding="@dimen/textPadding"
+                android:text="@string/bookcontent2"
+                android:textColor="@color/white_app_txt_gray" />
+
+            <TextView
+                android:id="@+id/tvSettingSystemHelplPopupNext2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textSize="14sp"
+                android:layout_marginBottom="@dimen/appBorderPadding"
+                android:layout_marginLeft="@dimen/textPadding"
+                android:layout_marginRight="@dimen/textPadding"
+                android:layout_marginTop="@dimen/textPadding"
+                android:layout_weight="1"
+                android:background="@drawable/setting_roundrect_selector"
+                android:clickable="true"
+                android:visibility="gone"
+                android:gravity="center"
+                android:padding="@dimen/textPadding"
+                android:text="@string/nextPage2"
+                android:textColor="@color/white_app_txt_white" />
+
+            <TextView
+                android:id="@+id/tvsettingSystemHelpContentTitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:padding="@dimen/textPadding"
+                android:text="@string/bookcontenttitle3"
+                android:textColor="@color/white_app_txt_black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvsettingSystemHelpContent3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.3"
+                android:padding="@dimen/textPadding"
+                android:visibility="gone"
+                android:textSize="14sp"
+                android:text="@string/bookcontent3"
+                android:textColor="@color/white_app_txt_gray" />
+
+            <ImageView
+                android:id="@+id/ivSettingSystemMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="right"
+                android:contentDescription="@string/devTemp"
+                android:padding="@dimen/textPadding"
+                android:src="@drawable/franklinsignature" />
+
+            <TextView
+                android:id="@+id/tvSettingSystemHelplPopupOK"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/appBorderPadding"
+                android:layout_marginLeft="@dimen/textPadding"
+                android:layout_marginRight="@dimen/textPadding"
+                android:layout_marginTop="@dimen/textPadding"
+                android:visibility="gone"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:background="@drawable/setting_roundrect_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="@dimen/textPadding"
+                android:text="@string/igotit"
+                android:textColor="@color/white_app_txt_white" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
