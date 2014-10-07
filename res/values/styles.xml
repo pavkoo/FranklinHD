@@ -31,7 +31,7 @@
         <item name="android:paddingBottom">@dimen/textPadding</item>
         <item name="android:background">@color/white_app_primary</item>
         <item name="android:textColor">@color/white_app_txt_white</item>
-        <item name="android:textSize">60sp</item>
+        <item name="android:textSize">@dimen/textSizeBiggest</item>
     </style>
     
     <style name="appTitleTimefont" parent="@android:style/TextAppearance">
@@ -40,7 +40,7 @@
         <item name="android:paddingBottom">@dimen/textPadding</item>
         <item name="android:background">@color/white_app_primary</item>
         <item name="android:textColor">@color/white_app_txt_white</item>
-        <item name="android:textSize">60sp</item>
+        <item name="android:textSize">@dimen/textSizeBiggest</item>
     </style>
 
     <style name="appTitlefontDes" parent="@android:style/TextAppearance">
@@ -49,11 +49,10 @@
         <item name="android:paddingLeft">@dimen/appBorderPadding</item>
         <item name="android:paddingRight">@dimen/textPadding</item>
         <item name="android:textColor">@color/white_app_txt_white</item>
-        <item name="android:lineSpacingMultiplier">1.5</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
     </style>
     
-    <style name="appSettingTitlefontDes" parent="@android:style/TextAppearance">
+    <style name="appSettingTitlefontDes">
         <item name="android:background">@color/white_app_bg_primary</item>
         <item name="android:paddingTop">@dimen/textPadding</item>
         <item name="android:paddingLeft">@dimen/appBorderPadding</item>
@@ -62,7 +61,7 @@
         <item name="android:textColor">@color/white_app_txt_gray_light_light</item>
     </style>
 
-    <style name="appTitlefontSpace" parent="@android:style/TextAppearance">
+    <style name="appTitlefontSpace">
         <item name="android:background">@color/white_app_bg_primary</item>
     </style>
 
@@ -75,7 +74,6 @@
 
     <style name="appTitlefontMotto" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/white_app_txt_white</item>
-        <item name="android:textSize">14sp</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:marqueeRepeatLimit">marquee_forever</item>
@@ -86,7 +84,7 @@
 
     <style name="appTitlefontMottoQuotes" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/white_app_txt_gray_light_light</item>
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">@dimen/textSizebig</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">serif</item>
     </style>
@@ -102,7 +100,6 @@
         <item name="android:paddingLeft">@dimen/appBorderPadding</item>
         <item name="android:paddingRight">@dimen/appBorderPadding</item>
         <item name="android:paddingBottom">@dimen/textMinPadding</item>
-        <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/white_app_txt_white</item>
     </style>
 
@@ -122,7 +119,6 @@
         <item name="android:textColor">@color/white_app_txt_white</item>
         <item name="android:paddingLeft">@dimen/textPadding</item>
         <item name="android:paddingRight">@dimen/textPadding</item>
-        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="appTotayPopupTitle">
@@ -130,7 +126,7 @@
         <item name="android:paddingRight">@dimen/textPadding</item>
         <item name="android:paddingTop">@dimen/appBorderPadding</item>
         <item name="android:paddingBottom">@dimen/appBorderPadding</item>
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">@dimen/textSizebig</item>
         <item name="android:textColor">@color/white_app_txt_white</item>
         <item name="android:background">@drawable/setting_roundrect_popup_top</item>
     </style>
@@ -140,14 +136,14 @@
         <item name="android:paddingRight">@dimen/textPadding</item>
         <item name="android:paddingTop">@dimen/appBorderPadding</item>
         <item name="android:paddingBottom">@dimen/appBorderPadding</item>
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">@dimen/textSizebig</item>
         <item name="android:textColor">@color/white_app_txt_white</item>
         <item name="android:background">@drawable/setting_roundrect_popup_top_warning</item>
     </style>
 
     <style name="appPopupTitle">
         <item name="android:paddingBottom">@dimen/appBorderPadding</item>
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">@dimen/textSizebig</item>
         <item name="android:textColor">@color/white_app_txt_white</item>
         <item name="android:background">@color/white_app_primary</item>
     </style>
@@ -164,17 +160,15 @@
 
     <style name="appReportTitle" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/white_app_txt_reportTitle</item>
-        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="appReportBottom" parent="@android:style/TextAppearance">
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="appReportBottomNumber" parent="android:Widget.Holo.Light.TextView">
         <item name="android:textColor">#41bb45</item>
-        <item name="android:textSize">34sp</item>
+        <item name="android:textSize">@dimen/textSizebig</item>
         <item name="android:textStyle">bold</item>
     </style>
 

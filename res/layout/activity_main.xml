@@ -126,6 +126,7 @@
                     android:layout_marginRight="@dimen/textPadding"
                     android:paddingLeft="@dimen/textPadding"
                     android:paddingRight="@dimen/textPadding"
+                    android:textSize="@dimen/textSizeSmall"
                     android:visibility="gone" />
 
                 <ViewFlipper

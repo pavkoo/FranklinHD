@@ -27,7 +27,7 @@
             android:gravity="center"
             android:text="@string/franklin"
             android:textColor="@color/white_app_txt_white"
-            android:textSize="30sp" />
+            android:textSize="@dimen/textSizebig" />
     </LinearLayout>
 
     <ScrollView

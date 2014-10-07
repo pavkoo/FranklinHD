@@ -50,13 +50,14 @@
             android:gravity="center"
             android:scaleX="0.5"
             android:scaleY="0.5"
-            android:textSize="60sp" />
+            android:textSize="@dimen/textSizeBiggest" />
 
         <TextView
             style="@style/appSettingTitlefontDes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/SettingCycleDescription" />
+            android:text="@string/SettingCycleDescription"
+            android:textSize="@dimen/textSizeSmall" />
     </FrameLayout>
 
 </RelativeLayout>

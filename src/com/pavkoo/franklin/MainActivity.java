@@ -468,7 +468,7 @@ public class MainActivity extends ParentActivity implements IUpdateTextCallBack,
 			}
 			rb.setText(morals.get(i).getTitle());
 			rb.setTextColor(txtColor);
-			rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+			rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 			updateCheckState(rb, morals.get(i).getTodaySelected(), false);
 			rb.setId(i);
 			rb.setClickable(true);

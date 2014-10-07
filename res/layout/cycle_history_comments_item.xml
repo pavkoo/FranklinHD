@@ -19,7 +19,7 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:textColor="@color/white_app_txt_black"
-            android:textSize="30sp" />
+            android:textSize="@dimen/textSizebig" />
 
         <FrameLayout
             android:id="@+id/flcommentitem"

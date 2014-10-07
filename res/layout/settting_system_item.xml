@@ -11,7 +11,7 @@
         android:paddingBottom="@dimen/appBorderPadding"
         android:paddingTop="@dimen/appBorderPadding"
         android:drawablePadding="@dimen/textPadding" 
-        android:textSize="18sp"
+        android:textSize="@dimen/textSizebig"
         android:gravity="center_vertical"
         android:textColor="@color/white_app_txt_black"/>
 

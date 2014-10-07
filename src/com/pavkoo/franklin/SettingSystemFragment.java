@@ -13,7 +13,6 @@ import com.pavkoo.franklin.controls.SettingSystemMeDialog;
 import com.pavkoo.franklin.controls.SettingSystemRestartDialog;
 import com.pavkoo.franklin.controls.SettingSystemRestartDialog.ViewState;
 
-import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -179,7 +178,6 @@ public class SettingSystemFragment extends Fragment {
 			return position;
 		}
 
-		@SuppressLint("NewApi")
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			if (convertView == null) {

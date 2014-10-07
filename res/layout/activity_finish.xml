@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/finishDone"
-        android:textSize="60sp" />
+        android:textSize="@dimen/textSizeBiggest" />
 
     <LinearLayout
         android:id="@+id/llFinishVictory"

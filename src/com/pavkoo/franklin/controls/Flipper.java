@@ -12,6 +12,7 @@ import android.graphics.Point;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -192,12 +193,13 @@ public class Flipper extends ViewGroup {
 
 		mCurrentValue = 0;
 		mTargetValue = 0;
+		
 	}
 
 	public void updateTextSize(float size) {
 		for (int i = 0; i < textViews.size(); i++) {
 			final TextView child = textViews.get(i);
-			child.setTextSize(size);
+			child.setTextSize(TypedValue.COMPLEX_UNIT_PX,size);
 		}
 		invalidate();
 	}

@@ -11,6 +11,7 @@ import android.graphics.Paint;
 import android.graphics.Paint.FontMetrics;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 
@@ -32,6 +33,7 @@ public class BlemishReport extends View {
 
 	private int mRow;
 	private int mCol;
+	private float density;
 
 	private float mDivideWidth;
 
@@ -86,7 +88,7 @@ public class BlemishReport extends View {
 	}
 
 	private float getRowTitleWidth() {
-		mPaint.setTextSize(14);
+		mPaint.setTextSize(10 * density);
 		float maxwidth = 0;
 		float temp = 0;
 		for (int i = 0; i < morals.size(); i++) {
@@ -102,7 +104,7 @@ public class BlemishReport extends View {
 	}
 
 	private float getColTitleHeight() {
-		mPaint.setTextSize(20);
+		mPaint.setTextSize(10 * density);
 		FontMetrics fm = mPaint.getFontMetrics();
 		return (float) Math.ceil(fm.descent - fm.ascent) + ColTitleSpace;
 	}
@@ -131,6 +133,9 @@ public class BlemishReport extends View {
 		mCellWidth = 0;
 		mCellHeight = 0;
 		mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+		DisplayMetrics dm = new DisplayMetrics();
+		dm = this.getContext().getApplicationContext().getResources().getDisplayMetrics();
+		density = dm.density;
 	}
 
 	@Override
@@ -144,17 +149,17 @@ public class BlemishReport extends View {
 		float top = 0;
 
 		// draw Row Title
-		mPaint.setTextSize(14);
+		mPaint.setTextSize(10 * density);
 		for (int i = 0; i < mRow; i++) {
 			top = mCellHeight * i;
 			mPaint.setColor(Color.parseColor(colors[i % colors.length]));
-			canvas.drawText(morals.get(i).getTitle(), left, top + mCellHeight + ColTitleSpace, mPaint);
+			canvas.drawText(morals.get(i).getTitle(), left, top + mCellHeight + ColTitleSpace + 10 * density, mPaint);
 		}
 
 		// draw Col Title
 		top = 0;
 		mPaint.setColor(Color.BLACK);
-		mPaint.setTextSize(20);
+		mPaint.setTextSize(10 * density);
 		mPaint.setTypeface(Typeface.SERIF);
 		for (int i = 0; i < mCol; i++) {
 			left = i * mCellWidth;

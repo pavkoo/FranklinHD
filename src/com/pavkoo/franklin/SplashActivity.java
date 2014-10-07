@@ -7,14 +7,17 @@ import com.pavkoo.franklin.common.ApplicationConfig;
 import com.pavkoo.franklin.common.UtilsClass;
 import android.content.Intent;
 import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SplashActivity extends ParentActivity {
 	private TextView tvSplash;
 	private ImageView ivSplash;
+	private ImageView ivCloud;
 
-	private final int START_SPLASH_OFFSET = 3000;
+	private final int START_SPLASH_OFFSET =5000;
 	private ApplicationConfig config;
 
 	@Override
@@ -22,6 +25,7 @@ public class SplashActivity extends ParentActivity {
 		setContentView(R.layout.activity_splash);
 		tvSplash = (TextView) findViewById(R.id.tvSplash);
 		ivSplash = (ImageView) findViewById(R.id.ivSplash);
+		ivCloud = (ImageView) findViewById(R.id.ivCloud);
 	}
 
 	@Override
@@ -76,5 +80,10 @@ public class SplashActivity extends ParentActivity {
 		} else {
 			tvSplash.setText(R.string.welcome11);
 		}
+		
+		Animation anim = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
+		anim.setRepeatCount(Animation.INFINITE);
+		anim.setDuration(30000);
+		ivCloud.startAnimation(anim);
 	}
 }

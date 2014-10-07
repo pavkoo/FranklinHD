@@ -11,6 +11,7 @@
         style="@style/appSettingTitlefontDes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+         android:textSize="@dimen/textSizeSmall"
         android:text="@string/settingWelcomeDescrpit" />
 
     <FrameLayout

@@ -23,7 +23,7 @@
             android:background="@drawable/sort"
             android:gravity="center"
             android:textColor="@color/white_app_txt_black"
-            android:textSize="30sp" />
+            android:textSize="@dimen/textSizebig" />
     </FrameLayout>
 
     <LinearLayout
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:textColor="@color/white_app_txt_black"
-            android:textSize="18sp"
+            android:textSize="@dimen/textSizebig"
             android:textStyle="bold" />
 
         <TextView

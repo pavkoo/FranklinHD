@@ -39,8 +39,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:textColor="@color/white_app_txt_white"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/textSizeSmall"
+                    android:textColor="@color/white_app_txt_white"/>
             </LinearLayout>
         </ScrollView>
     </FrameLayout>

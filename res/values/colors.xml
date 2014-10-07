@@ -6,7 +6,7 @@
     <color name="white_app_bg_darkgray">#2a2f36</color>
     <color name="white_app_bg_secondary">#ecf0f6</color>
     <color name="white_app_bg_white">#ffffff</color>
-    <color name="white_app_bg_division_line">#ebeef2</color>
+    <color name="white_app_bg_division_line">#dedede</color>
     <color name="white_app_bg_popup_title">#036735</color>
     <color name="white_app_bg_popup_content">#2bb24c</color>
     <color name="white_app_txt_white">#ffffff</color>
@@ -22,4 +22,5 @@
 	<color name="white_app_error">#c84141</color>
 	<color name="white_app_error_pressed">#9f1a1a</color>
 	<color name="white_app_reportbg">#baecbb</color>
+	<color name="white_app_sea">#abeafa</color>
 </resources>	

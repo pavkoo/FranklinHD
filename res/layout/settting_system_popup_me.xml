@@ -15,7 +15,7 @@
         android:gravity="center_vertical|left"
         android:text="@string/appnameabout"
         android:textColor="@color/white_app_txt_black"
-        android:textSize="26sp" />
+        android:textSize="@dimen/textSizebig" />
 
     <View android:layout_width="match_parent"
         android:layout_height="1dp"
