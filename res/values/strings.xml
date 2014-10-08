@@ -15,13 +15,13 @@
     <string name="todayControlPopupTitleFormat">%1$s%2$s做的怎么样？</string>
     <string name="today_control_popup_good">\n非常好</string>
     <string name="today_control_popup_bad">\n糟糕</string>
-    <string name="comment">备注：</string>
+    <string name="comment">感想：</string>
     <string name="hintComment">嘿，你为什么没有做到？</string>
     <string name="pupupAddComment">確定</string>
     <string name="quotesBegin">“</string>
     <string name="quotesEnd">”</string>
     <string name="reportTitle">最新周期污点</string>
-    <string name="commentTitle">备注TOP15</string>
+    <string name="commentTitle">感想TOP15</string>
     <string name="titleTenperance">节制</string>
     <string name="titleTenperanceDes">食不过饱\n饮酒不醉</string>
     <string name="titleTenperanceMotto">饮食自倍,肠胃乃伤；饮食以时，饥饱得中；不欲极饥而食，食不过饱。不欲极渴而饮，饮不过多；以酒为浆，故半百而衰也</string>
@@ -84,7 +84,7 @@
     <string name="SettingCycleDescription">我决定给与每一项美德一个星期的严格注意，如此轮流替换</string>
     <string name="SettingCycleSeekbar">拖动调整训练周期：</string>
     <string name="settingRestore">恢复默认</string>
-    <string name="deleteHistoryComment">清空历史备注</string>
+    <string name="deleteHistoryComment">清空历史感想</string>
     <string name="cancel">取消</string>
     <string name="OK">确定</string>
     <string name="title">项目：</string>
@@ -124,7 +124,7 @@
     <string name="helpBook">《富兰克林自传》的方法</string>
     <string name="franklin">本杰明·富兰克林</string>
     <string name="restartinfo">重头开始新的周期\n将会删除你已经记录的所有数据，并将进度设置为你训练计划的第一天\n你确定要重新开始吗？</string>
-    <string name="deleteHistoryCommentInfo">删除你所有的备注。不可恢复。你确定继续吗？</string>
+    <string name="deleteHistoryCommentInfo">删除你所有的感想。感想是你的一份宝贵财产，删除之后就不可恢复。你确定继续吗？</string>
     <string name="restoretinfo">恢复默认会删除你所有的配置数据，软件恢复初始状态！\n你需要重新配置训练计划\n你确定要恢复默认吗？</string>
     <string name="benjaminfranklininfo">本杰明·富兰克林（Benjamin Franklin，1706年1月17日－1790年4月17日），出生于美国麻省波士顿，是美国著名政治家、科学家，同时亦是出版商、印刷商、记者、作家、慈善家；更是杰出的外交家及发明家。他是美国革命时重要的领导人之一，参与了多项重要文件的草拟，并曾出任美国驻法国大使，成功取得法国支持美国独立。本杰明·富兰克林曾经进行多项关于电的实验，并且发明了避雷针。他还发明了双焦点眼镜，蛙鞋等等。本杰明·富兰克林是共济会的成员，被选为英国皇家学会院士。他亦是美国首位邮政局长。\n由于1928年以后每张百元美钞上都印有本杰明·富兰克林的肖像，再加上美元身为世界主要流通货币的重要性，导致本杰明·富兰克林的长相广为世界各地不少人所熟悉。
 美国在线曾于2005年举办了票选活动《最伟大的美国人》，当中富兰克林获选为美国最伟大人物的第五位。</string>
@@ -223,17 +223,17 @@
     <string name="send">发送</string>
     <string name="selfImproveFeedback">自我修养反馈</string>
     <string name="cantSendEmail">不能发送邮件！\n如果你对产品或者我有什么意见及建议,请与我联系：pavkoo@live.com</string>
-    <string name="typeCouse">每次发现过失时，不妨填写备注，记录下原因。</string>
+    <string name="typeCouse">每次发现过失时，不妨记录一些感想</string>
     <string name="tabToChoose">按照毕达哥拉斯在他的“金诗篇”里所提出的意见，我认为每日必须检查反省（点击数字）</string>
     <string name="helpReport">一个小小的黑点，代表在检查当天该项美德时所发现的过失。（如果你该天忘记反省，也会有一个黑点）</string>
     <string name="dragToChangeCycle">你可以拖动数字调整训练时间、左右滑动删除你不需要训练的美德</string>
     <string name="cantArrange">已经完成或者正在进行的项目就不能再安排时间顺序了</string>
     <string name="cantDelete">已经完成或者正在进行的项目就不能删除了</string>
-    <string name="deleteHistoryCommentSuccess">成功清空历史备注信息</string>
+    <string name="deleteHistoryCommentSuccess">成功清空历史感想信息</string>
     <string name="cantFindBrowse">找不到浏览器！</string>
     <string name="cantFindMarket">找不到应用市场</string>
     <string name="errorAddTitle">请添加标题</string>
-    <string name="errorTooMuchCh">最好用四个字以内的词语来表示你所需要的训练的美德名称，简洁明了</string>
+    <string name="errorTooMuchCh">最好用2个字来表示你所需要的训练的美德名称（不能超过四个字），简洁明了</string>
     <string name="errorAddDes">请添加描述信息</string>
     <string name="errorTooMuchLines">尽量使得一项美德的含义最少，这样会避免在生活中莫一项活动莫能两可不知是否属于该项目，也不要贪多，人通常能够几种经历干一件事情，三心二意不太理想</string>
     <string name="errorMotto">请添加引用</string>
@@ -257,6 +257,8 @@
     <string name="finishOneTime">一轮训练已经完成，你可以</string>
     <string name="todayhavepassed">时间似乎已经过去很久了，请在设置中恢复默认！</string>
     <string name="havenoitem">一项美德都没有？请至少添加一项</string>
-    <string name="cannotchange4">一旦训练周期确定，在使用中就没发改变。请仔细思考你将要为每一项美德花费的训练天数</string>
+    <string name="cannotchange4">一旦训练周期确定，在使用中就不能改变。请仔细思考你将要为每一项美德花费的训练天数</string>
+    <string name="mailto">mailto:pavkoo@live.com?subject=自我修养反馈&amp;body=感谢我吧，我要提一个意见：\n我认为</string>
+    <string name="chooseEmail">选择邮件客户端</string>
 
 </resources>

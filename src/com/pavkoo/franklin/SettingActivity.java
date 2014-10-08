@@ -223,16 +223,20 @@ public class SettingActivity extends FragmentActivity {
 				rbSettingWelcome.setVisibility(View.GONE);
 				rbAppSetting.setVisibility(View.GONE);
 				rbSettingCycle.setVisibility(View.GONE);
+				rbSettingProjectItem.setVisibility(View.VISIBLE);
+				break;
 			case R.id.rbSettingWelcome:
 				rbSettingProjectItem.setVisibility(View.GONE);
 				rbAppSetting.setVisibility(View.GONE);
 				rbSettingCycle.setVisibility(View.GONE);
+				rbSettingWelcome.setVisibility(View.VISIBLE);
 				break;
 			case R.id.rbAppSetting:
 				rbSettingProjectItem.setVisibility(View.GONE);
 				rbSettingWelcome.setVisibility(View.GONE);
 				rbSettingCycle.setVisibility(View.GONE);
 				tvSettingHelp.setVisibility(View.GONE);
+				rbAppSetting.setVisibility(View.VISIBLE);
 				break;
 			}
 		}

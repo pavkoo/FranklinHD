@@ -8,15 +8,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class SettingProjectItemDialog extends ParentDialog {
 	private TextView tvSettingProjectItemPopupCancel;
 	private TextView tvSettingProjectItemPopupYes;
-	private AutoCompleteTextView txtSettingProjectItemPopupTitle;
-	private AutoCompleteTextView txtSettingProjectItemPopupTitleDes;
-	private AutoCompleteTextView txtSettingProjectItemPopupTitleMotto;
+	private EditText txtSettingProjectItemPopupTitle;
+	private EditText txtSettingProjectItemPopupTitleDes;
+	private EditText txtSettingProjectItemPopupTitleMotto;
 	private AnimMessage amMessage;
 	private TextView tvSettingPopupTitle;
 	public void SetDialogTitle(String title){
@@ -59,9 +59,9 @@ public class SettingProjectItemDialog extends ParentDialog {
 
 		tvSettingProjectItemPopupYes = (TextView) dialogView.findViewById(R.id.tvSettingProjectItemPopupYes);
 		tvSettingProjectItemPopupCancel = (TextView) dialogView.findViewById(R.id.tvSettingProjectItemPopupCancel);
-		txtSettingProjectItemPopupTitle = (AutoCompleteTextView) dialogView.findViewById(R.id.txtSettingProjectItemPopupTitle);
-		txtSettingProjectItemPopupTitleDes = (AutoCompleteTextView) dialogView.findViewById(R.id.txtSettingProjectItemPopupTitleDes);
-		txtSettingProjectItemPopupTitleMotto = (AutoCompleteTextView) dialogView.findViewById(R.id.txtSettingProjectItemPopupTitleMotto);
+		txtSettingProjectItemPopupTitle = (EditText) dialogView.findViewById(R.id.txtSettingProjectItemPopupTitle);
+		txtSettingProjectItemPopupTitleDes = (EditText) dialogView.findViewById(R.id.txtSettingProjectItemPopupTitleDes);
+		txtSettingProjectItemPopupTitleMotto = (EditText) dialogView.findViewById(R.id.txtSettingProjectItemPopupTitleMotto);
 		tvSettingPopupTitle = (TextView) dialogView.findViewById(R.id.tvSettingPopupTitle);
 		amMessage = (AnimMessage) dialogView.findViewById(R.id.amSettingProjectItemPupMessage);
 		tvSettingProjectItemPopupYes.setOnClickListener(new View.OnClickListener() {
@@ -123,7 +123,7 @@ public class SettingProjectItemDialog extends ParentDialog {
 			return false;
 		}
 
-		if (txtSettingProjectItemPopupTitle.getText().toString().length() > 8) {
+		if (txtSettingProjectItemPopupTitle.getText().toString().length() > 4) {
 			amMessage.showMessage(getContext().getString(R.string.errorTooMuchCh));
 			txtSettingProjectItemPopupTitle.requestFocus();
 			return false;

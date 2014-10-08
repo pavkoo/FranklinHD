@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_app_bg_secondary"
+    android:background="@color/white_app_sea"
     android:gravity="top"
     android:orientation="vertical"
     tools:ignore="UseCompoundDrawables" >
@@ -29,11 +29,23 @@
             android:layout_gravity="center_horizontal|bottom"
             android:contentDescription="@string/devTemp"
             android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/ivCloud2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textSizebig"
+            android:layout_gravity="top|left"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:contentDescription="@string/devTemp"
+            android:src="@drawable/cloud" />
     </FrameLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:background="@color/white_app_bg_secondary" >
 
         <TextView
             android:id="@+id/tvSplash"

@@ -28,6 +28,7 @@ public class BlemishReport extends View {
 	public void setMorals(List<Moral> morals) {
 		this.morals = morals;
 	}
+	
 
 	private Paint mPaint;
 
@@ -53,6 +54,7 @@ public class BlemishReport extends View {
 			"#ecd3ba", "#ece5ba", "#e1ecba" };
 
 	private void calcDrawproperty() {
+		if (!canDraw()) return ;
 		mRow = getRowCount();
 		mCol = getItemCycle();
 		mTitleWidth = getRowTitleWidth();
@@ -204,5 +206,10 @@ public class BlemishReport extends View {
 			squre = width - 2 * DotSpace;
 			canvas.drawCircle((left + right) / 2, (top + bottom) / 2, squre / 2, paint);
 		}
+	}
+	
+	
+	private boolean canDraw(){
+		return morals==null?false:true; 
 	}
 }

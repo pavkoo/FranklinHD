@@ -16,6 +16,7 @@ public class SplashActivity extends ParentActivity {
 	private TextView tvSplash;
 	private ImageView ivSplash;
 	private ImageView ivCloud;
+	private ImageView ivCloud2;
 
 	private final int START_SPLASH_OFFSET =5000;
 	private ApplicationConfig config;
@@ -26,6 +27,7 @@ public class SplashActivity extends ParentActivity {
 		tvSplash = (TextView) findViewById(R.id.tvSplash);
 		ivSplash = (ImageView) findViewById(R.id.ivSplash);
 		ivCloud = (ImageView) findViewById(R.id.ivCloud);
+		ivCloud2 = (ImageView) findViewById(R.id.ivCloud2);
 	}
 
 	@Override
@@ -82,8 +84,10 @@ public class SplashActivity extends ParentActivity {
 		}
 		
 		Animation anim = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
-		anim.setRepeatCount(Animation.INFINITE);
 		anim.setDuration(30000);
 		ivCloud.startAnimation(anim);
+		Animation anim2 = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
+		anim2.setDuration(15000);
+		ivCloud2.startAnimation(anim2);
 	}
 }
