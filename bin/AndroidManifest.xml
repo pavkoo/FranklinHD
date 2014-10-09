@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pavkoo.franklin"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="0"
+    android:versionName="0.9" >
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="17" />
 
     <application
         android:name="com.pavkoo.franklin.common.FranklinApplication"
@@ -32,11 +32,11 @@
         </activity>
         <activity
             android:name="com.pavkoo.franklin.TutorialsActivity"
-            android:label="@string/app_name">            
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.pavkoo.franklin.FinishActivity"
-            android:label="@string/app_name">            
+            android:label="@string/app_name" >
         </activity>
     </application>
 

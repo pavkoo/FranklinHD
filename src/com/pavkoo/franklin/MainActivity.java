@@ -8,7 +8,6 @@ import java.util.List;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
@@ -19,6 +18,7 @@ import android.graphics.drawable.TransitionDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -477,14 +477,13 @@ public class MainActivity extends ParentActivity implements
 		return true;
 	}
 
-	@SuppressLint("NewApi")
 	@SuppressWarnings("deprecation")
 	private void initGroupReview(int selectedIndex) {
 		olderList = new ArrayList<TextView>();
 		DisplayMetrics dm = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		float density = dm.density;
-		int padding = (int) (25 * density);
+		int padding = (int) (20 * density);
 		int txtColor = getResources().getColor(R.color.white_app_txt_white);
 		for (int i = 0; i < morals.size(); i++) {
 			if (!morals.get(i).isFinished())
@@ -499,6 +498,7 @@ public class MainActivity extends ParentActivity implements
 				rb.setBackgroundDrawable(sd);
 			}
 			rb.setText(morals.get(i).getTitle());
+			rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
 			rb.setTextColor(txtColor);
 			updateCheckState(rb, morals.get(i).getTodaySelected(), false);
 			rb.setId(i);

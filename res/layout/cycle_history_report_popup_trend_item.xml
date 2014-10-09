@@ -10,10 +10,9 @@
         android:id="@+id/cycleHistoryReportTrendTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/textPadding"
+        android:padding="@dimen/bigPadding"
         android:textColor="@color/white_app_txt_white"
-        android:background="@drawable/review_ring"
-        android:textSize="@dimen/textSizebig" />
+        android:background="@drawable/review_ring" />
 
     <com.pavkoo.franklin.controls.TrendReport
         android:id="@+id/cycleHistoryReportTrendReport"

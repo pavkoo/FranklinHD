@@ -56,7 +56,7 @@ public class TrendReport extends View {
 	private void initView() {
 		path = new Path();
 		mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		mPaint.setStrokeWidth(1.0f);
+		mPaint.setStrokeWidth(2.0f);
 		mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 		points = new ArrayList<Double>();
 	}
@@ -71,7 +71,7 @@ public class TrendReport extends View {
 		mPaint.setColor(Color.parseColor("#7d8187"));
 		canvas.drawLine(0, 0,getMeasuredWidth(), 0, mPaint);
 		canvas.drawLine(0, getMeasuredHeight(),getMeasuredWidth(), getMeasuredHeight(), mPaint);
-		mPaint.setColor(Color.parseColor("#343e50"));
+		mPaint.setColor(Color.parseColor("#3a4456"));
 		for (int i = 0; i < points.size(); i++) {
 			path.moveTo(currentx, currenty);
 			targetx = spacex * (i + 1);
@@ -89,7 +89,7 @@ public class TrendReport extends View {
 		for (int i = 0; i < points.size(); i++) {
 			targetx = spacex * (i + 1);
 			targety =spacey - (float) (spacey * points.get(i));
-			canvas.drawCircle(targetx, targety,3, mPaint);
+			canvas.drawCircle(targetx, targety,4, mPaint);
 			currentx = targetx;
 			currenty = targety;
 		}

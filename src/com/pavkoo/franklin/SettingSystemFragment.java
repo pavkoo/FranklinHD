@@ -30,9 +30,9 @@ import android.widget.TextView;
 
 public class SettingSystemFragment extends Fragment {
 	private View self;
-	private int[] heads = { R.drawable.moralslist, R.drawable.motto, R.drawable.delete, R.drawable.restart, 
-			R.drawable.share, R.drawable.rate, R.drawable.head,R.drawable.help2 , R.drawable.info };
-	private int[] headStrs = { R.string.moralItem, R.string.welcome, R.string.settingRestore, R.string.deleteHistoryComment,
+	private int[] heads = { R.drawable.moralslist, R.drawable.motto, R.drawable.delete, R.drawable.restart,R.drawable.sina, 
+			R.drawable.tencent, R.drawable.rate, R.drawable.head,R.drawable.help2 , R.drawable.info };
+	private int[] headStrs = { R.string.moralItem, R.string.welcome, R.string.settingRestore, R.string.deleteHistoryComment,R.string.sina,
 			R.string.share, R.string.rate, R.string.aboutFranklin, R.string.helpBook,R.string.aboutApp };
 	private SettingSystemAdapter adapter;
 	private ListView lvSettingSystem;
@@ -114,10 +114,18 @@ public class SettingSystemFragment extends Fragment {
 					break;
 				case R.string.language:
 					break;
-				case R.string.share:
-					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://t.qq.com/sun_de"));
+				case R.string.sina:
+					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://weibo.com/pavkoo"));
 					try {
 						startActivity(browserIntent);
+					} catch (ActivityNotFoundException e) {
+						amMessage.showMessage(getActivity().getString(R.string.cantFindBrowse), AnimMessageType.ERROR);
+					}
+					break;
+				case R.string.share:
+					Intent browserIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://t.qq.com/sun_de"));
+					try {
+						startActivity(browserIntent2);
 					} catch (ActivityNotFoundException e) {
 						amMessage.showMessage(getActivity().getString(R.string.cantFindBrowse), AnimMessageType.ERROR);
 					}
