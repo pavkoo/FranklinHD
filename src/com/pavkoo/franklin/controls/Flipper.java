@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -65,6 +66,7 @@ public class Flipper extends ViewGroup {
 	private Context context;
 	private List<LinearLayout> views;
 	private List<TextView> textViews;
+	private Typeface typeFace;
 
 	public List<TextView> getTextViews() {
 		return textViews;
@@ -149,6 +151,7 @@ public class Flipper extends ViewGroup {
 		tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		tv.setTextColor(getResources().getColor(R.color.white_app_txt_white));
 //		tv.setShadowLayer(4f, 0, 2, 0xff7e7e7e);
+		tv.setTypeface(typeFace);
 		return tv;
 	}
 
@@ -156,7 +159,7 @@ public class Flipper extends ViewGroup {
 		float width = 100;
 		views = new ArrayList<LinearLayout>();
 		textViews = new ArrayList<TextView>();
-
+		typeFace = Typeface.createFromAsset(context.getAssets(),"fonts/QuicksandLight.otf");
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT); 
 		 lp.setMargins((int) -width, 0, (int) -width, 0);
 		
@@ -193,7 +196,6 @@ public class Flipper extends ViewGroup {
 
 		mCurrentValue = 0;
 		mTargetValue = 0;
-		
 	}
 
 	public void updateTextSize(float size) {

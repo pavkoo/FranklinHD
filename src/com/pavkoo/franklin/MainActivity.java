@@ -467,7 +467,7 @@ public class MainActivity extends ParentActivity implements
 			ValueAnimator colorAnim = ObjectAnimator.ofInt(today,
 					"backgroundColor",
 					getResources().getColor(R.color.white_app_bg_secondary),
-					Color.RED,
+					getResources().getColor(R.color.white_app_warning),
 					getResources().getColor(R.color.white_app_bg_secondary));
 			colorAnim.setDuration(15000);
 			colorAnim.setStartDelay(6000);
@@ -563,7 +563,7 @@ public class MainActivity extends ParentActivity implements
 				tv.setCompoundDrawablesWithIntrinsicBounds(null, tsDrawTop,
 						null, null);
 			} else {
-				tsDrawTop.setLevel(0);
+				tsDrawTop.resetTransition();
 			}
 			if (reverse) {
 				tsDrawTop.startTransition(400);
@@ -581,7 +581,8 @@ public class MainActivity extends ParentActivity implements
 				tv.setCompoundDrawablesWithIntrinsicBounds(null, tsDrawTop2,
 						null, null);
 			} else {
-				tsDrawTop2.setLevel(1);
+				tsDrawTop2.resetTransition();
+				tsDrawTop2.startTransition(0);
 			}
 			if (reverse) {
 				tsDrawTop2.reverseTransition(400);
@@ -682,7 +683,6 @@ public class MainActivity extends ParentActivity implements
 	public void callUpdateFontSize() {
 		amMessage.reset();
 		blemishReport.invalidate();
-		initComment();
 		totalDialog.setMorals(morals);
 		trendDialog.setMorals(morals);
 		tvCycleReprotAppCount.setText(String.valueOf(getApp().getAppCon()

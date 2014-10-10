@@ -19,6 +19,7 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:textColor="@color/white_app_txt_black"
+            android:gravity="center"
             android:textSize="@dimen/textSizebig" />
 
         <FrameLayout

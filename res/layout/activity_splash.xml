@@ -39,6 +39,7 @@
             android:contentDescription="@string/devTemp"
             android:scaleX="0.8"
             android:scaleY="0.8"
+            android:alpha="0.8"
             android:src="@drawable/cloud" />
     </FrameLayout>
 

@@ -122,7 +122,7 @@
     <string name="aboutFranklin">关于本杰明·富兰克林</string>
     <string name="aboutApp">关于</string>
     <string name="help">帮助</string>
-    <string name="helpBook">《富兰克林自传》的方法</string>
+    <string name="helpBook">《富兰克林自传》的训练方法</string>
     <string name="franklin">本杰明·富兰克林</string>
     <string name="restartinfo">重头开始新的周期\n将会删除你已经记录的所有数据，并将进度设置为你训练计划的第一天\n你确定要重新开始吗？</string>
     <string name="deleteHistoryCommentInfo">删除你所有的感想。感想是你的一份宝贵财产，删除之后就不可恢复。你确定继续吗？</string>
@@ -131,7 +131,7 @@
 美国在线曾于2005年举办了票选活动《最伟大的美国人》，当中富兰克林获选为美国最伟大人物的第五位。</string>
     <string name="version">0.9</string>
     <string name="versionName">Beta</string>
-    <string name="enjoylife">不想让你使用的软件才是好软件\n\n提醒：按照富兰克林的训练方法，软件还应该包含一个日程管理的功能，但目前市场上日程管理的软件太多，我不打算重复发明车轮。日程管理请使用相应的软件来实现。</string>
+    <string name="enjoylife">坚持做一件事情是一项技术活，需要你掌握其中的原理\n\n提醒：按照富兰克林的训练方法，软件还应该包含一个日程管理的功能，但目前市场上日程管理的软件太多，我不打算重复发明车轮。日程管理请使用相应的软件来实现。</string>
     <string name="bookcontenttitle1">人要发财，就得请教妻子</string>
     <string name="bookcontent">
 <![CDATA[ 
