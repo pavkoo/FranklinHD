@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_app_sea"
+    android:background="@color/white_app_bg_secondary"
     android:gravity="top"
     android:orientation="vertical"
     tools:ignore="UseCompoundDrawables" >
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_app_sea" >
+        android:layout_height="wrap_content" 
+        android:background="@drawable/spalshtop">
 
         <ImageView
             android:id="@+id/ivCloud"
@@ -45,8 +45,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white_app_bg_secondary" >
+        android:layout_height="match_parent" >
 
         <LinearLayout
             android:layout_width="wrap_content"

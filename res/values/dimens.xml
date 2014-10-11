@@ -5,7 +5,7 @@
     <dimen name="textPadding">8dp</dimen>
     <dimen name="appBorderPadding">10dp</dimen>
     <dimen name="bigPadding">20dp</dimen>
-    <dimen name="textSizeSmall">10sp</dimen>
+    <dimen name="textSizeSmall">12sp</dimen>
     <dimen name="textSizebig">20sp</dimen>
     <dimen name="textSizeBiggest">45sp</dimen>
 </resources>

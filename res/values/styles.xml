@@ -43,7 +43,7 @@
         <item name="android:textSize">@dimen/textSizeBiggest</item>
     </style>
 
-    <style name="appTitlefontDes" parent="@android:style/TextAppearance">
+    <style name="appTitlefontDes">
         <item name="android:background">@color/white_app_bg_primary</item>
         <item name="android:paddingTop">@dimen/textPadding</item>
         <item name="android:paddingLeft">@dimen/appBorderPadding</item>
@@ -72,7 +72,7 @@
         <item name="android:paddingBottom">@dimen/textPadding</item>
     </style>
 
-    <style name="appTitlefontMotto" parent="@android:style/TextAppearance">
+    <style name="appTitlefontMotto">
         <item name="android:textColor">@color/white_app_txt_white</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
@@ -162,7 +162,7 @@
         <item name="android:textColor">@color/white_app_txt_reportTitle</item>
     </style>
 
-    <style name="appReportBottom" parent="@android:style/TextAppearance">
+    <style name="appReportBottom">
         <item name="android:textColor">@android:color/black</item>
     </style>
 

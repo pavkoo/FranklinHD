@@ -22,8 +22,7 @@
         android:layout_marginTop="@dimen/appBorderPadding"
         android:inputType="textMultiLine"
         android:gravity="left|top"
-        android:minLines="4"
-        android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        android:minLines="4" />
 
     <com.pavkoo.franklin.controls.AnimMessage
         android:id="@+id/amSettingWelcomePupMessage"

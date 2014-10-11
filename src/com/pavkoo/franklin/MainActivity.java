@@ -664,6 +664,7 @@ public class MainActivity extends ParentActivity implements
 
 		vfMainFlopper.showNext();
 		updateOlderList(position);
+		initComment();
 	}
 
 	private void updateOlderList(int selectedDay) {
@@ -685,6 +686,7 @@ public class MainActivity extends ParentActivity implements
 		blemishReport.invalidate();
 		totalDialog.setMorals(morals);
 		trendDialog.setMorals(morals);
+		initComment();
 		tvCycleReprotAppCount.setText(String.valueOf(getApp().getAppCon()
 				.getUseAppCount()));
 		tvCycleReportUserCheckedCount.setText(String
