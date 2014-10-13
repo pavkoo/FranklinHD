@@ -22,12 +22,14 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLayoutChangeListener;
 import android.view.View.OnLongClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -49,6 +51,7 @@ import com.pavkoo.franklin.controls.IUpdateMoralSelectState;
 import com.pavkoo.franklin.controls.IUpdateTextCallBack;
 import com.pavkoo.franklin.controls.IUpdateViewCallback;
 import com.pavkoo.franklin.controls.PredicateLayout;
+import com.pavkoo.franklin.controls.ScrollingTextView;
 import com.pavkoo.franklin.controls.Today;
 import com.pavkoo.franklin.controls.TodayDialog;
 import com.pavkoo.franklin.controls.TodayDialog.DialogState;
@@ -79,7 +82,7 @@ public class MainActivity extends ParentActivity implements
 	private ImageView ivHome;
 	private ImageView ivCommentNomore;
 	private TextView tvMainTitleDescrible;
-	private TextView tvMainTitleMotto;
+	private ScrollingTextView tvMainTitleMotto;
 	private TextView tvMainTitle;
 	private TextView tvMainDate;
 	private PredicateLayout grpReview;
@@ -121,7 +124,7 @@ public class MainActivity extends ParentActivity implements
 		trHomeToolBar = (TableRow) findViewById(R.id.trHomeToolBar);
 		tvMainTitleDescrible = (TextView) findViewById(R.id.tvMainTitleDescrible);
 		tvMainTitle = (TextView) findViewById(R.id.tvMainTitle);
-		tvMainTitleMotto = (TextView) findViewById(R.id.tvMainTitleMotto);
+		tvMainTitleMotto = (ScrollingTextView) findViewById(R.id.tvMainTitleMotto);
 		viewIndicatiorLeft = findViewById(R.id.viewIndicatiorLeft);
 		viewIndicatiorCenter = findViewById(R.id.viewIndicatiorCenter);
 		viewIndicatiorRight = findViewById(R.id.viewIndicatiorRight);
@@ -270,6 +273,23 @@ public class MainActivity extends ParentActivity implements
 				}
 			}
 		});
+
+		tvMainTitleMotto
+				.addOnLayoutChangeListener(new OnLayoutChangeListener() {
+
+					@Override
+					public void onLayoutChange(View v, int left, int top,
+							int right, int bottom, int oldLeft, int oldTop,
+							int oldRight, int oldBottom) {
+						LayoutParams params = (LayoutParams) v
+								.getLayoutParams();
+						params.width = right - left;
+						params.height = bottom - top;
+						params.weight = 0;
+						v.removeOnLayoutChangeListener(this);
+						v.setLayoutParams(params);
+					}
+				});
 	}
 
 	private void showIndicator() {
