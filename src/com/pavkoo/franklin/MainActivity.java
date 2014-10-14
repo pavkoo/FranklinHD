@@ -18,6 +18,7 @@ import android.graphics.drawable.TransitionDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -111,7 +112,8 @@ public class MainActivity extends ParentActivity implements
 	private String todayDialogTitle;
 	private BlemishReportTotalDialog totalDialog;
 	private BlemishReportTrendDialog trendDialog;
-
+	private boolean needSave;
+	
 	private long touchTime;
 	private final int WaitTime = 2000;
 
@@ -131,6 +133,7 @@ public class MainActivity extends ParentActivity implements
 		txtContactMe = (TextView) findViewById(R.id.txtContactMe);
 		tvMainDate = (TextView) findViewById(R.id.tvMainDate);
 		txtHelp = (TextView) findViewById(R.id.txtHelp);
+		needSave = false;
 		indicatorAnim = AnimationUtils.loadAnimation(this,
 				R.anim.indicator_scale);
 		amMessage = (AnimMessage) findViewById(R.id.amMainMessage);
@@ -404,6 +407,11 @@ public class MainActivity extends ParentActivity implements
 	}
 
 	private boolean initMorals() {
+		needSave = false;
+		for (int i = 0; i < morals.size(); i++) {
+			Moral m = morals.get(i);
+			Log.i("Day", "Start:"+m.getStartDate().toString() + "------------ End:"+m.getEndDate().toString());
+		}
 		Date now = new Date(System.currentTimeMillis());
 		int unsetStateDay = 0;
 		boolean dayPassed = false;
@@ -413,6 +421,7 @@ public class MainActivity extends ParentActivity implements
 			int startoffset = (int) UtilsClass.dayCount(m.getStartDate(), now) + 1;// 1
 																					// means
 			// today
+			
 			if (enddaycount <= 0) {
 				todayMoral = m;
 				m.setCurrentDayInCycle(startoffset);
@@ -431,11 +440,13 @@ public class MainActivity extends ParentActivity implements
 			}
 			unsetStateDay = startoffset - m.getStateList().size();
 			if (unsetStateDay > 0) {
+				needSave = true;
 				for (int j = 0; j < unsetStateDay; j++) {
 					m.getStateList().add(CheckState.UNKNOW);
 					m.getComments().add(-1);
 				}
 			} else if (unsetStateDay < 0) {
+				needSave = true;
 				int delCount = Math.abs(unsetStateDay);
 				while (delCount > 0) {
 					m.getStateList().remove(m.getStateList().size() - 1);
@@ -493,6 +504,9 @@ public class MainActivity extends ParentActivity implements
 			colorAnim.setStartDelay(6000);
 			colorAnim.setEvaluator(new ArgbEvaluator());
 			colorAnim.start();
+		}
+		if (needSave){
+			this.getApp().saveMorals(morals);
 		}
 		return true;
 	}

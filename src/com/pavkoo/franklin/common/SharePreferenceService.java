@@ -38,7 +38,7 @@ public class SharePreferenceService {
 		appCon.setProjectStarted(sp.getBoolean("ProjectStarted", false));
 		appCon.setDefaultSaved(sp.getBoolean("DefaultSaved", false));
 		appCon.setFirstUse(UtilsClass.stringToDate(sp.getString("FistUseDate", UtilsClass.dateToString(new Date()))));
-		appCon.setFirstUse(UtilsClass.stringToDate(sp.getString("LastUseDate", UtilsClass.dateToString(new Date()))));
+		appCon.setLastUse(UtilsClass.stringToDate(sp.getString("LastUseDate", UtilsClass.dateToString(new Date()))));
 		appCon.setHistoryCount(sp.getInt("HistoryCount", 0));
 		return appCon;
 	}

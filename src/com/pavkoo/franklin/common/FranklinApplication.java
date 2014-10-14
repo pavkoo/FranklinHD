@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import android.app.Application;
+import android.util.Log;
 
 public class FranklinApplication extends Application {
 
@@ -115,6 +116,7 @@ public class FranklinApplication extends Application {
 		UtilsClass.reArrangeDate(morals);
 		for(int i =0;i<morals.size();i++){
 			morals.get(i).reSet();
+			Log.i("Day", "Start:"+morals.get(i).getStartDate().toString() + "------------ End:"+morals.get(i).getEndDate().toString());
 		}
 		saveMorals(morals);
 		mPreference.saveHistoryComments(comments, appHistoryCount);
