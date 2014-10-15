@@ -7,6 +7,7 @@ import java.util.List;
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.CheckState;
 import com.pavkoo.franklin.common.Comment;
+import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.FranklinApplication;
 
 import android.animation.Animator;
@@ -16,6 +17,8 @@ import android.animation.Animator.AnimatorListener;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -51,6 +54,12 @@ public class TodayDialog extends ParentDialog {
 
 	public void setDialogTitle(String dialogTitle) {
 		title.setText(dialogTitle);
+	}
+	
+	public void updateUIByMoral(int index){
+		int mainColor =Color.parseColor(CommonConst.colors[index % CommonConst.colors.length]);
+		GradientDrawable gd = (GradientDrawable) title.getBackground();
+		gd.setColor(mainColor);
 	}
 
 	private boolean resultChanged = false;

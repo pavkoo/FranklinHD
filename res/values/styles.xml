@@ -38,7 +38,6 @@
         <item name="android:paddingTop">@dimen/appBorderPadding</item>
         <item name="android:paddingRight">@dimen/appBorderPadding</item>
         <item name="android:paddingBottom">@dimen/textPadding</item>
-        <item name="android:background">@color/white_app_primary</item>
         <item name="android:textColor">@color/white_app_txt_white</item>
         <item name="android:textSize">@dimen/textSizeBiggest</item>
     </style>

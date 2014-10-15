@@ -150,7 +150,6 @@ public class Flipper extends ViewGroup {
 		tv.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
 		tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		tv.setTextColor(getResources().getColor(R.color.white_app_txt_white));
-//		tv.setShadowLayer(4f, 0, 2, 0xff7e7e7e);
 		tv.setTypeface(typeFace);
 		return tv;
 	}
@@ -159,6 +158,9 @@ public class Flipper extends ViewGroup {
 		float width = 100;
 		views = new ArrayList<LinearLayout>();
 		textViews = new ArrayList<TextView>();
+//		typeFace = Typeface.createFromAsset(context.getAssets(),"fonts/CaviarDreams.ttf");
+//		typeFace = Typeface.createFromAsset(context.getAssets(),"fonts/riesling.ttf");
+//		typeFace = Typeface.createFromAsset(context.getAssets(),"fonts/NexaLight.otf");
 		typeFace = Typeface.createFromAsset(context.getAssets(),"fonts/QuicksandLight.otf");
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT); 
 		 lp.setMargins((int) -width, 0, (int) -width, 0);

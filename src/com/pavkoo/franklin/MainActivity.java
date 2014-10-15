@@ -38,6 +38,7 @@ import android.widget.ViewFlipper;
 
 import com.pavkoo.franklin.common.CheckState;
 import com.pavkoo.franklin.common.Comment;
+import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.FranklinApplication;
 import com.pavkoo.franklin.common.Moral;
 import com.pavkoo.franklin.common.UtilsClass;
@@ -75,6 +76,7 @@ public class MainActivity extends ParentActivity implements
 	private LinearLayout llCycleToday;
 	private LinearLayout llCycleReport;
 	private LinearLayout llCycleComments;
+	private LinearLayout llTitle;
 	private View viewIndicatiorLeft;
 	private View viewIndicatiorCenter;
 	private View viewIndicatiorRight;
@@ -93,6 +95,8 @@ public class MainActivity extends ParentActivity implements
 	private TextView tvMainTimeHide;
 	private TextView tvCycleReprotAppCount;
 	private TextView tvCycleReportUserCheckedCount;
+	private TextView tvCycleHistoryTitle;
+	private TextView tvCycleCommentTitle;
 	private TextView txtSetting;
 	private TextView txtContactMe;
 	private TextView txtHelp;
@@ -113,14 +117,16 @@ public class MainActivity extends ParentActivity implements
 	private BlemishReportTotalDialog totalDialog;
 	private BlemishReportTrendDialog trendDialog;
 	private boolean needSave;
-	
+
 	private long touchTime;
 	private final int WaitTime = 2000;
+	private int mainColor;
 
 	@Override
 	protected void initView() {
 		setContentView(R.layout.activity_main);
 		viewState = ViewState.HOME;
+		llTitle = (LinearLayout) findViewById(R.id.llTitle);
 		ivHome = (ImageView) findViewById(R.id.ivHome);
 		txtSetting = (TextView) findViewById(R.id.txtSetting);
 		trHomeToolBar = (TableRow) findViewById(R.id.trHomeToolBar);
@@ -159,6 +165,10 @@ public class MainActivity extends ParentActivity implements
 				.findViewById(R.id.blemishReport);
 		tvCycleReprotAppCount = (TextView) llCycleReport
 				.findViewById(R.id.tvCycleReprotAppCount);
+		tvCycleHistoryTitle = (TextView) llCycleReport
+				.findViewById(R.id.tvCycleHistoryTitle);
+		tvCycleCommentTitle = (TextView) llCycleComments
+				.findViewById(R.id.tvCycleCommentTitle);
 		tvCycleReprotAppCount.startAnimation(shakeAnim);
 		tvCycleReprotAppCount.setOnClickListener(new OnClickListener() {
 
@@ -399,7 +409,7 @@ public class MainActivity extends ParentActivity implements
 		tvMainTitleDescrible.setText(todayMoral.getTitleDes());
 		tvMainTitleMotto.setText(todayMoral.getTitleMotto());
 		today.setMoral(todayMoral);
-		totalDialog.setMorals(morals);
+		totalDialog.setMorals(morals, mainColor);
 		trendDialog.setMorals(morals);
 		iniReport();
 		initGroupReview(todayMoral.getCurrentDayInCycle() - 1);
@@ -410,7 +420,8 @@ public class MainActivity extends ParentActivity implements
 		needSave = false;
 		for (int i = 0; i < morals.size(); i++) {
 			Moral m = morals.get(i);
-			Log.i("Day", "Start:"+m.getStartDate().toString() + "------------ End:"+m.getEndDate().toString());
+			Log.i("Day", "Start:" + m.getStartDate().toString()
+					+ "------------ End:" + m.getEndDate().toString());
 		}
 		Date now = new Date(System.currentTimeMillis());
 		int unsetStateDay = 0;
@@ -421,7 +432,7 @@ public class MainActivity extends ParentActivity implements
 			int startoffset = (int) UtilsClass.dayCount(m.getStartDate(), now) + 1;// 1
 																					// means
 			// today
-			
+
 			if (enddaycount <= 0) {
 				todayMoral = m;
 				m.setCurrentDayInCycle(startoffset);
@@ -505,9 +516,12 @@ public class MainActivity extends ParentActivity implements
 			colorAnim.setEvaluator(new ArgbEvaluator());
 			colorAnim.start();
 		}
-		if (needSave){
+		if (needSave) {
 			this.getApp().saveMorals(morals);
 		}
+
+		updateUIByMoral(morals.indexOf(todayMoral));
+
 		return true;
 	}
 
@@ -639,7 +653,7 @@ public class MainActivity extends ParentActivity implements
 			}
 			if (cadapter == null) {
 				cadapter = new CommentAdapter(this.getApplicationContext(),
-						top15Comms);
+						top15Comms, mainColor);
 			} else {
 				cadapter.setComments(top15Comms);
 				cadapter.notifyDataSetChanged();
@@ -647,7 +661,7 @@ public class MainActivity extends ParentActivity implements
 		} else {
 			if (cadapter == null) {
 				cadapter = new CommentAdapter(this.getApplicationContext(),
-						comments);
+						comments, mainColor);
 			} else {
 				cadapter.notifyDataSetChanged();
 			}
@@ -718,7 +732,7 @@ public class MainActivity extends ParentActivity implements
 	public void callUpdateFontSize() {
 		amMessage.reset();
 		blemishReport.invalidate();
-		totalDialog.setMorals(morals);
+		totalDialog.setMorals(morals, mainColor);
 		trendDialog.setMorals(morals);
 		initComment();
 		tvCycleReprotAppCount.setText(String.valueOf(getApp().getAppCon()
@@ -740,4 +754,125 @@ public class MainActivity extends ParentActivity implements
 		}
 	}
 
+	@SuppressWarnings("deprecation")
+	private void updateUIByMoral(int index) {
+		mainColor = Color.parseColor(CommonConst.colors[index
+				% CommonConst.colors.length]);
+		tvMainTitle.setBackgroundColor(mainColor);
+		today.updateUIByMoral(index);
+		dialog.updateUIByMoral(index);
+		totalDialog.updateUIByMoral(index);
+		trendDialog.updateUIByMoral(index);
+		llTitle.setBackgroundColor(mainColor);
+		GradientDrawable gd = (GradientDrawable) getResources().getDrawable(
+				R.drawable.review_ring);
+		gd.setColor(mainColor);
+		if (Build.VERSION.SDK_INT >= 16) {
+			viewIndicatiorLeft.setBackground(gd);
+			viewIndicatiorCenter.setBackground(gd);
+			viewIndicatiorRight.setBackground(gd);
+		} else {
+			viewIndicatiorLeft.setBackgroundDrawable(gd);
+			viewIndicatiorCenter.setBackgroundDrawable(gd);
+			viewIndicatiorRight.setBackgroundDrawable(gd);
+		}
+		tvCycleReprotAppCount.setTextColor(mainColor);
+		tvCycleReportUserCheckedCount.setTextColor(mainColor);
+		tvCycleHistoryTitle.setTextColor(mainColor);
+		tvCycleCommentTitle.setTextColor(mainColor);
+		ivHome.setImageResource(getHomeImageIndexByMoral(index));
+		trHomeToolBar.setBackgroundResource(getHomeToolBarRes(index));
+	}
+
+	private int getHomeImageIndexByMoral(int index) {
+		int outIndex = index + 1;
+		int res = 0;
+		switch (outIndex) {
+		case 1:
+			res = R.drawable.homecolor1;
+			break;
+		case 2:
+			res = R.drawable.homecolor2;
+			break;
+		case 3:
+			res = R.drawable.homecolor3;
+			break;
+		case 4:
+			res = R.drawable.homecolor4;
+			break;
+		case 5:
+			res = R.drawable.homecolor5;
+			break;
+		case 6:
+			res = R.drawable.homecolor6;
+			break;
+		case 7:
+			res = R.drawable.homecolor7;
+			break;
+		case 8:
+			res = R.drawable.homecolor8;
+			break;
+		case 9:
+			res = R.drawable.homecolor9;
+			break;
+		case 10:
+			res = R.drawable.homecolor10;
+			break;
+		case 11:
+			res = R.drawable.homecolor11;
+			break;
+		case 12:
+			res = R.drawable.homecolor12;
+			break;
+		default:
+			res = R.drawable.home2;
+		}
+		return res;
+	}
+
+	private int getHomeToolBarRes(int index) {
+		int outIndex = index + 1;
+		int res = 0;
+		switch (outIndex) {
+		case 1:
+			res = R.drawable.toolbarcolor1;
+			break;
+		case 2:
+			res = R.drawable.toolbarcolor2;
+			break;
+		case 3:
+			res = R.drawable.toolbarcolor3;
+			break;
+		case 4:
+			res = R.drawable.toolbarcolor4;
+			break;
+		case 5:
+			res = R.drawable.toolbarcolor5;
+			break;
+		case 6:
+			res = R.drawable.toolbarcolor6;
+			break;
+		case 7:
+			res = R.drawable.toolbarcolor7;
+			break;
+		case 8:
+			res = R.drawable.toolbarcolor8;
+			break;
+		case 9:
+			res = R.drawable.toolbarcolor9;
+			break;
+		case 10:
+			res = R.drawable.toolbarcolor10;
+			break;
+		case 11:
+			res = R.drawable.toolbarcolor11;
+			break;
+		case 12:
+			res = R.drawable.toolbarcolor12;
+			break;
+		default:
+			res = R.drawable.toolbar;
+		}
+		return res;
+	}
 }

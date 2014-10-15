@@ -6,10 +6,10 @@
         <shape android:shape="rectangle" >
             <solid android:color="@color/white_app_txt_white" />
             <corners
-                android:bottomLeftRadius="15dp"
-                android:bottomRightRadius="15dp"
-                android:topLeftRadius="15dp"
-                android:topRightRadius="15dp" />
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp"
+                android:topLeftRadius="10dp"
+                android:topRightRadius="10dp" />
 
             <padding
                 android:bottom="1dp"
@@ -21,14 +21,14 @@
     </item>
     <item>
         <shape android:shape="rectangle" >
-            <solid android:color="@color/white_app_secondary" >
+            <solid android:color="#ababab" >
             </solid>
 
             <corners
-                android:bottomLeftRadius="15dp"
-                android:bottomRightRadius="15dp"
-                android:topLeftRadius="15dp"
-                android:topRightRadius="15dp" />
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp"
+                android:topLeftRadius="10dp"
+                android:topRightRadius="10dp" />
 
             <padding
                 android:bottom="5dp"

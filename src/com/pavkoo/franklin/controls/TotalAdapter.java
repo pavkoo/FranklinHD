@@ -25,6 +25,8 @@ public class TotalAdapter extends BaseAdapter {
 	public List<Moral> getMorals() {
 		return morals;
 	}
+	
+	private int mainColor;
 
 	public void setMorals(List<Moral> morals) {
 		if (this.morals == null) {
@@ -44,8 +46,9 @@ public class TotalAdapter extends BaseAdapter {
 
 	private Context context;
 
-	public TotalAdapter(Context context, List<Moral> morals) {
+	public TotalAdapter(Context context, List<Moral> morals,int mainColor) {
 		this.context = context;
+		this.mainColor = mainColor; 
 		this.setMorals(morals);
 	}
 
@@ -70,6 +73,7 @@ public class TotalAdapter extends BaseAdapter {
 			convertView = LayoutInflater.from(context).inflate(R.layout.cycle_history_comments_item, null);
 		}
 		llCommentItemBg = (LinearLayout) convertView.findViewById(R.id.llCommentItemBg);
+		llCommentItemBg.setBackgroundColor(mainColor);
 		txtCommentItemNumber = (TextView) convertView.findViewById(R.id.txtCommentItemNumber);
 		txtCommentItemText = (TextView) convertView.findViewById(R.id.txtCommentItemText);
 		txtCommentItemNumber.setText(String.valueOf(morals.get(position).getTitle()));

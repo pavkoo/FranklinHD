@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.CheckState;
+import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.Moral;
 import com.pavkoo.franklin.controls.TodayDialog.DialogState;
 
@@ -39,7 +40,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 //	private ImageView ivBg;
 	private TodayDialog mDialog;
 
-	private ArcDrawable arcBackground;
+	public ArcDrawable arcBackground;
 	private Bitmap bmpSmale;
 	private Bitmap bmpSad;
 	private String todayDialogTitle;
@@ -60,7 +61,15 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 	public Moral getMoral() {
 		return moral;
 	}
-
+	
+	public void updateUIByMoral(int index){
+		int mainColor =Color.parseColor(CommonConst.colors[index % CommonConst.colors.length]);
+		int mainColorLight =Color.parseColor(CommonConst.colorBg[index % CommonConst.colorBg.length]);
+		arcBackground.setCycleBGColor(mainColorLight);
+		arcBackground.setCycleColor(mainColor);
+		mDialog.updateUIByMoral(index);
+	}
+	
 	private IUpdateMoralSelectState updateSelectState;
 
 	public IUpdateMoralSelectState getUpdateSelectState() {
@@ -349,8 +358,9 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 			return mCycleBGColor;
 		}
 
-		protected void setCycleBGColor(int mCycleBGColor) {
+		public void setCycleBGColor(int mCycleBGColor) {
 			this.mCycleBGColor = mCycleBGColor;
+			this.invalidate();
 		}
 
 		private float mAdaptedFontSize;
@@ -374,7 +384,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 			return mCycleColor;
 		}
 
-		protected void setCycleColor(int mCycleColor) {
+		public void setCycleColor(int mCycleColor) {
 			this.mCycleColor = mCycleColor;
 			this.invalidate();
 		}

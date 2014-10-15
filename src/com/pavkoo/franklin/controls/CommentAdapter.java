@@ -18,6 +18,7 @@ public class CommentAdapter extends BaseAdapter {
 	private TextView txtCommentItemNumber;
 	private TextView txtCommentItemText;
 	private int max = 0;
+	private int mainColor ;
 	
 	private List<Comment> comments;
 	public List<Comment> getComments() {
@@ -31,9 +32,10 @@ public class CommentAdapter extends BaseAdapter {
 
 	private Context context;
 	
-	public CommentAdapter(Context context,List<Comment> comms){
+	public CommentAdapter(Context context,List<Comment> comms,int mainColor){
 		this.context = context;
 		this.comments = comms;
+		this.mainColor = mainColor;
 		updateMax();
 	}
 	
@@ -72,6 +74,7 @@ public class CommentAdapter extends BaseAdapter {
 			convertView = LayoutInflater.from(context).inflate(R.layout.cycle_history_comments_item, null);
 		}
 		llCommentItemBg = (LinearLayout) convertView.findViewById(R.id.llCommentItemBg);
+		llCommentItemBg.setBackgroundColor(mainColor);
 		txtCommentItemNumber = (TextView) convertView.findViewById(R.id.txtCommentItemNumber);
 		txtCommentItemText = (TextView) convertView.findViewById(R.id.txtCommentItemText);
 		txtCommentItemNumber.setText(String.valueOf(comments.get(position).getCount()));
@@ -80,5 +83,6 @@ public class CommentAdapter extends BaseAdapter {
 		llCommentItemBg.setScaleX(scale);
 		return convertView;
 	}
+	
 
 }

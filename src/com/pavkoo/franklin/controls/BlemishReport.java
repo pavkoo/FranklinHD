@@ -2,6 +2,7 @@ package com.pavkoo.franklin.controls;
 
 import java.util.List;
 import com.pavkoo.franklin.common.CheckState;
+import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.Moral;
 
 import android.content.Context;
@@ -18,7 +19,7 @@ import android.view.View;
 public class BlemishReport extends View {
 	private static final int ColTitleSpace = 5;
 	private static final int RowTitleSpace = 5;
-	private static final float DotSpace = 5;
+	private static float DotSpace = 5;
 	private List<Moral> morals;
 
 	public List<Moral> getMorals() {
@@ -47,11 +48,7 @@ public class BlemishReport extends View {
 	private final String dotColor= "#4a5b53";//2a2f36
 	private final String futurebg = "#e4e9e2";
 	
-	private String[] colors = { "#61ca63", "#61c7ca", "#7561ca", "#9861ca", "#bb61ca", "#ca61b5", "#ca6193", "#ca6171", "#ca7561",
-			"#ca9861", "#cabb61", "#b5ca61" };
-
-	private String[] colorBg = { "#baecbb", "#baebec", "#c2baec", "#d3baec", "#e5baec", "#ecbae1", "#ecbad1", "#ecbac1", "#ecc2ba",
-			"#ecd3ba", "#ece5ba", "#e1ecba" };
+	
 
 	private void calcDrawproperty() {
 		if (!canDraw()) return ;
@@ -61,6 +58,7 @@ public class BlemishReport extends View {
 		mTitleHeight = getColTitleHeight();
 		mCellWidth = ((float) getMeasuredWidth() - mTitleWidth) / mCol;
 		mCellHeight = ((float) getMeasuredHeight() - mTitleHeight) / mRow;
+		DotSpace = (float) (mCellWidth * 0.1);
 	}
 
 	private int getRowCount() {
@@ -154,7 +152,7 @@ public class BlemishReport extends View {
 		mPaint.setTextSize(10 * density);
 		for (int i = 0; i < mRow; i++) {
 			top = mCellHeight * i;
-			mPaint.setColor(Color.parseColor(colors[i % colors.length]));
+			mPaint.setColor(Color.parseColor(CommonConst.colors[i % CommonConst.colors.length]));
 			canvas.drawText(morals.get(i).getTitle(), left, top + mCellHeight + ColTitleSpace + 10 * density, mPaint);
 		}
 
@@ -182,7 +180,7 @@ public class BlemishReport extends View {
 				cellRight = left + mCellWidth - mDivideWidth;
 				cellbottom = top + mCellHeight - mDivideWidth;
 				if (j < jtotal) {
-					mPaint.setColor(Color.parseColor(colorBg[i % colorBg.length]));
+					mPaint.setColor(Color.parseColor(CommonConst.colorBg[i % CommonConst.colorBg.length]));
 				} else {
 					mPaint.setColor(Color.parseColor(futurebg));
 				}

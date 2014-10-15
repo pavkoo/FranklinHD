@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.pavkoo.franklin.R;
+import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.Moral;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,9 +71,12 @@ public class TrendAdapter extends BaseAdapter {
 			convertView = LayoutInflater.from(context).inflate(R.layout.cycle_history_report_popup_trend_item, null);
 //		}
 		TextView cycleHistoryReportTrendTitle = (TextView) convertView.findViewById(R.id.cycleHistoryReportTrendTitle);
+		int color = Color.parseColor(CommonConst.colors[position % CommonConst.colors.length]);
 		cycleHistoryReportTrendTitle.setText(morals.get(position).getTitle());
+		GradientDrawable gd = (GradientDrawable) cycleHistoryReportTrendTitle.getBackground();
+		gd.setColor(color);
 		TrendReport trend = (TrendReport) convertView.findViewById(R.id.cycleHistoryReportTrendReport);
-		trend.setMoral(morals.get(position));
+		trend.setMoral(morals.get(position),position);
 		return convertView;
 	}
 }

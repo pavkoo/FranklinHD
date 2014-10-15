@@ -3,6 +3,7 @@ package com.pavkoo.franklin.controls;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.Moral;
 
 import android.content.Context;
@@ -20,15 +21,17 @@ public class TrendReport extends View {
 	private float spacex;
 	private float spacey;
 	private List<Double> points;
-
+	private int mainColor;
+	
 	private Moral moral;
 
 	public Moral getMoral() {
 		return moral;
 	}
 
-	public void setMoral(Moral moral) {
+	public void setMoral(Moral moral,int colorPosition) {
 		this.moral = moral;
+		mainColor = Color.parseColor(CommonConst.colors[colorPosition % CommonConst.colors.length]);
 		this.invalidate();
 		points.clear();
 		if (moral == null)
@@ -85,7 +88,7 @@ public class TrendReport extends View {
 		targety = 0;
 		currentx = 0;
 		currenty = spacey;
-		mPaint.setColor(Color.parseColor("#61ca63"));
+		mPaint.setColor(mainColor);
 		for (int i = 0; i < points.size(); i++) {
 			targetx = spacex * (i + 1);
 			targety =spacey - (float) (spacey * points.get(i));
