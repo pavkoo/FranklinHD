@@ -17,6 +17,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -174,7 +175,7 @@ public class SettingSystemFragment extends Fragment {
 		@Override
 		public int getCount() {
 			return strings.length;
-		}
+		} 
 
 		@Override
 		public Object getItem(int position) {
@@ -192,8 +193,11 @@ public class SettingSystemFragment extends Fragment {
 				convertView = LayoutInflater.from(context).inflate(R.layout.settting_system_item, null);
 			}
 			TextView tvSettingItem = (TextView) convertView.findViewById(R.id.tvSettingSystemitem);
-			tvSettingItem.setCompoundDrawablesRelativeWithIntrinsicBounds(context.getResources().getDrawable(imgRes[position]), null, null,
-					null);
+			if (Build.VERSION.SDK_INT>=17){
+				tvSettingItem.setCompoundDrawablesRelativeWithIntrinsicBounds(context.getResources().getDrawable(imgRes[position]), null, null,null);					
+			}else{
+				tvSettingItem.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(imgRes[position]), null, null, null);
+			}
 			tvSettingItem.setText(context.getResources().getString(strings[position]));
 			return convertView;
 		}

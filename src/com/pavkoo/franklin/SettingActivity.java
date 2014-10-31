@@ -67,7 +67,7 @@ public class SettingActivity extends FragmentActivity {
 	private RadioButton rbSettingWelcome;
 	private RadioButton rbAppSetting;
 	private long touchTime;
-	private final int WaitTime = 2000;
+	private final int WaitTime = 4000;
 
 	public AnimMessage getAmMessage() {
 		return amMessage;
@@ -350,18 +350,23 @@ public class SettingActivity extends FragmentActivity {
 			if (moral.getCurrentDayInCycle() != 0) {
 				calendar.setTime(moral.getEndDate());
 				calendar.add(Calendar.DATE, 1);
-				continue;
+				startIndex = i+1;
+				break;
 			}
-			startIndex = i;
-			break;
 		}
 		for (int i = startIndex; i < morals.size(); i++) {
-			Moral moral = morals.get(i);
-			begin = calendar.getTime();
-			calendar.add(Calendar.DATE, moral.getCycle() - 1); // -1 means day
-																// between
-																// should sub 1
-			end = calendar.getTime();
+            Moral moral = morals.get(i);
+            begin = calendar.getTime();
+            if (i == startIndex) {
+                begin = calendar.getTime();
+            } else {
+                calendar.add(Calendar.DATE, 1);
+                begin = calendar.getTime();
+            }
+            calendar.add(Calendar.DATE, moral.getCycle()-1); // -1 means day
+                                                                // between
+                                                                // should sub 1
+            end = calendar.getTime(); 
 			moral.setStartDate(begin);
 			moral.setEndDate(end);
 		}

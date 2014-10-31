@@ -16,6 +16,7 @@ public class TutorialsActivity extends ParentActivity {
 	private TextView tvChartGo;
 	private ImageView ivTutoriHead;
 	private SettingSystemHelpDialog helpDialog;
+	private TextView tvChartBye;
 
 	@Override
 	protected void initView() {
@@ -26,6 +27,7 @@ public class TutorialsActivity extends ParentActivity {
 		tvChartShowBook = (TextView) findViewById(R.id.tvChartShowBook);
 		tvChartGo = (TextView) findViewById(R.id.tvChartGo);
 		ivTutoriHead= (ImageView) findViewById(R.id.ivTutoriHead);
+		tvChartBye = (TextView) findViewById(R.id.tvChartBye);
 		tvChart.setTag(0);
 		helpDialog = new SettingSystemHelpDialog(this, android.R.style.Theme_Translucent_NoTitleBar);
 	}
@@ -71,6 +73,13 @@ public class TutorialsActivity extends ParentActivity {
 			@Override
 			public void onClick(View v) {
 				helpDialog.show();
+			}
+		});
+		tvChartBye.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				finish();				
 			}
 		});
 	}

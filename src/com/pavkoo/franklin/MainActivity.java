@@ -8,6 +8,7 @@ import java.util.List;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
@@ -25,9 +26,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLayoutChangeListener;
 import android.view.View.OnLongClickListener;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
@@ -119,9 +122,10 @@ public class MainActivity extends ParentActivity implements
 	private boolean needSave;
 
 	private long touchTime;
-	private final int WaitTime = 2000;
+	private final int WaitTime = 4000;
 	private int mainColor;
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void initView() {
 		setContentView(R.layout.activity_main);
@@ -251,33 +255,46 @@ public class MainActivity extends ParentActivity implements
 				case HOME:
 					if (mMenuExpanded) {
 						MainActivity.this.getApp();
-						trHomeToolBar
-								.animate()
-								.scaleX(0)
-								.setDuration(
-										FranklinApplication.AnimationDuration)
-								.setInterpolator(new DecelerateInterpolator())
-								.start();
-						ivHome.animate()
-								.rotation(0)
-								.setDuration(
-										FranklinApplication.AnimationDuration)
-								.setInterpolator(new DecelerateInterpolator())
-								.start();
+						if (Build.VERSION.SDK_INT > 12) {
+							trHomeToolBar
+									.animate()
+									.scaleX(0)
+									.setDuration(
+											FranklinApplication.AnimationDurationShort)
+									.setInterpolator(
+											new AccelerateInterpolator())
+									.start();
+							ivHome.animate()
+									.rotation(0)
+									.setDuration(
+											FranklinApplication.AnimationDurationShort)
+									.setInterpolator(
+											new DecelerateInterpolator())
+									.start();
+						} else {
+							trHomeToolBar.setScaleX(0);
+						}
 					} else {
-						trHomeToolBar
-								.animate()
-								.scaleX(1)
-								.setDuration(
-										FranklinApplication.AnimationDuration)
-								.setInterpolator(new DecelerateInterpolator())
-								.start();
-						ivHome.animate()
-								.rotation(315)
-								.setDuration(
-										FranklinApplication.AnimationDuration)
-								.setInterpolator(new DecelerateInterpolator())
-								.start();
+						if (Build.VERSION.SDK_INT > 12) {
+							trHomeToolBar
+									.animate()
+									.scaleX(1)
+									.setDuration(
+											FranklinApplication.AnimationDurationShort)
+									.setInterpolator(
+											new OvershootInterpolator())
+									.start();
+							ivHome.animate()
+									.rotation(315)
+									.setDuration(
+											FranklinApplication.AnimationDurationShort)
+									.setInterpolator(
+											new DecelerateInterpolator())
+									.start();
+						} else {
+							trHomeToolBar.setScaleX(1);
+						}
+
 					}
 					mMenuExpanded = !mMenuExpanded;
 					break;
@@ -286,23 +303,24 @@ public class MainActivity extends ParentActivity implements
 				}
 			}
 		});
+		if (Build.VERSION.SDK_INT > 10) {
+			tvMainTitleMotto
+					.addOnLayoutChangeListener(new OnLayoutChangeListener() {
 
-		tvMainTitleMotto
-				.addOnLayoutChangeListener(new OnLayoutChangeListener() {
-
-					@Override
-					public void onLayoutChange(View v, int left, int top,
-							int right, int bottom, int oldLeft, int oldTop,
-							int oldRight, int oldBottom) {
-						LayoutParams params = (LayoutParams) v
-								.getLayoutParams();
-						params.width = right - left;
-						params.height = bottom - top;
-						params.weight = 0;
-						v.removeOnLayoutChangeListener(this);
-						v.setLayoutParams(params);
-					}
-				});
+						@Override
+						public void onLayoutChange(View v, int left, int top,
+								int right, int bottom, int oldLeft, int oldTop,
+								int oldRight, int oldBottom) {
+							LayoutParams params = (LayoutParams) v
+									.getLayoutParams();
+							params.width = right - left;
+							params.height = bottom - top;
+							params.weight = 0;
+							v.removeOnLayoutChangeListener(this);
+							v.setLayoutParams(params);
+						}
+					});
+		}
 	}
 
 	private void showIndicator() {
@@ -416,6 +434,7 @@ public class MainActivity extends ParentActivity implements
 		initComment();
 	}
 
+	@SuppressLint("NewApi")
 	private boolean initMorals() {
 		needSave = false;
 		for (int i = 0; i < morals.size(); i++) {
@@ -506,15 +525,21 @@ public class MainActivity extends ParentActivity implements
 			amMessage.showMessage(String.format(
 					getResources().getString(R.string.manyDaynotuse),
 					unsetStateDay), AnimMessageType.ERROR, 33000);
-			ValueAnimator colorAnim = ObjectAnimator.ofInt(today,
-					"backgroundColor",
-					getResources().getColor(R.color.white_app_bg_secondary),
-					getResources().getColor(R.color.white_app_warning),
-					getResources().getColor(R.color.white_app_bg_secondary));
-			colorAnim.setDuration(15000);
-			colorAnim.setStartDelay(6000);
-			colorAnim.setEvaluator(new ArgbEvaluator());
-			colorAnim.start();
+			if (Build.VERSION.SDK_INT >= 11) {
+				ValueAnimator colorAnim = ObjectAnimator
+						.ofInt(today,
+								"backgroundColor",
+								getResources().getColor(
+										R.color.white_app_bg_secondary),
+								getResources().getColor(
+										R.color.white_app_warning),
+								getResources().getColor(
+										R.color.white_app_bg_secondary));
+				colorAnim.setDuration(15000);
+				colorAnim.setStartDelay(6000);
+				colorAnim.setEvaluator(new ArgbEvaluator());
+				colorAnim.start();
+			}
 		}
 		if (needSave) {
 			this.getApp().saveMorals(morals);

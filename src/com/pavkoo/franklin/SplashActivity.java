@@ -22,7 +22,7 @@ public class SplashActivity extends ParentActivity {
 	private ImageView ivCloud2;
 	private LinearLayout llSpVictory;
 
-	private final int START_SPLASH_OFFSET =5000;
+	private final int START_SPLASH_OFFSET =4000;
 	private ApplicationConfig config;
 
 	@Override

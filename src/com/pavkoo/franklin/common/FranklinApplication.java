@@ -11,6 +11,7 @@ public class FranklinApplication extends Application {
 
 	private static FranklinApplication singleton;
 	public static int AnimationDuration = 500;
+	public static int AnimationDurationShort = 400;
 
 	private ApplicationConfig appCon;
 	private List<Moral> morals;

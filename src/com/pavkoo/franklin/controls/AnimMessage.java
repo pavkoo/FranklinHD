@@ -25,7 +25,7 @@ public class AnimMessage extends LinearLayout {
 	private boolean showing;
 	private final int CLOSEMESSAGE = 0;
 	private final int INIMESSAGE = 1;
-	private final int HINTTIMEOUT = 2000;
+	private final int HINTTIMEOUT = 4000;
 	private final int INFOTIMEOUT = 15000;
 	private final int WARNINGTIMEOUT = 15000;
 	private final int ERRORTIMEOUT = 30000;

@@ -92,7 +92,7 @@
     <string name="motto">箴言：</string>
     <string name="hintSettingTitle">这里输入美德名称</string>
     <string name="hintSettingDes">描述这项美德的具体意义</string>
-    <string name="hintSettingMotto">引用一段你喜欢的话</string>
+    <string name="hintSettingMotto">引用一段你喜欢的话，来定义该美德</string>
     <string name="yesterday">昨天</string>
     <string name="dayBeforeYesterday">前天</string>
     <string name="moreDay">天前</string>
@@ -129,7 +129,7 @@
     <string name="restoretinfo">恢复默认会删除你所有的配置数据，软件恢复初始状态！\n你需要重新配置训练计划\n你确定要恢复默认吗？</string>
     <string name="benjaminfranklininfo">本杰明·富兰克林（Benjamin Franklin，1706年1月17日－1790年4月17日），出生于美国麻省波士顿，是美国著名政治家、科学家，同时亦是出版商、印刷商、记者、作家、慈善家；更是杰出的外交家及发明家。他是美国革命时重要的领导人之一，参与了多项重要文件的草拟，并曾出任美国驻法国大使，成功取得法国支持美国独立。本杰明·富兰克林曾经进行多项关于电的实验，并且发明了避雷针。他还发明了双焦点眼镜，蛙鞋等等。本杰明·富兰克林是共济会的成员，被选为英国皇家学会院士。他亦是美国首位邮政局长。\n由于1928年以后每张百元美钞上都印有本杰明·富兰克林的肖像，再加上美元身为世界主要流通货币的重要性，导致本杰明·富兰克林的长相广为世界各地不少人所熟悉。
 美国在线曾于2005年举办了票选活动《最伟大的美国人》，当中富兰克林获选为美国最伟大人物的第五位。</string>
-    <string name="version">Version 0.9</string>
+    <string name="version">Version 0.9.0.1</string>
     <string name="enjoylife">坚持做一件事情是一项技术活，需要你掌握其中的原理\n\n提醒：按照富兰克林的训练方法，软件还应该包含一个日程管理的功能，但目前市场上日程管理的软件太多，我不打算重复发明车轮。日程管理请使用相应的软件来实现。</string>
     <string name="bookcontenttitle1">人要发财，就得请教妻子</string>
     <string name="bookcontent">
@@ -214,7 +214,7 @@
 <p>以上一七八四年写于巴夕。</p>]]>
     </string>
     <string name="igotit">我知道了</string>
-    <string name="pressToExit">再按一次退出程序</string>
+    <string name="pressToExit">要不，再按一次？</string>
     <string name="finishRate">美德完成率</string>
     <string name="close">关闭</string>
     <string name="trend">美德完成走势</string>
@@ -233,24 +233,27 @@
     <string name="deleteHistoryCommentSuccess">成功清空历史感想信息</string>
     <string name="cantFindBrowse">找不到浏览器！</string>
     <string name="cantFindMarket">找不到应用市场</string>
-    <string name="errorAddTitle">请添加标题</string>
+    <string name="errorAddTitle">请添加美德</string>
     <string name="errorTooMuchCh">最好用2个字来表示你所需要的训练的美德名称（不能超过四个字），简洁明了</string>
-    <string name="errorAddDes">请添加描述信息</string>
-    <string name="errorTooMuchLines">尽量使得一项美德的含义最少，这样会避免在生活中莫一项活动莫能两可不知是否属于该项目，也不要贪多，人通常能够几种经历干一件事情，三心二意不太理想</string>
-    <string name="errorMotto">请添加引用</string>
+    <string name="errorAddDes">请添加描述，用来描述一项美德具体在生活中的事件范围</string>
+    <string name="errorTooMuchLines">尽量使得一项美德描述的含义最少，这样会避免在生活中某一项活动模棱两可，不知是否属于该美德范围；不要贪多，集中精力做一件事情，不要三心二意</string>
+    <string name="errorMotto">请添加箴言</string>
     <string name="errorAddContent">请添加内容</string>
     <string name="tutorials5">或者跳过</string>
     <string name="tutorials6">了解方法论</string>
     <string name="tutorials7">开始初始化软件（强烈建议先了解方法论）</string>
-    <string name="tutorials2">嘿，你好，伙计！\n在你开始使用软件之前，我想我们应该就一些认识世界的观念达成一致。因为只有这样，你才能够知道你是否真的需要这个软件。\n（点击继续）</string>
-    <string name="tutorials3">我们应该确定一个前提：\n你不完全满意你目前的自我状态，想提高自己的德行，并且愿意付出时间和行动来提升自己！
-\n你希望你一生中在任何时候能够不犯任何错误，你要克服所有缺点，不管它们由天生的爱好，或是习惯，或是交友不善所引起的。因为你知道，或是自以为知道何者为善，何者为恶。</string>
+    <string name="tutorials2">嘿，你好，伙计！
+\n在你开始使用软件之前，我想我们应该就一些认识世界的观念达成一致。因为只有这样，你才能够知道你是否真的需要这个软件。
+\n（点击继续）</string>
+    <string name="tutorials3">我们应该确定一个前提：
+\n\n你不完全满意你目前的自我状态，想提高自己的德行，并且愿意付出时间和行动来提升自己！
+\n\n你希望你一生中在任何时候能够不犯任何错误，你要克服所有缺点，不管它们由天生的爱好，或是习惯，或是交友不善所引起的。因为你知道，或是自以为知道何者为善，何者为恶。</string>
     <string name="tutorials4">你之所以想提升自己的道德品行，是因为你明白：\n\n个人道德之长，仍不能补救组织和技术之短(换句话说个人道德和你的事业不完全是正相关关系。)。黄仁宇《万历十五年》
 \n
 \n光是抽象地相信完善的品德是于我们有利的，还不足以防止过失的发生，坏的习惯必须打破，好的习惯必须加以培养。本杰明·富兰克林《富兰克林自传》\n\n假如光考虑到人性的话，那么不道德行为之所以有害，并不是因为它们是被禁止的，而它们之所以被禁止正是由于它们有害。因此，做一个有德行的人，即使他希望在今生得到快乐的话，也是于他有益的。本杰明·富兰克林《富兰克林自传》</string>
     <string name="tutorials8">好的。感谢你的配合！\n\n软件采用的方法论来自于《富兰克林自传》里关于他在道德修养中所使用的方法。\n如果你对该方法不熟悉，可以</string>
     <string name="hlepCycle">在第一星期中，我密切预防关于节制的任何极细微的过失。其他的美德让它们像平时一样，只是每晚记下有关的过失</string>
-    <string name="helpwelcome">在这里添加那些让你刻骨铭心的句子或者故事作为题句，用来鼓励你自己，软件每次启动时就会显示</string>
+    <string name="helpwelcome">在这里添加那些让你刻骨铭心的句子或者故事作为题句，用来鼓励你自己，软件每次启动时就会显示（左右滑动删除）</string>
     <string name="finishDone">哇，好厉害\n钦佩你的坚持到底!</string>
     <string name="store">存档，开始新一轮训练</string>
     <string name="or">或者</string>
@@ -261,5 +264,7 @@
     <string name="cannotchange4">一旦训练周期确定，在使用中就不能改变。请仔细思考你将要为每一项美德花费的训练天数</string>
     <string name="mailto">mailto:pavkoo@live.com?subject=自我修养反馈&amp;body=感谢我吧，我要提一个意见：\n我认为</string>
     <string name="chooseEmail">选择邮件客户端</string>
+    <string name="or2">又或者</string>
+    <string name="bye">呵呵，不太适合我，再见！</string>
 
 </resources>
