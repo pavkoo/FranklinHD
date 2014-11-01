@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/appBorderPadding"
+    android:background="@drawable/popup_background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvSettingProjectItemDeleteTitle"
+        style="@style/appTotayPopupTitleWarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/reStart" />
+
+    <TextView
+        android:id="@+id/tvSettingProjectItemDeleteInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="@dimen/appBorderPadding"
+        android:text="@string/comfirmDelete"
+        android:textColor="@color/white_app_txt_black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/appBorderPadding"
+        android:layout_marginLeft="@dimen/appBorderPadding"
+        android:layout_marginRight="@dimen/appBorderPadding" >
+
+        <TextView
+            android:id="@+id/tvSettingProjectItemDeleteCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/textPadding"
+            android:layout_marginRight="@dimen/textPadding"
+            android:layout_marginTop="@dimen/textPadding"
+            android:layout_weight="1"
+            android:background="@drawable/setting_roundrect_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="@dimen/textPadding"
+            android:text="@string/cancel"
+            android:textColor="@color/white_app_txt_white" />
+
+        <TextView
+            android:id="@+id/tvSettingProjectItemDeleteYes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/textPadding"
+            android:layout_marginLeft="@dimen/textPadding"
+            android:layout_marginTop="@dimen/textPadding"
+            android:layout_weight="1"
+            android:background="@drawable/setting_roundrect_error_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="@dimen/textPadding"
+            android:text="@string/OK"
+            android:textColor="@color/white_app_txt_white" />
+    </LinearLayout>
+
+</LinearLayout>

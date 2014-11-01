@@ -9,6 +9,7 @@ import com.mobeta.android.dslv.DragSortListView.RemoveListener;
 import com.pavkoo.franklin.common.Moral;
 import com.pavkoo.franklin.common.UtilsClass;
 import com.pavkoo.franklin.controls.AnimMessage;
+import com.pavkoo.franklin.controls.ComfirmDialog;
 import com.pavkoo.franklin.controls.SettingProjectItemDialog;
 import com.pavkoo.franklin.controls.SettingProjectItemDialog.EditMode;
 
@@ -42,6 +43,8 @@ public class SettingProjectItemFragment extends Fragment {
 	private Animation addExpanding;
 	private SettingProjectItemDialog itemDialog;
 	private AnimMessage amMessage;
+	private ComfirmDialog comfirmDialog;
+	private int deleteWhich;
 	private DragSortListView.DropListener onDrop = new DropListener() {
 
 		@Override
@@ -70,11 +73,9 @@ public class SettingProjectItemFragment extends Fragment {
 				adapter.notifyDataSetChanged();
 				return;
 			}
-			amMessage.showMessage(String.format(getActivity().getString(R.string.noMoreNeed), which + 1,
-					((Moral) adapter.getItem(which)).getTitle()));
-			morals.remove(which);
-			updateDate();
-			adapter.notifyDataSetChanged();
+			deleteWhich = which;
+			comfirmDialog.setDialogTitle(getActivity().getString(R.string.strComfirmDelete)+item.getTitle());
+			comfirmDialog.show();
 		}
 	};
 
@@ -96,6 +97,7 @@ public class SettingProjectItemFragment extends Fragment {
 		ivSettingProjectItemAdd = (ImageView) self.findViewById(R.id.ivSettingProjectItemAdd);
 		ivSettingProjectItemAddBG = (ImageView) self.findViewById(R.id.ivSettingProjectItemAddBG);
 		amMessage = ((SettingActivity) getActivity()).getAmMessage();
+		comfirmDialog = new ComfirmDialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
 		addExpanding = AnimationUtils.loadAnimation(getActivity(), R.anim.setting_add_expand);
 		ivSettingProjectItemAddBG.startAnimation(addExpanding);
 		morals = ((SettingActivity) getActivity()).getApp().getMorals();
@@ -138,6 +140,19 @@ public class SettingProjectItemFragment extends Fragment {
 		dslvMorals.setDragEnabled(true);
 		dslvMorals.setDropListener(onDrop);
 		dslvMorals.setRemoveListener(onRemove);
+		comfirmDialog.setOnDismissListener(new OnDismissListener() {
+			
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+				if (comfirmDialog.isDialogResult()){
+					amMessage.showMessage(String.format(getActivity().getString(R.string.noMoreNeed), deleteWhich + 1,
+							((Moral) adapter.getItem(deleteWhich)).getTitle()));
+					morals.remove(deleteWhich);
+				}
+				updateDate();
+				adapter.notifyDataSetChanged();
+			}
+		});
 	}
 
 	private void updateDate() {

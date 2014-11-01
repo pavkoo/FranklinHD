@@ -266,5 +266,7 @@
     <string name="chooseEmail">选择邮件客户端</string>
     <string name="or2">又或者</string>
     <string name="bye">呵呵，不太适合我，再见！</string>
+    <string name="comfirmDelete">删除后无法恢复，确定删除吗？</string>
+    <string name="strComfirmDelete">确认删除</string>
 
 </resources>

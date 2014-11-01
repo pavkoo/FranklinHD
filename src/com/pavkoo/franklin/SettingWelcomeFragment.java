@@ -6,6 +6,7 @@ import java.util.List;
 import com.mobeta.android.dslv.DragSortListView;
 import com.mobeta.android.dslv.DragSortListView.RemoveListener;
 import com.pavkoo.franklin.controls.AnimMessage;
+import com.pavkoo.franklin.controls.ComfirmDialog;
 import com.pavkoo.franklin.controls.SettingWelcomeDialog;
 import com.pavkoo.franklin.controls.SettingWelcomeDialog.EditMode;
 
@@ -37,6 +38,8 @@ public class SettingWelcomeFragment extends Fragment {
 	private SettingWelcomeDialog dialog;
 
 	private AnimMessage amMessage;
+	private ComfirmDialog comfirmDialog;
+	private int deleteWhich;
 	
 	
 	@Override
@@ -48,9 +51,9 @@ public class SettingWelcomeFragment extends Fragment {
 	private DragSortListView.RemoveListener onRemove = new RemoveListener() {
 		@Override
 		public void remove(int which) {
-			amMessage.showMessage(String.format(getActivity().getString(R.string.noMoreNeed),which+1,""));
-			welcomes.remove(which);
-			adapter.notifyDataSetChanged();
+			deleteWhich = which;
+			comfirmDialog.setDialogTitle(getActivity().getString(R.string.strComfirmDelete)+getActivity().getString(R.string.welcome));
+			comfirmDialog.show();
 		}
 	};
 	
@@ -62,6 +65,7 @@ public class SettingWelcomeFragment extends Fragment {
 		ivSettingWelcomeAddBG = (ImageView) self.findViewById(R.id.ivSettingWelcomeAddBG);
 		welcomes = ((SettingActivity) getActivity()).getApp().getWelcomes();
 		amMessage = ((SettingActivity) getActivity()).getAmMessage();
+		comfirmDialog = new ComfirmDialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
 		adapter = new MoralAdapter(getActivity(), welcomes);
 		dslvWelcome.setAdapter(adapter);
 		ivSettingWelcomeAdd.setOnClickListener(new OnClickListener() {
@@ -95,6 +99,19 @@ public class SettingWelcomeFragment extends Fragment {
 					}
 					adapter.notifyDataSetChanged();
 				}
+			}
+		});
+		
+		comfirmDialog.setOnDismissListener(new OnDismissListener() {
+			
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+				if (comfirmDialog.isDialogResult()){
+					amMessage.showMessage(String.format(getActivity().getString(R.string.noMoreNeed),deleteWhich+1,""));
+					welcomes.remove(deleteWhich);
+					adapter.notifyDataSetChanged();
+				}
+				adapter.notifyDataSetChanged();
 			}
 		});
 	}

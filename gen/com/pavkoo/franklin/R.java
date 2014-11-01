@@ -339,7 +339,7 @@ containing a value of this type.
     public static final class id {
         public static final int amMainMessage=0x7f050014;
         public static final int amSettingProjectItemPupMessage=0x7f050071;
-        public static final int amSettingWelcomePupMessage=0x7f05008f;
+        public static final int amSettingWelcomePupMessage=0x7f050093;
         public static final int appTitleMottoQuitesBegin=0x7f05001d;
         public static final int appTitleMottoQuitesEnd=0x7f05001e;
         public static final int blemishReport=0x7f05004b;
@@ -349,16 +349,16 @@ containing a value of this type.
         public static final int cycleHistoryReportTrendTitle=0x7f050052;
         public static final int drag_handle=0x7f050005;
         public static final int dslvMorals=0x7f050064;
-        public static final int dslvWelcome=0x7f05008c;
+        public static final int dslvWelcome=0x7f050090;
         public static final int flSettingContent=0x7f050031;
         public static final int flSettingCycle=0x7f05005d;
         public static final int flSettingProjectItemAdd=0x7f050061;
-        public static final int flSettingWelcomeAdd=0x7f050089;
-        public static final int flToday=0x7f050092;
+        public static final int flSettingWelcomeAdd=0x7f05008d;
+        public static final int flToday=0x7f050096;
         public static final int flcommentitem=0x7f050043;
         public static final int flingRemove=0x7f050001;
-        public static final int gpbTodayNo=0x7f050098;
-        public static final int gpbTodayYes=0x7f050097;
+        public static final int gpbTodayNo=0x7f05009c;
+        public static final int gpbTodayYes=0x7f05009b;
         public static final int grpReview=0x7f050055;
         public static final int ivCloud=0x7f050032;
         public static final int ivCloud2=0x7f050034;
@@ -367,17 +367,17 @@ containing a value of this type.
         public static final int ivHome=0x7f05000f;
         public static final int ivSettingProjectItemAdd=0x7f050063;
         public static final int ivSettingProjectItemAddBG=0x7f050062;
-        public static final int ivSettingSystemMe=0x7f050082;
-        public static final int ivSettingWelcomeAdd=0x7f05008b;
-        public static final int ivSettingWelcomeAddBG=0x7f05008a;
+        public static final int ivSettingSystemMe=0x7f050086;
+        public static final int ivSettingWelcomeAdd=0x7f05008f;
+        public static final int ivSettingWelcomeAddBG=0x7f05008e;
         public static final int ivSplash=0x7f050033;
         public static final int ivTutoriHead=0x7f050037;
         public static final int llAppBottom=0x7f05000d;
         public static final int llAppMessageContainer=0x7f050013;
-        public static final int llBackground=0x7f050093;
+        public static final int llBackground=0x7f050097;
         public static final int llChart=0x7f050039;
         public static final int llCommentItemBg=0x7f050044;
-        public static final int llContent=0x7f050094;
+        public static final int llContent=0x7f050098;
         public static final int llFinishVictory=0x7f050007;
         public static final int llMessageBg=0x7f050058;
         public static final int llReportBottom=0x7f050048;
@@ -392,10 +392,10 @@ containing a value of this type.
         public static final int llTitle=0x7f050015;
         public static final int llTitleDescription=0x7f05001b;
         public static final int llToday=0x7f050056;
-        public static final int llappTodayPopupComment=0x7f05009a;
-        public static final int llprogressLine=0x7f050099;
+        public static final int llappTodayPopupComment=0x7f05009e;
+        public static final int llprogressLine=0x7f05009d;
         public static final int lvComment=0x7f050040;
-        public static final int lvSettingSystem=0x7f050074;
+        public static final int lvSettingSystem=0x7f050078;
         public static final int lvTotal=0x7f05004d;
         public static final int lvTrend=0x7f050050;
         public static final int onDown=0x7f050002;
@@ -407,16 +407,16 @@ containing a value of this type.
         public static final int rbSettingWelcome=0x7f050029;
         public static final int remove_handle=0x7f050065;
         public static final int rgSetting=0x7f050026;
-        public static final int rgpToday=0x7f050096;
+        public static final int rgpToday=0x7f05009a;
         public static final int sbCycle=0x7f05005c;
         public static final int scrollView1=0x7f050059;
         public static final int settingProjectItemTitle=0x7f050066;
-        public static final int settingWelcomeItemContent=0x7f05008d;
+        public static final int settingWelcomeItemContent=0x7f050091;
         public static final int setttingProjectItemTime=0x7f050069;
         public static final int setttingProjectItemTitleDes=0x7f050067;
         public static final int setttingProjectItemTitleMotto=0x7f050068;
-        public static final int svSettingSystemFranklin=0x7f050077;
-        public static final int svSettingSystemPopupHelp=0x7f050079;
+        public static final int svSettingSystemFranklin=0x7f05007b;
+        public static final int svSettingSystemPopupHelp=0x7f05007d;
         public static final int today=0x7f050057;
         public static final int trHomeToolBar=0x7f05000e;
         public static final int tvChart=0x7f050038;
@@ -441,7 +441,7 @@ containing a value of this type.
         public static final int tvMainTitleDescrible=0x7f05001c;
         public static final int tvMainTitleMotto=0x7f05001f;
         public static final int tvMeeesage=0x7f05005a;
-        public static final int tvPopupComment=0x7f05009b;
+        public static final int tvPopupComment=0x7f05009f;
         public static final int tvReportToatalClose=0x7f05004e;
         public static final int tvReportToatalTitle=0x7f05004c;
         public static final int tvReportTrendClose=0x7f050051;
@@ -451,6 +451,10 @@ containing a value of this type.
         public static final int tvSettingDone=0x7f05002e;
         public static final int tvSettingHelp=0x7f05002c;
         public static final int tvSettingPopupTitle=0x7f05006a;
+        public static final int tvSettingProjectItemDeleteCancel=0x7f050076;
+        public static final int tvSettingProjectItemDeleteInfo=0x7f050075;
+        public static final int tvSettingProjectItemDeleteTitle=0x7f050074;
+        public static final int tvSettingProjectItemDeleteYes=0x7f050077;
         public static final int tvSettingProjectItemDescript=0x7f050060;
         public static final int tvSettingProjectItemPopupCancel=0x7f050072;
         public static final int tvSettingProjectItemPopupTitle=0x7f05006b;
@@ -458,30 +462,30 @@ containing a value of this type.
         public static final int tvSettingProjectItemPopupTitleMotto=0x7f05006f;
         public static final int tvSettingProjectItemPopupYes=0x7f050073;
         public static final int tvSettingRestore=0x7f05002d;
-        public static final int tvSettingSystemFranklinInfo=0x7f050078;
-        public static final int tvSettingSystemFranklinTitle=0x7f050076;
-        public static final int tvSettingSystemHelplPopupNext1=0x7f05007c;
-        public static final int tvSettingSystemHelplPopupNext2=0x7f05007f;
-        public static final int tvSettingSystemHelplPopupOK=0x7f050083;
-        public static final int tvSettingSystemInfo=0x7f050085;
-        public static final int tvSettingSystemPopupCancel=0x7f050086;
-        public static final int tvSettingSystemPopupYes=0x7f050087;
-        public static final int tvSettingSystemTitle=0x7f050084;
-        public static final int tvSettingSystemitem=0x7f050075;
+        public static final int tvSettingSystemFranklinInfo=0x7f05007c;
+        public static final int tvSettingSystemFranklinTitle=0x7f05007a;
+        public static final int tvSettingSystemHelplPopupNext1=0x7f050080;
+        public static final int tvSettingSystemHelplPopupNext2=0x7f050083;
+        public static final int tvSettingSystemHelplPopupOK=0x7f050087;
+        public static final int tvSettingSystemInfo=0x7f050089;
+        public static final int tvSettingSystemPopupCancel=0x7f05008a;
+        public static final int tvSettingSystemPopupYes=0x7f05008b;
+        public static final int tvSettingSystemTitle=0x7f050088;
+        public static final int tvSettingSystemitem=0x7f050079;
         public static final int tvSettingTitle=0x7f050025;
-        public static final int tvSettingWelcomeDescript=0x7f050088;
-        public static final int tvSettingWelcomePopupCancel=0x7f050090;
-        public static final int tvSettingWelcomePopupYes=0x7f050091;
+        public static final int tvSettingWelcomeDescript=0x7f05008c;
+        public static final int tvSettingWelcomePopupCancel=0x7f050094;
+        public static final int tvSettingWelcomePopupYes=0x7f050095;
         public static final int tvSplash=0x7f050036;
-        public static final int tvTodayPopupYes=0x7f05009d;
-        public static final int tvTodayTitle=0x7f050095;
-        public static final int tvsettingSystemHelpContent1=0x7f05007b;
-        public static final int tvsettingSystemHelpContent2=0x7f05007e;
-        public static final int tvsettingSystemHelpContent3=0x7f050081;
-        public static final int tvsettingSystemHelpContentTitle1=0x7f05007a;
-        public static final int tvsettingSystemHelpContentTitle2=0x7f05007d;
-        public static final int tvsettingSystemHelpContentTitle3=0x7f050080;
-        public static final int txtComment=0x7f05009c;
+        public static final int tvTodayPopupYes=0x7f0500a1;
+        public static final int tvTodayTitle=0x7f050099;
+        public static final int tvsettingSystemHelpContent1=0x7f05007f;
+        public static final int tvsettingSystemHelpContent2=0x7f050082;
+        public static final int tvsettingSystemHelpContent3=0x7f050085;
+        public static final int tvsettingSystemHelpContentTitle1=0x7f05007e;
+        public static final int tvsettingSystemHelpContentTitle2=0x7f050081;
+        public static final int tvsettingSystemHelpContentTitle3=0x7f050084;
+        public static final int txtComment=0x7f0500a0;
         public static final int txtCommentItemNumber=0x7f050042;
         public static final int txtCommentItemText=0x7f050045;
         public static final int txtContactMe=0x7f050012;
@@ -490,7 +494,7 @@ containing a value of this type.
         public static final int txtSettingProjectItemPopupTitle=0x7f05006c;
         public static final int txtSettingProjectItemPopupTitleDes=0x7f05006e;
         public static final int txtSettingProjectItemPopupTitleMotto=0x7f050070;
-        public static final int txtSettingWelcomePopupContext=0x7f05008e;
+        public static final int txtSettingWelcomePopupContext=0x7f050092;
         public static final int vfMainFlopper=0x7f050018;
         public static final int viewIndicatiorCenter=0x7f050022;
         public static final int viewIndicatiorLeft=0x7f050021;
@@ -514,17 +518,18 @@ containing a value of this type.
         public static final int setting_projectitem=0x7f03000e;
         public static final int setting_projectitem_item=0x7f03000f;
         public static final int setting_projectitem_popup=0x7f030010;
-        public static final int settting_system=0x7f030011;
-        public static final int settting_system_item=0x7f030012;
-        public static final int settting_system_popup_franklin=0x7f030013;
-        public static final int settting_system_popup_help=0x7f030014;
-        public static final int settting_system_popup_me=0x7f030015;
-        public static final int settting_system_popup_restart=0x7f030016;
-        public static final int settting_welcome=0x7f030017;
-        public static final int settting_welcome_item=0x7f030018;
-        public static final int settting_welcome_popup=0x7f030019;
-        public static final int today_control=0x7f03001a;
-        public static final int today_control_popup=0x7f03001b;
+        public static final int settting_projectitem_popup_delete=0x7f030011;
+        public static final int settting_system=0x7f030012;
+        public static final int settting_system_item=0x7f030013;
+        public static final int settting_system_popup_franklin=0x7f030014;
+        public static final int settting_system_popup_help=0x7f030015;
+        public static final int settting_system_popup_me=0x7f030016;
+        public static final int settting_system_popup_restart=0x7f030017;
+        public static final int settting_welcome=0x7f030018;
+        public static final int settting_welcome_item=0x7f030019;
+        public static final int settting_welcome_popup=0x7f03001a;
+        public static final int today_control=0x7f03001b;
+        public static final int today_control_popup=0x7f03001c;
     }
     public static final class string {
         public static final int Finishmodify=0x7f0800ad;
@@ -555,6 +560,7 @@ containing a value of this type.
         public static final int cantSendEmail=0x7f080091;
         public static final int chooseEmail=0x7f0800b3;
         public static final int close=0x7f08008a;
+        public static final int comfirmDelete=0x7f0800b6;
         public static final int comment=0x7f08000e;
         public static final int commentTitle=0x7f080014;
         public static final int cycle=0x7f08004b;
@@ -636,6 +642,7 @@ containing a value of this type.
         public static final int startNewMoralInfo2=0x7f080061;
         public static final int startNewProject=0x7f080060;
         public static final int store=0x7f0800ab;
+        public static final int strComfirmDelete=0x7f0800b7;
         public static final int system=0x7f080070;
         public static final int tabToChoose=0x7f080093;
         public static final int title=0x7f080056;
@@ -829,7 +836,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:click_remove_id
+          @attr name com.pavkoo.franklin:click_remove_id
         */
         public static final int DragSortListView_click_remove_id = 16;
         /**
@@ -845,7 +852,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:collapsed_height
+          @attr name com.pavkoo.franklin:collapsed_height
         */
         public static final int DragSortListView_collapsed_height = 0;
         /**
@@ -859,7 +866,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:drag_enabled
+          @attr name com.pavkoo.franklin:drag_enabled
         */
         public static final int DragSortListView_drag_enabled = 10;
         /**
@@ -873,7 +880,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:drag_handle_id
+          @attr name com.pavkoo.franklin:drag_handle_id
         */
         public static final int DragSortListView_drag_handle_id = 14;
         /**
@@ -887,7 +894,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:drag_scroll_start
+          @attr name com.pavkoo.franklin:drag_scroll_start
         */
         public static final int DragSortListView_drag_scroll_start = 1;
         /**
@@ -905,7 +912,7 @@ containing a value of this type.
 <tr><td><code>onMove</code></td><td>1</td><td></td></tr>
 <tr><td><code>onLongPress</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name android:drag_start_mode
+          @attr name com.pavkoo.franklin:drag_start_mode
         */
         public static final int DragSortListView_drag_start_mode = 13;
         /**
@@ -919,7 +926,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:drop_animation_duration
+          @attr name com.pavkoo.franklin:drop_animation_duration
         */
         public static final int DragSortListView_drop_animation_duration = 9;
         /**
@@ -933,7 +940,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:fling_handle_id
+          @attr name com.pavkoo.franklin:fling_handle_id
         */
         public static final int DragSortListView_fling_handle_id = 15;
         /**
@@ -947,7 +954,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:float_alpha
+          @attr name com.pavkoo.franklin:float_alpha
         */
         public static final int DragSortListView_float_alpha = 6;
         /**
@@ -962,7 +969,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:float_background_color
+          @attr name com.pavkoo.franklin:float_background_color
         */
         public static final int DragSortListView_float_background_color = 3;
         /**
@@ -976,7 +983,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:max_drag_scroll_speed
+          @attr name com.pavkoo.franklin:max_drag_scroll_speed
         */
         public static final int DragSortListView_max_drag_scroll_speed = 2;
         /**
@@ -990,7 +997,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:remove_animation_duration
+          @attr name com.pavkoo.franklin:remove_animation_duration
         */
         public static final int DragSortListView_remove_animation_duration = 8;
         /**
@@ -1004,7 +1011,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:remove_enabled
+          @attr name com.pavkoo.franklin:remove_enabled
         */
         public static final int DragSortListView_remove_enabled = 12;
         /**
@@ -1021,7 +1028,7 @@ containing a value of this type.
 <tr><td><code>clickRemove</code></td><td>0</td><td></td></tr>
 <tr><td><code>flingRemove</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name android:remove_mode
+          @attr name com.pavkoo.franklin:remove_mode
         */
         public static final int DragSortListView_remove_mode = 4;
         /**
@@ -1035,7 +1042,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:slide_shuffle_speed
+          @attr name com.pavkoo.franklin:slide_shuffle_speed
         */
         public static final int DragSortListView_slide_shuffle_speed = 7;
         /**
@@ -1049,7 +1056,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:sort_enabled
+          @attr name com.pavkoo.franklin:sort_enabled
         */
         public static final int DragSortListView_sort_enabled = 11;
         /**
@@ -1063,7 +1070,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:track_drag_sort
+          @attr name com.pavkoo.franklin:track_drag_sort
         */
         public static final int DragSortListView_track_drag_sort = 5;
         /**
@@ -1077,7 +1084,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:use_default_controller
+          @attr name com.pavkoo.franklin:use_default_controller
         */
         public static final int DragSortListView_use_default_controller = 17;
     };
