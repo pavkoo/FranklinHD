@@ -426,6 +426,10 @@ com.pavkoo.franklin.R$id: int tvSettingCycleText
 com.pavkoo.franklin.R$id: int tvSettingDone
 com.pavkoo.franklin.R$id: int tvSettingHelp
 com.pavkoo.franklin.R$id: int tvSettingPopupTitle
+com.pavkoo.franklin.R$id: int tvSettingProjectItemDeleteCancel
+com.pavkoo.franklin.R$id: int tvSettingProjectItemDeleteInfo
+com.pavkoo.franklin.R$id: int tvSettingProjectItemDeleteTitle
+com.pavkoo.franklin.R$id: int tvSettingProjectItemDeleteYes
 com.pavkoo.franklin.R$id: int tvSettingProjectItemDescript
 com.pavkoo.franklin.R$id: int tvSettingProjectItemPopupCancel
 com.pavkoo.franklin.R$id: int tvSettingProjectItemPopupTitle
@@ -487,6 +491,7 @@ com.pavkoo.franklin.R$layout: int setting_cycle
 com.pavkoo.franklin.R$layout: int setting_projectitem
 com.pavkoo.franklin.R$layout: int setting_projectitem_item
 com.pavkoo.franklin.R$layout: int setting_projectitem_popup
+com.pavkoo.franklin.R$layout: int settting_projectitem_popup_delete
 com.pavkoo.franklin.R$layout: int settting_system
 com.pavkoo.franklin.R$layout: int settting_system_item
 com.pavkoo.franklin.R$layout: int settting_system_popup_franklin
@@ -526,6 +531,7 @@ com.pavkoo.franklin.R$string: int cantFindMarket
 com.pavkoo.franklin.R$string: int cantSendEmail
 com.pavkoo.franklin.R$string: int chooseEmail
 com.pavkoo.franklin.R$string: int close
+com.pavkoo.franklin.R$string: int comfirmDelete
 com.pavkoo.franklin.R$string: int comment
 com.pavkoo.franklin.R$string: int commentTitle
 com.pavkoo.franklin.R$string: int cycle
@@ -538,8 +544,6 @@ com.pavkoo.franklin.R$string: int description
 com.pavkoo.franklin.R$string: int devTemp
 com.pavkoo.franklin.R$string: int done
 com.pavkoo.franklin.R$string: int dragToChangeCycle
-com.pavkoo.franklin.R$string: int emailReplay
-com.pavkoo.franklin.R$string: int emailfeedback
 com.pavkoo.franklin.R$string: int enjoylife
 com.pavkoo.franklin.R$string: int errorAddContent
 com.pavkoo.franklin.R$string: int errorAddDes
@@ -567,11 +571,9 @@ com.pavkoo.franklin.R$string: int language
 com.pavkoo.franklin.R$string: int mailto
 com.pavkoo.franklin.R$string: int main_toolbar_contactme
 com.pavkoo.franklin.R$string: int main_toolbar_help
-com.pavkoo.franklin.R$string: int main_toolbar_report
 com.pavkoo.franklin.R$string: int main_toolbar_setting
 com.pavkoo.franklin.R$string: int manyDaynotuse
 com.pavkoo.franklin.R$string: int maxCycleWarning
-com.pavkoo.franklin.R$string: int menu_settings
 com.pavkoo.franklin.R$string: int minCycleInfo
 com.pavkoo.franklin.R$string: int modifyMoralitem
 com.pavkoo.franklin.R$string: int moralItem
@@ -595,7 +597,6 @@ com.pavkoo.franklin.R$string: int restartToBegin
 com.pavkoo.franklin.R$string: int restartinfo
 com.pavkoo.franklin.R$string: int restoreToDefault
 com.pavkoo.franklin.R$string: int restoretinfo
-com.pavkoo.franklin.R$string: int selfImproveFeedback
 com.pavkoo.franklin.R$string: int send
 com.pavkoo.franklin.R$string: int settingProjectItemDescript
 com.pavkoo.franklin.R$string: int settingRestore
@@ -605,8 +606,8 @@ com.pavkoo.franklin.R$string: int share
 com.pavkoo.franklin.R$string: int sina
 com.pavkoo.franklin.R$string: int startNewMoralInfo
 com.pavkoo.franklin.R$string: int startNewMoralInfo2
-com.pavkoo.franklin.R$string: int startNewProject
 com.pavkoo.franklin.R$string: int store
+com.pavkoo.franklin.R$string: int strComfirmDelete
 com.pavkoo.franklin.R$string: int system
 com.pavkoo.franklin.R$string: int tabToChoose
 com.pavkoo.franklin.R$string: int title
@@ -657,7 +658,6 @@ com.pavkoo.franklin.R$string: int todayhavepassed
 com.pavkoo.franklin.R$string: int totalReflectiveCount
 com.pavkoo.franklin.R$string: int totalUsedCount
 com.pavkoo.franklin.R$string: int trend
-com.pavkoo.franklin.R$string: int tutorials1
 com.pavkoo.franklin.R$string: int tutorials2
 com.pavkoo.franklin.R$string: int tutorials3
 com.pavkoo.franklin.R$string: int tutorials4

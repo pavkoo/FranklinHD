@@ -2027,8 +2027,10 @@ com.pavkoo.franklin.SettingProjectItemFragment -> com.pavkoo.franklin.x:
     android.view.animation.Animation addExpanding -> W
     com.pavkoo.franklin.controls.SettingProjectItemDialog itemDialog -> X
     com.pavkoo.franklin.controls.AnimMessage amMessage -> Y
-    com.mobeta.android.dslv.DragSortListView$DropListener onDrop -> Z
-    com.mobeta.android.dslv.DragSortListView$RemoveListener onRemove -> aa
+    com.pavkoo.franklin.controls.ComfirmDialog comfirmDialog -> Z
+    int deleteWhich -> aa
+    com.mobeta.android.dslv.DragSortListView$DropListener onDrop -> ab
+    com.mobeta.android.dslv.DragSortListView$RemoveListener onRemove -> ac
     void onActivityCreated(android.os.Bundle) -> d
     void updateDate() -> x
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
@@ -2037,7 +2039,10 @@ com.pavkoo.franklin.SettingProjectItemFragment -> com.pavkoo.franklin.x:
     com.pavkoo.franklin.controls.AnimMessage access$1(com.pavkoo.franklin.SettingProjectItemFragment) -> b
     java.util.List access$2(com.pavkoo.franklin.SettingProjectItemFragment) -> c
     void access$3(com.pavkoo.franklin.SettingProjectItemFragment) -> d
-    com.pavkoo.franklin.controls.SettingProjectItemDialog access$4(com.pavkoo.franklin.SettingProjectItemFragment) -> e
+    void access$4(com.pavkoo.franklin.SettingProjectItemFragment,int) -> a
+    com.pavkoo.franklin.controls.ComfirmDialog access$5(com.pavkoo.franklin.SettingProjectItemFragment) -> e
+    com.pavkoo.franklin.controls.SettingProjectItemDialog access$6(com.pavkoo.franklin.SettingProjectItemFragment) -> f
+    int access$7(com.pavkoo.franklin.SettingProjectItemFragment) -> g
 com.pavkoo.franklin.SettingProjectItemFragment$1 -> com.pavkoo.franklin.y:
     com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
     void drop(int,int) -> a_
@@ -2053,7 +2058,10 @@ com.pavkoo.franklin.SettingProjectItemFragment$4 -> com.pavkoo.franklin.ab:
 com.pavkoo.franklin.SettingProjectItemFragment$5 -> com.pavkoo.franklin.ac:
     com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.pavkoo.franklin.SettingProjectItemFragment$MoralAdapter -> com.pavkoo.franklin.ad:
+com.pavkoo.franklin.SettingProjectItemFragment$6 -> com.pavkoo.franklin.ad:
+    com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
+    void onDismiss(android.content.DialogInterface) -> onDismiss
+com.pavkoo.franklin.SettingProjectItemFragment$MoralAdapter -> com.pavkoo.franklin.ae:
     android.content.Context context -> b
     java.util.List morals -> c
     com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
@@ -2062,7 +2070,7 @@ com.pavkoo.franklin.SettingProjectItemFragment$MoralAdapter -> com.pavkoo.frankl
     java.lang.Object getItem(int) -> getItem
     long getItemId(int) -> getItemId
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.pavkoo.franklin.SettingSystemFragment -> com.pavkoo.franklin.ae:
+com.pavkoo.franklin.SettingSystemFragment -> com.pavkoo.franklin.af:
     android.view.View self -> P
     int[] heads -> Q
     int[] headStrs -> R
@@ -2083,16 +2091,16 @@ com.pavkoo.franklin.SettingSystemFragment -> com.pavkoo.franklin.ae:
     com.pavkoo.franklin.controls.SettingSystemFranklinDialog access$4(com.pavkoo.franklin.SettingSystemFragment) -> e
     com.pavkoo.franklin.controls.SettingSystemMeDialog access$5(com.pavkoo.franklin.SettingSystemFragment) -> f
     com.pavkoo.franklin.controls.SettingSystemHelpDialog access$6(com.pavkoo.franklin.SettingSystemFragment) -> g
-com.pavkoo.franklin.SettingSystemFragment$1 -> com.pavkoo.franklin.af:
+com.pavkoo.franklin.SettingSystemFragment$1 -> com.pavkoo.franklin.ag:
     com.pavkoo.franklin.SettingSystemFragment this$0 -> a
     void UpdateUI(java.lang.Object) -> a
-com.pavkoo.franklin.SettingSystemFragment$2 -> com.pavkoo.franklin.ag:
+com.pavkoo.franklin.SettingSystemFragment$2 -> com.pavkoo.franklin.ah:
     com.pavkoo.franklin.SettingSystemFragment this$0 -> a
     void UpdateUI(java.lang.Object) -> a
-com.pavkoo.franklin.SettingSystemFragment$3 -> com.pavkoo.franklin.ah:
+com.pavkoo.franklin.SettingSystemFragment$3 -> com.pavkoo.franklin.ai:
     com.pavkoo.franklin.SettingSystemFragment this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.pavkoo.franklin.SettingSystemFragment$SettingSystemAdapter -> com.pavkoo.franklin.ai:
+com.pavkoo.franklin.SettingSystemFragment$SettingSystemAdapter -> com.pavkoo.franklin.aj:
     android.content.Context context -> b
     int[] imgRes -> c
     int[] strings -> d
@@ -2101,7 +2109,7 @@ com.pavkoo.franklin.SettingSystemFragment$SettingSystemAdapter -> com.pavkoo.fra
     java.lang.Object getItem(int) -> getItem
     long getItemId(int) -> getItemId
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.pavkoo.franklin.SettingWelcomeFragment -> com.pavkoo.franklin.aj:
+com.pavkoo.franklin.SettingWelcomeFragment -> com.pavkoo.franklin.ak:
     android.view.View self -> P
     com.mobeta.android.dslv.DragSortListView dslvWelcome -> Q
     android.widget.ImageView ivSettingWelcomeAdd -> R
@@ -2111,26 +2119,34 @@ com.pavkoo.franklin.SettingWelcomeFragment -> com.pavkoo.franklin.aj:
     android.view.animation.Animation addExpanding -> V
     com.pavkoo.franklin.controls.SettingWelcomeDialog dialog -> W
     com.pavkoo.franklin.controls.AnimMessage amMessage -> X
-    com.mobeta.android.dslv.DragSortListView$RemoveListener onRemove -> Y
+    com.pavkoo.franklin.controls.ComfirmDialog comfirmDialog -> Y
+    int deleteWhich -> Z
+    com.mobeta.android.dslv.DragSortListView$RemoveListener onRemove -> aa
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onActivityCreated(android.os.Bundle) -> d
-    com.pavkoo.franklin.controls.AnimMessage access$0(com.pavkoo.franklin.SettingWelcomeFragment) -> a
-    java.util.List access$1(com.pavkoo.franklin.SettingWelcomeFragment) -> b
-    com.pavkoo.franklin.SettingWelcomeFragment$MoralAdapter access$2(com.pavkoo.franklin.SettingWelcomeFragment) -> c
-    com.pavkoo.franklin.controls.SettingWelcomeDialog access$3(com.pavkoo.franklin.SettingWelcomeFragment) -> d
-com.pavkoo.franklin.SettingWelcomeFragment$1 -> com.pavkoo.franklin.ak:
+    void access$0(com.pavkoo.franklin.SettingWelcomeFragment,int) -> a
+    com.pavkoo.franklin.controls.ComfirmDialog access$1(com.pavkoo.franklin.SettingWelcomeFragment) -> a
+    com.pavkoo.franklin.controls.SettingWelcomeDialog access$2(com.pavkoo.franklin.SettingWelcomeFragment) -> b
+    java.util.List access$3(com.pavkoo.franklin.SettingWelcomeFragment) -> c
+    com.pavkoo.franklin.SettingWelcomeFragment$MoralAdapter access$4(com.pavkoo.franklin.SettingWelcomeFragment) -> d
+    com.pavkoo.franklin.controls.AnimMessage access$5(com.pavkoo.franklin.SettingWelcomeFragment) -> e
+    int access$6(com.pavkoo.franklin.SettingWelcomeFragment) -> f
+com.pavkoo.franklin.SettingWelcomeFragment$1 -> com.pavkoo.franklin.al:
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
     void remove(int) -> a
-com.pavkoo.franklin.SettingWelcomeFragment$2 -> com.pavkoo.franklin.al:
+com.pavkoo.franklin.SettingWelcomeFragment$2 -> com.pavkoo.franklin.am:
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.SettingWelcomeFragment$3 -> com.pavkoo.franklin.am:
+com.pavkoo.franklin.SettingWelcomeFragment$3 -> com.pavkoo.franklin.an:
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.pavkoo.franklin.SettingWelcomeFragment$4 -> com.pavkoo.franklin.an:
+com.pavkoo.franklin.SettingWelcomeFragment$4 -> com.pavkoo.franklin.ao:
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.pavkoo.franklin.SettingWelcomeFragment$MoralAdapter -> com.pavkoo.franklin.ao:
+com.pavkoo.franklin.SettingWelcomeFragment$5 -> com.pavkoo.franklin.ap:
+    com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
+    void onDismiss(android.content.DialogInterface) -> onDismiss
+com.pavkoo.franklin.SettingWelcomeFragment$MoralAdapter -> com.pavkoo.franklin.aq:
     android.content.Context context -> b
     java.util.List welcomes -> c
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
@@ -2150,7 +2166,7 @@ com.pavkoo.franklin.SplashActivity -> com.pavkoo.franklin.SplashActivity:
     void initViewData() -> c
     void selectImage() -> d
     com.pavkoo.franklin.common.ApplicationConfig access$0(com.pavkoo.franklin.SplashActivity) -> a
-com.pavkoo.franklin.SplashActivity$1 -> com.pavkoo.franklin.ap:
+com.pavkoo.franklin.SplashActivity$1 -> com.pavkoo.franklin.ar:
     com.pavkoo.franklin.SplashActivity this$0 -> a
     void run() -> run
 com.pavkoo.franklin.TutorialsActivity -> com.pavkoo.franklin.TutorialsActivity:
@@ -2167,16 +2183,16 @@ com.pavkoo.franklin.TutorialsActivity -> com.pavkoo.franklin.TutorialsActivity:
     android.widget.LinearLayout access$1(com.pavkoo.franklin.TutorialsActivity) -> b
     android.widget.ImageView access$2(com.pavkoo.franklin.TutorialsActivity) -> c
     com.pavkoo.franklin.controls.SettingSystemHelpDialog access$3(com.pavkoo.franklin.TutorialsActivity) -> d
-com.pavkoo.franklin.TutorialsActivity$1 -> com.pavkoo.franklin.aq:
+com.pavkoo.franklin.TutorialsActivity$1 -> com.pavkoo.franklin.as:
     com.pavkoo.franklin.TutorialsActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.TutorialsActivity$2 -> com.pavkoo.franklin.ar:
+com.pavkoo.franklin.TutorialsActivity$2 -> com.pavkoo.franklin.at:
     com.pavkoo.franklin.TutorialsActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.TutorialsActivity$3 -> com.pavkoo.franklin.as:
+com.pavkoo.franklin.TutorialsActivity$3 -> com.pavkoo.franklin.au:
     com.pavkoo.franklin.TutorialsActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.TutorialsActivity$4 -> com.pavkoo.franklin.at:
+com.pavkoo.franklin.TutorialsActivity$4 -> com.pavkoo.franklin.av:
     com.pavkoo.franklin.TutorialsActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.pavkoo.franklin.common.ApplicationConfig -> com.pavkoo.franklin.common.a:
@@ -2432,7 +2448,24 @@ com.pavkoo.franklin.controls.BlemishReportTrendDialog -> com.pavkoo.franklin.con
 com.pavkoo.franklin.controls.BlemishReportTrendDialog$1 -> com.pavkoo.franklin.controls.g:
     com.pavkoo.franklin.controls.BlemishReportTrendDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.CommentAdapter -> com.pavkoo.franklin.controls.h:
+com.pavkoo.franklin.controls.ComfirmDialog -> com.pavkoo.franklin.controls.h:
+    boolean dialogResult -> a
+    android.widget.TextView tvSettingProjectItemDeleteTitle -> b
+    android.widget.TextView tvSettingProjectItemDeleteCancel -> c
+    android.widget.TextView tvSettingProjectItemDeleteYes -> d
+    boolean isDialogResult() -> a
+    void setDialogTitle(java.lang.String) -> a
+    void access$0(com.pavkoo.franklin.controls.ComfirmDialog,boolean) -> a
+com.pavkoo.franklin.controls.ComfirmDialog$1 -> com.pavkoo.franklin.controls.i:
+    com.pavkoo.franklin.controls.ComfirmDialog this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.pavkoo.franklin.controls.ComfirmDialog$2 -> com.pavkoo.franklin.controls.j:
+    com.pavkoo.franklin.controls.ComfirmDialog this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.pavkoo.franklin.controls.ComfirmDialog$3 -> com.pavkoo.franklin.controls.k:
+    com.pavkoo.franklin.controls.ComfirmDialog this$0 -> a
+    void onShow(android.content.DialogInterface) -> onShow
+com.pavkoo.franklin.controls.CommentAdapter -> com.pavkoo.franklin.controls.l:
     android.widget.LinearLayout llCommentItemBg -> a
     android.widget.TextView txtCommentItemNumber -> b
     android.widget.TextView txtCommentItemText -> c
@@ -2478,11 +2511,11 @@ com.pavkoo.franklin.controls.CyclePager -> com.pavkoo.franklin.controls.CyclePag
     boolean swapView(int) -> d
     void swapViewIndex(int) -> e
     void access$0(com.pavkoo.franklin.controls.CyclePager) -> a
-com.pavkoo.franklin.controls.CyclePager$FlipAnimationHandler -> com.pavkoo.franklin.controls.i:
+com.pavkoo.franklin.controls.CyclePager$FlipAnimationHandler -> com.pavkoo.franklin.controls.m:
     com.pavkoo.franklin.controls.CyclePager this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
     void sleep(long) -> a
-com.pavkoo.franklin.controls.Flipper -> com.pavkoo.franklin.controls.j:
+com.pavkoo.franklin.controls.Flipper -> com.pavkoo.franklin.controls.n:
     android.widget.LinearLayout view1 -> g
     android.widget.LinearLayout view2 -> h
     android.widget.LinearLayout view3 -> i
@@ -2545,22 +2578,22 @@ com.pavkoo.franklin.controls.Flipper -> com.pavkoo.franklin.controls.j:
     java.util.List access$4(com.pavkoo.franklin.controls.Flipper) -> d
     void access$5(com.pavkoo.franklin.controls.Flipper,int) -> a
     void access$6(com.pavkoo.franklin.controls.Flipper) -> e
-com.pavkoo.franklin.controls.Flipper$1 -> com.pavkoo.franklin.controls.k:
+com.pavkoo.franklin.controls.Flipper$1 -> com.pavkoo.franklin.controls.o:
     com.pavkoo.franklin.controls.Flipper this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
-com.pavkoo.franklin.controls.Flipper$FlipAnimationHandler -> com.pavkoo.franklin.controls.l:
+com.pavkoo.franklin.controls.Flipper$FlipAnimationHandler -> com.pavkoo.franklin.controls.p:
     com.pavkoo.franklin.controls.Flipper this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
     void sleep(long) -> a
-com.pavkoo.franklin.controls.IDialogOKCallBack -> com.pavkoo.franklin.controls.m:
+com.pavkoo.franklin.controls.IDialogOKCallBack -> com.pavkoo.franklin.controls.q:
     void UpdateUI(java.lang.Object) -> a
-com.pavkoo.franklin.controls.IUpdateMoralSelectState -> com.pavkoo.franklin.controls.n:
+com.pavkoo.franklin.controls.IUpdateMoralSelectState -> com.pavkoo.franklin.controls.r:
     void updateTextCallBack() -> d
-com.pavkoo.franklin.controls.IUpdateTextCallBack -> com.pavkoo.franklin.controls.o:
+com.pavkoo.franklin.controls.IUpdateTextCallBack -> com.pavkoo.franklin.controls.s:
     void updateTextCallBack(java.lang.String,int) -> a
-com.pavkoo.franklin.controls.IUpdateViewCallback -> com.pavkoo.franklin.controls.p:
+com.pavkoo.franklin.controls.IUpdateViewCallback -> com.pavkoo.franklin.controls.t:
     void callUpdateFontSize() -> e
-com.pavkoo.franklin.controls.ParentDialog -> com.pavkoo.franklin.controls.q:
+com.pavkoo.franklin.controls.ParentDialog -> com.pavkoo.franklin.controls.u:
 com.pavkoo.franklin.controls.PredicateLayout -> com.pavkoo.franklin.controls.PredicateLayout:
     int line_height -> b
     boolean $assertionsDisabled -> a
@@ -2570,7 +2603,7 @@ com.pavkoo.franklin.controls.PredicateLayout -> com.pavkoo.franklin.controls.Pre
     void onLayout(boolean,int,int,int,int) -> onLayout
 com.pavkoo.franklin.controls.ScrollingTextView -> com.pavkoo.franklin.controls.ScrollingTextView:
     void onSizeChanged(int,int,int,int) -> onSizeChanged
-com.pavkoo.franklin.controls.SettingProjectItemDialog -> com.pavkoo.franklin.controls.r:
+com.pavkoo.franklin.controls.SettingProjectItemDialog -> com.pavkoo.franklin.controls.v:
     android.widget.TextView tvSettingProjectItemPopupCancel -> a
     android.widget.TextView tvSettingProjectItemPopupYes -> b
     android.widget.EditText txtSettingProjectItemPopupTitle -> c
@@ -2595,26 +2628,26 @@ com.pavkoo.franklin.controls.SettingProjectItemDialog -> com.pavkoo.franklin.con
     void access$2(com.pavkoo.franklin.controls.SettingProjectItemDialog,boolean) -> a
     com.pavkoo.franklin.controls.AnimMessage access$3(com.pavkoo.franklin.controls.SettingProjectItemDialog) -> c
     void access$4(com.pavkoo.franklin.controls.SettingProjectItemDialog) -> d
-com.pavkoo.franklin.controls.SettingProjectItemDialog$1 -> com.pavkoo.franklin.controls.s:
+com.pavkoo.franklin.controls.SettingProjectItemDialog$1 -> com.pavkoo.franklin.controls.w:
     com.pavkoo.franklin.controls.SettingProjectItemDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.SettingProjectItemDialog$2 -> com.pavkoo.franklin.controls.t:
+com.pavkoo.franklin.controls.SettingProjectItemDialog$2 -> com.pavkoo.franklin.controls.x:
     com.pavkoo.franklin.controls.SettingProjectItemDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.SettingProjectItemDialog$3 -> com.pavkoo.franklin.controls.u:
+com.pavkoo.franklin.controls.SettingProjectItemDialog$3 -> com.pavkoo.franklin.controls.y:
     com.pavkoo.franklin.controls.SettingProjectItemDialog this$0 -> a
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.pavkoo.franklin.controls.SettingProjectItemDialog$4 -> com.pavkoo.franklin.controls.v:
+com.pavkoo.franklin.controls.SettingProjectItemDialog$4 -> com.pavkoo.franklin.controls.z:
     com.pavkoo.franklin.controls.SettingProjectItemDialog this$0 -> a
     void onShow(android.content.DialogInterface) -> onShow
-com.pavkoo.franklin.controls.SettingProjectItemDialog$EditMode -> com.pavkoo.franklin.controls.w:
+com.pavkoo.franklin.controls.SettingProjectItemDialog$EditMode -> com.pavkoo.franklin.controls.aa:
     com.pavkoo.franklin.controls.SettingProjectItemDialog$EditMode Modify -> a
     com.pavkoo.franklin.controls.SettingProjectItemDialog$EditMode Add -> b
     com.pavkoo.franklin.controls.SettingProjectItemDialog$EditMode[] ENUM$VALUES -> c
     com.pavkoo.franklin.controls.SettingProjectItemDialog$EditMode[] values() -> values
     com.pavkoo.franklin.controls.SettingProjectItemDialog$EditMode valueOf(java.lang.String) -> valueOf
-com.pavkoo.franklin.controls.SettingSystemFranklinDialog -> com.pavkoo.franklin.controls.x:
-com.pavkoo.franklin.controls.SettingSystemHelpDialog -> com.pavkoo.franklin.controls.y:
+com.pavkoo.franklin.controls.SettingSystemFranklinDialog -> com.pavkoo.franklin.controls.ab:
+com.pavkoo.franklin.controls.SettingSystemHelpDialog -> com.pavkoo.franklin.controls.ac:
     android.widget.TextView tvSettingSystemHelplPopupOK -> a
     android.widget.TextView tvSettingSystemHelplPopupNext1 -> b
     android.widget.TextView tvSettingSystemHelplPopupNext2 -> c
@@ -2640,22 +2673,22 @@ com.pavkoo.franklin.controls.SettingSystemHelpDialog -> com.pavkoo.franklin.cont
     android.widget.TextView access$9(com.pavkoo.franklin.controls.SettingSystemHelpDialog) -> j
     android.widget.ImageView access$10(com.pavkoo.franklin.controls.SettingSystemHelpDialog) -> k
     void access$11(com.pavkoo.franklin.controls.SettingSystemHelpDialog) -> l
-com.pavkoo.franklin.controls.SettingSystemHelpDialog$1 -> com.pavkoo.franklin.controls.z:
+com.pavkoo.franklin.controls.SettingSystemHelpDialog$1 -> com.pavkoo.franklin.controls.ad:
     com.pavkoo.franklin.controls.SettingSystemHelpDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.SettingSystemHelpDialog$2 -> com.pavkoo.franklin.controls.aa:
+com.pavkoo.franklin.controls.SettingSystemHelpDialog$2 -> com.pavkoo.franklin.controls.ae:
     com.pavkoo.franklin.controls.SettingSystemHelpDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.SettingSystemHelpDialog$3 -> com.pavkoo.franklin.controls.ab:
+com.pavkoo.franklin.controls.SettingSystemHelpDialog$3 -> com.pavkoo.franklin.controls.af:
     com.pavkoo.franklin.controls.SettingSystemHelpDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.SettingSystemHelpDialog$4 -> com.pavkoo.franklin.controls.ac:
+com.pavkoo.franklin.controls.SettingSystemHelpDialog$4 -> com.pavkoo.franklin.controls.ag:
     com.pavkoo.franklin.controls.SettingSystemHelpDialog this$0 -> a
     void onShow(android.content.DialogInterface) -> onShow
-com.pavkoo.franklin.controls.SettingSystemMeDialog -> com.pavkoo.franklin.controls.ad:
+com.pavkoo.franklin.controls.SettingSystemMeDialog -> com.pavkoo.franklin.controls.ah:
     android.graphics.drawable.AnimationDrawable ad -> a
     android.widget.ImageView ivbg -> b
-com.pavkoo.franklin.controls.SettingSystemRestartDialog -> com.pavkoo.franklin.controls.ae:
+com.pavkoo.franklin.controls.SettingSystemRestartDialog -> com.pavkoo.franklin.controls.ai:
     android.widget.TextView tvSettingSystemPopupYes -> a
     android.widget.TextView tvSettingSystemPopupCancel -> b
     android.widget.TextView tvSettingSystemInfo -> c
@@ -2668,22 +2701,22 @@ com.pavkoo.franklin.controls.SettingSystemRestartDialog -> com.pavkoo.franklin.c
     com.pavkoo.franklin.controls.SettingSystemRestartDialog$ViewState access$1(com.pavkoo.franklin.controls.SettingSystemRestartDialog) -> b
     android.widget.TextView access$2(com.pavkoo.franklin.controls.SettingSystemRestartDialog) -> c
     android.widget.TextView access$3(com.pavkoo.franklin.controls.SettingSystemRestartDialog) -> d
-com.pavkoo.franklin.controls.SettingSystemRestartDialog$1 -> com.pavkoo.franklin.controls.af:
+com.pavkoo.franklin.controls.SettingSystemRestartDialog$1 -> com.pavkoo.franklin.controls.aj:
     com.pavkoo.franklin.controls.SettingSystemRestartDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.SettingSystemRestartDialog$2 -> com.pavkoo.franklin.controls.ag:
+com.pavkoo.franklin.controls.SettingSystemRestartDialog$2 -> com.pavkoo.franklin.controls.ak:
     com.pavkoo.franklin.controls.SettingSystemRestartDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.SettingSystemRestartDialog$3 -> com.pavkoo.franklin.controls.ah:
+com.pavkoo.franklin.controls.SettingSystemRestartDialog$3 -> com.pavkoo.franklin.controls.al:
     com.pavkoo.franklin.controls.SettingSystemRestartDialog this$0 -> a
     void onShow(android.content.DialogInterface) -> onShow
-com.pavkoo.franklin.controls.SettingSystemRestartDialog$ViewState -> com.pavkoo.franklin.controls.ai:
+com.pavkoo.franklin.controls.SettingSystemRestartDialog$ViewState -> com.pavkoo.franklin.controls.am:
     com.pavkoo.franklin.controls.SettingSystemRestartDialog$ViewState SETTINSYSTEMRESTART -> a
     com.pavkoo.franklin.controls.SettingSystemRestartDialog$ViewState SETTINSYSTEMRESTORE -> b
     com.pavkoo.franklin.controls.SettingSystemRestartDialog$ViewState[] ENUM$VALUES -> c
     com.pavkoo.franklin.controls.SettingSystemRestartDialog$ViewState[] values() -> values
     com.pavkoo.franklin.controls.SettingSystemRestartDialog$ViewState valueOf(java.lang.String) -> valueOf
-com.pavkoo.franklin.controls.SettingWelcomeDialog -> com.pavkoo.franklin.controls.aj:
+com.pavkoo.franklin.controls.SettingWelcomeDialog -> com.pavkoo.franklin.controls.an:
     com.pavkoo.franklin.controls.AnimMessage amMessage -> a
     android.widget.TextView tvSettingWelcomePopupCancel -> b
     android.widget.TextView tvSettingWelcomePopupYes -> c
@@ -2706,19 +2739,19 @@ com.pavkoo.franklin.controls.SettingWelcomeDialog -> com.pavkoo.franklin.control
     com.pavkoo.franklin.controls.SettingWelcomeDialog$EditMode access$4(com.pavkoo.franklin.controls.SettingWelcomeDialog) -> d
     void access$5(com.pavkoo.franklin.controls.SettingWelcomeDialog,java.lang.String) -> a
     void access$6(com.pavkoo.franklin.controls.SettingWelcomeDialog) -> e
-com.pavkoo.franklin.controls.SettingWelcomeDialog$1 -> com.pavkoo.franklin.controls.ak:
+com.pavkoo.franklin.controls.SettingWelcomeDialog$1 -> com.pavkoo.franklin.controls.ao:
     com.pavkoo.franklin.controls.SettingWelcomeDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.SettingWelcomeDialog$2 -> com.pavkoo.franklin.controls.al:
+com.pavkoo.franklin.controls.SettingWelcomeDialog$2 -> com.pavkoo.franklin.controls.ap:
     com.pavkoo.franklin.controls.SettingWelcomeDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.SettingWelcomeDialog$3 -> com.pavkoo.franklin.controls.am:
+com.pavkoo.franklin.controls.SettingWelcomeDialog$3 -> com.pavkoo.franklin.controls.aq:
     com.pavkoo.franklin.controls.SettingWelcomeDialog this$0 -> a
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.pavkoo.franklin.controls.SettingWelcomeDialog$4 -> com.pavkoo.franklin.controls.an:
+com.pavkoo.franklin.controls.SettingWelcomeDialog$4 -> com.pavkoo.franklin.controls.ar:
     com.pavkoo.franklin.controls.SettingWelcomeDialog this$0 -> a
     void onShow(android.content.DialogInterface) -> onShow
-com.pavkoo.franklin.controls.SettingWelcomeDialog$EditMode -> com.pavkoo.franklin.controls.ao:
+com.pavkoo.franklin.controls.SettingWelcomeDialog$EditMode -> com.pavkoo.franklin.controls.as:
     com.pavkoo.franklin.controls.SettingWelcomeDialog$EditMode Modify -> a
     com.pavkoo.franklin.controls.SettingWelcomeDialog$EditMode Add -> b
     com.pavkoo.franklin.controls.SettingWelcomeDialog$EditMode[] ENUM$VALUES -> c
@@ -2756,16 +2789,16 @@ com.pavkoo.franklin.controls.Today -> com.pavkoo.franklin.controls.Today:
     com.pavkoo.franklin.controls.TodayDialog access$0(com.pavkoo.franklin.controls.Today) -> a
     com.pavkoo.franklin.common.Moral access$1(com.pavkoo.franklin.controls.Today) -> b
     com.pavkoo.franklin.controls.IUpdateMoralSelectState access$2(com.pavkoo.franklin.controls.Today) -> c
-com.pavkoo.franklin.controls.Today$1 -> com.pavkoo.franklin.controls.ap:
+com.pavkoo.franklin.controls.Today$1 -> com.pavkoo.franklin.controls.at:
     com.pavkoo.franklin.controls.Today this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.Today$2 -> com.pavkoo.franklin.controls.aq:
+com.pavkoo.franklin.controls.Today$2 -> com.pavkoo.franklin.controls.au:
     com.pavkoo.franklin.controls.Today this$0 -> a
     void run() -> run
-com.pavkoo.franklin.controls.Today$3 -> com.pavkoo.franklin.controls.ar:
+com.pavkoo.franklin.controls.Today$3 -> com.pavkoo.franklin.controls.av:
     com.pavkoo.franklin.controls.Today this$0 -> a
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.pavkoo.franklin.controls.Today$ArcDrawable -> com.pavkoo.franklin.controls.as:
+com.pavkoo.franklin.controls.Today$ArcDrawable -> com.pavkoo.franklin.controls.aw:
     android.graphics.Paint paint -> a
     double PI -> b
     float ARC_STROKEWIDTH -> c
@@ -2821,7 +2854,7 @@ com.pavkoo.franklin.controls.Today$ArcDrawable -> com.pavkoo.franklin.controls.a
     void updateTextCallBack(java.lang.String,int) -> a
     int[] $SWITCH_TABLE$com$pavkoo$franklin$common$CheckState() -> l
     void access$1(com.pavkoo.franklin.controls.Today$ArcDrawable,com.pavkoo.franklin.controls.IUpdateViewCallback) -> a
-com.pavkoo.franklin.controls.TodayDialog -> com.pavkoo.franklin.controls.at:
+com.pavkoo.franklin.controls.TodayDialog -> com.pavkoo.franklin.controls.ax:
     android.widget.RelativeLayout llappTodayPopupComment -> a
     android.widget.LinearLayout llprogressLine -> b
     android.widget.RadioGroup rgpToday -> c
@@ -2859,41 +2892,41 @@ com.pavkoo.franklin.controls.TodayDialog -> com.pavkoo.franklin.controls.at:
     android.widget.TextView access$7(com.pavkoo.franklin.controls.TodayDialog) -> f
     android.animation.ObjectAnimator access$8(com.pavkoo.franklin.controls.TodayDialog) -> g
     android.widget.LinearLayout access$9(com.pavkoo.franklin.controls.TodayDialog) -> h
-com.pavkoo.franklin.controls.TodayDialog$1 -> com.pavkoo.franklin.controls.au:
+com.pavkoo.franklin.controls.TodayDialog$1 -> com.pavkoo.franklin.controls.ay:
     com.pavkoo.franklin.controls.TodayDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.TodayDialog$2 -> com.pavkoo.franklin.controls.av:
+com.pavkoo.franklin.controls.TodayDialog$2 -> com.pavkoo.franklin.controls.az:
     com.pavkoo.franklin.controls.TodayDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.TodayDialog$3 -> com.pavkoo.franklin.controls.aw:
+com.pavkoo.franklin.controls.TodayDialog$3 -> com.pavkoo.franklin.controls.ba:
     com.pavkoo.franklin.controls.TodayDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.TodayDialog$4 -> com.pavkoo.franklin.controls.ax:
+com.pavkoo.franklin.controls.TodayDialog$4 -> com.pavkoo.franklin.controls.bb:
     com.pavkoo.franklin.controls.TodayDialog this$0 -> a
     boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
-com.pavkoo.franklin.controls.TodayDialog$5 -> com.pavkoo.franklin.controls.ay:
+com.pavkoo.franklin.controls.TodayDialog$5 -> com.pavkoo.franklin.controls.bc:
     com.pavkoo.franklin.controls.TodayDialog this$0 -> a
     boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent) -> onEditorAction
-com.pavkoo.franklin.controls.TodayDialog$6 -> com.pavkoo.franklin.controls.az:
+com.pavkoo.franklin.controls.TodayDialog$6 -> com.pavkoo.franklin.controls.bd:
     com.pavkoo.franklin.controls.TodayDialog this$0 -> a
     void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
-com.pavkoo.franklin.controls.TodayDialog$7 -> com.pavkoo.franklin.controls.ba:
+com.pavkoo.franklin.controls.TodayDialog$7 -> com.pavkoo.franklin.controls.be:
     boolean isCancel -> b
     com.pavkoo.franklin.controls.TodayDialog this$0 -> a
     void onAnimationStart(android.animation.Animator) -> onAnimationStart
     void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
     void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
     void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-com.pavkoo.franklin.controls.TodayDialog$8 -> com.pavkoo.franklin.controls.bb:
+com.pavkoo.franklin.controls.TodayDialog$8 -> com.pavkoo.franklin.controls.bf:
     com.pavkoo.franklin.controls.TodayDialog this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.controls.TodayDialog$DialogState -> com.pavkoo.franklin.controls.bc:
+com.pavkoo.franklin.controls.TodayDialog$DialogState -> com.pavkoo.franklin.controls.bg:
     com.pavkoo.franklin.controls.TodayDialog$DialogState DSSelection -> a
     com.pavkoo.franklin.controls.TodayDialog$DialogState DSNote -> b
     com.pavkoo.franklin.controls.TodayDialog$DialogState[] ENUM$VALUES -> c
     com.pavkoo.franklin.controls.TodayDialog$DialogState[] values() -> values
     com.pavkoo.franklin.controls.TodayDialog$DialogState valueOf(java.lang.String) -> valueOf
-com.pavkoo.franklin.controls.TodayDialog$MyAdapter -> com.pavkoo.franklin.controls.bd:
+com.pavkoo.franklin.controls.TodayDialog$MyAdapter -> com.pavkoo.franklin.controls.bh:
     com.pavkoo.franklin.controls.TodayDialog$MyAdapter$MyFilter mFilter -> b
     java.util.List mOriginalValues -> c
     java.util.List mObjects -> d
@@ -2902,11 +2935,11 @@ com.pavkoo.franklin.controls.TodayDialog$MyAdapter -> com.pavkoo.franklin.contro
     java.util.List access$0(com.pavkoo.franklin.controls.TodayDialog$MyAdapter) -> a
     java.util.List access$1(com.pavkoo.franklin.controls.TodayDialog$MyAdapter) -> b
     void access$2(com.pavkoo.franklin.controls.TodayDialog$MyAdapter,java.util.List) -> a
-com.pavkoo.franklin.controls.TodayDialog$MyAdapter$MyFilter -> com.pavkoo.franklin.controls.be:
+com.pavkoo.franklin.controls.TodayDialog$MyAdapter$MyFilter -> com.pavkoo.franklin.controls.bi:
     com.pavkoo.franklin.controls.TodayDialog$MyAdapter this$1 -> a
     android.widget.Filter$FilterResults performFiltering(java.lang.CharSequence) -> performFiltering
     void publishResults(java.lang.CharSequence,android.widget.Filter$FilterResults) -> publishResults
-com.pavkoo.franklin.controls.TotalAdapter -> com.pavkoo.franklin.controls.bf:
+com.pavkoo.franklin.controls.TotalAdapter -> com.pavkoo.franklin.controls.bj:
     android.widget.LinearLayout llCommentItemBg -> a
     android.widget.TextView txtCommentItemNumber -> b
     android.widget.TextView txtCommentItemText -> c
@@ -2918,7 +2951,7 @@ com.pavkoo.franklin.controls.TotalAdapter -> com.pavkoo.franklin.controls.bf:
     java.lang.Object getItem(int) -> getItem
     long getItemId(int) -> getItemId
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.pavkoo.franklin.controls.TrendAdapter -> com.pavkoo.franklin.controls.bg:
+com.pavkoo.franklin.controls.TrendAdapter -> com.pavkoo.franklin.controls.bk:
     java.util.List morals -> a
     android.content.Context context -> b
     void setMorals(java.util.List) -> a

@@ -1076,16 +1076,16 @@ com.mobeta.android.dslv.DragSortListView:
     private static final int ON_TOUCH_EVENT
     private static final int ON_INTERCEPT_TOUCH_EVENT
     private static final int sCacheSize
-    847:849:private void printPosData()
-    1460:1466:public void moveItem(int,int)
-    1872:1877:private void adjustItem(int)
-    2179:2180:private void invalidateFloatView()
-    2631:2661:public void moveCheckState(int,int)
-    2677:2695:public void removeCheckState(int)
-    2699:2743:private static int buildRunList(android.util.SparseBooleanArray,int,int,int[],int[])
-    2747:2755:private static int rotate(int,int,int,int)
-    2759:2765:private static int findFirstSetIndex(android.util.SparseBooleanArray,int,int)
-    2769:2778:private static int insertionIndexForKey(android.util.SparseBooleanArray,int)
+    822:824:private void printPosData()
+    1447:1453:public void moveItem(int,int)
+    1866:1871:private void adjustItem(int)
+    2181:2182:private void invalidateFloatView()
+    2655:2687:public void moveCheckState(int,int)
+    2703:2722:public void removeCheckState(int)
+    2726:2770:private static int buildRunList(android.util.SparseBooleanArray,int,int,int[],int[])
+    2775:2783:private static int rotate(int,int,int,int)
+    2788:2794:private static int findFirstSetIndex(android.util.SparseBooleanArray,int,int)
+    2798:2807:private static int insertionIndexForKey(android.util.SparseBooleanArray,int)
 com.mobeta.android.dslv.DragSortListView$DragScroller:
     public static final int STOP
     public static final int UP
@@ -1093,7 +1093,7 @@ com.mobeta.android.dslv.DragSortListView$DragScroller:
     private int mLastHeader
     private int mFirstFooter
 com.mobeta.android.dslv.DragSortListView$LiftAnimator:
-    1208:1210:public DragSortListView$LiftAnimator(com.mobeta.android.dslv.DragSortListView,float,int)
+    1189:1191:public DragSortListView$LiftAnimator(com.mobeta.android.dslv.DragSortListView,float,int)
 com.mobeta.android.dslv.R:
     9:9:public R()
 com.mobeta.android.dslv.R$attr

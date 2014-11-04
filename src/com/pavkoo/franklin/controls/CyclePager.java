@@ -284,7 +284,7 @@ public class CyclePager extends ViewGroup {
 	}
 
 	FlipAnimationHandler mAnimationHandler;
-	int ovv = 60;
+	int ovv = 70;
 	private void moveView() {
 		final int count = views.size();
 
@@ -321,7 +321,7 @@ public class CyclePager extends ViewGroup {
 			}
 			mAnimationHandler.sleep(1);
 		} else {
-			ovv = 60;
+			ovv = 70;
 			touchState = TOUCH_STATE_REST;
 			if (updateViewCallBack !=null){
 				updateViewCallBack.callUpdateFontSize();
