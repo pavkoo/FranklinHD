@@ -2,25 +2,25 @@
 # view res/layout/settting_welcome.xml #generated:42
 -keep class com.mobeta.android.dslv.DragSortListView { <init>(...); }
 
-# view AndroidManifest.xml #generated:38
+# view AndroidManifest.xml #generated:40
 -keep class com.pavkoo.franklin.FinishActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:17
+# view AndroidManifest.xml #generated:19
 -keep class com.pavkoo.franklin.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:30
+# view AndroidManifest.xml #generated:32
 -keep class com.pavkoo.franklin.SettingActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:21
+# view AndroidManifest.xml #generated:23
 -keep class com.pavkoo.franklin.SplashActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:34
+# view AndroidManifest.xml #generated:36
 -keep class com.pavkoo.franklin.TutorialsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:11
+# view AndroidManifest.xml #generated:13
 -keep class com.pavkoo.franklin.common.FranklinApplication { <init>(...); }
 
-# view res/layout/activity_main.xml #generated:86
+# view res/layout/activity_main.xml #generated:99
 # view res/layout/activity_setting.xml #generated:138
 # view res/layout/setting_projectitem_popup.xml #generated:106
 # view res/layout/settting_welcome_popup.xml #generated:27
@@ -29,13 +29,13 @@
 # view res/layout/cycle_history_report.xml #generated:106
 -keep class com.pavkoo.franklin.controls.BlemishReport { <init>(...); }
 
-# view res/layout/activity_main.xml #generated:212
+# view res/layout/activity_main.xml #generated:225
 -keep class com.pavkoo.franklin.controls.CyclePager { <init>(...); }
 
 # view res/layout/cycle_today_selector.xml #generated:21
 -keep class com.pavkoo.franklin.controls.PredicateLayout { <init>(...); }
 
-# view res/layout/activity_main.xml #generated:190
+# view res/layout/activity_main.xml #generated:203
 -keep class com.pavkoo.franklin.controls.ScrollingTextView { <init>(...); }
 
 # view res/layout/cycle_today_selector.xml #generated:36

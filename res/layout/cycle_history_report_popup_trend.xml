@@ -34,12 +34,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/appBorderPadding" >
-
+        
+        <TextView
+            android:id="@+id/tvReportTrendShare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/setting_roundrect_warning_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/textPadding"
+            android:padding="@dimen/textPadding"
+            android:text="@string/Mainshare"
+            android:textColor="@color/white_app_txt_white" />
+        
         <TextView
             android:id="@+id/tvReportTrendClose"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+             android:layout_weight="1"
             android:background="@drawable/setting_roundrect_warning_selector"
+            android:layout_marginLeft="@dimen/textPadding"
             android:clickable="true"
             android:gravity="center"
             android:padding="@dimen/textPadding"

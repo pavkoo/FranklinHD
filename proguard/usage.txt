@@ -1133,14 +1133,14 @@ com.pavkoo.franklin.common.Moral:
     35:36:private void clearTodayComment()
     132:137:public void setTodaySelected(com.pavkoo.franklin.common.CheckState)
 com.pavkoo.franklin.common.UtilsClass:
-    11:11:public UtilsClass()
+    19:19:public UtilsClass()
 com.pavkoo.franklin.controls.BlemishReport:
     private static final int ColTitleSpace
     private static final int RowTitleSpace
 com.pavkoo.franklin.controls.BlemishReportTotalDialog:
-    25:25:public java.util.List getMorals()
+    28:28:public java.util.List getMorals()
 com.pavkoo.franklin.controls.BlemishReportTrendDialog:
-    25:25:public java.util.List getMorals()
+    28:28:public java.util.List getMorals()
 com.pavkoo.franklin.controls.CommentAdapter:
     25:25:public java.util.List getComments()
 com.pavkoo.franklin.controls.CyclePager:

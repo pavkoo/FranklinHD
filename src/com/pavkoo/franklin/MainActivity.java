@@ -103,6 +103,7 @@ public class MainActivity extends ParentActivity implements
 	private TextView txtSetting;
 	private TextView txtContactMe;
 	private TextView txtHelp;
+	private TextView txtMainShare;
 	private Animation indicatorAnim;
 	private Animation shakeAnim;
 
@@ -143,6 +144,7 @@ public class MainActivity extends ParentActivity implements
 		txtContactMe = (TextView) findViewById(R.id.txtContactMe);
 		tvMainDate = (TextView) findViewById(R.id.tvMainDate);
 		txtHelp = (TextView) findViewById(R.id.txtHelp);
+		txtMainShare = (TextView) findViewById(R.id.txtMainShare);
 		needSave = false;
 		indicatorAnim = AnimationUtils.loadAnimation(this,
 				R.anim.indicator_scale);
@@ -239,6 +241,38 @@ public class MainActivity extends ParentActivity implements
 				}
 			}
 		});
+		txtMainShare.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				int pos = cycleContent.getCurrent();
+				switch (pos) {
+				case 0:
+					UtilsClass.shareMsg(MainActivity.this,
+							getString(R.string.Mainshare),
+							getString(R.string.shareReflections),
+							MainActivity.this.getWindow().getDecorView());
+					break;
+				case 1:
+					UtilsClass.shareMsg(MainActivity.this,
+							getString(R.string.Mainshare),
+							getString(R.string.ImGetBetter), 
+							MainActivity.this.getWindow().getDecorView());
+					break;
+
+				case 2:
+					UtilsClass.shareMsg(MainActivity.this,
+							getString(R.string.Mainshare),
+							getString(R.string.shareReport), 
+							MainActivity.this.getWindow().getDecorView());
+					break;
+				default:
+					break;
+				}
+
+			}
+		});
+
 		iniDialog();
 		ivHome.setTag(viewState);
 		ivHome.setOnClickListener(new OnClickListener() {

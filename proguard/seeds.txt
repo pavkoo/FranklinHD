@@ -408,6 +408,8 @@ com.pavkoo.franklin.R$id: int tvCycleReprotAppCount
 com.pavkoo.franklin.R$id: int tvFinishModify
 com.pavkoo.franklin.R$id: int tvFinishOne
 com.pavkoo.franklin.R$id: int tvFinishOr
+com.pavkoo.franklin.R$id: int tvFinishOr2
+com.pavkoo.franklin.R$id: int tvFinishShare
 com.pavkoo.franklin.R$id: int tvFinishStore
 com.pavkoo.franklin.R$id: int tvMainDate
 com.pavkoo.franklin.R$id: int tvMainTime
@@ -418,8 +420,10 @@ com.pavkoo.franklin.R$id: int tvMainTitleMotto
 com.pavkoo.franklin.R$id: int tvMeeesage
 com.pavkoo.franklin.R$id: int tvPopupComment
 com.pavkoo.franklin.R$id: int tvReportToatalClose
+com.pavkoo.franklin.R$id: int tvReportToatalShare
 com.pavkoo.franklin.R$id: int tvReportToatalTitle
 com.pavkoo.franklin.R$id: int tvReportTrendClose
+com.pavkoo.franklin.R$id: int tvReportTrendShare
 com.pavkoo.franklin.R$id: int tvReportTrendTitle
 com.pavkoo.franklin.R$id: int tvSettingCycleBg
 com.pavkoo.franklin.R$id: int tvSettingCycleText
@@ -465,6 +469,7 @@ com.pavkoo.franklin.R$id: int txtCommentItemNumber
 com.pavkoo.franklin.R$id: int txtCommentItemText
 com.pavkoo.franklin.R$id: int txtContactMe
 com.pavkoo.franklin.R$id: int txtHelp
+com.pavkoo.franklin.R$id: int txtMainShare
 com.pavkoo.franklin.R$id: int txtSetting
 com.pavkoo.franklin.R$id: int txtSettingProjectItemPopupTitle
 com.pavkoo.franklin.R$id: int txtSettingProjectItemPopupTitleDes
@@ -504,6 +509,8 @@ com.pavkoo.franklin.R$layout: int settting_welcome_popup
 com.pavkoo.franklin.R$layout: int today_control
 com.pavkoo.franklin.R$layout: int today_control_popup
 com.pavkoo.franklin.R$string: int Finishmodify
+com.pavkoo.franklin.R$string: int ImGetBetter
+com.pavkoo.franklin.R$string: int Mainshare
 com.pavkoo.franklin.R$string: int OK
 com.pavkoo.franklin.R$string: int SettingCycleDescription
 com.pavkoo.franklin.R$string: int SettingCycleSeekbar
@@ -603,6 +610,9 @@ com.pavkoo.franklin.R$string: int settingRestore
 com.pavkoo.franklin.R$string: int settingWelcomeDescrpit
 com.pavkoo.franklin.R$string: int settingtitle
 com.pavkoo.franklin.R$string: int share
+com.pavkoo.franklin.R$string: int shareReflections
+com.pavkoo.franklin.R$string: int shareReport
+com.pavkoo.franklin.R$string: int sharetotal
 com.pavkoo.franklin.R$string: int sina
 com.pavkoo.franklin.R$string: int startNewMoralInfo
 com.pavkoo.franklin.R$string: int startNewMoralInfo2
@@ -667,6 +677,7 @@ com.pavkoo.franklin.R$string: int tutorials7
 com.pavkoo.franklin.R$string: int tutorials8
 com.pavkoo.franklin.R$string: int typeCouse
 com.pavkoo.franklin.R$string: int version
+com.pavkoo.franklin.R$string: int virtueDone
 com.pavkoo.franklin.R$string: int welcome
 com.pavkoo.franklin.R$string: int welcome1
 com.pavkoo.franklin.R$string: int welcome11

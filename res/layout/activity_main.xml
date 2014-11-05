@@ -53,6 +53,19 @@
                 android:text="@string/main_toolbar_help" />
 
             <TextView
+                android:id="@+id/txtMainShare"
+                style="@style/appBottomToolBarTextLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:background="@drawable/toolbar_selector"
+                android:drawableLeft="@drawable/contectme"
+                android:gravity="center"
+                android:text="@string/Mainshare" />
+            
+            <TextView
                 android:id="@+id/txtContactMe"
                 style="@style/appBottomToolBarTextLayout"
                 android:layout_width="wrap_content"

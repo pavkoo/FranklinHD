@@ -1,5 +1,7 @@
 package com.pavkoo.franklin;
 
+import com.pavkoo.franklin.common.UtilsClass;
+
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +17,7 @@ public class FinishActivity extends ParentActivity {
 	private ImageView ivFinishDone;
 	private TextView tvFinishStore;
 	private TextView tvFinishModify;
+	private TextView tvFinishShare;
 
 	@Override
 	protected void initView() {
@@ -24,39 +27,56 @@ public class FinishActivity extends ParentActivity {
 		ivFinishDone = (ImageView) findViewById(R.id.ivFinishDone);
 		tvFinishStore = (TextView) findViewById(R.id.tvFinishStore);
 		tvFinishModify = (TextView) findViewById(R.id.tvFinishModify);
+		tvFinishShare = (TextView) findViewById(R.id.tvFinishShare);
 	}
 
 	@Override
 	protected void initViewEvent() {
 		super.initViewEvent();
 		tvFinishStore.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				FinishActivity.this.getApp().markMailStone();
-				
-				Intent mainIntent = new Intent(FinishActivity.this, MainActivity.class);
+
+				Intent mainIntent = new Intent(FinishActivity.this,
+						MainActivity.class);
 				FinishActivity.this.startActivity(mainIntent);
 				FinishActivity.this.finish();
 			}
-		}); 
+		});
 		tvFinishModify.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				FinishActivity.this.getApp().markMailStone();
-				
-				Intent setIntent = new Intent(FinishActivity.this, SettingActivity.class);
+
+				Intent setIntent = new Intent(FinishActivity.this,
+						SettingActivity.class);
 				setIntent.putExtra("STARTMODE", R.id.rbSettingProjectItem);
 				FinishActivity.this.startActivity(setIntent);
 				FinishActivity.this.finish();
 			}
-		});		
+		});
+
+		tvFinishShare.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				UtilsClass.shareMsg(FinishActivity.this,
+						getString(R.string.Mainshare),
+						getString(R.string.virtueDone), 
+						FinishActivity.this
+								.getWindow().getDecorView());
+			}
+		});
+
 		Animation amin = AnimationUtils.loadAnimation(this, R.anim.zoom_in);
 		int awardCount = getApp().getAppCon().getHistoryCount();
-		for(int i=0;i<awardCount;i++){
+		for (int i = 0; i < awardCount; i++) {
 			ImageView ivAward = new ImageView(this);
-			LinearLayout.LayoutParams lp =new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			lp.setMargins(10, 10, 10, 10);
 			ivAward.setLayoutParams(lp);
 			ivAward.setImageResource(R.drawable.victory);

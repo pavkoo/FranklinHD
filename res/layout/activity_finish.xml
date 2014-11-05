@@ -71,5 +71,25 @@
         android:padding="@dimen/textPadding"
         android:text="@string/Finishmodify"
         android:textColor="@color/white_app_txt_white" />
+    
+    <TextView
+        android:id="@+id/tvFinishOr2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/textPadding"
+        android:gravity="center_vertical"
+        android:text="@string/or" />
+    
+    <TextView
+        android:id="@+id/tvFinishShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/textPadding"
+        android:background="@drawable/setting_roundrect_warning_selector"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:padding="@dimen/textPadding"
+        android:text="@string/Mainshare"
+        android:textColor="@color/white_app_txt_white" />
 
 </LinearLayout>
