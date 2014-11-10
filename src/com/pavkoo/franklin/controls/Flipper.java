@@ -59,7 +59,6 @@ public class Flipper extends ViewGroup {
 	private boolean lock = true;
 
 	private float lastMotionX;
-	private float lastMotionY;
 	private float startMotionX;
 	private float invisiableLeft;
 
@@ -89,7 +88,7 @@ public class Flipper extends ViewGroup {
 	}
 
 	// 移动的阈值
-	private static final int TOUCH_SLOP = 10;
+	private static final int TOUCH_SLOP = 25;
 
 	public int width;
 
@@ -349,6 +348,7 @@ public class Flipper extends ViewGroup {
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
+		Log.i("onTouchEvent", "onTouchEvent called !");
 		if (!lock) {
 			final int action = ev.getAction();
 			final float x = ev.getX();
@@ -379,11 +379,9 @@ public class Flipper extends ViewGroup {
 			case MotionEvent.ACTION_MOVE:
 				if (touchState == TOUCH_STATE_MOVING) {
 					float offsetX = x - lastMotionX;
-					float offsetY = y - lastMotionY;
 
 					if (isMoved) {
 						lastMotionX = x;
-						lastMotionY = y;
 
 						final int count = views.size();
 						// from left to right
@@ -397,13 +395,13 @@ public class Flipper extends ViewGroup {
 								updateAlpha(child);
 							}
 						}
-					} else if (Math.abs(offsetX) > TOUCH_SLOP || Math.abs(offsetY) > TOUCH_SLOP) {
+					} else if (Math.abs(offsetX) > TOUCH_SLOP) {
 						// 移动超过阈值，则表示移动了
 						isMoved = true;
 						removeCallbacks(mLongPressRunnable);
 					}
 				}
-
+				Log.i("onTouchEvent", "MOVING!");
 				break;
 			case MotionEvent.ACTION_UP:// 放开时
 				// 释放了
@@ -468,7 +466,7 @@ public class Flipper extends ViewGroup {
 	}
 
 	FlipAnimationHandler mAnimationHandler;
-	int ovv = 60;
+	int ovv = 80;
 
 	private void moveView() {
 		Log.i("moveView","offset:"+String.valueOf(offset));
@@ -508,7 +506,7 @@ public class Flipper extends ViewGroup {
 			}
 			mAnimationHandler.sleep(1);
 		} else {
-			ovv = 60;
+			ovv = 80;
 			touchState = TOUCH_STATE_REST;
 			if (sign == 1) {
 				prepareText(false);

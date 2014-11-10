@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="version">Version 0.9.2</string>
-    <string name="app_name">自我修养小米特别版</string>
+
+    <string name="version">Version 0.9.3</string>
+    <string name="app_name">自我修养</string>
     <string name="appnameabout">自我修养 beta版</string>
     <string name="book">《富兰克林自传》</string>
     <string name="hello_world">Hello world!</string>
@@ -125,7 +126,7 @@
     <string name="deleteHistoryCommentInfo">删除你所有的感想。感想是你的一份宝贵财产，删除之后就不可恢复。你确定继续吗？</string>
     <string name="restoretinfo">恢复默认会删除你所有的配置数据，软件恢复初始状态！\n你需要重新配置训练计划\n你确定要恢复默认吗？</string>
     <string name="benjaminfranklininfo">本杰明·富兰克林（Benjamin Franklin，1706年1月17日－1790年4月17日），出生于美国麻省波士顿，是美国著名政治家、科学家，同时亦是出版商、印刷商、记者、作家、慈善家；更是杰出的外交家及发明家。他是美国革命时重要的领导人之一，参与了多项重要文件的草拟，并曾出任美国驻法国大使，成功取得法国支持美国独立。本杰明·富兰克林曾经进行多项关于电的实验，并且发明了避雷针。他还发明了双焦点眼镜，蛙鞋等等。本杰明·富兰克林是共济会的成员，被选为英国皇家学会院士。他亦是美国首位邮政局长。\n由于1928年以后每张百元美钞上都印有本杰明·富兰克林的肖像，再加上美元身为世界主要流通货币的重要性，导致本杰明·富兰克林的长相广为世界各地不少人所熟悉。
-美国在线曾于2005年举办了票选活动《最伟大的美国人》，当中富兰克林获选为美国最伟大人物的第五位。</string>    
+美国在线曾于2005年举办了票选活动《最伟大的美国人》，当中富兰克林获选为美国最伟大人物的第五位。</string>
     <string name="enjoylife">坚持做一件事情是一项技术活，需要你掌握其中的原理\n\n提醒：按照富兰克林的训练方法，软件还应该包含一个日程管理的功能，但目前市场上日程管理的软件太多，我不打算重复发明车轮。日程管理请使用相应的软件来实现。</string>
     <string name="bookcontenttitle1">人要发财，就得请教妻子</string>
     <string name="bookcontent">
@@ -216,7 +217,7 @@
     <string name="trend">美德完成走势</string>
     <string name="send">发送</string>
     <string name="cantSendEmail">不能发送邮件！\n如果你对产品或者我有什么意见及建议,请与我联系：pavkoo@live.com</string>
-    <string name="typeCouse">每次发现过失时，不妨记录一些感想</string>
+    <string name="typeCouse">每次发现过失时，不妨记录一些感想\n（反省时，选择"糟糕"的时候才需要写感谢哦）</string>
     <string name="tabToChoose">按照毕达哥拉斯在他的“金诗篇”里所提出的意见，我认为每日必须检查反省（点击数字）</string>
     <string name="helpReport">一个小小的黑点，代表在检查当天该项美德时所发现的过失。（如果你该天忘记反省，也会有一个黑点）</string>
     <string name="dragToChangeCycle">你可以拖动数字调整训练时间、左右滑动删除你不需要训练的美德</string>
@@ -233,7 +234,7 @@
     <string name="errorAddContent">请添加内容</string>
     <string name="tutorials5">或者跳过</string>
     <string name="tutorials6">了解方法论</string>
-    <string name="tutorials7">开始初始化软件（强烈建议先了解方法论）</string>
+    <string name="tutorials7">设置我的修养计划</string>
     <string name="tutorials2">嘿，你好，伙计！
 \n在你开始使用软件之前，我想我们应该就一些认识世界的观念达成一致。因为只有这样，你才能够知道你是否真的需要这个软件。
 \n（点击继续）</string>
@@ -266,5 +267,6 @@
     <string name="shareReflections">我正在使用 自我修养 提升自己，哎，可是最近我是怎么了呢</string>
     <string name="sharetotal">我正在使用 自我修养 提升自己，看看我修炼的怎么样了</string>
     <string name="virtueDone">哈哈，我已经成功的完成我的美德训练</string>
+    <string name="errortorestore">软件发生异常，请在设置中恢复默认</string>
 
 </resources>

@@ -587,6 +587,7 @@ containing a value of this type.
         public static final int errorMotto=0x7f080098;
         public static final int errorTooMuchCh=0x7f080095;
         public static final int errorTooMuchLines=0x7f080097;
+        public static final int errortorestore=0x7f0800b7;
         public static final int finishDone=0x7f0800a3;
         public static final int finishOneTime=0x7f0800a7;
         public static final int finishRate=0x7f080086;

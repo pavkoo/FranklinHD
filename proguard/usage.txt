@@ -1117,7 +1117,7 @@ com.pavkoo.franklin.R$string
 com.pavkoo.franklin.R$style
 com.pavkoo.franklin.R$styleable
 com.pavkoo.franklin.SettingActivity$FragmentFactory:
-    160:160:public SettingActivity$FragmentFactory()
+    165:165:public SettingActivity$FragmentFactory()
 com.pavkoo.franklin.common.ApplicationConfig:
     55:55:public java.util.Date getLastUse()
 com.pavkoo.franklin.common.Comment:

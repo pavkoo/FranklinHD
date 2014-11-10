@@ -426,6 +426,7 @@ int string errorAddTitle 0x7f080094
 int string errorMotto 0x7f080098
 int string errorTooMuchCh 0x7f080095
 int string errorTooMuchLines 0x7f080097
+int string errortorestore 0x7f0800b7
 int string finishDone 0x7f0800a3
 int string finishOneTime 0x7f0800a7
 int string finishRate 0x7f080086

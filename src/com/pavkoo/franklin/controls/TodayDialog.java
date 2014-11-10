@@ -265,11 +265,10 @@ public class TodayDialog extends ParentDialog {
 		}
 		Comment comObj = new Comment();
 		comObj.setContent(comment);
-		comObj.setCount(1);
 		boolean find = false;
 		List<Comment> comments = app.getComments();
 		for (int i = 0; i < comments.size(); i++) {
-			if (comments.get(i).equals(comObj)) {
+			if (comments.get(i).equals(comObj) && !comments.get(i).isRemoved()) {
 				comments.get(i).setCount(comments.get(i).getCount() + 1);
 				newCommentIndex = i;
 				find = true;

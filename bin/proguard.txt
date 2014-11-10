@@ -2,22 +2,22 @@
 # view res/layout/settting_welcome.xml #generated:42
 -keep class com.mobeta.android.dslv.DragSortListView { <init>(...); }
 
-# view AndroidManifest.xml #generated:40
+# view AndroidManifest.xml #generated:44
 -keep class com.pavkoo.franklin.FinishActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:19
+# view AndroidManifest.xml #generated:23
 -keep class com.pavkoo.franklin.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:32
+# view AndroidManifest.xml #generated:36
 -keep class com.pavkoo.franklin.SettingActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:23
+# view AndroidManifest.xml #generated:27
 -keep class com.pavkoo.franklin.SplashActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:36
+# view AndroidManifest.xml #generated:40
 -keep class com.pavkoo.franklin.TutorialsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:13
+# view AndroidManifest.xml #generated:17
 -keep class com.pavkoo.franklin.common.FranklinApplication { <init>(...); }
 
 # view res/layout/activity_main.xml #generated:99

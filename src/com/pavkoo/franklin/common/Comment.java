@@ -9,8 +9,19 @@ public class Comment implements Comparable<Comment>, Serializable {
 	private static final long serialVersionUID = 1L;
 	private String content;
 	private int count;
+	private boolean removed;
+
+	public boolean isRemoved() {
+		return removed;
+	}
+
+	public void setRemoved(boolean removed) {
+		this.removed = removed;
+	}
 
 	public Comment() {
+		this.count = 1;
+		removed = false;
 	}
 
 	public String getContent() {

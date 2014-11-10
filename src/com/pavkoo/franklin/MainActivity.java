@@ -471,6 +471,11 @@ public class MainActivity extends ParentActivity implements
 	@SuppressLint("NewApi")
 	private boolean initMorals() {
 		needSave = false;
+		if (morals==null){
+			amMessage.showMessage(getString(R.string.errortorestore),
+					AnimMessageType.ERROR);
+			return false;
+		}
 		for (int i = 0; i < morals.size(); i++) {
 			Moral m = morals.get(i);
 			Log.i("Day", "Start:" + m.getStartDate().toString()
@@ -722,6 +727,7 @@ public class MainActivity extends ParentActivity implements
 				cadapter = new CommentAdapter(this.getApplicationContext(),
 						comments, mainColor);
 			} else {
+				cadapter.setComments(comments);
 				cadapter.notifyDataSetChanged();
 			}
 			if (comments.size() == 0) {

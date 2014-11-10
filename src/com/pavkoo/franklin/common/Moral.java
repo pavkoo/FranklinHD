@@ -121,12 +121,24 @@ public class Moral implements Serializable {
 			return;
 		stateList.set(pos, cs);
 		if (cs == CheckState.UNDONE) {
-			commentIndex.set(pos, -1);
-		} else {
 			commentIndex.set(pos, commIndex);
+		} else {
+			commentIndex.set(pos, -1);
 		}
 	}
 
+	public int getCommentIndex(int pos){
+		int passCycle = stateList.size() / this.cycle;
+		int reminder = stateList.size() % this.cycle;
+		if (reminder == 0) {
+			passCycle -= 1;
+		}
+		pos = passCycle * this.cycle + pos - 1;
+		if ((pos < 0) || (pos > stateList.size() - 1))
+			return -1;
+		return commentIndex.get(pos);
+	}
+	
 	public void setTodaySelected(CheckState todaySelected) {
 		@SuppressWarnings("unused")
 		CheckState today = stateList.get(stateList.size() - 1);

@@ -5,7 +5,9 @@ import java.util.List;
 
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.CheckState;
+import com.pavkoo.franklin.common.Comment;
 import com.pavkoo.franklin.common.CommonConst;
+import com.pavkoo.franklin.common.FranklinApplication;
 import com.pavkoo.franklin.common.Moral;
 import com.pavkoo.franklin.controls.TodayDialog.DialogState;
 
@@ -44,6 +46,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 	private Bitmap bmpSmale;
 	private Bitmap bmpSad;
 	private String todayDialogTitle;
+	private FranklinApplication app;
 
 	public String getTodayDialogTitle() {
 		return todayDialogTitle;
@@ -155,6 +158,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		llContent.addView(FlipperNumber, params);
 		FlipperNumber.setUpdateText(arcBackground);
+		app = (FranklinApplication) this.getContext().getApplicationContext();
 //		ivBg = (ImageView) findViewById(R.id.ivBg);
 //		ambmpBgScale = AnimationUtils.loadAnimation(getContext(), R.anim.today_bg_scale);
 //		ivBg.setAnimation(ambmpBgScale);
@@ -204,6 +208,12 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 					if (mDialog.isNewComment()) {
 						moral.setHistorySelected(getCurrentShowing(), mDialog.getCheckState(), mDialog.getNewCommentIndex());
 					} else {
+						int commentIndex = moral.getCommentIndex(getCurrentShowing());
+						if (commentIndex!=-1){
+							Comment c = app.getComments().get(commentIndex);
+							c.setRemoved(true);
+							app.saveComments(app.getComments());
+						}
 						moral.setHistorySelected(getCurrentShowing(), mDialog.getCheckState());
 					}
 					arcBackground.setHistoryCheckList(moral.getStateList());

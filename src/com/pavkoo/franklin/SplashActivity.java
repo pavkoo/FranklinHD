@@ -63,7 +63,7 @@ public class SplashActivity extends ParentActivity {
 	}
 
 	private void selectImage() {
-		if (config.isFrist()) {
+		if (config.isFrist() || getApp().getMorals()==null) {
 			ivSplash.setImageResource(R.drawable.treesmall);
 			tvSplash.setText(R.string.welcome11);
 			return;

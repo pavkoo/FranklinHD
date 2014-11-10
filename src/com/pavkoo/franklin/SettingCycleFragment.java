@@ -64,6 +64,8 @@ public class SettingCycleFragment extends Fragment {
 					amMessage.reset();
 				}
 				tvSettingCycleBg.invalidate();
+				//TODO: 这里为什么会是空值呢
+				if (morals==null) return;
 				for(int i=0;i<morals.size();i++){
 					morals.get(i).setCycle(value);
 				}

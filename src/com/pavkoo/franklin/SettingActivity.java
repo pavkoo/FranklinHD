@@ -13,6 +13,7 @@ import com.pavkoo.franklin.common.UtilsClass;
 import com.pavkoo.franklin.controls.AnimMessage;
 import com.pavkoo.franklin.controls.SettingSystemHelpDialog;
 import com.pavkoo.franklin.controls.AnimMessage.AnimMessageType;
+import com.umeng.analytics.MobclickAgent;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,7 +53,7 @@ public class SettingActivity extends FragmentActivity {
 	private int[] welcomeList = { R.string.welcome1, R.string.welcome2,
 			R.string.welcome3, R.string.welcome4, R.string.welcome5,
 			R.string.welcome11, R.string.welcome12, R.string.welcome13,
-			R.string.welcome14, R.string.welcome15,R.string.welcome16 };
+			R.string.welcome14, R.string.welcome15, R.string.welcome16 };
 
 	private RadioGroup rgSetting;
 	private FragmentManager fmManager;
@@ -148,6 +149,11 @@ public class SettingActivity extends FragmentActivity {
 	}
 
 	public void changeFragment(Fragment fragment) {
+		if (app.getMorals() == null) {
+			amMessage.showMessage(getString(R.string.havenoitem));
+			rbSettingProjectItem.setChecked(true);
+			return;
+		}
 		FragmentTransaction transaction = fmManager.beginTransaction();
 		transaction.setCustomAnimations(R.anim.slide_in_right,
 				R.anim.slide_out_left);
@@ -188,8 +194,7 @@ public class SettingActivity extends FragmentActivity {
 					@Override
 					public void onClick(View v) {
 						if (app.getMorals().size() < 1) {
-							amMessage
-									.showMessage(getString(R.string.havenoitem));
+							amMessage.showMessage(getString(R.string.havenoitem));
 							return;
 						}
 						rbSettingCycle.setChecked(true);
@@ -350,23 +355,23 @@ public class SettingActivity extends FragmentActivity {
 			if (moral.getCurrentDayInCycle() != 0) {
 				calendar.setTime(moral.getEndDate());
 				calendar.add(Calendar.DATE, 1);
-				startIndex = i+1;
+				startIndex = i + 1;
 				break;
 			}
 		}
 		for (int i = startIndex; i < morals.size(); i++) {
-            Moral moral = morals.get(i);
-            begin = calendar.getTime();
-            if (i == startIndex) {
-                begin = calendar.getTime();
-            } else {
-                calendar.add(Calendar.DATE, 1);
-                begin = calendar.getTime();
-            }
-            calendar.add(Calendar.DATE, moral.getCycle()-1); // -1 means day
-                                                                // between
-                                                                // should sub 1
-            end = calendar.getTime(); 
+			Moral moral = morals.get(i);
+			begin = calendar.getTime();
+			if (i == startIndex) {
+				begin = calendar.getTime();
+			} else {
+				calendar.add(Calendar.DATE, 1);
+				begin = calendar.getTime();
+			}
+			calendar.add(Calendar.DATE, moral.getCycle() - 1); // -1 means day
+																// between
+																// should sub 1
+			end = calendar.getTime();
 			moral.setStartDate(begin);
 			moral.setEndDate(end);
 		}
@@ -383,4 +388,17 @@ public class SettingActivity extends FragmentActivity {
 			super.onBackPressed();
 		}
 	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPause(this);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onResume(this);
+	}
+	
 }
