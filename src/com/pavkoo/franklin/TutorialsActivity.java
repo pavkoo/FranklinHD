@@ -5,7 +5,6 @@ import com.pavkoo.franklin.controls.SettingSystemHelpDialog;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,7 +13,7 @@ public class TutorialsActivity extends ParentActivity {
 	private TextView tvChart;
 	private TextView tvChartShowBook;
 	private TextView tvChartGo;
-	private ImageView ivTutoriHead;
+//	private ImageView ivTutoriHead;
 	private SettingSystemHelpDialog helpDialog;
 	private TextView tvChartBye;
 
@@ -26,7 +25,7 @@ public class TutorialsActivity extends ParentActivity {
 		llChart = (LinearLayout) findViewById(R.id.llChart);
 		tvChartShowBook = (TextView) findViewById(R.id.tvChartShowBook);
 		tvChartGo = (TextView) findViewById(R.id.tvChartGo);
-		ivTutoriHead= (ImageView) findViewById(R.id.ivTutoriHead);
+//		ivTutoriHead= (ImageView) findViewById(R.id.ivTutoriHead);
 		tvChartBye = (TextView) findViewById(R.id.tvChartBye);
 		tvChart.setTag(0);
 		helpDialog = new SettingSystemHelpDialog(this, android.R.style.Theme_Translucent_NoTitleBar);
@@ -59,13 +58,11 @@ public class TutorialsActivity extends ParentActivity {
 			
 			@Override
 			public void onClick(View v) {
-				ivTutoriHead.setVisibility(View.GONE);
-				tvChart.setVisibility(View.GONE);
-				llChart.setVisibility(View.GONE);
 				Intent setIntent = new Intent(TutorialsActivity.this, SettingActivity.class);
 				setIntent.putExtra("STARTMODE", R.id.rbSettingProjectItem);
 				startActivity(setIntent);
 				finish();
+				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 			}
 		});
 		tvChartShowBook.setOnClickListener(new OnClickListener() {

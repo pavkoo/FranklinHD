@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="version">Version 0.9.3</string>
+    <string name="version">Version 0.9.4</string>
     <string name="app_name">13 Virtues</string>
     <string name="appnameabout">13 Virtues BETA</string>
     <string name="book">The Autobiography of Benjamin Franklin</string>
-    <string name="hello_world">Hello world!</string>
     <string name="devTemp">.</string>
     <string name="main_toolbar_setting">Settings</string>
     <string name="main_toolbar_help">Help</string>

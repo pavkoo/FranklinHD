@@ -269,6 +269,7 @@ public class SettingActivity extends FragmentActivity {
 							MainActivity.class);
 					SettingActivity.this.startActivity(mainIntent);
 					SettingActivity.this.finish();
+					overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 				} else {
 					buildAllCycleDateNew();
 					getApp().saveData();
@@ -276,6 +277,7 @@ public class SettingActivity extends FragmentActivity {
 							MainActivity.class);
 					SettingActivity.this.startActivity(mainIntent);
 					SettingActivity.this.finish();
+					overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 				}
 			}
 		});

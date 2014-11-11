@@ -219,6 +219,9 @@ public class SettingProjectItemFragment extends Fragment {
 			TextView drag = (TextView) convertView.findViewById(R.id.drag_handle);
 			LinearLayout llremoveid = (LinearLayout) convertView.findViewById(R.id.remove_handle);
 			drag.setText(String.valueOf(position + 1));
+			if (position<0 || position>morals.size()){
+				return convertView;
+			}
 			title.setText(morals.get(position).getTitle());
 			des.setText(morals.get(position).getTitleDes());
 			motto.setText(morals.get(position).getTitleMotto());

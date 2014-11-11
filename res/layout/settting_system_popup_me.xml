@@ -11,32 +11,33 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_launcher"
         android:drawablePadding="@dimen/textPadding"
-        android:padding="@dimen/textPadding"
         android:gravity="center_vertical|left"
+        android:padding="@dimen/textPadding"
         android:text="@string/appnameabout"
         android:textColor="@color/white_app_txt_black"
         android:textSize="@dimen/textSizebig" />
 
-    <View android:layout_width="match_parent"
+    <View
+        android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/white_app_bg_darkgray"/>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/textPadding"
-        android:textColor="@color/white_app_txt_gray"
-		android:text="@string/version"
-        android:layout_gravity="center"/>
+        android:background="@color/white_app_bg_darkgray" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:padding="@dimen/textPadding"
+        android:text="@string/version"
+        android:textColor="@color/white_app_txt_gray" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:lineSpacingMultiplier="1.3"
-        android:textColor="@color/white_app_txt_gray"
-		android:text="@string/enjoylife"
-        android:layout_gravity="center"/>
+        android:padding="@dimen/textPadding"
+        android:text="@string/enjoylife"
+        android:textColor="@color/white_app_txt_gray" />
 
     <ImageView
         android:id="@+id/ivSettingSystemMe"
@@ -48,5 +49,23 @@
         android:scaleX="0.5"
         android:scaleY="0.5"
         android:src="@drawable/aboutpavkooanim" />
-    
+
+    <com.pavkoo.franklin.controls.AnimMessage
+        android:id="@+id/amSettingsystemMeMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/settingmeCheckupdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/textPadding"
+        android:background="@drawable/setting_roundrect_selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="@dimen/textPadding"
+        android:text="@string/checknew"
+        android:textColor="@color/white_app_txt_white" />
+
 </LinearLayout>

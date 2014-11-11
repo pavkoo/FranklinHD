@@ -43,6 +43,7 @@ public class FinishActivity extends ParentActivity {
 						MainActivity.class);
 				FinishActivity.this.startActivity(mainIntent);
 				FinishActivity.this.finish();
+				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 			}
 		});
 		tvFinishModify.setOnClickListener(new OnClickListener() {
@@ -56,6 +57,7 @@ public class FinishActivity extends ParentActivity {
 				setIntent.putExtra("STARTMODE", R.id.rbSettingProjectItem);
 				FinishActivity.this.startActivity(setIntent);
 				FinishActivity.this.finish();
+				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 			}
 		});
 

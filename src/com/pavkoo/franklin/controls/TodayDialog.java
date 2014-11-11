@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.Animator.AnimatorListener;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.animation.ValueAnimator;
+import com.nineoldandroids.animation.ValueAnimator.AnimatorUpdateListener;
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.CheckState;
 import com.pavkoo.franklin.common.Comment;
 import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.FranklinApplication;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.animation.Animator.AnimatorListener;
-import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
@@ -174,10 +174,11 @@ public class TodayDialog extends ParentDialog {
 		closePopAnim.addUpdateListener(new AnimatorUpdateListener() {
 
 			@Override
-			public void onAnimationUpdate(ValueAnimator animation) {
+			public void onAnimationUpdate(ValueAnimator arg0) {
 				llprogressLine.invalidate();
 			}
 		});
+		
 		closePopAnim.addListener(new AnimatorListener() {
 			private boolean isCancel;
 

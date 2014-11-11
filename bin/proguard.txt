@@ -1,3 +1,6 @@
+# view res/layout/activity_splash.xml #generated:64
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
 # view res/layout/setting_projectitem.xml #generated:40
 # view res/layout/settting_welcome.xml #generated:42
 -keep class com.mobeta.android.dslv.DragSortListView { <init>(...); }
@@ -23,6 +26,7 @@
 # view res/layout/activity_main.xml #generated:99
 # view res/layout/activity_setting.xml #generated:138
 # view res/layout/setting_projectitem_popup.xml #generated:106
+# view res/layout/settting_system_popup_me.xml #generated:53
 # view res/layout/settting_welcome_popup.xml #generated:27
 -keep class com.pavkoo.franklin.controls.AnimMessage { <init>(...); }
 
@@ -43,4 +47,10 @@
 
 # view res/layout/cycle_history_report_popup_trend_item.xml #generated:17
 -keep class com.pavkoo.franklin.controls.TrendReport { <init>(...); }
+
+# view AndroidManifest.xml #generated:55
+-keep class com.umeng.update.UpdateDialogActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:50
+-keep class com.umeng.update.net.DownloadingService { <init>(...); }
 

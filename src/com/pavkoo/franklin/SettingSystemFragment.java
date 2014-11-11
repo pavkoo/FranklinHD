@@ -100,12 +100,14 @@ public class SettingSystemFragment extends Fragment {
 					setIntent.putExtra("STARTMODE", R.id.rbSettingProjectItem);
 					getActivity().startActivity(setIntent);
 					getActivity().finish();
+					getActivity().overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 					break;
 				case R.string.welcome:
 					Intent setIntent2 = new Intent(SettingSystemFragment.this.getActivity(), SettingActivity.class);
 					setIntent2.putExtra("STARTMODE", R.id.rbSettingWelcome);
 					getActivity().startActivity(setIntent2);
 					getActivity().finish();
+					getActivity().overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 					break;
 				case R.string.deleteHistoryComment:
 					restartDialog.show();

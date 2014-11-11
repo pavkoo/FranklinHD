@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="version">Version 0.9.3</string>
+    <string name="version">Version 0.9.4</string>
     <string name="app_name">自我修养</string>
     <string name="appnameabout">自我修养 beta版</string>
     <string name="book">《富兰克林自传》</string>
-    <string name="hello_world">Hello world!</string>
     <string name="devTemp">.</string>
     <string name="main_toolbar_setting">设置</string>
     <string name="main_toolbar_help">帮助</string>
@@ -217,7 +216,7 @@
     <string name="trend">美德完成走势</string>
     <string name="send">发送</string>
     <string name="cantSendEmail">不能发送邮件！\n如果你对产品或者我有什么意见及建议,请与我联系：pavkoo@live.com</string>
-    <string name="typeCouse">每次发现过失时，不妨记录一些感想\n（反省时，选择"糟糕"的时候才需要写感谢哦）</string>
+    <string name="typeCouse">每次发现过失时，不妨记录一些感想\n（在点击数字反省时，选择"糟糕"的时候才可以写感想哦）</string>
     <string name="tabToChoose">按照毕达哥拉斯在他的“金诗篇”里所提出的意见，我认为每日必须检查反省（点击数字）</string>
     <string name="helpReport">一个小小的黑点，代表在检查当天该项美德时所发现的过失。（如果你该天忘记反省，也会有一个黑点）</string>
     <string name="dragToChangeCycle">你可以拖动数字调整训练时间、左右滑动删除你不需要训练的美德</string>
@@ -268,5 +267,8 @@
     <string name="sharetotal">我正在使用 自我修养 提升自己，看看我修炼的怎么样了</string>
     <string name="virtueDone">哈哈，我已经成功的完成我的美德训练</string>
     <string name="errortorestore">软件发生异常，请在设置中恢复默认</string>
+    <string name="checknew">检查更新</string>
+    <string name="gotoMain">进入主界面</string>
+    <string name="seeMore">&lt; 左右滑动可以看更多哦  ></string>
 
 </resources>

@@ -202,6 +202,7 @@ public class MainActivity extends ParentActivity implements
 				setIntent.putExtra("STARTMODE", R.id.rbAppSetting);
 				MainActivity.this.startActivity(setIntent);
 				MainActivity.this.finish();
+				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 			}
 		});
 		txtContactMe.setOnClickListener(new OnClickListener() {
@@ -532,6 +533,7 @@ public class MainActivity extends ParentActivity implements
 					FinishActivity.class);
 			startActivity(finishIntent);
 			finish();
+			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 			return false;
 		}
 		if (dayPassed) {
