@@ -5,19 +5,22 @@
 # view res/layout/settting_welcome.xml #generated:42
 -keep class com.mobeta.android.dslv.DragSortListView { <init>(...); }
 
-# view AndroidManifest.xml #generated:44
+# view AndroidManifest.xml #generated:48
 -keep class com.pavkoo.franklin.FinishActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:36
+-keep class com.pavkoo.franklin.HelperActivity { <init>(...); }
 
 # view AndroidManifest.xml #generated:23
 -keep class com.pavkoo.franklin.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:36
+# view AndroidManifest.xml #generated:40
 -keep class com.pavkoo.franklin.SettingActivity { <init>(...); }
 
 # view AndroidManifest.xml #generated:27
 -keep class com.pavkoo.franklin.SplashActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:40
+# view AndroidManifest.xml #generated:44
 -keep class com.pavkoo.franklin.TutorialsActivity { <init>(...); }
 
 # view AndroidManifest.xml #generated:17
@@ -48,9 +51,9 @@
 # view res/layout/cycle_history_report_popup_trend_item.xml #generated:17
 -keep class com.pavkoo.franklin.controls.TrendReport { <init>(...); }
 
-# view AndroidManifest.xml #generated:55
+# view AndroidManifest.xml #generated:59
 -keep class com.umeng.update.UpdateDialogActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:50
+# view AndroidManifest.xml #generated:54
 -keep class com.umeng.update.net.DownloadingService { <init>(...); }
 

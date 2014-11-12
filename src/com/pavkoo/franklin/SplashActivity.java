@@ -43,6 +43,7 @@ public class SplashActivity extends FragmentActivity {
 	private boolean stopAnimation = false;
 	private Handler myHandle;
 	private Runnable myRunable;
+	private boolean fromMain = false;
 
 	public FranklinApplication getApp() {
 		return app;
@@ -51,6 +52,10 @@ public class SplashActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
+		Bundle args = this.getIntent().getExtras();
+		if (args != null) {
+			fromMain = args.getBoolean("flag");
+		}
 		app = (FranklinApplication) this.getApplication();
 		setContentView(R.layout.activity_splash);
 		ivSplash = (ImageView) findViewById(R.id.ivSplash);
@@ -64,28 +69,36 @@ public class SplashActivity extends FragmentActivity {
 	}
 
 	protected void initViewData() {
-		getApp().loadData();
-		config = getApp().getAppCon();
-		if (!config.isFrist()) {
-			selectImage();
-			myHandle = new Handler();
-			myRunable = new Runnable() {
-				@Override
-				public void run() {
-					changeActivity();
-				}
-			};
-			myHandle.postDelayed(myRunable, START_SPLASH_OFFSET);
+		if (!fromMain) {
+			getApp().loadData();
+			config = getApp().getAppCon();
+			if (!config.isFrist()) {
+				selectImage();
+				myHandle = new Handler();
+				myRunable = new Runnable() {
+					@Override
+					public void run() {
+						changeActivity();
+					}
+				};
+				myHandle.postDelayed(myRunable, START_SPLASH_OFFSET);
+			} else {
+				Intent tutoriIntent = new Intent(SplashActivity.this,
+						TutorialsActivity.class);
+				startActivity(tutoriIntent);
+				finish();
+			}
 		} else {
-			Intent tutoriIntent = new Intent(SplashActivity.this,
-					TutorialsActivity.class);
-			startActivity(tutoriIntent);
-			finish();
+			config = getApp().getAppCon();
+			selectImage();
+			showGO();
 		}
 	}
 
 	private void showGO() {
-		myHandle.removeCallbacks(myRunable);
+		if (myHandle != null) {
+			myHandle.removeCallbacks(myRunable);
+		}
 		Animation anim = AnimationUtils.loadAnimation(this,
 				R.anim.fade_bottom_in);
 		tvSplashGo.setAnimation(anim);
@@ -107,7 +120,7 @@ public class SplashActivity extends FragmentActivity {
 			SplashActivity.this.startActivity(mainIntent);
 		}
 		SplashActivity.this.finish();
-		overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
+		overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 	}
 
 	private void selectImage() {
@@ -182,12 +195,9 @@ public class SplashActivity extends FragmentActivity {
 
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
-				if (!stopAnimation) {
-					// int pos = splashPager.getCurrentItem();
-					// if (pos != initWelcomes) {
+				if (!stopAnimation && !fromMain) {
 					stopAnimation = true;
 					showGO();
-					// }
 				}
 			}
 		});

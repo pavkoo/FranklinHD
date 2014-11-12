@@ -31,9 +31,9 @@ import android.widget.TextView;
 
 public class SettingSystemFragment extends Fragment {
 	private View self;
-	private int[] heads = { R.drawable.moralslist, R.drawable.motto, R.drawable.delete, R.drawable.restart,R.drawable.sina, 
+	private int[] heads = { R.drawable.showhelp,R.drawable.moralslist, R.drawable.motto, R.drawable.delete, R.drawable.restart,R.drawable.sina, 
 			R.drawable.tencent, R.drawable.rate, R.drawable.head,R.drawable.help2 , R.drawable.info };
-	private int[] headStrs = { R.string.moralItem, R.string.welcome, R.string.settingRestore, R.string.deleteHistoryComment,R.string.sina,
+	private int[] headStrs = { R.string.main_toolbar_help,R.string.moralItem, R.string.welcome, R.string.settingRestore, R.string.deleteHistoryComment,R.string.sina,
 			R.string.share, R.string.rate, R.string.aboutFranklin, R.string.helpBook,R.string.aboutApp };
 	private SettingSystemAdapter adapter;
 	private ListView lvSettingSystem;
@@ -150,6 +150,12 @@ public class SettingSystemFragment extends Fragment {
 					break;
 				case R.string.helpBook:
 					helpDialog.show();
+					break;
+				case R.string.main_toolbar_help:
+					Intent helperIntent = new Intent(SettingSystemFragment.this.getActivity(), HelperActivity.class);
+					getActivity().startActivity(helperIntent);
+					getActivity().finish();
+					getActivity().overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 					break;
 				}
 			}

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutAnimation="@anim/main_content_item"
+    android:orientation="vertical"
+    android:padding="@dimen/appBorderPadding" >
+
+    <LinearLayout
+        android:id="@+id/llHeplerTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvHelperSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="@string/jump"
+            android:textColor="@color/white_app_txt_gray"
+            android:textSize="@dimen/textSizeSmall" />
+
+        <ViewFlipper
+            android:id="@+id/flipperTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:flipInterval="1000" >
+
+            <TextView
+                android:id="@+id/tvHelperTopHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/white_app_txt_green"
+                android:textSize="@dimen/textSizeBiggest" />
+
+            <TextView
+                android:id="@+id/tvHelperTopHint2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white_app_txt_green"
+                android:textSize="@dimen/textSizeBiggest" />
+        </ViewFlipper>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llHeplerContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/flipperbottom"
+        android:layout_below="@+id/llHeplerTop"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/appBorderPadding"
+        android:paddingTop="@dimen/appBorderPadding" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent" >
+
+            <LinearLayout
+                android:id="@+id/llhelperMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/ivHelperHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/devTemp"
+                    android:src="@drawable/mainbuttombig" />
+
+                <ImageView
+                    android:id="@+id/ivHelperToolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/devTemp"
+                    android:scaleX="0"
+                    android:src="@drawable/hepermain" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llhelperMain2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables" >
+
+                <ImageView
+                    android:id="@+id/ivmainExample"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/devTemp"
+                    android:src="@drawable/mainexample"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvmainExample"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/helper4"
+                    android:textColor="@color/white_app_txt_gray"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llhelperMainReverse"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:ignore="UseCompoundDrawables" >
+
+                <LinearLayout
+                    android:id="@+id/llhelperMainReverseInner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent" >
+
+                    <TextView
+                        android:id="@+id/title"
+                        style="@style/appTotayPopupTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/today_control_popup_title" />
+
+                    <RadioGroup
+                        android:id="@+id/rgpHellperToday"
+                        style="@style/appTotayPopupContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/gpbHelperTodayYes"
+                            android:button="@null"
+                            android:drawableTop="@drawable/today_control_popup_selected"
+                            android:gravity="center"
+                            android:padding="@dimen/textPadding"
+                            android:text="@string/today_control_popup_good"
+                            android:textColor="@color/white_app_text_smail" />
+
+                        <RadioButton
+                            android:id="@+id/gpbHelperTodayNo"
+                            android:button="@null"
+                            android:drawableTop="@drawable/today_control_popup_unselected"
+                            android:gravity="center"
+                            android:padding="@dimen/textPadding"
+                            android:text="@string/today_control_popup_bad"
+                            android:textColor="@color/white_app_txt_black" />
+                    </RadioGroup>
+
+                    <RelativeLayout
+                        android:id="@+id/llappTodayHelperPopupComment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_app_bg_secondary"
+                        android:padding="@dimen/textPadding"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:id="@+id/tvPopupHelperComment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/comment"
+                            android:textColor="@color/white_app_txt_black" />
+
+                        <EditText
+                            android:id="@+id/txtHelperComment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tvPopupHelperComment"
+                            android:hint="@string/hintComment"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="1"
+                            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvPopupHelperCommentHint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_app_bg_secondary"
+                        android:gravity="center"
+                        android:padding="@dimen/textMinPadding"
+                        android:text="@string/caustion"
+                        android:textColor="@color/white_app_error"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llhelperMain3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tvmainSpot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:padding="@dimen/textMinPadding"
+                    android:text="@string/helpReport"
+                    android:textColor="@color/white_app_txt_gray"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/ivmainSpot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/devTemp"
+                    android:gravity="left"
+                    android:padding="@dimen/textMinPadding"
+                    android:src="@drawable/reportexample"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvmainSpot2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:padding="@dimen/textMinPadding"
+                    android:text="@string/yourgole"
+                    android:textColor="@color/white_app_txt_gray"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvHelperOK"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/appBorderPadding"
+                    android:layout_marginLeft="@dimen/textPadding"
+                    android:layout_marginRight="@dimen/textPadding"
+                    android:layout_marginTop="@dimen/textPadding"
+                    android:background="@drawable/setting_roundrect_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:padding="@dimen/textPadding"
+                    android:text="@string/igotit"
+                    android:textColor="@color/white_app_txt_white"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <ViewFlipper
+        android:id="@+id/flipperbottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:flipInterval="1000" >
+
+        <TextView
+            android:id="@+id/tvHelperBottomHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/helper1"
+            android:textColor="@color/white_app_txt_gray" />
+
+        <TextView
+            android:id="@+id/tvHelperBottomHint2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white_app_txt_gray" />
+    </ViewFlipper>
+
+</RelativeLayout>

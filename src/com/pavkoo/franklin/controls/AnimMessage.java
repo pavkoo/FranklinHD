@@ -77,7 +77,7 @@ public class AnimMessage extends LinearLayout {
 		tvMessage = (TextView) findViewById(R.id.tvMeeesage);
 		llMessageBg = (LinearLayout) findViewById(R.id.llMessageBg);
 		tvMessage.setText("");
-		if (Build.VERSION.SDK_INT >= 11) {
+		if (Build.VERSION.SDK_INT > 11) {
 			inAnimation = ObjectAnimator.ofFloat(llMessageBg, "alpha", 0, 1);
 		} else {
 			inAnimation = null;

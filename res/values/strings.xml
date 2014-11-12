@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="version">Version 0.9.4</string>
+    <string name="version">Version 0.9.5</string>
     <string name="app_name">自我修养</string>
     <string name="appnameabout">自我修养 beta版</string>
     <string name="book">《富兰克林自传》</string>
@@ -218,7 +218,7 @@
     <string name="cantSendEmail">不能发送邮件！\n如果你对产品或者我有什么意见及建议,请与我联系：pavkoo@live.com</string>
     <string name="typeCouse">每次发现过失时，不妨记录一些感想\n（在点击数字反省时，选择"糟糕"的时候才可以写感想哦）</string>
     <string name="tabToChoose">按照毕达哥拉斯在他的“金诗篇”里所提出的意见，我认为每日必须检查反省（点击数字）</string>
-    <string name="helpReport">一个小小的黑点，代表在检查当天该项美德时所发现的过失。（如果你该天忘记反省，也会有一个黑点）</string>
+    <string name="helpReport">反省时选择了“糟糕”就会得到一个小小的黑点，代表在检查当天该项美德时所发现的过失。（如果你该天忘记反省，也会有一个黑点）</string>
     <string name="dragToChangeCycle">你可以拖动数字调整训练时间、左右滑动删除你不需要训练的美德</string>
     <string name="cantArrange">已经完成或者正在进行的项目就不能再安排时间顺序了</string>
     <string name="cantDelete">已经完成或者正在进行的项目就不能删除了</string>
@@ -270,5 +270,20 @@
     <string name="checknew">检查更新</string>
     <string name="gotoMain">进入主界面</string>
     <string name="seeMore">&lt; 左右滑动可以看更多哦  ></string>
+    <string name="jump">跳过</string>
+    <string name="helper1">试试点击这个正在旋转的图标</string>
+    <string name="thisisMenu">这就是菜单</string>
+    <string name="helper2">很好，现在点击菜单项看更多的功能</string>
+    <string name="reflectioneveryday">每天要反省哦</string>
+    <string name="helper3">现在，点击数字进行反省</string>
+    <string name="helper4">按照毕达哥拉斯在他的“金诗篇”里所提出的意见，我认为每日必须检查反省</string>
+    <string name="chosebad">谢谢，请选择 糟糕</string>
+    <string name="reflectioning">正在反省</string>
+    <string name="getBlackSpot">消灭污点</string>
+    <string name="inputReflection">记录感想</string>
+    <string name="clickInput">嗯，现在点击输入框</string>
+    <string name="caustion">注意，只有在选择糟糕时才能够记录感想哦</string>
+    <string name="yourgole">当有一天，你反省后再也没有污点，就请停止使用软件！</string>
+    <string name="thisisfranklin">这就是自我修养</string>
 
 </resources>

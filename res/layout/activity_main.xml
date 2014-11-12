@@ -40,7 +40,7 @@
                 android:text="@string/main_toolbar_setting" />
 
             <TextView
-                android:id="@+id/txtHelp"
+                android:id="@+id/txtMotto"
                 style="@style/appBottomToolBarTextLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,9 +48,9 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:background="@drawable/toolbar_selector"
-                android:drawableLeft="@drawable/help"
+                android:drawableLeft="@drawable/mainmotto"
                 android:gravity="center"
-                android:text="@string/main_toolbar_help" />
+                android:text="@string/welcome" />
 
             <TextView
                 android:id="@+id/txtMainShare"
@@ -61,7 +61,7 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:background="@drawable/toolbar_selector"
-                android:drawableLeft="@drawable/contectme"
+                android:drawableLeft="@drawable/share"
                 android:gravity="center"
                 android:text="@string/Mainshare" />
             

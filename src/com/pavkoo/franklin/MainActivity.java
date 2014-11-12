@@ -102,7 +102,7 @@ public class MainActivity extends ParentActivity implements
 	private TextView tvCycleCommentTitle;
 	private TextView txtSetting;
 	private TextView txtContactMe;
-	private TextView txtHelp;
+	private TextView txtMotto;
 	private TextView txtMainShare;
 	private Animation indicatorAnim;
 	private Animation shakeAnim;
@@ -143,7 +143,7 @@ public class MainActivity extends ParentActivity implements
 		viewIndicatiorRight = findViewById(R.id.viewIndicatiorRight);
 		txtContactMe = (TextView) findViewById(R.id.txtContactMe);
 		tvMainDate = (TextView) findViewById(R.id.tvMainDate);
-		txtHelp = (TextView) findViewById(R.id.txtHelp);
+		txtMotto = (TextView) findViewById(R.id.txtMotto);
 		txtMainShare = (TextView) findViewById(R.id.txtMainShare);
 		needSave = false;
 		indicatorAnim = AnimationUtils.loadAnimation(this,
@@ -222,24 +222,15 @@ public class MainActivity extends ParentActivity implements
 				}
 			}
 		});
-		txtHelp.setOnClickListener(new OnClickListener() {
+		txtMotto.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				int pos = cycleContent.getCurrent();
-				switch (pos) {
-				case 0:
-					amMessage.showMessage(getString(R.string.typeCouse));
-					break;
-				case 1:
-					amMessage.showMessage(getString(R.string.tabToChoose));
-					break;
-				case 2:
-					amMessage.showMessage(getString(R.string.helpReport));
-					break;
-				default:
-					break;
-				}
+				Intent splashIntent = new Intent(MainActivity.this,SplashActivity.class);
+				splashIntent.putExtra("flag", true);
+				MainActivity.this.startActivity(splashIntent);
+				MainActivity.this.finish();
+				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
 			}
 		});
 		txtMainShare.setOnClickListener(new OnClickListener() {
@@ -566,7 +557,7 @@ public class MainActivity extends ParentActivity implements
 			amMessage.showMessage(String.format(
 					getResources().getString(R.string.manyDaynotuse),
 					unsetStateDay), AnimMessageType.ERROR, 33000);
-			if (Build.VERSION.SDK_INT >= 11) {
+			if (Build.VERSION.SDK_INT > 11) {
 				ValueAnimator colorAnim = ObjectAnimator
 						.ofInt(today,
 								"backgroundColor",

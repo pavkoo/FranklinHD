@@ -194,7 +194,8 @@ public class SettingActivity extends FragmentActivity {
 					@Override
 					public void onClick(View v) {
 						if (app.getMorals().size() < 1) {
-							amMessage.showMessage(getString(R.string.havenoitem));
+							amMessage
+									.showMessage(getString(R.string.havenoitem));
 							return;
 						}
 						rbSettingCycle.setChecked(true);
@@ -265,11 +266,12 @@ public class SettingActivity extends FragmentActivity {
 					buildAllCycleDate();
 					getApp().saveData();
 
-					Intent mainIntent = new Intent(SettingActivity.this,
-							MainActivity.class);
-					SettingActivity.this.startActivity(mainIntent);
-					SettingActivity.this.finish();
-					overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
+					Intent helperIntent = new Intent(SettingActivity.this,
+							HelperActivity.class);
+					startActivity(helperIntent);
+					finish();
+					overridePendingTransition(R.anim.in_from_right,
+							R.anim.out_to_left);
 				} else {
 					buildAllCycleDateNew();
 					getApp().saveData();
@@ -277,7 +279,8 @@ public class SettingActivity extends FragmentActivity {
 							MainActivity.class);
 					SettingActivity.this.startActivity(mainIntent);
 					SettingActivity.this.finish();
-					overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
+					overridePendingTransition(R.anim.in_from_right,
+							R.anim.out_to_left);
 				}
 			}
 		});
@@ -390,7 +393,7 @@ public class SettingActivity extends FragmentActivity {
 			super.onBackPressed();
 		}
 	}
-	
+
 	@Override
 	protected void onPause() {
 		super.onPause();
@@ -402,5 +405,5 @@ public class SettingActivity extends FragmentActivity {
 		super.onResume();
 		MobclickAgent.onResume(this);
 	}
-	
+
 }
