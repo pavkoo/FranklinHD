@@ -3,6 +3,7 @@ package com.pavkoo.franklin.controls;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nineoldandroids.view.ViewHelper;
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.Comment;
 
@@ -96,7 +97,7 @@ public class CommentAdapter extends BaseAdapter {
 				.getCount()));
 		txtCommentItemText.setText(comments.get(position).getContent());
 		float scale = comments.get(position).getCount() / (float) max;
-		llCommentItemBg.setScaleX(scale);
+		ViewHelper.setScaleX(llCommentItemBg, scale);
 		// who can write worse code than this
 		if (comments.get(position).isRemoved()) {
 			return null;

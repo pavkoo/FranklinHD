@@ -1,5 +1,6 @@
 package com.pavkoo.franklin;
 
+import com.nineoldandroids.view.ViewHelper;
 import com.pavkoo.franklin.common.FranklinApplication;
 
 import android.animation.Animator;
@@ -90,6 +91,7 @@ public class HelperActivity extends ParentActivity {
 			@Override
 			public void onClick(View v) {
 				ivHelperHome.setAnimation(null);
+				ivHelperToolbar.setVisibility(View.VISIBLE);
 				if (Build.VERSION.SDK_INT > 12) {
 					ivHelperHome
 							.animate()
@@ -106,7 +108,7 @@ public class HelperActivity extends ParentActivity {
 							.setInterpolator(new OvershootInterpolator())
 							.start();
 				} else {
-					ivHelperToolbar.setScaleX(1);
+					ViewHelper.setScaleX(ivHelperToolbar, 1);
 				}
 				tvHelperTopHint2.setText(HelperActivity.this
 						.getString(R.string.thisisMenu));
@@ -144,9 +146,9 @@ public class HelperActivity extends ParentActivity {
 							.setInterpolator(new AccelerateInterpolator())
 							.start();
 				} else {
-					ivHelperHome.setScaleX(0);
-					ivHelperHome.setScaleY(0);
-					ivHelperToolbar.setScaleX(0);
+					ViewHelper.setScaleX(ivHelperHome, 0);
+					ViewHelper.setScaleY(ivHelperHome, 0);
+					ViewHelper.setScaleX(ivHelperToolbar, 0);
 				}
 
 				tvHelperTopHint.setText(R.string.reflectioneveryday);
@@ -196,6 +198,7 @@ public class HelperActivity extends ParentActivity {
 					visToInvis.start();
 				} else {
 					llhelperMain2.setVisibility(View.GONE);
+					ViewHelper.setRotationY(llhelperMainReverse, 0);
 					llhelperMainReverse.setVisibility(View.VISIBLE);
 				}
 
@@ -316,6 +319,7 @@ public class HelperActivity extends ParentActivity {
 	@Override
 	protected void initViewData() {
 		super.initViewData();
+		ivHelperToolbar.setVisibility(View.INVISIBLE);
 		Animation anim = new RotateAnimation(0, 720,
 				Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
 				0.5f);
@@ -334,7 +338,7 @@ public class HelperActivity extends ParentActivity {
 				R.anim.push_left_in_helper));
 		flipperbottom.setOutAnimation(AnimationUtils.loadAnimation(this,
 				R.anim.push_left_out_helper));
-		llhelperMainReverse.setRotationY(-90);
+		ViewHelper.setRotationY(llhelperMainReverse, -90);
 	}
 
 }

@@ -116,7 +116,7 @@ public class TodayDialog extends ParentDialog {
 		app = (FranklinApplication) this.getContext().getApplicationContext();
 
 		closePopAnim = ObjectAnimator.ofFloat(llprogressLine, "scaleX", 1, 0);
-		closePopAnim.setDuration(6000);
+		closePopAnim.setDuration(12000);
 		closePopAnim.setInterpolator(new LinearInterpolator());
 		tvTodayPopupYes.setOnClickListener(new View.OnClickListener() {
 

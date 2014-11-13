@@ -39,6 +39,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.nineoldandroids.view.ViewHelper;
 import com.pavkoo.franklin.common.CheckState;
 import com.pavkoo.franklin.common.Comment;
 import com.pavkoo.franklin.common.CommonConst;
@@ -298,7 +299,7 @@ public class MainActivity extends ParentActivity implements
 											new DecelerateInterpolator())
 									.start();
 						} else {
-							trHomeToolBar.setScaleX(0);
+							ViewHelper.setScaleX(trHomeToolBar, 0);
 						}
 					} else {
 						if (Build.VERSION.SDK_INT > 12) {
@@ -318,7 +319,7 @@ public class MainActivity extends ParentActivity implements
 											new DecelerateInterpolator())
 									.start();
 						} else {
-							trHomeToolBar.setScaleX(1);
+							ViewHelper.setScaleX(trHomeToolBar, 1);
 						}
 
 					}
@@ -350,9 +351,9 @@ public class MainActivity extends ParentActivity implements
 	}
 
 	private void showIndicator() {
-		viewIndicatiorLeft.setAlpha(0.4f);
-		viewIndicatiorCenter.setAlpha(0.4f);
-		viewIndicatiorRight.setAlpha(0.4f);
+		ViewHelper.setAlpha(viewIndicatiorLeft, 0.4f);
+		ViewHelper.setAlpha(viewIndicatiorCenter, 0.4f);
+		ViewHelper.setAlpha(viewIndicatiorRight, 0.4f);
 		if (viewIndicatiorLeft.getAnimation() != null) {
 			viewIndicatiorLeft.setAnimation(null);
 		}
@@ -366,15 +367,15 @@ public class MainActivity extends ParentActivity implements
 		switch (pos) {
 		case 0:
 			viewIndicatiorLeft.startAnimation(indicatorAnim);
-			viewIndicatiorLeft.setAlpha(0.8f);
+			ViewHelper.setAlpha(viewIndicatiorLeft, 0.8f);
 			break;
 		case 1:
 			viewIndicatiorCenter.startAnimation(indicatorAnim);
-			viewIndicatiorCenter.setAlpha(0.8f);
+			ViewHelper.setAlpha(viewIndicatiorCenter, 0.8f);
 			break;
 		case 2:
 			viewIndicatiorRight.startAnimation(indicatorAnim);
-			viewIndicatiorRight.setAlpha(0.8f);
+			ViewHelper.setAlpha(viewIndicatiorRight, 0.8f);
 			break;
 		default:
 			break;

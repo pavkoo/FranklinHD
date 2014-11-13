@@ -3,6 +3,7 @@ package com.pavkoo.franklin.controls;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nineoldandroids.view.ViewHelper;
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.CheckState;
 import com.pavkoo.franklin.common.Comment;
@@ -117,7 +118,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 		arcBackground.setAngleValue(-90);
 		Animation roatate = AnimationUtils.loadAnimation(getContext(), R.anim.today_rotate);
 		llBackground.startAnimation(roatate);
-		llBackground.setRotation(-90);
+		ViewHelper.setRotation(llBackground, -90);
 		arcBackground.setCycle(moral.getCycle());
 		arcBackground.setHistoryCheckList(moral.getStateList());
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT); 

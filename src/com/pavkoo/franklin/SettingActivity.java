@@ -301,6 +301,11 @@ public class SettingActivity extends FragmentActivity {
 	}
 
 	private void initAppWithDefaultData(boolean force) {
+		if (config == null) {
+			// when update app by different proguard-project stragy will cause
+			// config to null
+			config = app.forceCreateAppCon();
+		}
 		if (config.isDefaultSaved() && !force)
 			return;
 		List<Moral> morals = new ArrayList<Moral>();

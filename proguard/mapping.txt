@@ -2514,6 +2514,20 @@ com.nineoldandroids.util.Property -> com.a.b.c:
     void set(java.lang.Object,java.lang.Object) -> a
     java.lang.Object get(java.lang.Object) -> a
     java.lang.String getName() -> a
+com.nineoldandroids.view.ViewHelper -> com.a.c.a:
+    void setAlpha(android.view.View,float) -> a
+    void setRotation(android.view.View,float) -> b
+    void setRotationY(android.view.View,float) -> c
+    float getScaleX(android.view.View) -> a
+    void setScaleX(android.view.View,float) -> d
+    void setScaleY(android.view.View,float) -> e
+com.nineoldandroids.view.ViewHelper$Honeycomb -> com.a.c.b:
+    void setAlpha(android.view.View,float) -> a
+    void setRotation(android.view.View,float) -> b
+    void setRotationY(android.view.View,float) -> c
+    float getScaleX(android.view.View) -> a
+    void setScaleX(android.view.View,float) -> d
+    void setScaleY(android.view.View,float) -> e
 com.nineoldandroids.view.animation.AnimatorProxy -> com.a.c.a.a:
     boolean NEEDS_PROXY -> a
     java.util.WeakHashMap PROXIES -> b
@@ -3032,6 +3046,7 @@ com.pavkoo.franklin.SplashActivity -> com.pavkoo.franklin.SplashActivity:
     android.os.Handler myHandle -> A
     java.lang.Runnable myRunable -> B
     boolean fromMain -> C
+    java.util.List showWelcomes -> D
     com.pavkoo.franklin.common.FranklinApplication getApp() -> f
     void onCreate(android.os.Bundle) -> onCreate
     void initViewData() -> g
@@ -3140,15 +3155,16 @@ com.pavkoo.franklin.common.FranklinApplication -> com.pavkoo.franklin.common.Fra
     com.pavkoo.franklin.common.SharePreferenceService mPreference -> i
     java.util.List getWelcomes() -> a
     com.pavkoo.franklin.common.ApplicationConfig getAppCon() -> b
-    java.util.List getMorals() -> c
-    java.util.List getComments() -> d
+    com.pavkoo.franklin.common.ApplicationConfig forceCreateAppCon() -> c
+    java.util.List getMorals() -> d
+    java.util.List getComments() -> e
     void onCreate() -> onCreate
-    void loadData() -> e
+    void loadData() -> f
     void saveData(boolean) -> a
-    void saveData() -> f
+    void saveData() -> g
     void saveMorals(java.util.List,boolean) -> a
     void saveMorals(java.util.List) -> a
-    void markMailStone() -> g
+    void markMailStone() -> h
     void saveComments(java.util.List,boolean) -> b
     void saveComments(java.util.List) -> b
     void saveWelcomes(java.util.List,boolean) -> c

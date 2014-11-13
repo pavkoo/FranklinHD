@@ -175,6 +175,9 @@ public class UtilsClass {
 		if (sdcardExist) {
 			sdcardDir = Environment.getExternalStorageDirectory();
 		}
+		if (sdcardDir==null){
+			return "";
+		}
 		return sdcardDir.toString();
 	}
 

@@ -1,5 +1,6 @@
 package com.pavkoo.franklin;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -44,6 +45,7 @@ public class SplashActivity extends FragmentActivity {
 	private Handler myHandle;
 	private Runnable myRunable;
 	private boolean fromMain = false;
+	private List<String> showWelcomes;
 
 	public FranklinApplication getApp() {
 		return app;
@@ -124,14 +126,17 @@ public class SplashActivity extends FragmentActivity {
 	}
 
 	private void selectImage() {
-		if (getApp().getWelcomes() != null) {
-			if (getApp().getWelcomes().size() == 0) {
-				getApp().getWelcomes().add(getString(R.string.welcome11));
+		showWelcomes = getApp().getWelcomes();
+		if (showWelcomes != null) {
+			//do not save temp R.string.welcome11 to SD cards
+			if (showWelcomes.size() == 0) {
+				showWelcomes = new ArrayList<String>();
 			}
 		}
-
-		adapter = new WelcomesAdapter(getSupportFragmentManager(), getApp()
-				.getWelcomes());
+		if (showWelcomes.size() == 0) {
+			showWelcomes.add(getString(R.string.welcome11));
+		}
+		adapter = new WelcomesAdapter(getSupportFragmentManager(), showWelcomes);
 		splashPager.setAdapter(adapter);
 		if (config.isFrist() || getApp().getMorals() == null) {
 			ivSplash.setImageResource(R.drawable.treesmall);
@@ -151,9 +156,9 @@ public class SplashActivity extends FragmentActivity {
 			ivSplash.setImageResource(R.drawable.treecenter);
 		}
 
-		if (getApp().getWelcomes().size() > 0) {
+		if (showWelcomes.size() > 1) {
 			Random r = new Random();
-			initWelcomes = r.nextInt(getApp().getWelcomes().size() - 1);
+			initWelcomes = r.nextInt(showWelcomes.size());
 			splashPager.setCurrentItem(initWelcomes);
 		}
 

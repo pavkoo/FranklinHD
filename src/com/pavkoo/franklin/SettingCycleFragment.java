@@ -2,6 +2,7 @@ package com.pavkoo.franklin;
 
 import java.util.List;
 
+import com.nineoldandroids.view.ViewHelper;
 import com.pavkoo.franklin.common.Moral;
 import com.pavkoo.franklin.controls.AnimMessage;
 import com.pavkoo.franklin.controls.AnimMessage.AnimMessageType;
@@ -50,10 +51,10 @@ public class SettingCycleFragment extends Fragment {
 			 */
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				float saclesize = tvSettingCycleBg.getScaleX();
+				float saclesize = ViewHelper.getScaleX(tvSettingCycleBg);
 				saclesize = 0.5f +(float)progress/seekBar.getMax() / 0.5f;
-				tvSettingCycleBg.setScaleX(saclesize);
-				tvSettingCycleBg.setScaleY(saclesize);
+				ViewHelper.setScaleX(tvSettingCycleBg, saclesize);
+				ViewHelper.setScaleY(tvSettingCycleBg, saclesize);
 				int value = progress + 7;
 				tvSettingCycleText.setText(String.valueOf(value)+ getActivity().getString(R.string.day));
 				if (value == 7){

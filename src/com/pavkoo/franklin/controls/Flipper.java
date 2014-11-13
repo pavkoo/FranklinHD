@@ -3,6 +3,7 @@ package com.pavkoo.franklin.controls;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nineoldandroids.view.ViewHelper;
 import com.pavkoo.franklin.R;
 
 import android.annotation.SuppressLint;
@@ -336,7 +337,7 @@ public class Flipper extends ViewGroup {
 			alpha = 1;
 		alpha = 1 - alpha;
 		// if (alpha < 0.3) alpha = 0.3f;
-		child.setAlpha(alpha);
+		ViewHelper.setAlpha(child, alpha);
 	}
 
 	

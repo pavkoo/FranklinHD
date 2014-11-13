@@ -1613,8 +1613,54 @@ com.nineoldandroids.util.Property:
     76:76:public boolean isReadOnly()
     104:104:public java.lang.Class getType()
 com.nineoldandroids.util.ReflectiveProperty
-com.nineoldandroids.view.ViewHelper
-com.nineoldandroids.view.ViewHelper$Honeycomb
+com.nineoldandroids.view.ViewHelper:
+    9:9:private ViewHelper()
+    12:12:public static float getAlpha(android.view.View)
+    24:24:public static float getPivotX(android.view.View)
+    28:33:public static void setPivotX(android.view.View,float)
+    36:36:public static float getPivotY(android.view.View)
+    40:45:public static void setPivotY(android.view.View,float)
+    48:48:public static float getRotation(android.view.View)
+    60:60:public static float getRotationX(android.view.View)
+    64:69:public static void setRotationX(android.view.View,float)
+    72:72:public static float getRotationY(android.view.View)
+    96:96:public static float getScaleY(android.view.View)
+    108:108:public static float getScrollX(android.view.View)
+    112:117:public static void setScrollX(android.view.View,int)
+    120:120:public static float getScrollY(android.view.View)
+    124:129:public static void setScrollY(android.view.View,int)
+    132:132:public static float getTranslationX(android.view.View)
+    136:141:public static void setTranslationX(android.view.View,float)
+    144:144:public static float getTranslationY(android.view.View)
+    148:153:public static void setTranslationY(android.view.View,float)
+    156:156:public static float getX(android.view.View)
+    160:165:public static void setX(android.view.View,float)
+    168:168:public static float getY(android.view.View)
+    172:177:public static void setY(android.view.View,float)
+com.nineoldandroids.view.ViewHelper$Honeycomb:
+    179:179:private ViewHelper$Honeycomb()
+    181:181:static float getAlpha(android.view.View)
+    189:189:static float getPivotX(android.view.View)
+    193:194:static void setPivotX(android.view.View,float)
+    197:197:static float getPivotY(android.view.View)
+    201:202:static void setPivotY(android.view.View,float)
+    205:205:static float getRotation(android.view.View)
+    213:213:static float getRotationX(android.view.View)
+    217:218:static void setRotationX(android.view.View,float)
+    221:221:static float getRotationY(android.view.View)
+    237:237:static float getScaleY(android.view.View)
+    245:245:static float getScrollX(android.view.View)
+    249:250:static void setScrollX(android.view.View,int)
+    253:253:static float getScrollY(android.view.View)
+    257:258:static void setScrollY(android.view.View,int)
+    261:261:static float getTranslationX(android.view.View)
+    265:266:static void setTranslationX(android.view.View,float)
+    269:269:static float getTranslationY(android.view.View)
+    273:274:static void setTranslationY(android.view.View,float)
+    277:277:static float getX(android.view.View)
+    281:282:static void setX(android.view.View,float)
+    285:285:static float getY(android.view.View)
+    289:290:static void setY(android.view.View,float)
 com.nineoldandroids.view.ViewPropertyAnimator
 com.nineoldandroids.view.ViewPropertyAnimatorHC
 com.nineoldandroids.view.ViewPropertyAnimatorHC$1
@@ -1652,9 +1698,9 @@ com.pavkoo.franklin.common.Comment:
 com.pavkoo.franklin.common.CommonConst:
     3:3:public CommonConst()
 com.pavkoo.franklin.common.FranklinApplication:
-    42:42:public com.pavkoo.franklin.common.SharePreferenceService getmPreference()
-    46:46:public static com.pavkoo.franklin.common.FranklinApplication getInstance()
-    50:50:public com.pavkoo.franklin.common.SharePreferenceService getPreference()
+    47:47:public com.pavkoo.franklin.common.SharePreferenceService getmPreference()
+    51:51:public static com.pavkoo.franklin.common.FranklinApplication getInstance()
+    55:55:public com.pavkoo.franklin.common.SharePreferenceService getPreference()
 com.pavkoo.franklin.common.Moral:
     private static final long serialVersionUID
     35:36:private void clearTodayComment()
@@ -1669,7 +1715,7 @@ com.pavkoo.franklin.controls.BlemishReportTotalDialog:
 com.pavkoo.franklin.controls.BlemishReportTrendDialog:
     28:28:public java.util.List getMorals()
 com.pavkoo.franklin.controls.CommentAdapter:
-    27:27:public java.util.List getComments()
+    28:28:public java.util.List getComments()
 com.pavkoo.franklin.controls.CyclePager:
     private static final int SNAP_VELOCITY
     private static final int TOUCH_STATE_REST
@@ -1684,7 +1730,7 @@ com.pavkoo.franklin.controls.Flipper:
     private static final java.lang.String nomore
     private static final int TOUCH_SLOP
     private static final int GROWTEXTNUMBER
-    77:77:public boolean isMoved()
+    78:78:public boolean isMoved()
 com.pavkoo.franklin.controls.SettingSystemHelpDialog:
     32:32:public boolean isCanClose()
     36:37:public void setCanClose(boolean)
@@ -1692,10 +1738,10 @@ com.pavkoo.franklin.controls.SettingSystemRestartDialog:
     21:21:public com.pavkoo.franklin.controls.SettingSystemRestartDialog$ViewState getVs()
     29:29:public com.pavkoo.franklin.controls.IDialogOKCallBack getOnOKCallBack()
 com.pavkoo.franklin.controls.Today$ArcDrawable:
-    253:255:public Today$ArcDrawable(android.content.Context,android.util.AttributeSet)
-    344:344:public java.util.List getHistoryCheckList()
+    254:256:public Today$ArcDrawable(android.content.Context,android.util.AttributeSet)
+    345:345:public java.util.List getHistoryCheckList()
 com.pavkoo.franklin.controls.TotalAdapter:
-    26:26:public java.util.List getMorals()
+    27:27:public java.util.List getMorals()
 com.pavkoo.franklin.controls.TrendAdapter:
     24:24:public java.util.List getMorals()
 com.umeng.analytics.AnalyticsConfig:

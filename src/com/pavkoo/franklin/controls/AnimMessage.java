@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.nineoldandroids.view.ViewHelper;
 
 @SuppressLint("NewApi")
 public class AnimMessage extends LinearLayout {
@@ -26,7 +27,7 @@ public class AnimMessage extends LinearLayout {
 	private final int INFOTIMEOUT = 15000;
 	private final int WARNINGTIMEOUT = 15000;
 	private final int ERRORTIMEOUT = 30000;
-	private final int WAITTINGTIMEOUT = 180*1000;
+	private final int WAITTINGTIMEOUT = 180 * 1000;
 
 	private String delayMsg = "";
 	private AnimMessageType delayAnimMessageType;
@@ -39,7 +40,7 @@ public class AnimMessage extends LinearLayout {
 				if (Build.VERSION.SDK_INT >= 11) {
 					((ValueAnimator) inAnimation).reverse();
 				} else {
-					llMessageBg.setAlpha(0);
+					ViewHelper.setAlpha(llMessageBg, 0);
 				}
 				showing = false;
 				break;
@@ -92,7 +93,7 @@ public class AnimMessage extends LinearLayout {
 		myHandle.removeMessages(CLOSEMESSAGE);
 		myHandle.removeMessages(INIMESSAGE);
 		tvMessage.setText("");
-		llMessageBg.setAlpha(0);
+		ViewHelper.setAlpha(llMessageBg, 0);
 	}
 
 	public void showMessage(String msg) {
@@ -118,23 +119,28 @@ public class AnimMessage extends LinearLayout {
 		switch (type) {
 		case INFO:
 			myHandle.sendEmptyMessageDelayed(CLOSEMESSAGE, INFOTIMEOUT);
-			endColor = getContext().getResources().getColor(R.color.white_app_bg_primary);
+			endColor = getContext().getResources().getColor(
+					R.color.white_app_bg_primary);
 			break;
 		case WARNING:
 			myHandle.sendEmptyMessageDelayed(CLOSEMESSAGE, WARNINGTIMEOUT);
-			endColor = getContext().getResources().getColor(R.color.white_app_warning);
+			endColor = getContext().getResources().getColor(
+					R.color.white_app_warning);
 			break;
 		case ERROR:
 			myHandle.sendEmptyMessageDelayed(CLOSEMESSAGE, ERRORTIMEOUT);
-			endColor = getContext().getResources().getColor(R.color.white_app_error);
+			endColor = getContext().getResources().getColor(
+					R.color.white_app_error);
 			break;
 		case Hint:
 			myHandle.sendEmptyMessageDelayed(CLOSEMESSAGE, HINTTIMEOUT);
-			endColor = getContext().getResources().getColor(R.color.white_app_error);
+			endColor = getContext().getResources().getColor(
+					R.color.white_app_error);
 			break;
 		case Waitting:
 			myHandle.sendEmptyMessageDelayed(CLOSEMESSAGE, WAITTINGTIMEOUT);
-			endColor = getContext().getResources().getColor(R.color.white_app_error);
+			endColor = getContext().getResources().getColor(
+					R.color.white_app_error);
 			break;
 		}
 		llMessageBg.setBackgroundColor(endColor);
@@ -142,13 +148,13 @@ public class AnimMessage extends LinearLayout {
 			if (Build.VERSION.SDK_INT >= 11) {
 				((ValueAnimator) inAnimation).start();
 			} else {
-				llMessageBg.setAlpha(1);
+				ViewHelper.setAlpha(llMessageBg, 1);
 			}
 		}
 		showing = true;
 	}
 
 	public enum AnimMessageType {
-		INFO, WARNING, ERROR, Hint,Waitting
+		INFO, WARNING, ERROR, Hint, Waitting
 	}
 }

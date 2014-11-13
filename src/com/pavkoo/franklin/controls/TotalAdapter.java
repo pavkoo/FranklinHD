@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nineoldandroids.view.ViewHelper;
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.Moral;
 
@@ -86,7 +87,7 @@ public class TotalAdapter extends BaseAdapter {
 		}
 		DecimalFormat df = new DecimalFormat("00.00%");
 		txtCommentItemText.setText(df.format(doneRate)+" ("+String.valueOf(checked)+" / "+String.valueOf(total)+")");
-		llCommentItemBg.setScaleX(doneRate);
+		ViewHelper.setScaleX(llCommentItemBg, doneRate);
 		return convertView;
 	}
 }

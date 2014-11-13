@@ -29,6 +29,11 @@ public class FranklinApplication extends Application {
 	public ApplicationConfig getAppCon() {
 		return appCon;
 	}
+	
+	public ApplicationConfig forceCreateAppCon(){
+		appCon = mPreference.loadAppconfig();
+		return appCon;
+	}
 
 	public List<Moral> getMorals() {
 		return morals;
