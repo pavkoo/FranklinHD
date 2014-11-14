@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"  
     android:id="@+id/flToday"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-     >
+    android:layout_height="match_parent" >
+
+    <com.pavkoo.franklin.controls.CircleImageView
+        android:id="@+id/ivBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/devTemp"
+        android:scaleType="centerCrop"
+        app:border_width = "1dp"
+        app:border_color = "@color/white_app_bg_secondary"
+        android:src="@drawable/bingimage" >
+    </com.pavkoo.franklin.controls.CircleImageView>
 
     <LinearLayout
         android:id="@+id/llBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal" >
     </LinearLayout>
-
-<!--     <ImageView -->
-<!--         android:id="@+id/ivBg" -->
-<!--         android:layout_width="match_parent" -->
-<!--         android:layout_height="match_parent" -->
-<!--         android:contentDescription="@string/devTemp" -->
-<!--         android:src="@drawable/review_ring" > -->
-<!--     </ImageView> -->
 
     <LinearLayout
         android:id="@+id/llContent"

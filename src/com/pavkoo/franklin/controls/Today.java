@@ -10,6 +10,7 @@ import com.pavkoo.franklin.common.Comment;
 import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.FranklinApplication;
 import com.pavkoo.franklin.common.Moral;
+import com.pavkoo.franklin.common.UtilsClass;
 import com.pavkoo.franklin.controls.TodayDialog.DialogState;
 
 import android.annotation.SuppressLint;
@@ -24,6 +25,8 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,13 +37,13 @@ import android.widget.FrameLayout;
 //import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTextCallBack {
-
+public class Today extends FrameLayout implements IUpdateViewCallback,
+		IUpdateTextCallBack {
 
 	private LinearLayout llBackground;
 	private LinearLayout llContent;
 	private Flipper FlipperNumber;
-//	private ImageView ivBg;
+	private CircleImageView ivBg;
 	private TodayDialog mDialog;
 
 	public ArcDrawable arcBackground;
@@ -48,6 +51,24 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 	private Bitmap bmpSad;
 	private String todayDialogTitle;
 	private FranklinApplication app;
+	
+	private static final int IMAGEDOWNLOADED = 1;
+	@SuppressLint("HandlerLeak")
+	private Handler myHandle = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case IMAGEDOWNLOADED:
+				Bitmap bmp = (Bitmap) msg.obj;
+				ivBg.setImageBitmap(bmp);
+				arcBackground.changeBackground();
+				break;
+			default:
+				break;
+			}
+		}
+	};
+	
 
 	public String getTodayDialogTitle() {
 		return todayDialogTitle;
@@ -58,22 +79,24 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 		mDialog.setDialogTitle(todayDialogTitle);
 	}
 
-//	private Animation ambmpBgScale;
+	// private Animation ambmpBgScale;
 
 	private Moral moral;
 
 	public Moral getMoral() {
 		return moral;
 	}
-	
-	public void updateUIByMoral(int index){
-		int mainColor =Color.parseColor(CommonConst.colors[index % CommonConst.colors.length]);
-		int mainColorLight =Color.parseColor(CommonConst.colorBg[index % CommonConst.colorBg.length]);
+
+	public void updateUIByMoral(int index) {
+		int mainColor = Color.parseColor(CommonConst.colors[index
+				% CommonConst.colors.length]);
+		int mainColorLight = Color.parseColor(CommonConst.colorBg[index
+				% CommonConst.colorBg.length]);
 		arcBackground.setCycleBGColor(mainColorLight);
 		arcBackground.setCycleColor(mainColor);
 		mDialog.updateUIByMoral(index);
 	}
-	
+
 	private IUpdateMoralSelectState updateSelectState;
 
 	public IUpdateMoralSelectState getUpdateSelectState() {
@@ -116,21 +139,24 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 
 	private void updateViewByMoral() {
 		arcBackground.setAngleValue(-90);
-		Animation roatate = AnimationUtils.loadAnimation(getContext(), R.anim.today_rotate);
+		Animation roatate = AnimationUtils.loadAnimation(getContext(),
+				R.anim.today_rotate);
 		llBackground.startAnimation(roatate);
 		ViewHelper.setRotation(llBackground, -90);
 		arcBackground.setCycle(moral.getCycle());
 		arcBackground.setHistoryCheckList(moral.getStateList());
-		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT); 
-		llBackground.addView(arcBackground,lp);
-		//llBackground.setImageResource(R.drawable.treebig);
-//		llBackground.setBackground(arcBackground);
-//		if (Build.VERSION.SDK_INT >= 16) {
-//			llBackground.setBackground(arcBackground);
-//		} else {
-//			llBackground.setBackgroundDrawable(arcBackground);
-//		}
-		//llBackground.invalidateDrawable(arcBackground);
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.MATCH_PARENT);
+		llBackground.addView(arcBackground, lp);
+		// llBackground.setImageResource(R.drawable.treebig);
+		// llBackground.setBackground(arcBackground);
+		// if (Build.VERSION.SDK_INT >= 16) {
+		// llBackground.setBackground(arcBackground);
+		// } else {
+		// llBackground.setBackgroundDrawable(arcBackground);
+		// }
+		// llBackground.invalidateDrawable(arcBackground);
 		FlipperNumber.setCurrentValue(0);
 		FlipperNumber.setTargetValue(moral.getCurrentDayInCycle());
 		FlipperNumber.startAnimationText();
@@ -139,14 +165,17 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 	private void initView() {
 
 		String infService = Context.LAYOUT_INFLATER_SERVICE;
-		LayoutInflater li = (LayoutInflater) getContext().getSystemService(infService);
+		LayoutInflater li = (LayoutInflater) getContext().getSystemService(
+				infService);
 
 		li.inflate(R.layout.today_control, this, true);
 		iniPopupWindow(li);
 
-		bmpSmale = BitmapFactory.decodeResource(getResources(), R.drawable.minsmiley);
+		bmpSmale = BitmapFactory.decodeResource(getResources(),
+				R.drawable.minsmiley);
 		bmpSmale = RotateBitmap(bmpSmale, 90);
-		bmpSad = BitmapFactory.decodeResource(getResources(), R.drawable.minsad);
+		bmpSad = BitmapFactory
+				.decodeResource(getResources(), R.drawable.minsad);
 		bmpSad = RotateBitmap(bmpSad, 90);
 		llBackground = (LinearLayout) findViewById(R.id.llBackground);
 		arcBackground = new ArcDrawable(getContext());
@@ -156,28 +185,44 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 		arcBackground.setUpdateText(this);
 		llContent = (LinearLayout) findViewById(R.id.llContent);
 		FlipperNumber = new Flipper(getContext());
-		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,
+				LayoutParams.MATCH_PARENT);
 		llContent.addView(FlipperNumber, params);
 		FlipperNumber.setUpdateText(arcBackground);
 		app = (FranklinApplication) this.getContext().getApplicationContext();
-//		ivBg = (ImageView) findViewById(R.id.ivBg);
-//		ambmpBgScale = AnimationUtils.loadAnimation(getContext(), R.anim.today_bg_scale);
-//		ivBg.setAnimation(ambmpBgScale);
+		ivBg = (CircleImageView) findViewById(R.id.ivBg);
+		new Thread(new Runnable(){
+
+			@Override
+			public void run() {
+				Bitmap bmp = UtilsClass.downloadBingImage();
+				if (bmp != null){
+					Message msg = new Message(); 
+					msg.obj = bmp;
+					msg.what = IMAGEDOWNLOADED;
+					myHandle.sendMessage(msg);
+				}
+			}}).start();
+		// ambmpBgScale = AnimationUtils.loadAnimation(getContext(),
+		// R.anim.today_bg_scale);
+		// ivBg.setAnimation(ambmpBgScale);
 	}
 
 	private static Bitmap RotateBitmap(Bitmap source, float angle) {
 		Matrix matrix = new Matrix();
 		matrix.postRotate(angle);
-		return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
+		return Bitmap.createBitmap(source, 0, 0, source.getWidth(),
+				source.getHeight(), matrix, true);
 	}
 
 	private void iniPopupWindow(LayoutInflater li) {
-		mDialog = new TodayDialog(getContext(), android.R.style.Theme_Translucent_NoTitleBar);
+		mDialog = new TodayDialog(getContext(),
+				android.R.style.Theme_Translucent_NoTitleBar);
 	}
 
 	@Override
 	public void updateTextCallBack(String value, int position) {
-//		ivBg.startAnimation(ambmpBgScale);
+		// ivBg.startAnimation(ambmpBgScale);
 		if (getUpdateText() != null) {
 			updateText.updateTextCallBack(value, position);
 		}
@@ -187,16 +232,18 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 		FlipperNumber.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				ivBg.startAnimation(ambmpBgScale);
-				mDialog.setCheckState(moral.getHistorySelected(getCurrentShowing()));
+				// ivBg.startAnimation(ambmpBgScale);
+				mDialog.setCheckState(moral
+						.getHistorySelected(getCurrentShowing()));
 				mDialog.showState(DialogState.DSSelection);
 			}
 		});
 		Runnable longPress = new Runnable() {
 			@Override
 			public void run() {
-//				ivBg.startAnimation(ambmpBgScale);
-				mDialog.setCheckState(moral.getHistorySelected(getCurrentShowing()));
+				// ivBg.startAnimation(ambmpBgScale);
+				mDialog.setCheckState(moral
+						.getHistorySelected(getCurrentShowing()));
 				mDialog.showState(DialogState.DSNote);
 			}
 		};
@@ -207,15 +254,19 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 			public void onDismiss(DialogInterface dialog) {
 				if (mDialog.isResultChanged()) {
 					if (mDialog.isNewComment()) {
-						moral.setHistorySelected(getCurrentShowing(), mDialog.getCheckState(), mDialog.getNewCommentIndex());
+						moral.setHistorySelected(getCurrentShowing(),
+								mDialog.getCheckState(),
+								mDialog.getNewCommentIndex());
 					} else {
-						int commentIndex = moral.getCommentIndex(getCurrentShowing());
-						if (commentIndex!=-1){
+						int commentIndex = moral
+								.getCommentIndex(getCurrentShowing());
+						if (commentIndex != -1) {
 							Comment c = app.getComments().get(commentIndex);
 							c.setRemoved(true);
 							app.saveComments(app.getComments());
 						}
-						moral.setHistorySelected(getCurrentShowing(), mDialog.getCheckState());
+						moral.setHistorySelected(getCurrentShowing(),
+								mDialog.getCheckState());
 					}
 					arcBackground.setHistoryCheckList(moral.getStateList());
 					arcBackground.invalidate();
@@ -231,31 +282,43 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 	public void callUpdateFontSize() {
 		if (llContent == null)
 			return;
-		float marginRight = this.getWidth() - arcBackground.getAdapedRect().right;
-		float marginBottom = this.getHeight() - arcBackground.getAdapedRect().bottom;
+		float marginRight = this.getWidth()
+				- arcBackground.getCircleRect().right;
+		float marginBottom = this.getHeight()
+				- arcBackground.getCircleRect().bottom;
 		LayoutParams lp = (LayoutParams) llContent.getLayoutParams();
-		lp.setMargins((int) arcBackground.getAdapedRect().left, (int) arcBackground.getAdapedRect().top, (int) marginRight,
+		lp.setMargins((int) arcBackground.getCircleRect().left,
+				(int) arcBackground.getCircleRect().top, (int) marginRight,
 				(int) marginBottom);
 		llContent.requestLayout();
 		FlipperNumber.updateTextSize(arcBackground.getAdaptedFontSize());
-		Log.i("llBackground width", String.valueOf(Today.this.llBackground.getWidth()));
-		Log.i("llBackground height", String.valueOf(Today.this.llBackground.getHeight()));
-		Animation roatate = AnimationUtils.loadAnimation(getContext(), R.anim.today_rotate);
+		Log.i("llBackground width",
+				String.valueOf(Today.this.llBackground.getWidth()));
+		Log.i("llBackground height",
+				String.valueOf(Today.this.llBackground.getHeight()));
+		Animation roatate = AnimationUtils.loadAnimation(getContext(),
+				R.anim.today_rotate);
 		llBackground.startAnimation(roatate);
+		if (ivBg != null) {
+			ivBg.setLayoutParams(lp);
+			ivBg.requestLayout();
+		}
+		//arcBackground.changeBackground();
 	}
 
-	private static class ArcDrawable extends View implements IUpdateTextCallBack {
+	private static class ArcDrawable extends View implements
+			IUpdateTextCallBack {
 		public ArcDrawable(Context context) {
 			super(context);
 			initView();
 		}
-		
+
 		public ArcDrawable(Context context, AttributeSet attrs) {
 			super(context, attrs);
 			initView();
 		}
-		
-		private void initView(){
+
+		private void initView() {
 			mOffsetAngle = 0;
 			mCycle = 0;
 			mCurrentShowing = 0;
@@ -268,7 +331,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 			paint = new Paint();
 			paint.setAntiAlias(true);
 		}
-		
+
 		private Paint paint;
 		private static double PI = 3.1415926f;
 
@@ -276,10 +339,10 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 		private static float ARC_STROKEWIDTH = 8;
 
 		// the width of the cycle
-		private static float CYCLE_STROKEWIDTH = 4;
+		public static float CYCLE_STROKEWIDTH = 4;
 
 		private static float SPACE_STROKEWIDTH = 0.5f;
-		private static float SPACE_CYCLE_STROKEWIDTH = 4;
+		public static float SPACE_CYCLE_STROKEWIDTH = 4;
 		// we have to set a padding ,in case of the boarder will be clipped
 		private static float INNERPADDING = 32;
 
@@ -287,6 +350,11 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 		private float mOffsetAngle;
 		// 选择当前控控件中的中心的圆圈的矩形
 		private RectF mAdapedRect;
+		private RectF mCircleRect;
+
+		public RectF getCircleRect() {
+			return mCircleRect;
+		}
 
 		private int mArcDoneColor;
 		private int mArcUnDoneColor;
@@ -350,8 +418,8 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 				this.mHistoryCheckList = new ArrayList<CheckState>();
 			}
 			this.mHistoryCheckList.clear();
-//			int lastIndex = HistoryCheckList.size() % mCycle;
-//			lastIndex = HistoryCheckList.size() - lastIndex;
+			// int lastIndex = HistoryCheckList.size() % mCycle;
+			// lastIndex = HistoryCheckList.size() - lastIndex;
 			for (int i = 0; i < HistoryCheckList.size(); i++) {
 				this.mHistoryCheckList.add(HistoryCheckList.get(i));
 			}
@@ -417,13 +485,34 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 		protected void setAngleValue(float mAngleValue) {
 			invalidate();
 		}
-		
-		
+
+		private boolean animastarted;
+		private short cyclealpha = 255;
+
+		private Handler mHandler = new Handler();
+		private Runnable mTick = new Runnable() {
+			public void run() {
+				if (cyclealpha > 0) {
+					ArcDrawable.this.invalidate();
+					mHandler.postDelayed(this, 200); // 20ms == 60fps
+					cyclealpha -= 5;
+					return;
+				}
+				cyclealpha = 0;
+			}
+		};
+
+		public void changeBackground() {
+			animastarted = true;
+			mHandler.removeCallbacks(mTick);
+			mHandler.postDelayed(mTick,4000);
+		}
 
 		@Override
 		protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 			super.onSizeChanged(w, h, oldw, oldh);
-			RectF oval = new RectF(this.getLeft(),getTop(),getRight(),getBottom());
+			RectF oval = new RectF(this.getLeft(), getTop(), getRight(),
+					getBottom());
 			if (oval.isEmpty()) {
 				if (mAdapedRect == null) {
 					mAdapedRect = new RectF(oval);
@@ -441,19 +530,23 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 				oval.bottom = oval.top + oval.width();
 			}
 			mAdapedRect = new RectF(oval);
-			mAdapedRect.inset(ArcDrawable.INNERPADDING, ArcDrawable.INNERPADDING);
+			mAdapedRect.inset(ArcDrawable.INNERPADDING,
+					ArcDrawable.INNERPADDING);
+			mCircleRect = new RectF(mAdapedRect);
+			mCircleRect.inset(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH,
+					SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH);
 			adaptFontSize();
 			Log.i("cycle width", String.valueOf(oval.width()));
 			Log.i("cycle height", String.valueOf(oval.height()));
 		}
 
 		private void drawArc(Canvas canvas, Paint paint, RectF oval) {
-			
+
 			if (getCycle() == 0)
 				return;
 			// draw History
 			int size = mHistoryCheckList.size() % mCycle;
-			if (size==0){
+			if (size == 0) {
 				size = mCycle;
 			}
 			float startAngle = mOffsetAngle;
@@ -489,7 +582,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 		@Override
 		protected void onDraw(Canvas canvas) {
 			super.onDraw(canvas);
-			Log.i("Today","ondraw call");
+			Log.i("Today", "ondraw call");
 			// 3 setp to draw
 			// 1.draw angle
 			// 2.draw cycle
@@ -504,18 +597,24 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 			oval.set(getAdapedRect());
 			// 1.draw angle
 			drawArc(canvas, paint, oval);
-			oval.inset(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH, SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH);
+			oval.inset(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH,
+					SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH);
 			paint.setStrokeWidth(CYCLE_STROKEWIDTH);
 			paint.setColor(getCycleColor());
 			paint.setStyle(Paint.Style.FILL);
 			// 2.draw cycle
-			canvas.drawCircle(oval.centerX(), oval.centerY(), oval.width() / 2, paint);
+			if (animastarted){
+				paint.setAlpha(cyclealpha);
+			}
+			canvas.drawCircle(oval.centerX(), oval.centerY(), oval.width() /2, paint);
+			paint.setAlpha(255);
 			// 3.draw bitmap face
 			drawFace(canvas, paint, oval);
 		}
 
 		private void drawFace(Canvas canvas, Paint paint, RectF oval) {
-			oval.inset(-(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH), -(SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH));
+			oval.inset(-(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH),
+					-(SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH));
 			CheckState current = mHistoryCheckList.get(mCurrentShowing - 1);
 			if (current == CheckState.UNKNOW)
 				return;
@@ -529,8 +628,10 @@ public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTe
 			float CycleCenterY = oval.centerY();
 			float Radius = oval.width() / 2;
 			float angle = (arcAngle * (2 * (mCurrentShowing) - 1)) * 0.5f;
-			float arcCenterX = (float) (Radius * Math.cos(PI / 180 * angle)) + CycleCenterX;
-			float arcCenterY = (float) (Radius * Math.sin(PI / 180 * angle)) + CycleCenterY;
+			float arcCenterX = (float) (Radius * Math.cos(PI / 180 * angle))
+					+ CycleCenterX;
+			float arcCenterY = (float) (Radius * Math.sin(PI / 180 * angle))
+					+ CycleCenterY;
 
 			if (arcCenterX < CycleCenterX) {
 				arcCenterX = arcCenterX - bitmap.getWidth();

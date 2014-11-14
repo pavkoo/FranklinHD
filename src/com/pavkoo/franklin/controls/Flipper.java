@@ -467,7 +467,7 @@ public class Flipper extends ViewGroup {
 	}
 
 	FlipAnimationHandler mAnimationHandler;
-	int ovv = 80;
+	int ovv = 60;
 
 	private void moveView() {
 		Log.i("moveView","offset:"+String.valueOf(offset));
@@ -507,7 +507,7 @@ public class Flipper extends ViewGroup {
 			}
 			mAnimationHandler.sleep(1);
 		} else {
-			ovv = 80;
+			ovv = 60;
 			touchState = TOUCH_STATE_REST;
 			if (sign == 1) {
 				prepareText(false);

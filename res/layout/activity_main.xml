@@ -1,99 +1,260 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <RelativeLayout
-        android:id="@+id/llAppBottom"
-        style="@style/appBottomLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_vertical"
-        android:layoutAnimation="@anim/home_button"
-        android:orientation="horizontal" >
+        android:layout_height="match_parent" >
 
-        <TableRow
-            android:id="@+id/trHomeToolBar"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/llAppBottom"
+            style="@style/appBottomLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="-3dp"
-            android:layout_toRightOf="@+id/ivHome"
-            android:background="@drawable/toolbarcolor1"
-            android:paddingLeft="3dp"
-            android:scaleX="0"
-            android:transformPivotX="0dp" >
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:layoutAnimation="@anim/home_button"
+            android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/txtSetting"
-                style="@style/appBottomToolBarTextLayout"
+            <TableRow
+                android:id="@+id/trHomeToolBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/textPadding"
-                android:background="@drawable/toolbar_selector"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:drawableLeft="@drawable/appsetting"
-                android:gravity="center"
-                android:text="@string/main_toolbar_setting" />
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="-3dp"
+                android:layout_toRightOf="@+id/ivHome"
+                android:background="@drawable/toolbarcolor1"
+                android:paddingLeft="3dp"
+                android:scaleX="0"
+                android:transformPivotX="0dp" >
 
-            <TextView
-                android:id="@+id/txtMotto"
-                style="@style/appBottomToolBarTextLayout"
+                <TextView
+                    android:id="@+id/txtSetting"
+                    style="@style/appBottomToolBarTextLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/textPadding"
+                    android:layout_weight="1"
+                    android:background="@drawable/toolbar_selector"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/appsetting"
+                    android:gravity="center"
+                    android:text="@string/main_toolbar_setting" />
+
+                <TextView
+                    android:id="@+id/txtMotto"
+                    style="@style/appBottomToolBarTextLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/toolbar_selector"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/mainmotto"
+                    android:gravity="center"
+                    android:text="@string/welcome" />
+
+                <TextView
+                    android:id="@+id/txtMainShare"
+                    style="@style/appBottomToolBarTextLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/toolbar_selector"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/share"
+                    android:gravity="center"
+                    android:text="@string/Mainshare" />
+
+                <TextView
+                    android:id="@+id/txtContactMe"
+                    style="@style/appBottomToolBarTextLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/textPadding"
+                    android:layout_weight="1"
+                    android:background="@drawable/toolbar_selector"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/contectme"
+                    android:gravity="center"
+                    android:text="@string/main_toolbar_contactme" />
+            </TableRow>
+
+            <ImageView
+                android:id="@+id/ivHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:background="@drawable/toolbar_selector"
-                android:drawableLeft="@drawable/mainmotto"
-                android:gravity="center"
-                android:text="@string/welcome" />
+                android:contentDescription="@string/devTemp"
+                android:src="@drawable/homecolor1" />
+        </RelativeLayout>
 
-            <TextView
-                android:id="@+id/txtMainShare"
-                style="@style/appBottomToolBarTextLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:background="@drawable/toolbar_selector"
-                android:drawableLeft="@drawable/share"
-                android:gravity="center"
-                android:text="@string/Mainshare" />
-            
-            <TextView
-                android:id="@+id/txtContactMe"
-                style="@style/appBottomToolBarTextLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="@dimen/textPadding"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:background="@drawable/toolbar_selector"
-                android:drawableLeft="@drawable/contectme"
-                android:gravity="center"
-                android:text="@string/main_toolbar_contactme" />
-        </TableRow>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/llAppBottom"
+            android:animationCache="false"
+            android:clipToPadding="false"
+            android:layoutAnimation="@anim/main_content_item"
+            android:stretchColumns="0" >
 
-        <ImageView
-            android:id="@+id/ivHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/homecolor1"
-            android:contentDescription="@string/devTemp"/>
+            <TableRow>
+
+                <LinearLayout
+                    android:id="@+id/llTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_app_primary"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent" >
+
+                    <TextView
+                        android:id="@+id/tvMainTitle"
+                        style="@style/appTitlefont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical" />
+
+                    <TextView
+                        android:id="@+id/tvMainDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/textMinPadding"
+                        android:layout_marginRight="@dimen/textMinPadding"
+                        android:drawableBottom="@drawable/textbottomwhite"
+                        android:gravity="center"
+                        android:textColor="@color/white_app_txt_white"
+                        android:textSize="@dimen/textSizeSmall"
+                        android:visibility="gone" />
+
+                    <ViewFlipper
+                        android:id="@+id/vfMainFlopper"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center_vertical" >
+
+                        <TextView
+                            android:id="@+id/tvMainTimeHide"
+                            style="@style/appTitleTimefont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvMainTime"
+                            style="@style/appTitleTimefont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </ViewFlipper>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <LinearLayout
+                    android:id="@+id/llTitleDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent" >
+
+                    <TextView
+                        android:id="@+id/tvMainTitleDescrible"
+                        style="@style/appTitlefontDes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical" />
+
+                    <RelativeLayout
+                        style="@style/appTitleMotto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/appTitleMottoQuitesBegin"
+                            style="@style/appTitlefontMottoQuotes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="@string/quotesBegin" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/appTitleMottoQuitesEnd"
+                            android:layout_toRightOf="@+id/appTitleMottoQuitesBegin" >
+
+                            <com.pavkoo.franklin.controls.ScrollingTextView
+                                android:id="@+id/tvMainTitleMotto"
+                                style="@style/appTitlefontMotto"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/appTitleMottoQuitesEnd"
+                            style="@style/appTitlefontMottoQuotes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="@string/quotesEnd"
+                            tools:ignore="HardcodedText" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow android:layout_weight="1" >
+
+                <com.pavkoo.franklin.controls.CyclePager
+                    android:id="@+id/clcpagerContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </com.pavkoo.franklin.controls.CyclePager>
+            </TableRow>
+
+            <TableRow>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_app_bg_secondary"
+                    android:gravity="center"
+                    tools:ignore="UselessParent" >
+
+                    <View
+                        android:id="@+id/viewIndicatiorLeft"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp" />
+
+                    <View
+                        android:id="@+id/viewIndicatiorCenter"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="@dimen/appBorderPadding"
+                        android:layout_marginRight="@dimen/appBorderPadding" />
+
+                    <View
+                        android:id="@+id/viewIndicatiorRight"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp" />
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/llAppMessageContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/llAppBottom"
-        android:background="@color/white_app_bg_white"
+        android:layout_gravity="top"
+        android:background="@android:color/transparent"
         android:orientation="vertical" >
 
         <com.pavkoo.franklin.controls.AnimMessage
@@ -102,160 +263,4 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/llAppMessageContainer"
-        android:animationCache="false"
-        android:clipToPadding="false"
-        android:layoutAnimation="@anim/main_content_item"
-        android:stretchColumns="0" >
-
-        <TableRow>
-
-            <LinearLayout
-                android:id="@+id/llTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white_app_primary"
-                android:orientation="horizontal"
-                tools:ignore="UselessParent" >
-
-                <TextView
-                    android:id="@+id/tvMainTitle"
-                    style="@style/appTitlefont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical" />
-
-                <TextView
-                    android:id="@+id/tvMainDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center"
-                    android:layout_marginLeft="@dimen/textMinPadding"
-                    android:layout_marginRight="@dimen/textMinPadding"
-                    android:drawableBottom="@drawable/textbottomwhite"
-                    android:textColor="@color/white_app_txt_white"
-                    android:textSize="@dimen/textSizeSmall"
-                    android:visibility="gone" />
-
-                <ViewFlipper
-                    android:id="@+id/vfMainFlopper"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="left|center_vertical" >
-
-                    <TextView
-                        android:id="@+id/tvMainTimeHide"
-                        style="@style/appTitleTimefont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/tvMainTime"
-                        style="@style/appTitleTimefont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </ViewFlipper>
-            </LinearLayout>
-        </TableRow>
-
-        <TableRow>
-
-            <LinearLayout
-                android:id="@+id/llTitleDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:ignore="UselessParent" >
-
-                <TextView
-                    android:id="@+id/tvMainTitleDescrible"
-                    style="@style/appTitlefontDes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical" />
-
-                <RelativeLayout
-                    style="@style/appTitleMotto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipChildren="false"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:id="@+id/appTitleMottoQuitesBegin"
-                        style="@style/appTitlefontMottoQuotes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:text="@string/quotesBegin" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/appTitleMottoQuitesEnd"
-                        android:layout_toRightOf="@+id/appTitleMottoQuitesBegin" >
-
-                        <com.pavkoo.franklin.controls.ScrollingTextView
-                            android:id="@+id/tvMainTitleMotto"
-                            style="@style/appTitlefontMotto"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left|center_vertical" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/appTitleMottoQuitesEnd"
-                        style="@style/appTitlefontMottoQuotes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:text="@string/quotesEnd"
-                        tools:ignore="HardcodedText" />
-                </RelativeLayout>
-            </LinearLayout>
-        </TableRow>
-
-        <TableRow android:layout_weight="1" >
-
-            <com.pavkoo.franklin.controls.CyclePager
-                android:id="@+id/clcpagerContent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-            </com.pavkoo.franklin.controls.CyclePager>
-        </TableRow>
-
-        <TableRow>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white_app_bg_secondary"
-                android:gravity="center"
-                tools:ignore="UselessParent" >
-
-                <View
-                    android:id="@+id/viewIndicatiorLeft"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp" />
-
-                <View
-                    android:id="@+id/viewIndicatiorCenter"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:layout_marginLeft="@dimen/appBorderPadding"
-                    android:layout_marginRight="@dimen/appBorderPadding" />
-
-                <View
-                    android:id="@+id/viewIndicatiorRight"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp" />
-            </LinearLayout>
-        </TableRow>
-    </TableLayout>
-
-</RelativeLayout>
+</FrameLayout>

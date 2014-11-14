@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.nineoldandroids.view.ViewHelper;
@@ -79,13 +80,20 @@ public class AnimMessage extends LinearLayout {
 		llMessageBg = (LinearLayout) findViewById(R.id.llMessageBg);
 		tvMessage.setText("");
 		if (Build.VERSION.SDK_INT > 11) {
-			inAnimation = ObjectAnimator.ofFloat(llMessageBg, "alpha", 0, 1);
+			inAnimation = ObjectAnimator.ofFloat(llMessageBg, "alpha", 0, 0.9f);
 		} else {
 			inAnimation = null;
 		}
 		llMessageBg.setBackgroundColor(getContext().getResources().getColor(
 				R.color.white_app_bg_secondary));
 		showing = false;
+		llMessageBg.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				reset();
+			}
+		});
 	}
 
 	public void reset() {
