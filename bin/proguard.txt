@@ -29,7 +29,7 @@
 # view res/layout/activity_main.xml #generated:260
 # view res/layout/activity_setting.xml #generated:138
 # view res/layout/setting_projectitem_popup.xml #generated:106
-# view res/layout/settting_system_popup_me.xml #generated:53
+# view res/layout/settting_system_popup_me.xml #generated:56
 # view res/layout/settting_welcome_popup.xml #generated:27
 -keep class com.pavkoo.franklin.controls.AnimMessage { <init>(...); }
 
@@ -53,6 +53,12 @@
 
 # view res/layout/cycle_history_report_popup_trend_item.xml #generated:17
 -keep class com.pavkoo.franklin.controls.TrendReport { <init>(...); }
+
+# view AndroidManifest.xml #generated:67
+-keep class com.umeng.fb.ContactActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:64
+-keep class com.umeng.fb.ConversationActivity { <init>(...); }
 
 # view AndroidManifest.xml #generated:60
 -keep class com.umeng.update.UpdateDialogActivity { <init>(...); }

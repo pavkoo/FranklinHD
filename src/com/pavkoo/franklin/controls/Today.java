@@ -492,13 +492,13 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		private Handler mHandler = new Handler();
 		private Runnable mTick = new Runnable() {
 			public void run() {
-				if (cyclealpha > 0) {
+				if (cyclealpha > 70) {
 					ArcDrawable.this.invalidate();
 					mHandler.postDelayed(this, 200); // 20ms == 60fps
 					cyclealpha -= 5;
 					return;
 				}
-				cyclealpha = 0;
+				cyclealpha = 70;
 			}
 		};
 

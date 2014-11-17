@@ -9,6 +9,7 @@
         android:id="@+id/lvSettingSystem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
+        android:background="@color/white_app_bg_secondary"
         android:layoutAnimation="@anim/main_content_item">
     </ListView>
 	

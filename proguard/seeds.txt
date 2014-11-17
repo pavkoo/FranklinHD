@@ -169,7 +169,13 @@ com.pavkoo.franklin.R$anim: int today_init_item
 com.pavkoo.franklin.R$anim: int today_popup_init
 com.pavkoo.franklin.R$anim: int today_popup_init_right_to_left
 com.pavkoo.franklin.R$anim: int today_rotate
+com.pavkoo.franklin.R$anim: int umeng_fb_slide_in_from_left
+com.pavkoo.franklin.R$anim: int umeng_fb_slide_in_from_right
+com.pavkoo.franklin.R$anim: int umeng_fb_slide_out_from_left
+com.pavkoo.franklin.R$anim: int umeng_fb_slide_out_from_right
 com.pavkoo.franklin.R$anim: int zoom_in
+com.pavkoo.franklin.R$attr: int border_color
+com.pavkoo.franklin.R$attr: int border_width
 com.pavkoo.franklin.R$attr: int click_remove_id
 com.pavkoo.franklin.R$attr: int collapsed_height
 com.pavkoo.franklin.R$attr: int drag_enabled
@@ -188,6 +194,8 @@ com.pavkoo.franklin.R$attr: int slide_shuffle_speed
 com.pavkoo.franklin.R$attr: int sort_enabled
 com.pavkoo.franklin.R$attr: int track_drag_sort
 com.pavkoo.franklin.R$attr: int use_default_controller
+com.pavkoo.franklin.R$color: int umeng_fb_color_btn_normal
+com.pavkoo.franklin.R$color: int umeng_fb_color_btn_pressed
 com.pavkoo.franklin.R$color: int white_app_bg_darkgray
 com.pavkoo.franklin.R$color: int white_app_bg_division_line
 com.pavkoo.franklin.R$color: int white_app_bg_popup_content
@@ -226,6 +234,7 @@ com.pavkoo.franklin.R$drawable: int aboutpavkooanim
 com.pavkoo.franklin.R$drawable: int addmoras
 com.pavkoo.franklin.R$drawable: int addmorasshade
 com.pavkoo.franklin.R$drawable: int appsetting
+com.pavkoo.franklin.R$drawable: int bingimage
 com.pavkoo.franklin.R$drawable: int bookcover
 com.pavkoo.franklin.R$drawable: int cloud
 com.pavkoo.franklin.R$drawable: int comments
@@ -334,6 +343,37 @@ com.pavkoo.franklin.R$drawable: int treesmall
 com.pavkoo.franklin.R$drawable: int umeng_common_gradient_green
 com.pavkoo.franklin.R$drawable: int umeng_common_gradient_orange
 com.pavkoo.franklin.R$drawable: int umeng_common_gradient_red
+com.pavkoo.franklin.R$drawable: int umeng_fb_arrow_right
+com.pavkoo.franklin.R$drawable: int umeng_fb_back_normal
+com.pavkoo.franklin.R$drawable: int umeng_fb_back_selected
+com.pavkoo.franklin.R$drawable: int umeng_fb_back_selector
+com.pavkoo.franklin.R$drawable: int umeng_fb_bar_bg
+com.pavkoo.franklin.R$drawable: int umeng_fb_btn_bg_selector
+com.pavkoo.franklin.R$drawable: int umeng_fb_conversation_bg
+com.pavkoo.franklin.R$drawable: int umeng_fb_gradient_green
+com.pavkoo.franklin.R$drawable: int umeng_fb_gradient_orange
+com.pavkoo.franklin.R$drawable: int umeng_fb_gray_frame
+com.pavkoo.franklin.R$drawable: int umeng_fb_list_item
+com.pavkoo.franklin.R$drawable: int umeng_fb_list_item_pressed
+com.pavkoo.franklin.R$drawable: int umeng_fb_list_item_selector
+com.pavkoo.franklin.R$drawable: int umeng_fb_logo
+com.pavkoo.franklin.R$drawable: int umeng_fb_point_new
+com.pavkoo.franklin.R$drawable: int umeng_fb_point_normal
+com.pavkoo.franklin.R$drawable: int umeng_fb_reply_left_bg
+com.pavkoo.franklin.R$drawable: int umeng_fb_reply_right_bg
+com.pavkoo.franklin.R$drawable: int umeng_fb_see_list_normal
+com.pavkoo.franklin.R$drawable: int umeng_fb_see_list_pressed
+com.pavkoo.franklin.R$drawable: int umeng_fb_see_list_selector
+com.pavkoo.franklin.R$drawable: int umeng_fb_statusbar_icon
+com.pavkoo.franklin.R$drawable: int umeng_fb_submit_selector
+com.pavkoo.franklin.R$drawable: int umeng_fb_tick_normal
+com.pavkoo.franklin.R$drawable: int umeng_fb_tick_selected
+com.pavkoo.franklin.R$drawable: int umeng_fb_tick_selector
+com.pavkoo.franklin.R$drawable: int umeng_fb_top_banner
+com.pavkoo.franklin.R$drawable: int umeng_fb_user_bubble
+com.pavkoo.franklin.R$drawable: int umeng_fb_write_normal
+com.pavkoo.franklin.R$drawable: int umeng_fb_write_pressed
+com.pavkoo.franklin.R$drawable: int umeng_fb_write_selector
 com.pavkoo.franklin.R$drawable: int umeng_update_btn_check_off_focused_holo_light
 com.pavkoo.franklin.R$drawable: int umeng_update_btn_check_off_holo_light
 com.pavkoo.franklin.R$drawable: int umeng_update_btn_check_off_pressed_holo_light
@@ -385,6 +425,7 @@ com.pavkoo.franklin.R$id: int gpbHelperTodayYes
 com.pavkoo.franklin.R$id: int gpbTodayNo
 com.pavkoo.franklin.R$id: int gpbTodayYes
 com.pavkoo.franklin.R$id: int grpReview
+com.pavkoo.franklin.R$id: int ivBg
 com.pavkoo.franklin.R$id: int ivCloud
 com.pavkoo.franklin.R$id: int ivCloud2
 com.pavkoo.franklin.R$id: int ivCommentNomore
@@ -534,6 +575,7 @@ com.pavkoo.franklin.R$id: int tvSplashGo
 com.pavkoo.franklin.R$id: int tvSplashHint
 com.pavkoo.franklin.R$id: int tvTodayPopupYes
 com.pavkoo.franklin.R$id: int tvTodayTitle
+com.pavkoo.franklin.R$id: int tvcopyright
 com.pavkoo.franklin.R$id: int tvmainExample
 com.pavkoo.franklin.R$id: int tvmainSpot
 com.pavkoo.franklin.R$id: int tvmainSpot2
@@ -563,6 +605,21 @@ com.pavkoo.franklin.R$id: int umeng_common_progress_text
 com.pavkoo.franklin.R$id: int umeng_common_rich_notification_cancel
 com.pavkoo.franklin.R$id: int umeng_common_rich_notification_continue
 com.pavkoo.franklin.R$id: int umeng_common_title
+com.pavkoo.franklin.R$id: int umeng_fb_back
+com.pavkoo.franklin.R$id: int umeng_fb_contact_header
+com.pavkoo.franklin.R$id: int umeng_fb_contact_info
+com.pavkoo.franklin.R$id: int umeng_fb_contact_update_at
+com.pavkoo.franklin.R$id: int umeng_fb_conversation_contact_entry
+com.pavkoo.franklin.R$id: int umeng_fb_conversation_header
+com.pavkoo.franklin.R$id: int umeng_fb_conversation_list_wrapper
+com.pavkoo.franklin.R$id: int umeng_fb_conversation_umeng_logo
+com.pavkoo.franklin.R$id: int umeng_fb_list_reply_header
+com.pavkoo.franklin.R$id: int umeng_fb_reply_content
+com.pavkoo.franklin.R$id: int umeng_fb_reply_content_wrapper
+com.pavkoo.franklin.R$id: int umeng_fb_reply_date
+com.pavkoo.franklin.R$id: int umeng_fb_reply_list
+com.pavkoo.franklin.R$id: int umeng_fb_save
+com.pavkoo.franklin.R$id: int umeng_fb_send
 com.pavkoo.franklin.R$id: int umeng_update_content
 com.pavkoo.franklin.R$id: int umeng_update_id_cancel
 com.pavkoo.franklin.R$id: int umeng_update_id_check
@@ -606,6 +663,11 @@ com.pavkoo.franklin.R$layout: int settting_welcome_popup
 com.pavkoo.franklin.R$layout: int today_control
 com.pavkoo.franklin.R$layout: int today_control_popup
 com.pavkoo.franklin.R$layout: int umeng_common_download_notification
+com.pavkoo.franklin.R$layout: int umeng_fb_activity_contact
+com.pavkoo.franklin.R$layout: int umeng_fb_activity_conversation
+com.pavkoo.franklin.R$layout: int umeng_fb_list_header
+com.pavkoo.franklin.R$layout: int umeng_fb_list_item
+com.pavkoo.franklin.R$layout: int umeng_fb_new_reply_alert_dialog
 com.pavkoo.franklin.R$layout: int umeng_update_dialog
 com.pavkoo.franklin.R$string: int Finishmodify
 com.pavkoo.franklin.R$string: int ImGetBetter
@@ -821,6 +883,20 @@ com.pavkoo.franklin.R$string: int umeng_common_pause_notification_prefix
 com.pavkoo.franklin.R$string: int umeng_common_silent_download_finish
 com.pavkoo.franklin.R$string: int umeng_common_start_download_notification
 com.pavkoo.franklin.R$string: int umeng_common_start_patch_notification
+com.pavkoo.franklin.R$string: int umeng_fb_back
+com.pavkoo.franklin.R$string: int umeng_fb_contact_info
+com.pavkoo.franklin.R$string: int umeng_fb_contact_info_hint
+com.pavkoo.franklin.R$string: int umeng_fb_contact_title
+com.pavkoo.franklin.R$string: int umeng_fb_contact_update_at
+com.pavkoo.franklin.R$string: int umeng_fb_notification_content_formatter_multiple_msg
+com.pavkoo.franklin.R$string: int umeng_fb_notification_content_formatter_single_msg
+com.pavkoo.franklin.R$string: int umeng_fb_notification_ticker_text
+com.pavkoo.franklin.R$string: int umeng_fb_powered_by
+com.pavkoo.franklin.R$string: int umeng_fb_reply_content_default
+com.pavkoo.franklin.R$string: int umeng_fb_reply_content_hint
+com.pavkoo.franklin.R$string: int umeng_fb_reply_date_default
+com.pavkoo.franklin.R$string: int umeng_fb_send
+com.pavkoo.franklin.R$string: int umeng_fb_title
 com.pavkoo.franklin.R$string: int version
 com.pavkoo.franklin.R$string: int virtueDone
 com.pavkoo.franklin.R$string: int welcome
@@ -862,6 +938,9 @@ com.pavkoo.franklin.R$style: int appTodayLayout
 com.pavkoo.franklin.R$style: int appTotayPopupContent
 com.pavkoo.franklin.R$style: int appTotayPopupTitle
 com.pavkoo.franklin.R$style: int appTotayPopupTitleWarning
+com.pavkoo.franklin.R$styleable: int[] CircleImageView
+com.pavkoo.franklin.R$styleable: int CircleImageView_border_color
+com.pavkoo.franklin.R$styleable: int CircleImageView_border_width
 com.pavkoo.franklin.R$styleable: int[] DragSortListView
 com.pavkoo.franklin.R$styleable: int DragSortListView_click_remove_id
 com.pavkoo.franklin.R$styleable: int DragSortListView_collapsed_height
@@ -907,6 +986,19 @@ com.pavkoo.franklin.controls.BlemishReport: float getColTitleHeight()
 com.pavkoo.franklin.controls.BlemishReport: BlemishReport(android.content.Context)
 com.pavkoo.franklin.controls.BlemishReport: BlemishReport(android.content.Context,android.util.AttributeSet)
 com.pavkoo.franklin.controls.BlemishReport: BlemishReport(android.content.Context,android.util.AttributeSet,int)
+com.pavkoo.franklin.controls.CircleImageView
+com.pavkoo.franklin.controls.CircleImageView: CircleImageView(android.content.Context)
+com.pavkoo.franklin.controls.CircleImageView: CircleImageView(android.content.Context,android.util.AttributeSet)
+com.pavkoo.franklin.controls.CircleImageView: CircleImageView(android.content.Context,android.util.AttributeSet,int)
+com.pavkoo.franklin.controls.CircleImageView: android.widget.ImageView$ScaleType getScaleType()
+com.pavkoo.franklin.controls.CircleImageView: void setScaleType(android.widget.ImageView$ScaleType)
+com.pavkoo.franklin.controls.CircleImageView: int getBorderColor()
+com.pavkoo.franklin.controls.CircleImageView: void setBorderColor(int)
+com.pavkoo.franklin.controls.CircleImageView: int getBorderWidth()
+com.pavkoo.franklin.controls.CircleImageView: void setBorderWidth(int)
+com.pavkoo.franklin.controls.CircleImageView: void setImageBitmap(android.graphics.Bitmap)
+com.pavkoo.franklin.controls.CircleImageView: void setImageDrawable(android.graphics.drawable.Drawable)
+com.pavkoo.franklin.controls.CircleImageView: void setImageResource(int)
 com.pavkoo.franklin.controls.CyclePager
 com.pavkoo.franklin.controls.CyclePager: com.pavkoo.franklin.controls.IUpdateViewCallback getUpdateViewCallBack()
 com.pavkoo.franklin.controls.CyclePager: void setUpdateViewCallBack(com.pavkoo.franklin.controls.IUpdateViewCallback)
@@ -962,6 +1054,85 @@ com.umeng.analytics.social.UMPlatformData$GENDER: com.umeng.analytics.social.UMP
 com.umeng.analytics.social.UMPlatformData$GENDER: com.umeng.analytics.social.UMPlatformData$GENDER valueOf(java.lang.String)
 com.umeng.analytics.social.UMPlatformData$UMedia: com.umeng.analytics.social.UMPlatformData$UMedia[] values()
 com.umeng.analytics.social.UMPlatformData$UMedia: com.umeng.analytics.social.UMPlatformData$UMedia valueOf(java.lang.String)
+com.umeng.fb.ContactActivity
+com.umeng.fb.ContactActivity: ContactActivity()
+com.umeng.fb.ConversationActivity
+com.umeng.fb.ConversationActivity: ConversationActivity()
+com.umeng.fb.R$anim: int umeng_fb_slide_in_from_left
+com.umeng.fb.R$anim: int umeng_fb_slide_in_from_right
+com.umeng.fb.R$anim: int umeng_fb_slide_out_from_left
+com.umeng.fb.R$anim: int umeng_fb_slide_out_from_right
+com.umeng.fb.R$color: int umeng_fb_color_btn_normal
+com.umeng.fb.R$color: int umeng_fb_color_btn_pressed
+com.umeng.fb.R$drawable: int umeng_fb_arrow_right
+com.umeng.fb.R$drawable: int umeng_fb_back_normal
+com.umeng.fb.R$drawable: int umeng_fb_back_selected
+com.umeng.fb.R$drawable: int umeng_fb_back_selector
+com.umeng.fb.R$drawable: int umeng_fb_bar_bg
+com.umeng.fb.R$drawable: int umeng_fb_btn_bg_selector
+com.umeng.fb.R$drawable: int umeng_fb_conversation_bg
+com.umeng.fb.R$drawable: int umeng_fb_gradient_green
+com.umeng.fb.R$drawable: int umeng_fb_gradient_orange
+com.umeng.fb.R$drawable: int umeng_fb_gray_frame
+com.umeng.fb.R$drawable: int umeng_fb_list_item
+com.umeng.fb.R$drawable: int umeng_fb_list_item_pressed
+com.umeng.fb.R$drawable: int umeng_fb_list_item_selector
+com.umeng.fb.R$drawable: int umeng_fb_logo
+com.umeng.fb.R$drawable: int umeng_fb_point_new
+com.umeng.fb.R$drawable: int umeng_fb_point_normal
+com.umeng.fb.R$drawable: int umeng_fb_reply_left_bg
+com.umeng.fb.R$drawable: int umeng_fb_reply_right_bg
+com.umeng.fb.R$drawable: int umeng_fb_see_list_normal
+com.umeng.fb.R$drawable: int umeng_fb_see_list_pressed
+com.umeng.fb.R$drawable: int umeng_fb_see_list_selector
+com.umeng.fb.R$drawable: int umeng_fb_statusbar_icon
+com.umeng.fb.R$drawable: int umeng_fb_submit_selector
+com.umeng.fb.R$drawable: int umeng_fb_tick_normal
+com.umeng.fb.R$drawable: int umeng_fb_tick_selected
+com.umeng.fb.R$drawable: int umeng_fb_tick_selector
+com.umeng.fb.R$drawable: int umeng_fb_top_banner
+com.umeng.fb.R$drawable: int umeng_fb_user_bubble
+com.umeng.fb.R$drawable: int umeng_fb_write_normal
+com.umeng.fb.R$drawable: int umeng_fb_write_pressed
+com.umeng.fb.R$drawable: int umeng_fb_write_selector
+com.umeng.fb.R$id: int umeng_fb_back
+com.umeng.fb.R$id: int umeng_fb_contact_header
+com.umeng.fb.R$id: int umeng_fb_contact_info
+com.umeng.fb.R$id: int umeng_fb_contact_update_at
+com.umeng.fb.R$id: int umeng_fb_conversation_contact_entry
+com.umeng.fb.R$id: int umeng_fb_conversation_header
+com.umeng.fb.R$id: int umeng_fb_conversation_list_wrapper
+com.umeng.fb.R$id: int umeng_fb_conversation_umeng_logo
+com.umeng.fb.R$id: int umeng_fb_list_reply_header
+com.umeng.fb.R$id: int umeng_fb_reply_content
+com.umeng.fb.R$id: int umeng_fb_reply_content_wrapper
+com.umeng.fb.R$id: int umeng_fb_reply_date
+com.umeng.fb.R$id: int umeng_fb_reply_list
+com.umeng.fb.R$id: int umeng_fb_save
+com.umeng.fb.R$id: int umeng_fb_send
+com.umeng.fb.R$layout: int umeng_fb_activity_contact
+com.umeng.fb.R$layout: int umeng_fb_activity_conversation
+com.umeng.fb.R$layout: int umeng_fb_list_header
+com.umeng.fb.R$layout: int umeng_fb_list_item
+com.umeng.fb.R$layout: int umeng_fb_new_reply_alert_dialog
+com.umeng.fb.R$string: int umeng_fb_back
+com.umeng.fb.R$string: int umeng_fb_contact_info
+com.umeng.fb.R$string: int umeng_fb_contact_info_hint
+com.umeng.fb.R$string: int umeng_fb_contact_title
+com.umeng.fb.R$string: int umeng_fb_contact_update_at
+com.umeng.fb.R$string: int umeng_fb_notification_content_formatter_multiple_msg
+com.umeng.fb.R$string: int umeng_fb_notification_content_formatter_single_msg
+com.umeng.fb.R$string: int umeng_fb_notification_ticker_text
+com.umeng.fb.R$string: int umeng_fb_powered_by
+com.umeng.fb.R$string: int umeng_fb_reply_content_default
+com.umeng.fb.R$string: int umeng_fb_reply_content_hint
+com.umeng.fb.R$string: int umeng_fb_reply_date_default
+com.umeng.fb.R$string: int umeng_fb_send
+com.umeng.fb.R$string: int umeng_fb_title
+com.umeng.fb.model.Reply$STATUS: com.umeng.fb.model.Reply$STATUS[] values()
+com.umeng.fb.model.Reply$STATUS: com.umeng.fb.model.Reply$STATUS valueOf(java.lang.String)
+com.umeng.fb.model.Reply$TYPE: com.umeng.fb.model.Reply$TYPE[] values()
+com.umeng.fb.model.Reply$TYPE: com.umeng.fb.model.Reply$TYPE valueOf(java.lang.String)
 com.umeng.update.UpdateDialogActivity
 com.umeng.update.UpdateDialogActivity: UpdateDialogActivity()
 com.umeng.update.net.DownloadingService

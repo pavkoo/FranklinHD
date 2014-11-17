@@ -7,8 +7,11 @@ import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
 import com.umeng.update.UpdateStatus;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,6 +21,7 @@ public class SettingSystemMeDialog extends ParentDialog {
 	private AnimationDrawable ad;
 	private ImageView ivbg;
 	private TextView settingmeCheckupdate;
+	private TextView tvcopyright;
 	private AnimMessage amMessage;
 	
 	public SettingSystemMeDialog(Context context, int theme) {
@@ -27,11 +31,24 @@ public class SettingSystemMeDialog extends ParentDialog {
 		View dialogView = li.inflate(R.layout.settting_system_popup_me, null);
 		ivbg = (ImageView) dialogView.findViewById(R.id.ivSettingSystemMe);
 		settingmeCheckupdate = (TextView) dialogView.findViewById(R.id.settingmeCheckupdate);
+		tvcopyright = (TextView) dialogView.findViewById(R.id.tvcopyright);
 		amMessage = (AnimMessage) dialogView.findViewById(R.id.amSettingsystemMeMessage);
-		setContentView(dialogView);
-		
+		setContentView(dialogView);		
 		ad = (AnimationDrawable) ivbg.getDrawable();
 		ad.start();
+		
+		tvcopyright.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.cnblogs.com/pavkoo/p/4102992.html"));
+				try {
+					SettingSystemMeDialog.this.getContext().startActivity(browserIntent);
+				} catch (ActivityNotFoundException e) {
+					amMessage.showMessage(SettingSystemMeDialog.this.getContext().getString(R.string.cantFindBrowse), AnimMessageType.ERROR);
+				}
+			}
+		});
 		settingmeCheckupdate.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

@@ -31,11 +31,14 @@
         android:textColor="@color/white_app_txt_gray" />
 
     <TextView
+        android:id="@+id/tvcopyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:gravity="center"
         android:lineSpacingMultiplier="1.3"
         android:padding="@dimen/textPadding"
+        android:clickable="true"
         android:text="@string/enjoylife"
         android:textColor="@color/white_app_txt_gray" />
 

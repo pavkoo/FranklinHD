@@ -1678,7 +1678,8 @@ com.nineoldandroids.view.animation.AnimatorProxy:
     163:167:public void setScrollX(int)
     176:180:public void setScrollY(int)
 com.pavkoo.franklin.BuildConfig
-com.pavkoo.franklin.R
+com.pavkoo.franklin.R:
+    10:10:public R()
 com.pavkoo.franklin.R$anim
 com.pavkoo.franklin.R$attr
 com.pavkoo.franklin.R$color
@@ -1688,7 +1689,8 @@ com.pavkoo.franklin.R$id
 com.pavkoo.franklin.R$layout
 com.pavkoo.franklin.R$string
 com.pavkoo.franklin.R$style
-com.pavkoo.franklin.R$styleable
+com.pavkoo.franklin.R$styleable:
+    1017:1017:public R$styleable()
 com.pavkoo.franklin.SettingActivity$FragmentFactory:
     166:166:public SettingActivity$FragmentFactory()
 com.pavkoo.franklin.common.ApplicationConfig:
@@ -1706,7 +1708,11 @@ com.pavkoo.franklin.common.Moral:
     35:36:private void clearTodayComment()
     144:149:public void setTodaySelected(com.pavkoo.franklin.common.CheckState)
 com.pavkoo.franklin.common.UtilsClass:
-    19:19:public UtilsClass()
+    private static final java.lang.String DATEFORMAT
+    private static final java.lang.String MyFolder
+    private static final java.lang.String MyTemp
+    private static final java.lang.String BingUrl
+    33:33:public UtilsClass()
 com.pavkoo.franklin.controls.BlemishReport:
     private static final int ColTitleSpace
     private static final int RowTitleSpace
@@ -1714,6 +1720,10 @@ com.pavkoo.franklin.controls.BlemishReportTotalDialog:
     28:28:public java.util.List getMorals()
 com.pavkoo.franklin.controls.BlemishReportTrendDialog:
     28:28:public java.util.List getMorals()
+com.pavkoo.franklin.controls.CircleImageView:
+    private static final int COLORDRAWABLE_DIMENSION
+    private static final int DEFAULT_BORDER_WIDTH
+    private static final int DEFAULT_BORDER_COLOR
 com.pavkoo.franklin.controls.CommentAdapter:
     28:28:public java.util.List getComments()
 com.pavkoo.franklin.controls.CyclePager:
@@ -1737,9 +1747,11 @@ com.pavkoo.franklin.controls.SettingSystemHelpDialog:
 com.pavkoo.franklin.controls.SettingSystemRestartDialog:
     21:21:public com.pavkoo.franklin.controls.SettingSystemRestartDialog$ViewState getVs()
     29:29:public com.pavkoo.franklin.controls.IDialogOKCallBack getOnOKCallBack()
+com.pavkoo.franklin.controls.Today:
+    private static final int IMAGEDOWNLOADED
 com.pavkoo.franklin.controls.Today$ArcDrawable:
-    254:256:public Today$ArcDrawable(android.content.Context,android.util.AttributeSet)
-    345:345:public java.util.List getHistoryCheckList()
+    317:319:public Today$ArcDrawable(android.content.Context,android.util.AttributeSet)
+    413:413:public java.util.List getHistoryCheckList()
 com.pavkoo.franklin.controls.TotalAdapter:
     27:27:public java.util.List getMorals()
 com.pavkoo.franklin.controls.TrendAdapter:
@@ -1921,6 +1933,139 @@ com.umeng.analytics.social.c
 com.umeng.analytics.social.d
 com.umeng.analytics.social.e
 com.umeng.analytics.social.f
+com.umeng.fb.BuildConfig
+com.umeng.fb.ContactActivity:
+    private static final java.lang.String KEY_UMENG_CONTACT_INFO_PLAIN_TEXT
+com.umeng.fb.FeedbackAgent:
+    34:35:public void setDebug(boolean)
+    60:99:public void sync()
+    108:127:private void showReplyNotification(java.lang.String)
+    21:21:static synthetic android.content.Context access$000(com.umeng.fb.FeedbackAgent)
+    21:21:static synthetic void access$100(com.umeng.fb.FeedbackAgent,java.lang.String)
+com.umeng.fb.FeedbackAgent$1
+com.umeng.fb.R
+com.umeng.fb.R$anim
+com.umeng.fb.R$attr
+com.umeng.fb.R$color
+com.umeng.fb.R$drawable
+com.umeng.fb.R$id
+com.umeng.fb.R$layout
+com.umeng.fb.R$string
+com.umeng.fb.model.Constants
+com.umeng.fb.model.Conversation$SyncHandler:
+    static final int CALLBACK
+    static final int UPDATE_SEND_USER_REPLY_RESULT
+com.umeng.fb.model.DevReply:
+    19:21:private DevReply(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.umeng.fb.model.Reply:
+    private static final java.lang.String JSON_KEY_CONTENT
+    private static final java.lang.String JSON_KEY_REPLY_ID
+    private static final java.lang.String JSON_KEY_APPKEY
+    private static final java.lang.String JSON_KEY_USER_ID
+    private static final java.lang.String JSON_KEY_FEEDBACK_ID
+    private static final java.lang.String JSON_KEY_TYPE
+    private static final java.lang.String JSON_KEY_DATE_TIME
+    private static final java.lang.String JSON_KEY_STATUS
+    118:118:public com.umeng.fb.model.Reply$STATUS getStatus()
+com.umeng.fb.model.Store:
+    private static final java.lang.String PREFS_CONVERSATIONS
+    private static final java.lang.String PREFS_USER_INFO
+    private static final java.lang.String PREFS_USER_INFO_KEY
+    private static final java.lang.String PREFS_USER_INFO_LAST_UPDATE_KEY
+    private static final java.lang.String PREFS_USER_INFO_LAST_SYNC_KEY
+    134:136:public void setUserInfoLastSyncAt(long)
+    175:179:void clear()
+com.umeng.fb.model.UserInfo:
+    96:96:public int getAgeGroup()
+    100:101:public void setAgeGroup(int)
+    104:104:public java.lang.String getGender()
+    108:109:public void setGender(java.lang.String)
+    120:120:public java.util.Map getRemark()
+    124:125:public void setRemark(java.util.Map)
+com.umeng.fb.model.UserTitleReply:
+    private static final java.lang.String JSON_KEY_THREAD
+com.umeng.fb.net.DevReplyRequest
+com.umeng.fb.net.FbClient:
+    public static final java.lang.String FEEDBACK_BASE_URL
+    public static final java.lang.String FEEDBACK_UER_REPLY_URL
+    public static final java.lang.String FEEDBACK_Dev_Reply_URL
+    public static final java.lang.String FEEDBACK_NewFeedback_URL
+    private static final int REGISTRATION_TIMEOUT_MS
+com.umeng.fb.net.FbRequest:
+    23:25:public FbRequest(java.lang.String)
+    40:40:public org.json.JSONObject toJson()
+    45:45:public java.lang.String toGetUrl()
+    50:50:public java.lang.String getHttpMethod()
+com.umeng.fb.net.UClient
+com.umeng.fb.net.URequest:
+    public abstract org.json.JSONObject toJson()
+    public abstract java.lang.String toGetUrl()
+    51:51:protected java.lang.String getHttpMethod()
+    67:68:public void setBaseUrl(java.lang.String)
+    75:75:public java.lang.String getBaseUrl()
+com.umeng.fb.net.UResponse:
+    26:28:public UResponse()
+com.umeng.fb.res.AnimMapper:
+    7:7:public AnimMapper()
+com.umeng.fb.res.DrawableMapper:
+    7:7:public DrawableMapper()
+    18:18:public static int umeng_fb_statusbar_icon(android.content.Context)
+com.umeng.fb.res.IdMapper:
+    7:7:public IdMapper()
+    35:35:public static int umeng_fb_reply_content_right(android.content.Context)
+    39:39:public static int umeng_fb_reply_content_left(android.content.Context)
+    55:55:public static int umeng_fb_conversation_umeng_logo(android.content.Context)
+com.umeng.fb.res.LayoutMapper:
+    7:7:public LayoutMapper()
+    23:23:public static int umeng_fb_new_reply_alert_dialog(android.content.Context)
+com.umeng.fb.res.StringMapper:
+    7:7:public StringMapper()
+    13:13:public static int umeng_fb_notification_ticker_text(android.content.Context)
+    19:19:public static int umeng_fb_notification_content_formatter_single_msg(android.content.Context)
+    25:25:public static int umeng_fb_notification_content_formatter_multiple_msg(android.content.Context)
+com.umeng.fb.util.Constants
+com.umeng.fb.util.DeflaterHelper
+com.umeng.fb.util.DeviceConfig:
+    protected static final java.lang.String UNKNOW
+    private static final java.lang.String MOBILE_NETWORK
+    private static final java.lang.String WIFI
+    public static final int DEFAULT_TIMEZONE
+    58:66:public static boolean isAppInstalled(java.lang.String,android.content.Context)
+    77:78:public static boolean isChinese(android.content.Context)
+    88:91:public static boolean isScreenPortrait(android.content.Context)
+    152:161:public static java.lang.String getAppLabel(android.content.Context)
+    173:181:public static java.lang.String[] getGPU(javax.microedition.khronos.opengles.GL10)
+    298:311:public static java.lang.String getDisplayResolution(android.content.Context)
+    362:362:public static boolean isWiFiAvailable(android.content.Context)
+    381:381:public static android.location.Location getLocation(android.content.Context)
+    395:403:public static boolean isOnline(android.content.Context)
+    413:417:public static boolean isSdCardWrittenable()
+    613:619:public static java.lang.String getOperator(android.content.Context)
+    629:631:public static java.lang.String getTimeString(java.util.Date)
+    640:643:public static java.lang.String getToday()
+    655:659:public static java.util.Date toTime(java.lang.String)
+    673:681:public static int getIntervalSeconds(java.util.Date,java.util.Date)
+    734:734:public static java.lang.String getApplicationLable(android.content.Context)
+    746:748:public static boolean isDebug(android.content.Context)
+com.umeng.fb.util.Helper:
+    86:102:public static java.lang.String MD5(java.lang.String)
+    142:161:public static java.lang.String getFileMD5(java.io.File)
+    183:195:public static java.lang.String getFileSizeDescription(android.content.Context,long)
+    199:218:public static java.lang.String getFileSizeDescription(java.lang.String)
+    229:232:public static void openApp(android.content.Context,java.lang.String)
+    244:250:public static boolean openUrlSchema(android.content.Context,java.lang.String)
+    261:261:public static boolean isEmpty(java.lang.String)
+    274:278:public static boolean isAbsoluteUrl(java.lang.String)
+    289:290:public static java.lang.String getDateTime()
+    299:302:public static java.lang.String getTimeString(java.util.Date)
+com.umeng.fb.util.Log:
+    8:8:public Log()
+    56:59:public static void v(java.lang.String,java.lang.String)
+    62:65:public static void v(java.lang.String,java.lang.String,java.lang.Exception)
+com.umeng.fb.util.Res:
+    98:99:public static void setPackageName(java.lang.String)
+    153:153:public int style(java.lang.String)
+    175:175:public int array(java.lang.String)
 com.umeng.update.UmengUpdateAgent:
     25:25:public UmengUpdateAgent()
     36:46:public static void setDefault()

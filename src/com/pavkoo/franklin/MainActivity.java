@@ -9,14 +9,12 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.TransitionDrawable;
-import android.net.Uri;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -61,6 +59,7 @@ import com.pavkoo.franklin.controls.ScrollingTextView;
 import com.pavkoo.franklin.controls.Today;
 import com.pavkoo.franklin.controls.TodayDialog;
 import com.pavkoo.franklin.controls.TodayDialog.DialogState;
+import com.umeng.fb.FeedbackAgent;
 
 public class MainActivity extends ParentActivity implements
 		IUpdateTextCallBack, IUpdateViewCallback, IUpdateMoralSelectState {
@@ -210,17 +209,20 @@ public class MainActivity extends ParentActivity implements
 
 			@Override
 			public void onClick(View v) {
-
-				Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-				Uri uri = Uri.parse(getString(R.string.mailto));
-				emailIntent.setData(uri);
-				try {
-					MainActivity.this.startActivity(Intent.createChooser(
-							emailIntent, getString(R.string.chooseEmail)));
-				} catch (ActivityNotFoundException e) {
-					amMessage.showMessage(getString(R.string.cantSendEmail),
-							AnimMessage.AnimMessageType.WARNING);
-				}
+				FeedbackAgent agent = new FeedbackAgent(MainActivity.this);
+			    agent.startFeedbackActivity();
+			    overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); 
+				//不再使用邮件反馈
+//				Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+//				Uri uri = Uri.parse(getString(R.string.mailto));
+//				emailIntent.setData(uri);
+//				try {
+//					MainActivity.this.startActivity(Intent.createChooser(
+//							emailIntent, getString(R.string.chooseEmail)));
+//				} catch (ActivityNotFoundException e) {
+//					amMessage.showMessage(getString(R.string.cantSendEmail),
+//							AnimMessage.AnimMessageType.WARNING);
+//				}
 			}
 		});
 		txtMotto.setOnClickListener(new OnClickListener() {

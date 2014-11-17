@@ -224,7 +224,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white_app_bg_secondary"
+                    android:background="@color/white_app_txt_white"
                     android:gravity="center"
                     tools:ignore="UselessParent" >
 
