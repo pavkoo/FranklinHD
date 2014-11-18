@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="version">Version 0.9.6</string>
+    <string name="version">Version 0.9.6.1</string>
     <string name="app_name">自我修养</string>
     <string name="appnameabout">自我修养 beta版</string>
     <string name="book">《富兰克林自传》</string>
@@ -285,5 +285,8 @@
     <string name="caustion">注意，只有在选择糟糕时才能够记录感想哦</string>
     <string name="yourgole">当有一天，你反省后再也没有污点，就请停止使用软件！</string>
     <string name="thisisfranklin">这就是自我修养</string>
+    <string name="doyoudotaday">今天自我修养你做到了吗？</string>
+    <string name="todaySubject">今天要：</string>
+    <string name="todo">做到：</string>
 
 </resources>

@@ -6,6 +6,7 @@ import java.util.List;
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.Moral;
+import com.pavkoo.franklin.common.UtilsClass;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -72,7 +73,11 @@ public class TrendAdapter extends BaseAdapter {
 //		}
 		TextView cycleHistoryReportTrendTitle = (TextView) convertView.findViewById(R.id.cycleHistoryReportTrendTitle);
 		int color = Color.parseColor(CommonConst.colors[position % CommonConst.colors.length]);
-		cycleHistoryReportTrendTitle.setText(morals.get(position).getTitle());
+		String title = morals.get(position).getTitle();
+		if (UtilsClass.isEng()){
+			title = title.substring(0, 3)+"."; 
+		}
+		cycleHistoryReportTrendTitle.setText(title);
 		GradientDrawable gd = (GradientDrawable) cycleHistoryReportTrendTitle.getBackground();
 		gd.setColor(color);
 		TrendReport trend = (TrendReport) convertView.findViewById(R.id.cycleHistoryReportTrendReport);

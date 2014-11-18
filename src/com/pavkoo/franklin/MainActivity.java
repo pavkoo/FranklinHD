@@ -9,6 +9,9 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
@@ -16,6 +19,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
+import android.support.v4.app.NotificationCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -125,11 +129,14 @@ public class MainActivity extends ParentActivity implements
 	private long touchTime;
 	private final int WaitTime = 4000;
 	private int mainColor;
+	private static final int FranklinNotifyId = 9527;
+	private NotificationManager notifyMgr;
 
 	@SuppressLint("NewApi")
 	@Override
 	protected void initView() {
 		setContentView(R.layout.activity_main);
+		notifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		viewState = ViewState.HOME;
 		llTitle = (LinearLayout) findViewById(R.id.llTitle);
 		ivHome = (ImageView) findViewById(R.id.ivHome);
@@ -202,7 +209,8 @@ public class MainActivity extends ParentActivity implements
 				setIntent.putExtra("STARTMODE", R.id.rbAppSetting);
 				MainActivity.this.startActivity(setIntent);
 				MainActivity.this.finish();
-				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
+				overridePendingTransition(R.anim.in_from_right,
+						R.anim.out_to_left);
 			}
 		});
 		txtContactMe.setOnClickListener(new OnClickListener() {
@@ -210,30 +218,33 @@ public class MainActivity extends ParentActivity implements
 			@Override
 			public void onClick(View v) {
 				FeedbackAgent agent = new FeedbackAgent(MainActivity.this);
-			    agent.startFeedbackActivity();
-			    overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); 
-				//不再使用邮件反馈
-//				Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-//				Uri uri = Uri.parse(getString(R.string.mailto));
-//				emailIntent.setData(uri);
-//				try {
-//					MainActivity.this.startActivity(Intent.createChooser(
-//							emailIntent, getString(R.string.chooseEmail)));
-//				} catch (ActivityNotFoundException e) {
-//					amMessage.showMessage(getString(R.string.cantSendEmail),
-//							AnimMessage.AnimMessageType.WARNING);
-//				}
+				agent.startFeedbackActivity();
+				overridePendingTransition(R.anim.in_from_right,
+						R.anim.out_to_left);
+				// 不再使用邮件反馈
+				// Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+				// Uri uri = Uri.parse(getString(R.string.mailto));
+				// emailIntent.setData(uri);
+				// try {
+				// MainActivity.this.startActivity(Intent.createChooser(
+				// emailIntent, getString(R.string.chooseEmail)));
+				// } catch (ActivityNotFoundException e) {
+				// amMessage.showMessage(getString(R.string.cantSendEmail),
+				// AnimMessage.AnimMessageType.WARNING);
+				// }
 			}
 		});
 		txtMotto.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent splashIntent = new Intent(MainActivity.this,SplashActivity.class);
+				Intent splashIntent = new Intent(MainActivity.this,
+						SplashActivity.class);
 				splashIntent.putExtra("flag", true);
 				MainActivity.this.startActivity(splashIntent);
 				MainActivity.this.finish();
-				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
+				overridePendingTransition(R.anim.in_from_right,
+						R.anim.out_to_left);
 			}
 		});
 		txtMainShare.setOnClickListener(new OnClickListener() {
@@ -251,15 +262,15 @@ public class MainActivity extends ParentActivity implements
 				case 1:
 					UtilsClass.shareMsg(MainActivity.this,
 							getString(R.string.Mainshare),
-							getString(R.string.ImGetBetter), 
-							MainActivity.this.getWindow().getDecorView());
+							getString(R.string.ImGetBetter), MainActivity.this
+									.getWindow().getDecorView());
 					break;
 
 				case 2:
 					UtilsClass.shareMsg(MainActivity.this,
 							getString(R.string.Mainshare),
-							getString(R.string.shareReport), 
-							MainActivity.this.getWindow().getDecorView());
+							getString(R.string.shareReport), MainActivity.this
+									.getWindow().getDecorView());
 					break;
 				default:
 					break;
@@ -463,10 +474,31 @@ public class MainActivity extends ParentActivity implements
 		initComment();
 	}
 
+	private void notifyToday(boolean cancel) {
+		if (cancel) {
+			notifyMgr.cancel(FranklinNotifyId);
+			return ;
+		}
+		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+				this);
+		PendingIntent pIntent = PendingIntent.getActivity(this, 0,
+				this.getIntent(), 0);
+		mBuilder.setSmallIcon(R.drawable.ic_launcher).setTicker(getString(R.string.doyoudotaday))
+				.setContentTitle(getString(R.string.todaySubject)+todayMoral.getTitle())
+				.setContentText(getString(R.string.todo)+todayMoral.getTitleDes())
+				.setContentIntent(pIntent);
+		Notification notify = mBuilder.build();
+		notify.icon = R.drawable.ic_launcher;
+		notify.flags = Notification.FLAG_ONGOING_EVENT;
+		notify.tickerText = getString(R.string.app_name);
+		notify.when = System.currentTimeMillis();
+		notifyMgr.notify(FranklinNotifyId, notify);
+	}
+
 	@SuppressLint("NewApi")
 	private boolean initMorals() {
 		needSave = false;
-		if (morals==null){
+		if (morals == null) {
 			amMessage.showMessage(getString(R.string.errortorestore),
 					AnimMessageType.ERROR);
 			return false;
@@ -527,7 +559,7 @@ public class MainActivity extends ParentActivity implements
 					FinishActivity.class);
 			startActivity(finishIntent);
 			finish();
-			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);  
+			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			return false;
 		}
 		if (dayPassed) {
@@ -579,7 +611,9 @@ public class MainActivity extends ParentActivity implements
 		if (needSave) {
 			this.getApp().saveMorals(morals);
 		}
-
+		if (todayMoral.getTodaySelected() == CheckState.UNKNOW) {
+			notifyToday(false);
+		}
 		updateUIByMoral(morals.indexOf(todayMoral));
 
 		return true;
@@ -605,7 +639,11 @@ public class MainActivity extends ParentActivity implements
 			} else {
 				rb.setBackgroundDrawable(sd);
 			}
-			rb.setText(morals.get(i).getTitle());
+			String title = morals.get(i).getTitle();
+			if (UtilsClass.isEng()){
+				title = title.substring(0, 3)+"."; 
+			}
+			rb.setText(title);
 			rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
 			rb.setTextColor(txtColor);
 			updateCheckState(rb, morals.get(i).getTodaySelected(), false);
@@ -640,7 +678,7 @@ public class MainActivity extends ParentActivity implements
 			olderList.add(rb);
 		}
 	}
-
+	
 	private CheckState updateCheckState(TextView tv, CheckState cs,
 			boolean reverse) {
 		switch (cs) {
@@ -787,6 +825,7 @@ public class MainActivity extends ParentActivity implements
 	@Override
 	public void updateTextCallBack() {
 		MainActivity.this.getApp().saveMorals(morals);
+		notifyToday(true);
 	}
 
 	@Override

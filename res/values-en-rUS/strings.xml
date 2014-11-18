@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="version">Version 0.9.6</string>
+    <string name="version">Version 0.9.6.1</string>
     <string name="app_name">13 Virtues</string>
-    <string name="appnameabout">13 Virtues BETA</string>
+    <string name="appnameabout">13 Virtues</string>
     <string name="book">The Autobiography of Benjamin Franklin</string>
     <string name="devTemp">.</string>
     <string name="main_toolbar_setting">Settings</string>
@@ -259,4 +259,26 @@
     <string name="shareReflections">13 Virtues</string>
     <string name="sharetotal">13 Virtues</string>
     <string name="virtueDone">13 Virtues</string>
+    <string name="errortorestore">Something happeds,please restore at setting!</string>
+    <string name="checknew">Check update</string>
+    <string name="gotoMain">Go</string>
+    <string name="seeMore"><![CDATA[ < Swap left or right to see more>]]></string>
+    <string name="jump">Jump</string>
+    <string name="helper1">Now,Try to click the rotating Icon</string>
+    <string name="thisisMenu">This is Menu</string>
+    <string name="helper2">Well,click menu item to see more</string>
+    <string name="reflectioneveryday">Reflect every day</string>
+    <string name="helper3">Brilliant,Click the number to reflect</string>
+    <string name="helper4">It\'s importent for us to reflect everday</string>
+    <string name="chosebad">Thanks,please select Oops</string>
+    <string name="reflectioning">Reflecting</string>
+    <string name="getBlackSpot">Clear Away Black Spot</string>
+    <string name="inputReflection">Add Reflection</string>
+    <string name="clickInput">Fantastic,try to input somthing</string>
+    <string name="caustion">NOTE:Add Reflection can only be done in the choice of Oops</string>
+    <string name="yourgole">Please forget this app,when you have no more black spot</string>
+    <string name="thisisfranklin">This is 13 Virtues</string>
+    <string name="doyoudotaday">How about your Virtues?</string>
+    <string name="todaySubject">Today:</string>
+    <string name="todo">Done:</string>
 </resources>

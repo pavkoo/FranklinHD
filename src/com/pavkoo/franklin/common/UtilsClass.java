@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +33,15 @@ import org.json.JSONObject;
 @SuppressLint("SimpleDateFormat")
 public class UtilsClass {
 	private static final String DATEFORMAT = "yyyy-MM-dd";
+	
+	public static boolean isEng(){
+		Locale l = Locale.getDefault();
+		String lan = l.getLanguage();
+		if (lan.contains("en")){
+			return true;
+		}
+		return false;
+	}
 
 	public static String dateToString(Date date) {
 		String s = "";

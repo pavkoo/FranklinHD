@@ -2,6 +2,7 @@ package com.pavkoo.franklin.controls;
 
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.Moral;
+import com.pavkoo.franklin.common.UtilsClass;
 import com.pavkoo.franklin.controls.AnimMessage.AnimMessageType;
 
 import android.content.Context;
@@ -19,10 +20,11 @@ public class SettingProjectItemDialog extends ParentDialog {
 	private EditText txtSettingProjectItemPopupTitleMotto;
 	private AnimMessage amMessage;
 	private TextView tvSettingPopupTitle;
-	public void SetDialogTitle(String title){
+
+	public void SetDialogTitle(String title) {
 		tvSettingPopupTitle.setText(title);
 	}
-	
+
 	private EditMode editMode;
 
 	public EditMode getEditMode() {
@@ -53,35 +55,45 @@ public class SettingProjectItemDialog extends ParentDialog {
 		super(context, theme);
 		editMode = EditMode.Modify;
 		String infService = Context.LAYOUT_INFLATER_SERVICE;
-		LayoutInflater li = (LayoutInflater) getContext().getSystemService(infService);
+		LayoutInflater li = (LayoutInflater) getContext().getSystemService(
+				infService);
 		View dialogView = li.inflate(R.layout.setting_projectitem_popup, null);
 		setContentView(dialogView);
 
-		tvSettingProjectItemPopupYes = (TextView) dialogView.findViewById(R.id.tvSettingProjectItemPopupYes);
-		tvSettingProjectItemPopupCancel = (TextView) dialogView.findViewById(R.id.tvSettingProjectItemPopupCancel);
-		txtSettingProjectItemPopupTitle = (EditText) dialogView.findViewById(R.id.txtSettingProjectItemPopupTitle);
-		txtSettingProjectItemPopupTitleDes = (EditText) dialogView.findViewById(R.id.txtSettingProjectItemPopupTitleDes);
-		txtSettingProjectItemPopupTitleMotto = (EditText) dialogView.findViewById(R.id.txtSettingProjectItemPopupTitleMotto);
-		tvSettingPopupTitle = (TextView) dialogView.findViewById(R.id.tvSettingPopupTitle);
-		amMessage = (AnimMessage) dialogView.findViewById(R.id.amSettingProjectItemPupMessage);
-		tvSettingProjectItemPopupYes.setOnClickListener(new View.OnClickListener() {
+		tvSettingProjectItemPopupYes = (TextView) dialogView
+				.findViewById(R.id.tvSettingProjectItemPopupYes);
+		tvSettingProjectItemPopupCancel = (TextView) dialogView
+				.findViewById(R.id.tvSettingProjectItemPopupCancel);
+		txtSettingProjectItemPopupTitle = (EditText) dialogView
+				.findViewById(R.id.txtSettingProjectItemPopupTitle);
+		txtSettingProjectItemPopupTitleDes = (EditText) dialogView
+				.findViewById(R.id.txtSettingProjectItemPopupTitleDes);
+		txtSettingProjectItemPopupTitleMotto = (EditText) dialogView
+				.findViewById(R.id.txtSettingProjectItemPopupTitleMotto);
+		tvSettingPopupTitle = (TextView) dialogView
+				.findViewById(R.id.tvSettingPopupTitle);
+		amMessage = (AnimMessage) dialogView
+				.findViewById(R.id.amSettingProjectItemPupMessage);
+		tvSettingProjectItemPopupYes
+				.setOnClickListener(new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				if (valided()) {
-					getDate();
-					userChanged = true;
-					SettingProjectItemDialog.this.dismiss();
-				}
-			}
-		});
-		tvSettingProjectItemPopupCancel.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						if (valided()) {
+							getDate();
+							userChanged = true;
+							SettingProjectItemDialog.this.dismiss();
+						}
+					}
+				});
+		tvSettingProjectItemPopupCancel
+				.setOnClickListener(new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				SettingProjectItemDialog.this.dismiss();
-			}
-		});
+					@Override
+					public void onClick(View v) {
+						SettingProjectItemDialog.this.dismiss();
+					}
+				});
 
 		this.setOnDismissListener(new OnDismissListener() {
 
@@ -107,42 +119,63 @@ public class SettingProjectItemDialog extends ParentDialog {
 		userChanged = false;
 		txtSettingProjectItemPopupTitle.setText(extraObject.getTitle());
 		txtSettingProjectItemPopupTitleDes.setText(extraObject.getTitleDes());
-		txtSettingProjectItemPopupTitleMotto.setText(extraObject.getTitleMotto());
+		txtSettingProjectItemPopupTitleMotto.setText(extraObject
+				.getTitleMotto());
 	}
 
 	private void getDate() {
-		extraObject.setTitle(txtSettingProjectItemPopupTitle.getText().toString());
-		extraObject.setTitleDes(txtSettingProjectItemPopupTitleDes.getText().toString());
-		extraObject.setTitleMotto(txtSettingProjectItemPopupTitleMotto.getText().toString());
+		extraObject.setTitle(txtSettingProjectItemPopupTitle.getText()
+				.toString());
+		extraObject.setTitleDes(txtSettingProjectItemPopupTitleDes.getText()
+				.toString());
+		extraObject.setTitleMotto(txtSettingProjectItemPopupTitleMotto
+				.getText().toString());
 	}
 
 	private boolean valided() {
 		if (txtSettingProjectItemPopupTitle.getText().toString().equals("")) {
-			amMessage.showMessage(getContext().getString(R.string.errorAddTitle), AnimMessageType.ERROR);
+			amMessage.showMessage(getContext()
+					.getString(R.string.errorAddTitle), AnimMessageType.ERROR);
 			txtSettingProjectItemPopupTitle.requestFocus();
 			return false;
 		}
 
-		if (txtSettingProjectItemPopupTitle.getText().toString().length() > 4) {
-			amMessage.showMessage(getContext().getString(R.string.errorTooMuchCh));
-			txtSettingProjectItemPopupTitle.requestFocus();
-			return false;
+		if (!UtilsClass.isEng()) {
+			if (txtSettingProjectItemPopupTitle.getText().toString().length() > 4) {
+				amMessage.showMessage(getContext().getString(
+						R.string.errorTooMuchCh));
+				txtSettingProjectItemPopupTitle.requestFocus();
+				return false;
+			}
+		} else {
+			String[] words = txtSettingProjectItemPopupTitle.getText()
+					.toString().split(" ");
+			if (words.length > 1) {
+				amMessage.showMessage(getContext().getString(
+						R.string.errorTooMuchCh));
+				txtSettingProjectItemPopupTitle.requestFocus();
+				return false;
+			}
 		}
 
 		if (txtSettingProjectItemPopupTitleDes.getText().toString().equals("")) {
-			amMessage.showMessage(getContext().getString(R.string.errorAddDes), AnimMessageType.ERROR);
+			amMessage.showMessage(getContext().getString(R.string.errorAddDes),
+					AnimMessageType.ERROR);
 			txtSettingProjectItemPopupTitleDes.requestFocus();
 			return false;
 		}
 
 		if (txtSettingProjectItemPopupTitleDes.getLineCount() > 4) {
-			amMessage.showMessage(getContext().getString(R.string.errorTooMuchLines));
+			amMessage.showMessage(getContext().getString(
+					R.string.errorTooMuchLines));
 			txtSettingProjectItemPopupTitleDes.requestFocus();
 			return false;
 		}
 
-		if (txtSettingProjectItemPopupTitleMotto.getText().toString().equals("")) {
-			amMessage.showMessage(getContext().getString(R.string.errorMotto), AnimMessageType.ERROR);
+		if (txtSettingProjectItemPopupTitleMotto.getText().toString()
+				.equals("")) {
+			amMessage.showMessage(getContext().getString(R.string.errorMotto),
+					AnimMessageType.ERROR);
 			txtSettingProjectItemPopupTitleMotto.requestFocus();
 			return false;
 		}

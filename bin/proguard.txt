@@ -42,6 +42,9 @@
 # view res/layout/activity_main.xml #generated:215
 -keep class com.pavkoo.franklin.controls.CyclePager { <init>(...); }
 
+# view AndroidManifest.xml #generated:79
+-keep class com.pavkoo.franklin.controls.DateChangeReceiver { <init>(...); }
+
 # view res/layout/cycle_today_selector.xml #generated:21
 -keep class com.pavkoo.franklin.controls.PredicateLayout { <init>(...); }
 
