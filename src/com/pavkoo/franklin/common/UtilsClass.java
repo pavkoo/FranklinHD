@@ -33,11 +33,11 @@ import org.json.JSONObject;
 @SuppressLint("SimpleDateFormat")
 public class UtilsClass {
 	private static final String DATEFORMAT = "yyyy-MM-dd";
-	
-	public static boolean isEng(){
+
+	public static boolean isEng() {
 		Locale l = Locale.getDefault();
 		String lan = l.getLanguage();
-		if (lan.contains("en")){
+		if (lan.contains("en")) {
 			return true;
 		}
 		return false;
@@ -62,6 +62,7 @@ public class UtilsClass {
 	}
 
 	public static long dayCount(Date fromDay, Date toDay) {
+		if (fromDay==null || toDay==null) return 0;
 
 		Calendar fromDayCal = Calendar.getInstance();
 		fromDayCal.setTime(fromDay);
@@ -289,8 +290,8 @@ public class UtilsClass {
 			path.mkdirs();
 		}
 		if (file.exists()) {
-			 bmp = BitmapFactory.decodeFile(filePath);
-			 return bmp;
+			bmp = BitmapFactory.decodeFile(filePath);
+			return bmp;
 		}
 		String bingInfo = getBingImagesInfo();
 		String bingUrl = getImageURL(bingInfo);
@@ -311,4 +312,5 @@ public class UtilsClass {
 		}
 		return bmp;
 	}
+
 }

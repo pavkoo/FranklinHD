@@ -25,6 +25,8 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -51,10 +53,10 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 	private Bitmap bmpSad;
 	private String todayDialogTitle;
 	private FranklinApplication app;
-	
+
 	private static final int IMAGEDOWNLOADED = 1;
 	@SuppressLint("HandlerLeak")
-	private Handler myHandle = new Handler(){
+	private Handler myHandle = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
@@ -68,7 +70,6 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			}
 		}
 	};
-	
 
 	public String getTodayDialogTitle() {
 		return todayDialogTitle;
@@ -191,18 +192,26 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		FlipperNumber.setUpdateText(arcBackground);
 		app = (FranklinApplication) this.getContext().getApplicationContext();
 		ivBg = (CircleImageView) findViewById(R.id.ivBg);
-		new Thread(new Runnable(){
+		new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-				Bitmap bmp = UtilsClass.downloadBingImage();
-				if (bmp != null){
-					Message msg = new Message(); 
-					msg.obj = bmp;
-					msg.what = IMAGEDOWNLOADED;
-					myHandle.sendMessage(msg);
+				ConnectivityManager connManager = (ConnectivityManager) Today.this
+						.getContext().getSystemService(
+								Context.CONNECTIVITY_SERVICE);
+				NetworkInfo mWifi = connManager
+						.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+				if (mWifi.isConnected()) {
+					Bitmap bmp = UtilsClass.downloadBingImage();
+					if (bmp != null) {
+						Message msg = new Message();
+						msg.obj = bmp;
+						msg.what = IMAGEDOWNLOADED;
+						myHandle.sendMessage(msg);
+					}
 				}
-			}}).start();
+			}
+		}).start();
 		// ambmpBgScale = AnimationUtils.loadAnimation(getContext(),
 		// R.anim.today_bg_scale);
 		// ivBg.setAnimation(ambmpBgScale);
@@ -303,7 +312,6 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			ivBg.setLayoutParams(lp);
 			ivBg.requestLayout();
 		}
-		//arcBackground.changeBackground();
 	}
 
 	private static class ArcDrawable extends View implements
@@ -505,7 +513,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		public void changeBackground() {
 			animastarted = true;
 			mHandler.removeCallbacks(mTick);
-			mHandler.postDelayed(mTick,4000);
+			mHandler.postDelayed(mTick, 4000);
 		}
 
 		@Override
@@ -603,10 +611,11 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			paint.setColor(getCycleColor());
 			paint.setStyle(Paint.Style.FILL);
 			// 2.draw cycle
-			if (animastarted){
+			if (animastarted) {
 				paint.setAlpha(cyclealpha);
 			}
-			canvas.drawCircle(oval.centerX(), oval.centerY(), oval.width() /2, paint);
+			canvas.drawCircle(oval.centerX(), oval.centerY(), oval.width() / 2,
+					paint);
 			paint.setAlpha(255);
 			// 3.draw bitmap face
 			drawFace(canvas, paint, oval);

@@ -40,10 +40,10 @@ public class SettingWelcomeFragment extends Fragment {
 	private AnimMessage amMessage;
 	private ComfirmDialog comfirmDialog;
 	private int deleteWhich;
-	
-	
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 		return self = inflater.inflate(R.layout.settting_welcome, null);
 	}
@@ -52,20 +52,25 @@ public class SettingWelcomeFragment extends Fragment {
 		@Override
 		public void remove(int which) {
 			deleteWhich = which;
-			comfirmDialog.setDialogTitle(getActivity().getString(R.string.strComfirmDelete)+getActivity().getString(R.string.welcome));
+			comfirmDialog.setDialogTitle(getActivity().getString(
+					R.string.strComfirmDelete)
+					+ getActivity().getString(R.string.welcome));
 			comfirmDialog.show();
 		}
 	};
-	
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		dslvWelcome = (DragSortListView) self.findViewById(R.id.dslvWelcome);
-		ivSettingWelcomeAdd = (ImageView) self.findViewById(R.id.ivSettingWelcomeAdd);
-		ivSettingWelcomeAddBG = (ImageView) self.findViewById(R.id.ivSettingWelcomeAddBG);
+		ivSettingWelcomeAdd = (ImageView) self
+				.findViewById(R.id.ivSettingWelcomeAdd);
+		ivSettingWelcomeAddBG = (ImageView) self
+				.findViewById(R.id.ivSettingWelcomeAddBG);
 		welcomes = ((SettingActivity) getActivity()).getApp().getWelcomes();
 		amMessage = ((SettingActivity) getActivity()).getAmMessage();
-		comfirmDialog = new ComfirmDialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
+		comfirmDialog = new ComfirmDialog(getActivity(),
+				android.R.style.Theme_Translucent_NoTitleBar);
 		adapter = new MoralAdapter(getActivity(), welcomes);
 		dslvWelcome.setAdapter(adapter);
 		ivSettingWelcomeAdd.setOnClickListener(new OnClickListener() {
@@ -80,34 +85,39 @@ public class SettingWelcomeFragment extends Fragment {
 		dslvWelcome.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
 				dialog.setEditMode(EditMode.Modify);
 				dialog.setExtraObject(welcomes.get(position));
 				dialog.show();
 			}
 		});
-		addExpanding = AnimationUtils.loadAnimation(getActivity(), R.anim.setting_add_expand);
+		addExpanding = AnimationUtils.loadAnimation(getActivity(),
+				R.anim.setting_add_expand);
 		ivSettingWelcomeAddBG.startAnimation(addExpanding);
-		dialog = new SettingWelcomeDialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
+		dialog = new SettingWelcomeDialog(getActivity(),
+				android.R.style.Theme_Translucent_NoTitleBar);
 		dialog.setOnDismissListener(new OnDismissListener() {
-			
+
 			@Override
 			public void onDismiss(DialogInterface dialogi) {
-				if (dialog.isUserChanged()){
-					if (dialog.getEditMode() == EditMode.Add){
+				if (dialog.isUserChanged()) {
+					if (dialog.getEditMode() == EditMode.Add) {
 						welcomes.add(dialog.getExtraObject());
 					}
 					adapter.notifyDataSetChanged();
 				}
 			}
 		});
-		
+
 		comfirmDialog.setOnDismissListener(new OnDismissListener() {
-			
+
 			@Override
 			public void onDismiss(DialogInterface dialog) {
-				if (comfirmDialog.isDialogResult()){
-					amMessage.showMessage(String.format(getActivity().getString(R.string.noMoreNeed),deleteWhich+1,""));
+				if (comfirmDialog.isDialogResult()) {
+					amMessage.showMessage(String.format(getActivity()
+							.getString(R.string.noMoreNeed), deleteWhich + 1,
+							""));
 					welcomes.remove(deleteWhich);
 					adapter.notifyDataSetChanged();
 				}
@@ -123,7 +133,7 @@ public class SettingWelcomeFragment extends Fragment {
 		public MoralAdapter(Context context, List<String> morals) {
 			this.context = context;
 			if (morals == null) {
-				this.welcomes  = new ArrayList<String>();
+				this.welcomes = new ArrayList<String>();
 			} else {
 				this.welcomes = morals;
 			}
@@ -149,10 +159,15 @@ public class SettingWelcomeFragment extends Fragment {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			if (convertView == null) {
-				convertView = LayoutInflater.from(context).inflate(R.layout.settting_welcome_item, null);
+				convertView = LayoutInflater.from(context).inflate(
+						R.layout.settting_welcome_item, null);
 			}
-			TextView text = (TextView) convertView.findViewById(R.id.settingWelcomeItemContent);
-			text.setText(String.valueOf(position + 1) + "." + welcomes.get(position));
+			TextView text = (TextView) convertView
+					.findViewById(R.id.settingWelcomeItemContent);
+			if (position != -1) {
+				text.setText(String.valueOf(position + 1) + "."
+						+ welcomes.get(position));
+			}
 			return convertView;
 		}
 	}

@@ -138,6 +138,10 @@ public class SplashActivity extends FragmentActivity {
 		}
 		adapter = new WelcomesAdapter(getSupportFragmentManager(), showWelcomes);
 		splashPager.setAdapter(adapter);
+		if (config==null){
+			ivSplash.setImageResource(R.drawable.treesmall);
+			return;
+		}
 		if (config.isFrist() || getApp().getMorals() == null) {
 			ivSplash.setImageResource(R.drawable.treesmall);
 			return;

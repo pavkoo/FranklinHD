@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="version">Version 0.9.6.1</string>
+    <string name="version">Version 0.9.6.2</string>
     <string name="app_name">13 Virtues</string>
     <string name="appnameabout">13 Virtues</string>
     <string name="book">The Autobiography of Benjamin Franklin</string>
@@ -219,7 +219,7 @@
     <string name="errorTooMuchLines">Annexed to each a short precept, which fully express\'d the extent I gave to its meaning</string>
     <string name="errorMotto">Add motto</string>
     <string name="errorAddContent">Please add some conetent</string>
-    <string name="tutorials5">Or Jump</string>
+    <string name="tutorials5">Or Skip</string>
     <string name="tutorials6">Read 13 Virtues</string>
     <string name="tutorials7">Custom my Virtues(Please read the 13 Virtues)</string>
     <string name="tutorials2">Hello!
@@ -263,7 +263,7 @@
     <string name="checknew">Check update</string>
     <string name="gotoMain">Go</string>
     <string name="seeMore"><![CDATA[ < Swap left or right to see more>]]></string>
-    <string name="jump">Jump</string>
+    <string name="jump">Skip</string>
     <string name="helper1">Now,Try to click the rotating Icon</string>
     <string name="thisisMenu">This is Menu</string>
     <string name="helper2">Well,click menu item to see more</string>

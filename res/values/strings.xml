@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="version">Version 0.9.6.1</string>
+    <string name="version">Version 0.9.6.2</string>
     <string name="app_name">自我修养</string>
     <string name="appnameabout">自我修养 beta版</string>
     <string name="book">《富兰克林自传》</string>
@@ -210,7 +210,7 @@
 <p>以上一七八四年写于巴夕。</p>]]>
     </string>
     <string name="igotit">我知道了</string>
-    <string name="pressToExit">要不，再按一次？</string>
+    <string name="pressToExit">再按一次退出</string>
     <string name="finishRate">美德完成率</string>
     <string name="close">关闭</string>
     <string name="trend">美德完成走势</string>

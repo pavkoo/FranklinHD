@@ -135,6 +135,7 @@ com.pavkoo.franklin.MainActivity: MainActivity()
 com.pavkoo.franklin.MainActivity$ViewState: com.pavkoo.franklin.MainActivity$ViewState[] values()
 com.pavkoo.franklin.MainActivity$ViewState: com.pavkoo.franklin.MainActivity$ViewState valueOf(java.lang.String)
 com.pavkoo.franklin.ParentActivity: ParentActivity()
+com.pavkoo.franklin.R$anim
 com.pavkoo.franklin.R$anim: int dialog_enter
 com.pavkoo.franklin.R$anim: int dialog_exit
 com.pavkoo.franklin.R$anim: int fade_bottom_in
@@ -156,6 +157,7 @@ com.pavkoo.franklin.R$anim: int push_left_out
 com.pavkoo.franklin.R$anim: int push_left_out_helper
 com.pavkoo.franklin.R$anim: int push_up_in
 com.pavkoo.franklin.R$anim: int push_up_out
+com.pavkoo.franklin.R$anim: int scale_in
 com.pavkoo.franklin.R$anim: int setting_add_expand
 com.pavkoo.franklin.R$anim: int setting_cycle_scale
 com.pavkoo.franklin.R$anim: int shake
@@ -174,6 +176,7 @@ com.pavkoo.franklin.R$anim: int umeng_fb_slide_in_from_right
 com.pavkoo.franklin.R$anim: int umeng_fb_slide_out_from_left
 com.pavkoo.franklin.R$anim: int umeng_fb_slide_out_from_right
 com.pavkoo.franklin.R$anim: int zoom_in
+com.pavkoo.franklin.R$attr
 com.pavkoo.franklin.R$attr: int border_color
 com.pavkoo.franklin.R$attr: int border_width
 com.pavkoo.franklin.R$attr: int click_remove_id
@@ -194,6 +197,7 @@ com.pavkoo.franklin.R$attr: int slide_shuffle_speed
 com.pavkoo.franklin.R$attr: int sort_enabled
 com.pavkoo.franklin.R$attr: int track_drag_sort
 com.pavkoo.franklin.R$attr: int use_default_controller
+com.pavkoo.franklin.R$color
 com.pavkoo.franklin.R$color: int umeng_fb_color_btn_normal
 com.pavkoo.franklin.R$color: int umeng_fb_color_btn_pressed
 com.pavkoo.franklin.R$color: int white_app_bg_darkgray
@@ -219,6 +223,7 @@ com.pavkoo.franklin.R$color: int white_app_txt_reportTitle
 com.pavkoo.franklin.R$color: int white_app_txt_white
 com.pavkoo.franklin.R$color: int white_app_warning
 com.pavkoo.franklin.R$color: int white_app_warning_pressed
+com.pavkoo.franklin.R$dimen
 com.pavkoo.franklin.R$dimen: int appBorderPadding
 com.pavkoo.franklin.R$dimen: int bigPadding
 com.pavkoo.franklin.R$dimen: int textMinPadding
@@ -227,6 +232,7 @@ com.pavkoo.franklin.R$dimen: int textPadding
 com.pavkoo.franklin.R$dimen: int textSizeBiggest
 com.pavkoo.franklin.R$dimen: int textSizeSmall
 com.pavkoo.franklin.R$dimen: int textSizebig
+com.pavkoo.franklin.R$drawable
 com.pavkoo.franklin.R$drawable: int aboutpavkoo
 com.pavkoo.franklin.R$drawable: int aboutpavkoo1
 com.pavkoo.franklin.R$drawable: int aboutpavkoo2
@@ -397,6 +403,7 @@ com.pavkoo.franklin.R$drawable: int umeng_update_title_bg
 com.pavkoo.franklin.R$drawable: int umeng_update_wifi_disable
 com.pavkoo.franklin.R$drawable: int unselected
 com.pavkoo.franklin.R$drawable: int victory
+com.pavkoo.franklin.R$id
 com.pavkoo.franklin.R$id: int amMainMessage
 com.pavkoo.franklin.R$id: int amSettingProjectItemPupMessage
 com.pavkoo.franklin.R$id: int amSettingWelcomePupMessage
@@ -631,6 +638,7 @@ com.pavkoo.franklin.R$id: int vfMainFlopper
 com.pavkoo.franklin.R$id: int viewIndicatiorCenter
 com.pavkoo.franklin.R$id: int viewIndicatiorLeft
 com.pavkoo.franklin.R$id: int viewIndicatiorRight
+com.pavkoo.franklin.R$layout
 com.pavkoo.franklin.R$layout: int activity_finish
 com.pavkoo.franklin.R$layout: int activity_helper
 com.pavkoo.franklin.R$layout: int activity_main
@@ -669,6 +677,7 @@ com.pavkoo.franklin.R$layout: int umeng_fb_list_header
 com.pavkoo.franklin.R$layout: int umeng_fb_list_item
 com.pavkoo.franklin.R$layout: int umeng_fb_new_reply_alert_dialog
 com.pavkoo.franklin.R$layout: int umeng_update_dialog
+com.pavkoo.franklin.R$string
 com.pavkoo.franklin.R$string: int Finishmodify
 com.pavkoo.franklin.R$string: int ImGetBetter
 com.pavkoo.franklin.R$string: int Mainshare
@@ -729,6 +738,7 @@ com.pavkoo.franklin.R$string: int deleteHistoryCommentSuccess
 com.pavkoo.franklin.R$string: int description
 com.pavkoo.franklin.R$string: int devTemp
 com.pavkoo.franklin.R$string: int done
+com.pavkoo.franklin.R$string: int doyoudotaday
 com.pavkoo.franklin.R$string: int dragToChangeCycle
 com.pavkoo.franklin.R$string: int enjoylife
 com.pavkoo.franklin.R$string: int errorAddContent
@@ -853,10 +863,12 @@ com.pavkoo.franklin.R$string: int titleTranquillity
 com.pavkoo.franklin.R$string: int titleTranquillityDes
 com.pavkoo.franklin.R$string: int titleTranquillityMotto
 com.pavkoo.franklin.R$string: int todayControlPopupTitleFormat
+com.pavkoo.franklin.R$string: int todaySubject
 com.pavkoo.franklin.R$string: int today_control_popup_bad
 com.pavkoo.franklin.R$string: int today_control_popup_good
 com.pavkoo.franklin.R$string: int today_control_popup_title
 com.pavkoo.franklin.R$string: int todayhavepassed
+com.pavkoo.franklin.R$string: int todo
 com.pavkoo.franklin.R$string: int totalReflectiveCount
 com.pavkoo.franklin.R$string: int totalUsedCount
 com.pavkoo.franklin.R$string: int trend
@@ -913,6 +925,7 @@ com.pavkoo.franklin.R$string: int welcome4
 com.pavkoo.franklin.R$string: int welcome5
 com.pavkoo.franklin.R$string: int yesterday
 com.pavkoo.franklin.R$string: int yourgole
+com.pavkoo.franklin.R$style
 com.pavkoo.franklin.R$style: int AppBaseTheme
 com.pavkoo.franklin.R$style: int AppTheme
 com.pavkoo.franklin.R$style: int AppTheme_Light
@@ -938,6 +951,7 @@ com.pavkoo.franklin.R$style: int appTodayLayout
 com.pavkoo.franklin.R$style: int appTotayPopupContent
 com.pavkoo.franklin.R$style: int appTotayPopupTitle
 com.pavkoo.franklin.R$style: int appTotayPopupTitleWarning
+com.pavkoo.franklin.R$styleable
 com.pavkoo.franklin.R$styleable: int[] CircleImageView
 com.pavkoo.franklin.R$styleable: int CircleImageView_border_color
 com.pavkoo.franklin.R$styleable: int CircleImageView_border_width
@@ -1006,6 +1020,8 @@ com.pavkoo.franklin.controls.CyclePager: CyclePager(android.content.Context)
 com.pavkoo.franklin.controls.CyclePager: CyclePager(android.content.Context,android.util.AttributeSet)
 com.pavkoo.franklin.controls.CyclePager: CyclePager(android.content.Context,android.util.AttributeSet,int)
 com.pavkoo.franklin.controls.CyclePager: int getCurrent()
+com.pavkoo.franklin.controls.DateChangeReceiver
+com.pavkoo.franklin.controls.DateChangeReceiver: DateChangeReceiver()
 com.pavkoo.franklin.controls.Flipper: com.pavkoo.franklin.controls.IUpdateTextCallBack getUpdateText()
 com.pavkoo.franklin.controls.Flipper: void setUpdateText(com.pavkoo.franklin.controls.IUpdateTextCallBack)
 com.pavkoo.franklin.controls.Flipper: java.util.List getTextViews()
@@ -1050,6 +1066,7 @@ com.pavkoo.franklin.controls.TrendReport: TrendReport(android.content.Context,an
 com.pavkoo.franklin.controls.TrendReport: void getSpace()
 com.umeng.analytics.Gender: com.umeng.analytics.Gender[] values()
 com.umeng.analytics.Gender: com.umeng.analytics.Gender valueOf(java.lang.String)
+com.umeng.analytics.onlineconfig.b: b(org.json.JSONObject)
 com.umeng.analytics.social.UMPlatformData$GENDER: com.umeng.analytics.social.UMPlatformData$GENDER[] values()
 com.umeng.analytics.social.UMPlatformData$GENDER: com.umeng.analytics.social.UMPlatformData$GENDER valueOf(java.lang.String)
 com.umeng.analytics.social.UMPlatformData$UMedia: com.umeng.analytics.social.UMPlatformData$UMedia[] values()
@@ -1129,14 +1146,19 @@ com.umeng.fb.R$string: int umeng_fb_reply_content_hint
 com.umeng.fb.R$string: int umeng_fb_reply_date_default
 com.umeng.fb.R$string: int umeng_fb_send
 com.umeng.fb.R$string: int umeng_fb_title
+com.umeng.fb.model.DevReply: DevReply(org.json.JSONObject)
 com.umeng.fb.model.Reply$STATUS: com.umeng.fb.model.Reply$STATUS[] values()
 com.umeng.fb.model.Reply$STATUS: com.umeng.fb.model.Reply$STATUS valueOf(java.lang.String)
 com.umeng.fb.model.Reply$TYPE: com.umeng.fb.model.Reply$TYPE[] values()
 com.umeng.fb.model.Reply$TYPE: com.umeng.fb.model.Reply$TYPE valueOf(java.lang.String)
+com.umeng.fb.net.FbResponse: FbResponse(org.json.JSONObject)
+com.umeng.fb.net.UResponse: UResponse(org.json.JSONObject)
 com.umeng.update.UpdateDialogActivity
 com.umeng.update.UpdateDialogActivity: UpdateDialogActivity()
+com.umeng.update.UpdateResponse: UpdateResponse(org.json.JSONObject)
 com.umeng.update.net.DownloadingService
 com.umeng.update.net.DownloadingService: DownloadingService()
+com.umeng.update.net.i: i(org.json.JSONObject)
 com.umeng.update.net.i$a: com.umeng.update.net.i$a[] values()
 com.umeng.update.net.i$a: com.umeng.update.net.i$a valueOf(java.lang.String)
 com.umeng.update.net.j$b: com.umeng.update.net.j$b[] values()
@@ -1199,7 +1221,11 @@ u.aly.bg$e: u.aly.bg$e[] values()
 u.aly.bg$e: u.aly.bg$e valueOf(java.lang.String)
 u.aly.bh$e: u.aly.bh$e[] values()
 u.aly.bh$e: u.aly.bh$e valueOf(java.lang.String)
+u.aly.bn: bn(org.json.JSONObject)
 u.aly.bn$a: u.aly.bn$a[] values()
 u.aly.bn$a: u.aly.bn$a valueOf(java.lang.String)
+u.aly.bq: bq(org.json.JSONObject)
+u.upd.f: f(org.json.JSONObject)
 u.upd.f$a: u.upd.f$a[] values()
 u.upd.f$a: u.upd.f$a valueOf(java.lang.String)
+u.upd.i: i(org.json.JSONObject)

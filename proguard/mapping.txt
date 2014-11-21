@@ -522,7 +522,72 @@ android.support.v4.app.NoSaveStateFrameLayout -> android.support.v4.app.ad:
     android.view.ViewGroup wrap(android.view.View) -> a
     void dispatchSaveInstanceState(android.util.SparseArray) -> dispatchSaveInstanceState
     void dispatchRestoreInstanceState(android.util.SparseArray) -> dispatchRestoreInstanceState
-android.support.v4.app.SuperNotCalledException -> android.support.v4.app.ae:
+android.support.v4.app.NotificationCompat -> android.support.v4.app.ae:
+    android.support.v4.app.NotificationCompat$NotificationCompatImpl IMPL -> a
+    android.support.v4.app.NotificationCompat$NotificationCompatImpl access$000() -> a
+android.support.v4.app.NotificationCompat$Action -> android.support.v4.app.af:
+    int icon -> a
+    java.lang.CharSequence title -> b
+    android.app.PendingIntent actionIntent -> c
+android.support.v4.app.NotificationCompat$BigPictureStyle -> android.support.v4.app.ag:
+    android.graphics.Bitmap mPicture -> a
+    android.graphics.Bitmap mBigLargeIcon -> b
+    boolean mBigLargeIconSet -> c
+android.support.v4.app.NotificationCompat$BigTextStyle -> android.support.v4.app.ah:
+    java.lang.CharSequence mBigText -> a
+android.support.v4.app.NotificationCompat$Builder -> android.support.v4.app.ai:
+    android.content.Context mContext -> a
+    java.lang.CharSequence mContentTitle -> b
+    java.lang.CharSequence mContentText -> c
+    android.app.PendingIntent mContentIntent -> d
+    android.app.PendingIntent mFullScreenIntent -> e
+    android.widget.RemoteViews mTickerView -> f
+    android.graphics.Bitmap mLargeIcon -> g
+    java.lang.CharSequence mContentInfo -> h
+    int mNumber -> i
+    int mPriority -> j
+    boolean mUseChronometer -> k
+    android.support.v4.app.NotificationCompat$Style mStyle -> l
+    java.lang.CharSequence mSubText -> m
+    int mProgressMax -> n
+    int mProgress -> o
+    boolean mProgressIndeterminate -> p
+    java.util.ArrayList mActions -> q
+    android.app.Notification mNotification -> r
+    android.support.v4.app.NotificationCompat$Builder setSmallIcon(int) -> a
+    android.support.v4.app.NotificationCompat$Builder setContentTitle(java.lang.CharSequence) -> a
+    android.support.v4.app.NotificationCompat$Builder setContentText(java.lang.CharSequence) -> b
+    android.support.v4.app.NotificationCompat$Builder setContentIntent(android.app.PendingIntent) -> a
+    android.support.v4.app.NotificationCompat$Builder setTicker(java.lang.CharSequence) -> c
+    android.app.Notification build() -> a
+android.support.v4.app.NotificationCompat$InboxStyle -> android.support.v4.app.aj:
+    java.util.ArrayList mTexts -> a
+android.support.v4.app.NotificationCompat$NotificationCompatImpl -> android.support.v4.app.ak:
+    android.app.Notification build(android.support.v4.app.NotificationCompat$Builder) -> a
+android.support.v4.app.NotificationCompat$NotificationCompatImplBase -> android.support.v4.app.al:
+    android.app.Notification build(android.support.v4.app.NotificationCompat$Builder) -> a
+android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb -> android.support.v4.app.am:
+    android.app.Notification build(android.support.v4.app.NotificationCompat$Builder) -> a
+android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich -> android.support.v4.app.an:
+    android.app.Notification build(android.support.v4.app.NotificationCompat$Builder) -> a
+android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean -> android.support.v4.app.ao:
+    android.app.Notification build(android.support.v4.app.NotificationCompat$Builder) -> a
+android.support.v4.app.NotificationCompat$Style -> android.support.v4.app.ap:
+    java.lang.CharSequence mBigContentTitle -> d
+    java.lang.CharSequence mSummaryText -> e
+    boolean mSummaryTextSet -> f
+android.support.v4.app.NotificationCompatHoneycomb -> android.support.v4.app.aq:
+    android.app.Notification add(android.content.Context,android.app.Notification,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,android.widget.RemoteViews,int,android.app.PendingIntent,android.app.PendingIntent,android.graphics.Bitmap) -> a
+android.support.v4.app.NotificationCompatIceCreamSandwich -> android.support.v4.app.ar:
+    android.app.Notification add(android.content.Context,android.app.Notification,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,android.widget.RemoteViews,int,android.app.PendingIntent,android.app.PendingIntent,android.graphics.Bitmap,int,int,boolean) -> a
+android.support.v4.app.NotificationCompatJellybean -> android.support.v4.app.as:
+    android.app.Notification$Builder b -> a
+    void addAction(int,java.lang.CharSequence,android.app.PendingIntent) -> a
+    void addBigTextStyle(java.lang.CharSequence,boolean,java.lang.CharSequence,java.lang.CharSequence) -> a
+    void addBigPictureStyle(java.lang.CharSequence,boolean,java.lang.CharSequence,android.graphics.Bitmap,android.graphics.Bitmap,boolean) -> a
+    void addInboxStyle(java.lang.CharSequence,boolean,java.lang.CharSequence,java.util.ArrayList) -> a
+    android.app.Notification build() -> a
+android.support.v4.app.SuperNotCalledException -> android.support.v4.app.at:
 android.support.v4.content.Loader -> android.support.v4.a.a:
     int mId -> a
     android.support.v4.content.Loader$OnLoadCompleteListener mListener -> b
@@ -2727,13 +2792,15 @@ com.pavkoo.franklin.MainActivity -> com.pavkoo.franklin.MainActivity:
     long touchTime -> U
     int WaitTime -> V
     int mainColor -> W
-    int[] $SWITCH_TABLE$com$pavkoo$franklin$common$CheckState -> X
+    android.app.NotificationManager notifyMgr -> X
+    int[] $SWITCH_TABLE$com$pavkoo$franklin$common$CheckState -> Y
     void initView() -> a
     void showIndicator() -> h
     void iniDialog() -> i
     void iniReport() -> j
     int getTotalCheckted() -> k
     void initViewData() -> c
+    void notifyToday(boolean) -> a
     boolean initMorals() -> l
     void initGroupReview(int) -> a
     com.pavkoo.franklin.common.CheckState updateCheckState(android.widget.TextView,com.pavkoo.franklin.common.CheckState,boolean) -> a
@@ -2773,27 +2840,27 @@ com.pavkoo.franklin.MainActivity$2 -> com.pavkoo.franklin.p:
 com.pavkoo.franklin.MainActivity$3 -> com.pavkoo.franklin.q:
     com.pavkoo.franklin.MainActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.MainActivity$4 -> com.pavkoo.franklin.r:
+com.pavkoo.franklin.MainActivity$4 -> com.pavkoo.franklin.s:
     com.pavkoo.franklin.MainActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.MainActivity$5 -> com.pavkoo.franklin.s:
+com.pavkoo.franklin.MainActivity$5 -> com.pavkoo.franklin.t:
     com.pavkoo.franklin.MainActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.MainActivity$6 -> com.pavkoo.franklin.t:
+com.pavkoo.franklin.MainActivity$6 -> com.pavkoo.franklin.u:
     com.pavkoo.franklin.MainActivity this$0 -> a
     int[] $SWITCH_TABLE$com$pavkoo$franklin$MainActivity$ViewState -> b
     void onClick(android.view.View) -> onClick
     int[] $SWITCH_TABLE$com$pavkoo$franklin$MainActivity$ViewState() -> a
-com.pavkoo.franklin.MainActivity$7 -> com.pavkoo.franklin.u:
+com.pavkoo.franklin.MainActivity$7 -> com.pavkoo.franklin.v:
     com.pavkoo.franklin.MainActivity this$0 -> a
     void onLayoutChange(android.view.View,int,int,int,int,int,int,int,int) -> onLayoutChange
-com.pavkoo.franklin.MainActivity$8 -> com.pavkoo.franklin.v:
+com.pavkoo.franklin.MainActivity$8 -> com.pavkoo.franklin.w:
     com.pavkoo.franklin.MainActivity this$0 -> a
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.pavkoo.franklin.MainActivity$9 -> com.pavkoo.franklin.w:
+com.pavkoo.franklin.MainActivity$9 -> com.pavkoo.franklin.x:
     com.pavkoo.franklin.MainActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.MainActivity$ViewState -> com.pavkoo.franklin.x:
+com.pavkoo.franklin.MainActivity$ViewState -> com.pavkoo.franklin.y:
     com.pavkoo.franklin.MainActivity$ViewState HOME -> a
     com.pavkoo.franklin.MainActivity$ViewState SETTING -> b
     com.pavkoo.franklin.MainActivity$ViewState HELP -> c
@@ -2801,7 +2868,7 @@ com.pavkoo.franklin.MainActivity$ViewState -> com.pavkoo.franklin.x:
     com.pavkoo.franklin.MainActivity$ViewState[] ENUM$VALUES -> e
     com.pavkoo.franklin.MainActivity$ViewState[] values() -> values
     com.pavkoo.franklin.MainActivity$ViewState valueOf(java.lang.String) -> valueOf
-com.pavkoo.franklin.ParentActivity -> com.pavkoo.franklin.y:
+com.pavkoo.franklin.ParentActivity -> com.pavkoo.franklin.z:
     com.pavkoo.franklin.common.FranklinApplication app -> a
     com.pavkoo.franklin.common.FranklinApplication getApp() -> g
     void onCreate(android.os.Bundle) -> onCreate
@@ -2810,8 +2877,824 @@ com.pavkoo.franklin.ParentActivity -> com.pavkoo.franklin.y:
     void initViewData() -> c
     void onPause() -> onPause
     void onResume() -> onResume
-com.pavkoo.franklin.R -> com.pavkoo.franklin.z:
-com.pavkoo.franklin.R$styleable -> com.pavkoo.franklin.aa:
+com.pavkoo.franklin.R -> com.pavkoo.franklin.R:
+com.pavkoo.franklin.R$anim -> com.pavkoo.franklin.R$anim:
+    int dialog_enter -> dialog_enter
+    int dialog_exit -> dialog_exit
+    int fade_bottom_in -> fade_bottom_in
+    int home_button -> home_button
+    int home_button_slide_in -> home_button_slide_in
+    int in_from_right -> in_from_right
+    int indicator_scale -> indicator_scale
+    int main_content -> main_content
+    int main_content_item -> main_content_item
+    int main_content_item_in -> main_content_item_in
+    int main_content_item_out -> main_content_item_out
+    int main_content_item_reverse -> main_content_item_reverse
+    int main_content_top_to_down -> main_content_top_to_down
+    int out_to_left -> out_to_left
+    int push_left_in -> push_left_in
+    int push_left_in_and_up -> push_left_in_and_up
+    int push_left_in_helper -> push_left_in_helper
+    int push_left_out -> push_left_out
+    int push_left_out_helper -> push_left_out_helper
+    int push_up_in -> push_up_in
+    int push_up_out -> push_up_out
+    int scale_in -> scale_in
+    int setting_add_expand -> setting_add_expand
+    int setting_cycle_scale -> setting_cycle_scale
+    int shake -> shake
+    int shake_cycle -> shake_cycle
+    int slide_in_right -> slide_in_right
+    int slide_in_right_repeat -> slide_in_right_repeat
+    int slide_out_left -> slide_out_left
+    int today_bg_scale -> today_bg_scale
+    int today_init -> today_init
+    int today_init_item -> today_init_item
+    int today_popup_init -> today_popup_init
+    int today_popup_init_right_to_left -> today_popup_init_right_to_left
+    int today_rotate -> today_rotate
+    int umeng_fb_slide_in_from_left -> umeng_fb_slide_in_from_left
+    int umeng_fb_slide_in_from_right -> umeng_fb_slide_in_from_right
+    int umeng_fb_slide_out_from_left -> umeng_fb_slide_out_from_left
+    int umeng_fb_slide_out_from_right -> umeng_fb_slide_out_from_right
+    int zoom_in -> zoom_in
+com.pavkoo.franklin.R$attr -> com.pavkoo.franklin.R$attr:
+    int border_color -> border_color
+    int border_width -> border_width
+    int click_remove_id -> click_remove_id
+    int collapsed_height -> collapsed_height
+    int drag_enabled -> drag_enabled
+    int drag_handle_id -> drag_handle_id
+    int drag_scroll_start -> drag_scroll_start
+    int drag_start_mode -> drag_start_mode
+    int drop_animation_duration -> drop_animation_duration
+    int fling_handle_id -> fling_handle_id
+    int float_alpha -> float_alpha
+    int float_background_color -> float_background_color
+    int max_drag_scroll_speed -> max_drag_scroll_speed
+    int remove_animation_duration -> remove_animation_duration
+    int remove_enabled -> remove_enabled
+    int remove_mode -> remove_mode
+    int slide_shuffle_speed -> slide_shuffle_speed
+    int sort_enabled -> sort_enabled
+    int track_drag_sort -> track_drag_sort
+    int use_default_controller -> use_default_controller
+com.pavkoo.franklin.R$color -> com.pavkoo.franklin.R$color:
+    int umeng_fb_color_btn_normal -> umeng_fb_color_btn_normal
+    int umeng_fb_color_btn_pressed -> umeng_fb_color_btn_pressed
+    int white_app_bg_darkgray -> white_app_bg_darkgray
+    int white_app_bg_division_line -> white_app_bg_division_line
+    int white_app_bg_popup_content -> white_app_bg_popup_content
+    int white_app_bg_popup_title -> white_app_bg_popup_title
+    int white_app_bg_primary -> white_app_bg_primary
+    int white_app_bg_secondary -> white_app_bg_secondary
+    int white_app_bg_white -> white_app_bg_white
+    int white_app_error -> white_app_error
+    int white_app_error_pressed -> white_app_error_pressed
+    int white_app_primary -> white_app_primary
+    int white_app_reportbg -> white_app_reportbg
+    int white_app_sea -> white_app_sea
+    int white_app_secondary -> white_app_secondary
+    int white_app_text_smail -> white_app_text_smail
+    int white_app_txt_black -> white_app_txt_black
+    int white_app_txt_gray -> white_app_txt_gray
+    int white_app_txt_gray_light -> white_app_txt_gray_light
+    int white_app_txt_gray_light_light -> white_app_txt_gray_light_light
+    int white_app_txt_green -> white_app_txt_green
+    int white_app_txt_reportTitle -> white_app_txt_reportTitle
+    int white_app_txt_white -> white_app_txt_white
+    int white_app_warning -> white_app_warning
+    int white_app_warning_pressed -> white_app_warning_pressed
+com.pavkoo.franklin.R$dimen -> com.pavkoo.franklin.R$dimen:
+    int appBorderPadding -> appBorderPadding
+    int bigPadding -> bigPadding
+    int textMinPadding -> textMinPadding
+    int textMinestPadding -> textMinestPadding
+    int textPadding -> textPadding
+    int textSizeBiggest -> textSizeBiggest
+    int textSizeSmall -> textSizeSmall
+    int textSizebig -> textSizebig
+com.pavkoo.franklin.R$drawable -> com.pavkoo.franklin.R$drawable:
+    int aboutpavkoo -> aboutpavkoo
+    int aboutpavkoo1 -> aboutpavkoo1
+    int aboutpavkoo2 -> aboutpavkoo2
+    int aboutpavkooanim -> aboutpavkooanim
+    int addmoras -> addmoras
+    int addmorasshade -> addmorasshade
+    int appsetting -> appsetting
+    int bingimage -> bingimage
+    int bookcover -> bookcover
+    int cloud -> cloud
+    int comments -> comments
+    int contectme -> contectme
+    int cycle_history_report_selector -> cycle_history_report_selector
+    int delete -> delete
+    int franklinsignature -> franklinsignature
+    int head -> head
+    int headmin -> headmin
+    int help -> help
+    int help2 -> help2
+    int helpermain -> helpermain
+    int hepermain -> hepermain
+    int home2 -> home2
+    int homecolor1 -> homecolor1
+    int homecolor10 -> homecolor10
+    int homecolor11 -> homecolor11
+    int homecolor12 -> homecolor12
+    int homecolor2 -> homecolor2
+    int homecolor3 -> homecolor3
+    int homecolor4 -> homecolor4
+    int homecolor5 -> homecolor5
+    int homecolor6 -> homecolor6
+    int homecolor7 -> homecolor7
+    int homecolor8 -> homecolor8
+    int homecolor9 -> homecolor9
+    int ic_launcher -> ic_launcher
+    int info -> info
+    int language -> language
+    int logo -> logo
+    int main_date -> main_date
+    int mainbuttombig -> mainbuttombig
+    int mainexample -> mainexample
+    int mainmotto -> mainmotto
+    int minsad -> minsad
+    int minselected -> minselected
+    int minsmiley -> minsmiley
+    int minunselected -> minunselected
+    int moralist -> moralist
+    int moralslist -> moralslist
+    int motto -> motto
+    int nomore -> nomore
+    int popup_background -> popup_background
+    int popup_today_background -> popup_today_background
+    int rate -> rate
+    int report -> report
+    int reportexample -> reportexample
+    int restart -> restart
+    int review_background_ring -> review_background_ring
+    int review_ring -> review_ring
+    int review_ring_inner -> review_ring_inner
+    int review_select_transition -> review_select_transition
+    int review_selector -> review_selector
+    int sad -> sad
+    int selected -> selected
+    int setting_indictor_selector -> setting_indictor_selector
+    int setting_roundrect -> setting_roundrect
+    int setting_roundrect_error -> setting_roundrect_error
+    int setting_roundrect_error_pressed -> setting_roundrect_error_pressed
+    int setting_roundrect_error_selector -> setting_roundrect_error_selector
+    int setting_roundrect_left -> setting_roundrect_left
+    int setting_roundrect_popup_top -> setting_roundrect_popup_top
+    int setting_roundrect_popup_top_warning -> setting_roundrect_popup_top_warning
+    int setting_roundrect_pressed -> setting_roundrect_pressed
+    int setting_roundrect_right -> setting_roundrect_right
+    int setting_roundrect_selector -> setting_roundrect_selector
+    int setting_roundrect_top -> setting_roundrect_top
+    int setting_roundrect_warning -> setting_roundrect_warning
+    int setting_roundrect_warning_pressed -> setting_roundrect_warning_pressed
+    int setting_roundrect_warning_selector -> setting_roundrect_warning_selector
+    int setting_sort_selector -> setting_sort_selector
+    int share -> share
+    int showhelp -> showhelp
+    int sina -> sina
+    int smiley -> smiley
+    int sort -> sort
+    int sortpressed -> sortpressed
+    int spalshtop -> spalshtop
+    int statistics -> statistics
+    int systemfranklin -> systemfranklin
+    int systemhead -> systemhead
+    int systemheadblur -> systemheadblur
+    int tencent -> tencent
+    int textbottom -> textbottom
+    int textbottomwhite -> textbottomwhite
+    int texttop -> texttop
+    int today_control_popup_selected -> today_control_popup_selected
+    int today_control_popup_unselected -> today_control_popup_unselected
+    int toolbar -> toolbar
+    int toolbar_selector -> toolbar_selector
+    int toolbarcolor1 -> toolbarcolor1
+    int toolbarcolor10 -> toolbarcolor10
+    int toolbarcolor11 -> toolbarcolor11
+    int toolbarcolor12 -> toolbarcolor12
+    int toolbarcolor2 -> toolbarcolor2
+    int toolbarcolor3 -> toolbarcolor3
+    int toolbarcolor4 -> toolbarcolor4
+    int toolbarcolor5 -> toolbarcolor5
+    int toolbarcolor6 -> toolbarcolor6
+    int toolbarcolor7 -> toolbarcolor7
+    int toolbarcolor8 -> toolbarcolor8
+    int toolbarcolor9 -> toolbarcolor9
+    int treebig -> treebig
+    int treecenter -> treecenter
+    int treesmall -> treesmall
+    int umeng_common_gradient_green -> umeng_common_gradient_green
+    int umeng_common_gradient_orange -> umeng_common_gradient_orange
+    int umeng_common_gradient_red -> umeng_common_gradient_red
+    int umeng_fb_arrow_right -> umeng_fb_arrow_right
+    int umeng_fb_back_normal -> umeng_fb_back_normal
+    int umeng_fb_back_selected -> umeng_fb_back_selected
+    int umeng_fb_back_selector -> umeng_fb_back_selector
+    int umeng_fb_bar_bg -> umeng_fb_bar_bg
+    int umeng_fb_btn_bg_selector -> umeng_fb_btn_bg_selector
+    int umeng_fb_conversation_bg -> umeng_fb_conversation_bg
+    int umeng_fb_gradient_green -> umeng_fb_gradient_green
+    int umeng_fb_gradient_orange -> umeng_fb_gradient_orange
+    int umeng_fb_gray_frame -> umeng_fb_gray_frame
+    int umeng_fb_list_item -> umeng_fb_list_item
+    int umeng_fb_list_item_pressed -> umeng_fb_list_item_pressed
+    int umeng_fb_list_item_selector -> umeng_fb_list_item_selector
+    int umeng_fb_logo -> umeng_fb_logo
+    int umeng_fb_point_new -> umeng_fb_point_new
+    int umeng_fb_point_normal -> umeng_fb_point_normal
+    int umeng_fb_reply_left_bg -> umeng_fb_reply_left_bg
+    int umeng_fb_reply_right_bg -> umeng_fb_reply_right_bg
+    int umeng_fb_see_list_normal -> umeng_fb_see_list_normal
+    int umeng_fb_see_list_pressed -> umeng_fb_see_list_pressed
+    int umeng_fb_see_list_selector -> umeng_fb_see_list_selector
+    int umeng_fb_statusbar_icon -> umeng_fb_statusbar_icon
+    int umeng_fb_submit_selector -> umeng_fb_submit_selector
+    int umeng_fb_tick_normal -> umeng_fb_tick_normal
+    int umeng_fb_tick_selected -> umeng_fb_tick_selected
+    int umeng_fb_tick_selector -> umeng_fb_tick_selector
+    int umeng_fb_top_banner -> umeng_fb_top_banner
+    int umeng_fb_user_bubble -> umeng_fb_user_bubble
+    int umeng_fb_write_normal -> umeng_fb_write_normal
+    int umeng_fb_write_pressed -> umeng_fb_write_pressed
+    int umeng_fb_write_selector -> umeng_fb_write_selector
+    int umeng_update_btn_check_off_focused_holo_light -> umeng_update_btn_check_off_focused_holo_light
+    int umeng_update_btn_check_off_holo_light -> umeng_update_btn_check_off_holo_light
+    int umeng_update_btn_check_off_pressed_holo_light -> umeng_update_btn_check_off_pressed_holo_light
+    int umeng_update_btn_check_on_focused_holo_light -> umeng_update_btn_check_on_focused_holo_light
+    int umeng_update_btn_check_on_holo_light -> umeng_update_btn_check_on_holo_light
+    int umeng_update_btn_check_on_pressed_holo_light -> umeng_update_btn_check_on_pressed_holo_light
+    int umeng_update_button_cancel_bg_focused -> umeng_update_button_cancel_bg_focused
+    int umeng_update_button_cancel_bg_normal -> umeng_update_button_cancel_bg_normal
+    int umeng_update_button_cancel_bg_selector -> umeng_update_button_cancel_bg_selector
+    int umeng_update_button_cancel_bg_tap -> umeng_update_button_cancel_bg_tap
+    int umeng_update_button_check_selector -> umeng_update_button_check_selector
+    int umeng_update_button_close_bg_selector -> umeng_update_button_close_bg_selector
+    int umeng_update_button_ok_bg_focused -> umeng_update_button_ok_bg_focused
+    int umeng_update_button_ok_bg_normal -> umeng_update_button_ok_bg_normal
+    int umeng_update_button_ok_bg_selector -> umeng_update_button_ok_bg_selector
+    int umeng_update_button_ok_bg_tap -> umeng_update_button_ok_bg_tap
+    int umeng_update_close_bg_normal -> umeng_update_close_bg_normal
+    int umeng_update_close_bg_tap -> umeng_update_close_bg_tap
+    int umeng_update_dialog_bg -> umeng_update_dialog_bg
+    int umeng_update_title_bg -> umeng_update_title_bg
+    int umeng_update_wifi_disable -> umeng_update_wifi_disable
+    int unselected -> unselected
+    int victory -> victory
+com.pavkoo.franklin.R$id -> com.pavkoo.franklin.R$id:
+    int amMainMessage -> amMainMessage
+    int amSettingProjectItemPupMessage -> amSettingProjectItemPupMessage
+    int amSettingWelcomePupMessage -> amSettingWelcomePupMessage
+    int amSettingsystemMeMessage -> amSettingsystemMeMessage
+    int appTitleMottoQuitesBegin -> appTitleMottoQuitesBegin
+    int appTitleMottoQuitesEnd -> appTitleMottoQuitesEnd
+    int blemishReport -> blemishReport
+    int clcpagerContent -> clcpagerContent
+    int clickRemove -> clickRemove
+    int cycleHistoryReportTrendReport -> cycleHistoryReportTrendReport
+    int cycleHistoryReportTrendTitle -> cycleHistoryReportTrendTitle
+    int drag_handle -> drag_handle
+    int dslvMorals -> dslvMorals
+    int dslvWelcome -> dslvWelcome
+    int flSettingContent -> flSettingContent
+    int flSettingCycle -> flSettingCycle
+    int flSettingProjectItemAdd -> flSettingProjectItemAdd
+    int flSettingWelcomeAdd -> flSettingWelcomeAdd
+    int flToday -> flToday
+    int flcommentitem -> flcommentitem
+    int flingRemove -> flingRemove
+    int flipperTop -> flipperTop
+    int flipperbottom -> flipperbottom
+    int gpbHelperTodayNo -> gpbHelperTodayNo
+    int gpbHelperTodayYes -> gpbHelperTodayYes
+    int gpbTodayNo -> gpbTodayNo
+    int gpbTodayYes -> gpbTodayYes
+    int grpReview -> grpReview
+    int ivBg -> ivBg
+    int ivCloud -> ivCloud
+    int ivCloud2 -> ivCloud2
+    int ivCommentNomore -> ivCommentNomore
+    int ivFinishDone -> ivFinishDone
+    int ivHelperHome -> ivHelperHome
+    int ivHelperToolbar -> ivHelperToolbar
+    int ivHome -> ivHome
+    int ivSettingProjectItemAdd -> ivSettingProjectItemAdd
+    int ivSettingProjectItemAddBG -> ivSettingProjectItemAddBG
+    int ivSettingSystemMe -> ivSettingSystemMe
+    int ivSettingWelcomeAdd -> ivSettingWelcomeAdd
+    int ivSettingWelcomeAddBG -> ivSettingWelcomeAddBG
+    int ivSplash -> ivSplash
+    int ivTutoriHead -> ivTutoriHead
+    int ivmainExample -> ivmainExample
+    int ivmainSpot -> ivmainSpot
+    int llAppBottom -> llAppBottom
+    int llAppMessageContainer -> llAppMessageContainer
+    int llBackground -> llBackground
+    int llChart -> llChart
+    int llCommentItemBg -> llCommentItemBg
+    int llContent -> llContent
+    int llFinishVictory -> llFinishVictory
+    int llHeplerContent -> llHeplerContent
+    int llHeplerTop -> llHeplerTop
+    int llMessageBg -> llMessageBg
+    int llReportBottom -> llReportBottom
+    int llReportTop -> llReportTop
+    int llReview -> llReview
+    int llSettingCycleSeekBar -> llSettingCycleSeekBar
+    int llSettingIndicator -> llSettingIndicator
+    int llSettingMessage -> llSettingMessage
+    int llSettingMessageContainer -> llSettingMessageContainer
+    int llSettingTitle -> llSettingTitle
+    int llSpVictory -> llSpVictory
+    int llTitle -> llTitle
+    int llTitleDescription -> llTitleDescription
+    int llToday -> llToday
+    int llappTodayHelperPopupComment -> llappTodayHelperPopupComment
+    int llappTodayPopupComment -> llappTodayPopupComment
+    int llhelperMain -> llhelperMain
+    int llhelperMain2 -> llhelperMain2
+    int llhelperMain3 -> llhelperMain3
+    int llhelperMainReverse -> llhelperMainReverse
+    int llhelperMainReverseInner -> llhelperMainReverseInner
+    int llprogressLine -> llprogressLine
+    int lvComment -> lvComment
+    int lvSettingSystem -> lvSettingSystem
+    int lvTotal -> lvTotal
+    int lvTrend -> lvTrend
+    int onDown -> onDown
+    int onLongPress -> onLongPress
+    int onMove -> onMove
+    int rbAppSetting -> rbAppSetting
+    int rbSettingCycle -> rbSettingCycle
+    int rbSettingProjectItem -> rbSettingProjectItem
+    int rbSettingWelcome -> rbSettingWelcome
+    int remove_handle -> remove_handle
+    int rgSetting -> rgSetting
+    int rgpHellperToday -> rgpHellperToday
+    int rgpToday -> rgpToday
+    int sbCycle -> sbCycle
+    int scrollView1 -> scrollView1
+    int settingProjectItemTitle -> settingProjectItemTitle
+    int settingWelcomeItemContent -> settingWelcomeItemContent
+    int settingmeCheckupdate -> settingmeCheckupdate
+    int setttingProjectItemTime -> setttingProjectItemTime
+    int setttingProjectItemTitleDes -> setttingProjectItemTitleDes
+    int setttingProjectItemTitleMotto -> setttingProjectItemTitleMotto
+    int splashPager -> splashPager
+    int svSettingSystemFranklin -> svSettingSystemFranklin
+    int svSettingSystemPopupHelp -> svSettingSystemPopupHelp
+    int title -> title
+    int today -> today
+    int trHomeToolBar -> trHomeToolBar
+    int tvChart -> tvChart
+    int tvChart2 -> tvChart2
+    int tvChartBye -> tvChartBye
+    int tvChartGo -> tvChartGo
+    int tvChartOr -> tvChartOr
+    int tvChartOr2 -> tvChartOr2
+    int tvChartShowBook -> tvChartShowBook
+    int tvCycleCommentTitle -> tvCycleCommentTitle
+    int tvCycleHistoryTitle -> tvCycleHistoryTitle
+    int tvCycleReportUserCheckedCount -> tvCycleReportUserCheckedCount
+    int tvCycleReprotAppCount -> tvCycleReprotAppCount
+    int tvFinishModify -> tvFinishModify
+    int tvFinishOne -> tvFinishOne
+    int tvFinishOr -> tvFinishOr
+    int tvFinishOr2 -> tvFinishOr2
+    int tvFinishShare -> tvFinishShare
+    int tvFinishStore -> tvFinishStore
+    int tvHelperBottomHint -> tvHelperBottomHint
+    int tvHelperBottomHint2 -> tvHelperBottomHint2
+    int tvHelperOK -> tvHelperOK
+    int tvHelperSkip -> tvHelperSkip
+    int tvHelperTopHint -> tvHelperTopHint
+    int tvHelperTopHint2 -> tvHelperTopHint2
+    int tvMainDate -> tvMainDate
+    int tvMainTime -> tvMainTime
+    int tvMainTimeHide -> tvMainTimeHide
+    int tvMainTitle -> tvMainTitle
+    int tvMainTitleDescrible -> tvMainTitleDescrible
+    int tvMainTitleMotto -> tvMainTitleMotto
+    int tvMeeesage -> tvMeeesage
+    int tvPopupComment -> tvPopupComment
+    int tvPopupHelperComment -> tvPopupHelperComment
+    int tvPopupHelperCommentHint -> tvPopupHelperCommentHint
+    int tvReportToatalClose -> tvReportToatalClose
+    int tvReportToatalShare -> tvReportToatalShare
+    int tvReportToatalTitle -> tvReportToatalTitle
+    int tvReportTrendClose -> tvReportTrendClose
+    int tvReportTrendShare -> tvReportTrendShare
+    int tvReportTrendTitle -> tvReportTrendTitle
+    int tvSettingCycleBg -> tvSettingCycleBg
+    int tvSettingCycleText -> tvSettingCycleText
+    int tvSettingDone -> tvSettingDone
+    int tvSettingHelp -> tvSettingHelp
+    int tvSettingPopupTitle -> tvSettingPopupTitle
+    int tvSettingProjectItemDeleteCancel -> tvSettingProjectItemDeleteCancel
+    int tvSettingProjectItemDeleteInfo -> tvSettingProjectItemDeleteInfo
+    int tvSettingProjectItemDeleteTitle -> tvSettingProjectItemDeleteTitle
+    int tvSettingProjectItemDeleteYes -> tvSettingProjectItemDeleteYes
+    int tvSettingProjectItemDescript -> tvSettingProjectItemDescript
+    int tvSettingProjectItemPopupCancel -> tvSettingProjectItemPopupCancel
+    int tvSettingProjectItemPopupTitle -> tvSettingProjectItemPopupTitle
+    int tvSettingProjectItemPopupTitleDes -> tvSettingProjectItemPopupTitleDes
+    int tvSettingProjectItemPopupTitleMotto -> tvSettingProjectItemPopupTitleMotto
+    int tvSettingProjectItemPopupYes -> tvSettingProjectItemPopupYes
+    int tvSettingRestore -> tvSettingRestore
+    int tvSettingSystemFranklinInfo -> tvSettingSystemFranklinInfo
+    int tvSettingSystemFranklinTitle -> tvSettingSystemFranklinTitle
+    int tvSettingSystemHelplPopupNext1 -> tvSettingSystemHelplPopupNext1
+    int tvSettingSystemHelplPopupNext2 -> tvSettingSystemHelplPopupNext2
+    int tvSettingSystemHelplPopupOK -> tvSettingSystemHelplPopupOK
+    int tvSettingSystemInfo -> tvSettingSystemInfo
+    int tvSettingSystemPopupCancel -> tvSettingSystemPopupCancel
+    int tvSettingSystemPopupYes -> tvSettingSystemPopupYes
+    int tvSettingSystemTitle -> tvSettingSystemTitle
+    int tvSettingSystemitem -> tvSettingSystemitem
+    int tvSettingTitle -> tvSettingTitle
+    int tvSettingWelcomeDescript -> tvSettingWelcomeDescript
+    int tvSettingWelcomePopupCancel -> tvSettingWelcomePopupCancel
+    int tvSettingWelcomePopupYes -> tvSettingWelcomePopupYes
+    int tvSplash -> tvSplash
+    int tvSplashGo -> tvSplashGo
+    int tvSplashHint -> tvSplashHint
+    int tvTodayPopupYes -> tvTodayPopupYes
+    int tvTodayTitle -> tvTodayTitle
+    int tvcopyright -> tvcopyright
+    int tvmainExample -> tvmainExample
+    int tvmainSpot -> tvmainSpot
+    int tvmainSpot2 -> tvmainSpot2
+    int tvsettingSystemHelpContent1 -> tvsettingSystemHelpContent1
+    int tvsettingSystemHelpContent2 -> tvsettingSystemHelpContent2
+    int tvsettingSystemHelpContent3 -> tvsettingSystemHelpContent3
+    int tvsettingSystemHelpContentTitle1 -> tvsettingSystemHelpContentTitle1
+    int tvsettingSystemHelpContentTitle2 -> tvsettingSystemHelpContentTitle2
+    int tvsettingSystemHelpContentTitle3 -> tvsettingSystemHelpContentTitle3
+    int txtComment -> txtComment
+    int txtCommentItemNumber -> txtCommentItemNumber
+    int txtCommentItemText -> txtCommentItemText
+    int txtContactMe -> txtContactMe
+    int txtHelperComment -> txtHelperComment
+    int txtMainShare -> txtMainShare
+    int txtMotto -> txtMotto
+    int txtSetting -> txtSetting
+    int txtSettingProjectItemPopupTitle -> txtSettingProjectItemPopupTitle
+    int txtSettingProjectItemPopupTitleDes -> txtSettingProjectItemPopupTitleDes
+    int txtSettingProjectItemPopupTitleMotto -> txtSettingProjectItemPopupTitleMotto
+    int txtSettingWelcomePopupContext -> txtSettingWelcomePopupContext
+    int umeng_common_icon_view -> umeng_common_icon_view
+    int umeng_common_notification -> umeng_common_notification
+    int umeng_common_notification_controller -> umeng_common_notification_controller
+    int umeng_common_progress_bar -> umeng_common_progress_bar
+    int umeng_common_progress_text -> umeng_common_progress_text
+    int umeng_common_rich_notification_cancel -> umeng_common_rich_notification_cancel
+    int umeng_common_rich_notification_continue -> umeng_common_rich_notification_continue
+    int umeng_common_title -> umeng_common_title
+    int umeng_fb_back -> umeng_fb_back
+    int umeng_fb_contact_header -> umeng_fb_contact_header
+    int umeng_fb_contact_info -> umeng_fb_contact_info
+    int umeng_fb_contact_update_at -> umeng_fb_contact_update_at
+    int umeng_fb_conversation_contact_entry -> umeng_fb_conversation_contact_entry
+    int umeng_fb_conversation_header -> umeng_fb_conversation_header
+    int umeng_fb_conversation_list_wrapper -> umeng_fb_conversation_list_wrapper
+    int umeng_fb_conversation_umeng_logo -> umeng_fb_conversation_umeng_logo
+    int umeng_fb_list_reply_header -> umeng_fb_list_reply_header
+    int umeng_fb_reply_content -> umeng_fb_reply_content
+    int umeng_fb_reply_content_wrapper -> umeng_fb_reply_content_wrapper
+    int umeng_fb_reply_date -> umeng_fb_reply_date
+    int umeng_fb_reply_list -> umeng_fb_reply_list
+    int umeng_fb_save -> umeng_fb_save
+    int umeng_fb_send -> umeng_fb_send
+    int umeng_update_content -> umeng_update_content
+    int umeng_update_id_cancel -> umeng_update_id_cancel
+    int umeng_update_id_check -> umeng_update_id_check
+    int umeng_update_id_close -> umeng_update_id_close
+    int umeng_update_id_ignore -> umeng_update_id_ignore
+    int umeng_update_id_ok -> umeng_update_id_ok
+    int umeng_update_wifi_indicator -> umeng_update_wifi_indicator
+    int vfMainFlopper -> vfMainFlopper
+    int viewIndicatiorCenter -> viewIndicatiorCenter
+    int viewIndicatiorLeft -> viewIndicatiorLeft
+    int viewIndicatiorRight -> viewIndicatiorRight
+com.pavkoo.franklin.R$layout -> com.pavkoo.franklin.R$layout:
+    int activity_finish -> activity_finish
+    int activity_helper -> activity_helper
+    int activity_main -> activity_main
+    int activity_setting -> activity_setting
+    int activity_splash -> activity_splash
+    int activity_splash_item -> activity_splash_item
+    int activity_tutorials -> activity_tutorials
+    int cycle_history_comments -> cycle_history_comments
+    int cycle_history_comments_item -> cycle_history_comments_item
+    int cycle_history_report -> cycle_history_report
+    int cycle_history_report_popup_total -> cycle_history_report_popup_total
+    int cycle_history_report_popup_trend -> cycle_history_report_popup_trend
+    int cycle_history_report_popup_trend_item -> cycle_history_report_popup_trend_item
+    int cycle_today_selector -> cycle_today_selector
+    int message -> message
+    int setting_cycle -> setting_cycle
+    int setting_projectitem -> setting_projectitem
+    int setting_projectitem_item -> setting_projectitem_item
+    int setting_projectitem_popup -> setting_projectitem_popup
+    int settting_projectitem_popup_delete -> settting_projectitem_popup_delete
+    int settting_system -> settting_system
+    int settting_system_item -> settting_system_item
+    int settting_system_popup_franklin -> settting_system_popup_franklin
+    int settting_system_popup_help -> settting_system_popup_help
+    int settting_system_popup_me -> settting_system_popup_me
+    int settting_system_popup_restart -> settting_system_popup_restart
+    int settting_welcome -> settting_welcome
+    int settting_welcome_item -> settting_welcome_item
+    int settting_welcome_popup -> settting_welcome_popup
+    int today_control -> today_control
+    int today_control_popup -> today_control_popup
+    int umeng_common_download_notification -> umeng_common_download_notification
+    int umeng_fb_activity_contact -> umeng_fb_activity_contact
+    int umeng_fb_activity_conversation -> umeng_fb_activity_conversation
+    int umeng_fb_list_header -> umeng_fb_list_header
+    int umeng_fb_list_item -> umeng_fb_list_item
+    int umeng_fb_new_reply_alert_dialog -> umeng_fb_new_reply_alert_dialog
+    int umeng_update_dialog -> umeng_update_dialog
+com.pavkoo.franklin.R$string -> com.pavkoo.franklin.R$string:
+    int Finishmodify -> Finishmodify
+    int ImGetBetter -> ImGetBetter
+    int Mainshare -> Mainshare
+    int OK -> OK
+    int SettingCycleDescription -> SettingCycleDescription
+    int SettingCycleSeekbar -> SettingCycleSeekbar
+    int UMAppUpdate -> UMAppUpdate
+    int UMBreak_Network -> UMBreak_Network
+    int UMDialog_InstallAPK -> UMDialog_InstallAPK
+    int UMGprsCondition -> UMGprsCondition
+    int UMIgnore -> UMIgnore
+    int UMNewVersion -> UMNewVersion
+    int UMNotNow -> UMNotNow
+    int UMTargetSize -> UMTargetSize
+    int UMToast_IsUpdating -> UMToast_IsUpdating
+    int UMUpdateCheck -> UMUpdateCheck
+    int UMUpdateContent -> UMUpdateContent
+    int UMUpdateNow -> UMUpdateNow
+    int UMUpdateSize -> UMUpdateSize
+    int UMUpdateTitle -> UMUpdateTitle
+    int aboutApp -> aboutApp
+    int aboutFranklin -> aboutFranklin
+    int addNew -> addNew
+    int app_name -> app_name
+    int appnameabout -> appnameabout
+    int beginMoral -> beginMoral
+    int benjaminfranklininfo -> benjaminfranklininfo
+    int book -> book
+    int bookcontent -> bookcontent
+    int bookcontent2 -> bookcontent2
+    int bookcontent3 -> bookcontent3
+    int bookcontenttitle1 -> bookcontenttitle1
+    int bookcontenttitle2 -> bookcontenttitle2
+    int bookcontenttitle3 -> bookcontenttitle3
+    int bye -> bye
+    int cancel -> cancel
+    int cannotchange4 -> cannotchange4
+    int cantArrange -> cantArrange
+    int cantDelete -> cantDelete
+    int cantFindBrowse -> cantFindBrowse
+    int cantFindMarket -> cantFindMarket
+    int cantSendEmail -> cantSendEmail
+    int caustion -> caustion
+    int checknew -> checknew
+    int chooseEmail -> chooseEmail
+    int chosebad -> chosebad
+    int clickInput -> clickInput
+    int close -> close
+    int comfirmDelete -> comfirmDelete
+    int comment -> comment
+    int commentTitle -> commentTitle
+    int cycle -> cycle
+    int day -> day
+    int dayBeforeYesterday -> dayBeforeYesterday
+    int deleteHistoryComment -> deleteHistoryComment
+    int deleteHistoryCommentInfo -> deleteHistoryCommentInfo
+    int deleteHistoryCommentSuccess -> deleteHistoryCommentSuccess
+    int description -> description
+    int devTemp -> devTemp
+    int done -> done
+    int doyoudotaday -> doyoudotaday
+    int dragToChangeCycle -> dragToChangeCycle
+    int enjoylife -> enjoylife
+    int errorAddContent -> errorAddContent
+    int errorAddDes -> errorAddDes
+    int errorAddTitle -> errorAddTitle
+    int errorMotto -> errorMotto
+    int errorTooMuchCh -> errorTooMuchCh
+    int errorTooMuchLines -> errorTooMuchLines
+    int errortorestore -> errortorestore
+    int finishDone -> finishDone
+    int finishOneTime -> finishOneTime
+    int finishRate -> finishRate
+    int franklin -> franklin
+    int getBlackSpot -> getBlackSpot
+    int gotoMain -> gotoMain
+    int havenoitem -> havenoitem
+    int help -> help
+    int helpBook -> helpBook
+    int helpReport -> helpReport
+    int helper1 -> helper1
+    int helper2 -> helper2
+    int helper3 -> helper3
+    int helper4 -> helper4
+    int helpwelcome -> helpwelcome
+    int hintComment -> hintComment
+    int hintSettingDes -> hintSettingDes
+    int hintSettingMotto -> hintSettingMotto
+    int hintSettingTitle -> hintSettingTitle
+    int hlepCycle -> hlepCycle
+    int igotit -> igotit
+    int inputReflection -> inputReflection
+    int jump -> jump
+    int language -> language
+    int mailto -> mailto
+    int main_toolbar_contactme -> main_toolbar_contactme
+    int main_toolbar_help -> main_toolbar_help
+    int main_toolbar_setting -> main_toolbar_setting
+    int manyDaynotuse -> manyDaynotuse
+    int maxCycleWarning -> maxCycleWarning
+    int minCycleInfo -> minCycleInfo
+    int modifyMoralitem -> modifyMoralitem
+    int moralItem -> moralItem
+    int moreDay -> moreDay
+    int motto -> motto
+    int moveMoral -> moveMoral
+    int next -> next
+    int nextPage1 -> nextPage1
+    int nextPage2 -> nextPage2
+    int noMoreNeed -> noMoreNeed
+    int or -> or
+    int or2 -> or2
+    int pressToExit -> pressToExit
+    int pupupAddComment -> pupupAddComment
+    int quotesBegin -> quotesBegin
+    int quotesEnd -> quotesEnd
+    int rate -> rate
+    int reStart -> reStart
+    int reflectioneveryday -> reflectioneveryday
+    int reflectioning -> reflectioning
+    int reportTitle -> reportTitle
+    int restartToBegin -> restartToBegin
+    int restartinfo -> restartinfo
+    int restoreToDefault -> restoreToDefault
+    int restoretinfo -> restoretinfo
+    int seeMore -> seeMore
+    int send -> send
+    int settingProjectItemDescript -> settingProjectItemDescript
+    int settingRestore -> settingRestore
+    int settingWelcomeDescrpit -> settingWelcomeDescrpit
+    int settingtitle -> settingtitle
+    int share -> share
+    int shareReflections -> shareReflections
+    int shareReport -> shareReport
+    int sharetotal -> sharetotal
+    int sina -> sina
+    int startNewMoralInfo -> startNewMoralInfo
+    int startNewMoralInfo2 -> startNewMoralInfo2
+    int store -> store
+    int strComfirmDelete -> strComfirmDelete
+    int system -> system
+    int tabToChoose -> tabToChoose
+    int thisisMenu -> thisisMenu
+    int thisisfranklin -> thisisfranklin
+    int title -> title
+    int titleChastity -> titleChastity
+    int titleChastityDes -> titleChastityDes
+    int titleChastityMotto -> titleChastityMotto
+    int titleCleanliness -> titleCleanliness
+    int titleCleanlinessDes -> titleCleanlinessDes
+    int titleCleanlinessMotto -> titleCleanlinessMotto
+    int titleFrugality -> titleFrugality
+    int titleFrugalityDes -> titleFrugalityDes
+    int titleFrugalityMotto -> titleFrugalityMotto
+    int titleHumility -> titleHumility
+    int titleHumilityDes -> titleHumilityDes
+    int titleHumilityMotto -> titleHumilityMotto
+    int titleIndustry -> titleIndustry
+    int titleIndustryDes -> titleIndustryDes
+    int titleIndustryMotto -> titleIndustryMotto
+    int titleJustice -> titleJustice
+    int titleJusticeDes -> titleJusticeDes
+    int titleJusticeMotto -> titleJusticeMotto
+    int titleModeration -> titleModeration
+    int titleModerationDes -> titleModerationDes
+    int titleModerationMotto -> titleModerationMotto
+    int titleOrder -> titleOrder
+    int titleOrderDes -> titleOrderDes
+    int titleOrderMotto -> titleOrderMotto
+    int titleResolution -> titleResolution
+    int titleResolutionDes -> titleResolutionDes
+    int titleResolutionMotto -> titleResolutionMotto
+    int titleSilence -> titleSilence
+    int titleSilenceDes -> titleSilenceDes
+    int titleSilenceMotto -> titleSilenceMotto
+    int titleSincerity -> titleSincerity
+    int titleSincerityDes -> titleSincerityDes
+    int titleSincerityMotto -> titleSincerityMotto
+    int titleTenperance -> titleTenperance
+    int titleTenperanceDes -> titleTenperanceDes
+    int titleTenperanceMotto -> titleTenperanceMotto
+    int titleTranquillity -> titleTranquillity
+    int titleTranquillityDes -> titleTranquillityDes
+    int titleTranquillityMotto -> titleTranquillityMotto
+    int todayControlPopupTitleFormat -> todayControlPopupTitleFormat
+    int todaySubject -> todaySubject
+    int today_control_popup_bad -> today_control_popup_bad
+    int today_control_popup_good -> today_control_popup_good
+    int today_control_popup_title -> today_control_popup_title
+    int todayhavepassed -> todayhavepassed
+    int todo -> todo
+    int totalReflectiveCount -> totalReflectiveCount
+    int totalUsedCount -> totalUsedCount
+    int trend -> trend
+    int tutorials2 -> tutorials2
+    int tutorials3 -> tutorials3
+    int tutorials4 -> tutorials4
+    int tutorials5 -> tutorials5
+    int tutorials6 -> tutorials6
+    int tutorials7 -> tutorials7
+    int tutorials8 -> tutorials8
+    int typeCouse -> typeCouse
+    int umeng_common_action_cancel -> umeng_common_action_cancel
+    int umeng_common_action_continue -> umeng_common_action_continue
+    int umeng_common_action_info_exist -> umeng_common_action_info_exist
+    int umeng_common_action_pause -> umeng_common_action_pause
+    int umeng_common_download_failed -> umeng_common_download_failed
+    int umeng_common_download_finish -> umeng_common_download_finish
+    int umeng_common_download_notification_prefix -> umeng_common_download_notification_prefix
+    int umeng_common_icon -> umeng_common_icon
+    int umeng_common_info_interrupt -> umeng_common_info_interrupt
+    int umeng_common_network_break_alert -> umeng_common_network_break_alert
+    int umeng_common_patch_finish -> umeng_common_patch_finish
+    int umeng_common_pause_notification_prefix -> umeng_common_pause_notification_prefix
+    int umeng_common_silent_download_finish -> umeng_common_silent_download_finish
+    int umeng_common_start_download_notification -> umeng_common_start_download_notification
+    int umeng_common_start_patch_notification -> umeng_common_start_patch_notification
+    int umeng_fb_back -> umeng_fb_back
+    int umeng_fb_contact_info -> umeng_fb_contact_info
+    int umeng_fb_contact_info_hint -> umeng_fb_contact_info_hint
+    int umeng_fb_contact_title -> umeng_fb_contact_title
+    int umeng_fb_contact_update_at -> umeng_fb_contact_update_at
+    int umeng_fb_notification_content_formatter_multiple_msg -> umeng_fb_notification_content_formatter_multiple_msg
+    int umeng_fb_notification_content_formatter_single_msg -> umeng_fb_notification_content_formatter_single_msg
+    int umeng_fb_notification_ticker_text -> umeng_fb_notification_ticker_text
+    int umeng_fb_powered_by -> umeng_fb_powered_by
+    int umeng_fb_reply_content_default -> umeng_fb_reply_content_default
+    int umeng_fb_reply_content_hint -> umeng_fb_reply_content_hint
+    int umeng_fb_reply_date_default -> umeng_fb_reply_date_default
+    int umeng_fb_send -> umeng_fb_send
+    int umeng_fb_title -> umeng_fb_title
+    int version -> version
+    int virtueDone -> virtueDone
+    int welcome -> welcome
+    int welcome1 -> welcome1
+    int welcome11 -> welcome11
+    int welcome12 -> welcome12
+    int welcome13 -> welcome13
+    int welcome14 -> welcome14
+    int welcome15 -> welcome15
+    int welcome16 -> welcome16
+    int welcome2 -> welcome2
+    int welcome3 -> welcome3
+    int welcome4 -> welcome4
+    int welcome5 -> welcome5
+    int yesterday -> yesterday
+    int yourgole -> yourgole
+com.pavkoo.franklin.R$style -> com.pavkoo.franklin.R$style:
+    int AppBaseTheme -> AppBaseTheme
+    int AppTheme -> AppTheme
+    int AppTheme_Light -> AppTheme_Light
+    int DialogAnimationStyle -> DialogAnimationStyle
+    int TwoWayView -> TwoWayView
+    int appBottomLayout -> appBottomLayout
+    int appBottomToolBarTextLayout -> appBottomToolBarTextLayout
+    int appMessageLayout -> appMessageLayout
+    int appPopupTitle -> appPopupTitle
+    int appReportBottom -> appReportBottom
+    int appReportBottomNumber -> appReportBottomNumber
+    int appReportTitle -> appReportTitle
+    int appReviewLayout -> appReviewLayout
+    int appSettingTitlefontDes -> appSettingTitlefontDes
+    int appTitleMotto -> appTitleMotto
+    int appTitleTimefont -> appTitleTimefont
+    int appTitlefont -> appTitlefont
+    int appTitlefontDes -> appTitlefontDes
+    int appTitlefontMotto -> appTitlefontMotto
+    int appTitlefontMottoQuotes -> appTitlefontMottoQuotes
+    int appTitlefontSpace -> appTitlefontSpace
+    int appTodayLayout -> appTodayLayout
+    int appTotayPopupContent -> appTotayPopupContent
+    int appTotayPopupTitle -> appTotayPopupTitle
+    int appTotayPopupTitleWarning -> appTotayPopupTitleWarning
+com.pavkoo.franklin.R$styleable -> com.pavkoo.franklin.R$styleable:
     int[] CircleImageView -> CircleImageView
     int CircleImageView_border_color -> CircleImageView_border_color
     int CircleImageView_border_width -> CircleImageView_border_width
@@ -2876,27 +3759,27 @@ com.pavkoo.franklin.SettingActivity -> com.pavkoo.franklin.SettingActivity:
     void access$5(com.pavkoo.franklin.SettingActivity,boolean) -> a
     android.widget.RadioButton access$6(com.pavkoo.franklin.SettingActivity) -> f
     com.pavkoo.franklin.common.ApplicationConfig access$7(com.pavkoo.franklin.SettingActivity) -> g
-com.pavkoo.franklin.SettingActivity$1 -> com.pavkoo.franklin.ab:
+com.pavkoo.franklin.SettingActivity$1 -> com.pavkoo.franklin.aa:
     com.pavkoo.franklin.SettingActivity this$0 -> a
     void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
-com.pavkoo.franklin.SettingActivity$2 -> com.pavkoo.franklin.ac:
+com.pavkoo.franklin.SettingActivity$2 -> com.pavkoo.franklin.ab:
     com.pavkoo.franklin.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.SettingActivity$3 -> com.pavkoo.franklin.ad:
+com.pavkoo.franklin.SettingActivity$3 -> com.pavkoo.franklin.ac:
     com.pavkoo.franklin.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.SettingActivity$4 -> com.pavkoo.franklin.ae:
+com.pavkoo.franklin.SettingActivity$4 -> com.pavkoo.franklin.ad:
     com.pavkoo.franklin.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.SettingActivity$5 -> com.pavkoo.franklin.af:
+com.pavkoo.franklin.SettingActivity$5 -> com.pavkoo.franklin.ae:
     com.pavkoo.franklin.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.SettingActivity$6 -> com.pavkoo.franklin.ag:
+com.pavkoo.franklin.SettingActivity$6 -> com.pavkoo.franklin.af:
     com.pavkoo.franklin.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.SettingActivity$FragmentFactory -> com.pavkoo.franklin.ah:
+com.pavkoo.franklin.SettingActivity$FragmentFactory -> com.pavkoo.franklin.ag:
     android.support.v4.app.Fragment getInstanceByIndex(int) -> a
-com.pavkoo.franklin.SettingCycleFragment -> com.pavkoo.franklin.ai:
+com.pavkoo.franklin.SettingCycleFragment -> com.pavkoo.franklin.ah:
     android.view.View self -> P
     android.widget.SeekBar sbCycle -> Q
     android.widget.TextView tvSettingCycleText -> R
@@ -2909,12 +3792,12 @@ com.pavkoo.franklin.SettingCycleFragment -> com.pavkoo.franklin.ai:
     android.widget.TextView access$1(com.pavkoo.franklin.SettingCycleFragment) -> b
     com.pavkoo.franklin.controls.AnimMessage access$2(com.pavkoo.franklin.SettingCycleFragment) -> c
     java.util.List access$3(com.pavkoo.franklin.SettingCycleFragment) -> d
-com.pavkoo.franklin.SettingCycleFragment$1 -> com.pavkoo.franklin.aj:
+com.pavkoo.franklin.SettingCycleFragment$1 -> com.pavkoo.franklin.ai:
     com.pavkoo.franklin.SettingCycleFragment this$0 -> a
     void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
     void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
     void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
-com.pavkoo.franklin.SettingProjectItemFragment -> com.pavkoo.franklin.ak:
+com.pavkoo.franklin.SettingProjectItemFragment -> com.pavkoo.franklin.aj:
     android.view.View self -> P
     com.pavkoo.franklin.SettingActivity parent -> Q
     com.mobeta.android.dslv.DragSortListView dslvMorals -> R
@@ -2941,25 +3824,25 @@ com.pavkoo.franklin.SettingProjectItemFragment -> com.pavkoo.franklin.ak:
     com.pavkoo.franklin.controls.ComfirmDialog access$5(com.pavkoo.franklin.SettingProjectItemFragment) -> e
     com.pavkoo.franklin.controls.SettingProjectItemDialog access$6(com.pavkoo.franklin.SettingProjectItemFragment) -> f
     int access$7(com.pavkoo.franklin.SettingProjectItemFragment) -> g
-com.pavkoo.franklin.SettingProjectItemFragment$1 -> com.pavkoo.franklin.al:
+com.pavkoo.franklin.SettingProjectItemFragment$1 -> com.pavkoo.franklin.ak:
     com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
     void drop(int,int) -> a_
-com.pavkoo.franklin.SettingProjectItemFragment$2 -> com.pavkoo.franklin.am:
+com.pavkoo.franklin.SettingProjectItemFragment$2 -> com.pavkoo.franklin.al:
     com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
     void remove(int) -> a
-com.pavkoo.franklin.SettingProjectItemFragment$3 -> com.pavkoo.franklin.an:
+com.pavkoo.franklin.SettingProjectItemFragment$3 -> com.pavkoo.franklin.am:
     com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.pavkoo.franklin.SettingProjectItemFragment$4 -> com.pavkoo.franklin.ao:
+com.pavkoo.franklin.SettingProjectItemFragment$4 -> com.pavkoo.franklin.an:
     com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.SettingProjectItemFragment$5 -> com.pavkoo.franklin.ap:
+com.pavkoo.franklin.SettingProjectItemFragment$5 -> com.pavkoo.franklin.ao:
     com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.pavkoo.franklin.SettingProjectItemFragment$6 -> com.pavkoo.franklin.aq:
+com.pavkoo.franklin.SettingProjectItemFragment$6 -> com.pavkoo.franklin.ap:
     com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.pavkoo.franklin.SettingProjectItemFragment$MoralAdapter -> com.pavkoo.franklin.ar:
+com.pavkoo.franklin.SettingProjectItemFragment$MoralAdapter -> com.pavkoo.franklin.aq:
     android.content.Context context -> b
     java.util.List morals -> c
     com.pavkoo.franklin.SettingProjectItemFragment this$0 -> a
@@ -2968,7 +3851,7 @@ com.pavkoo.franklin.SettingProjectItemFragment$MoralAdapter -> com.pavkoo.frankl
     java.lang.Object getItem(int) -> getItem
     long getItemId(int) -> getItemId
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.pavkoo.franklin.SettingSystemFragment -> com.pavkoo.franklin.as:
+com.pavkoo.franklin.SettingSystemFragment -> com.pavkoo.franklin.ar:
     android.view.View self -> P
     int[] heads -> Q
     int[] headStrs -> R
@@ -2989,16 +3872,16 @@ com.pavkoo.franklin.SettingSystemFragment -> com.pavkoo.franklin.as:
     com.pavkoo.franklin.controls.SettingSystemFranklinDialog access$4(com.pavkoo.franklin.SettingSystemFragment) -> e
     com.pavkoo.franklin.controls.SettingSystemMeDialog access$5(com.pavkoo.franklin.SettingSystemFragment) -> f
     com.pavkoo.franklin.controls.SettingSystemHelpDialog access$6(com.pavkoo.franklin.SettingSystemFragment) -> g
-com.pavkoo.franklin.SettingSystemFragment$1 -> com.pavkoo.franklin.at:
+com.pavkoo.franklin.SettingSystemFragment$1 -> com.pavkoo.franklin.as:
     com.pavkoo.franklin.SettingSystemFragment this$0 -> a
     void UpdateUI(java.lang.Object) -> a
-com.pavkoo.franklin.SettingSystemFragment$2 -> com.pavkoo.franklin.au:
+com.pavkoo.franklin.SettingSystemFragment$2 -> com.pavkoo.franklin.at:
     com.pavkoo.franklin.SettingSystemFragment this$0 -> a
     void UpdateUI(java.lang.Object) -> a
-com.pavkoo.franklin.SettingSystemFragment$3 -> com.pavkoo.franklin.av:
+com.pavkoo.franklin.SettingSystemFragment$3 -> com.pavkoo.franklin.au:
     com.pavkoo.franklin.SettingSystemFragment this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.pavkoo.franklin.SettingSystemFragment$SettingSystemAdapter -> com.pavkoo.franklin.aw:
+com.pavkoo.franklin.SettingSystemFragment$SettingSystemAdapter -> com.pavkoo.franklin.av:
     android.content.Context context -> b
     int[] imgRes -> c
     int[] strings -> d
@@ -3007,7 +3890,7 @@ com.pavkoo.franklin.SettingSystemFragment$SettingSystemAdapter -> com.pavkoo.fra
     java.lang.Object getItem(int) -> getItem
     long getItemId(int) -> getItemId
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.pavkoo.franklin.SettingWelcomeFragment -> com.pavkoo.franklin.ax:
+com.pavkoo.franklin.SettingWelcomeFragment -> com.pavkoo.franklin.aw:
     android.view.View self -> P
     com.mobeta.android.dslv.DragSortListView dslvWelcome -> Q
     android.widget.ImageView ivSettingWelcomeAdd -> R
@@ -3029,22 +3912,22 @@ com.pavkoo.franklin.SettingWelcomeFragment -> com.pavkoo.franklin.ax:
     com.pavkoo.franklin.SettingWelcomeFragment$MoralAdapter access$4(com.pavkoo.franklin.SettingWelcomeFragment) -> d
     com.pavkoo.franklin.controls.AnimMessage access$5(com.pavkoo.franklin.SettingWelcomeFragment) -> e
     int access$6(com.pavkoo.franklin.SettingWelcomeFragment) -> f
-com.pavkoo.franklin.SettingWelcomeFragment$1 -> com.pavkoo.franklin.ay:
+com.pavkoo.franklin.SettingWelcomeFragment$1 -> com.pavkoo.franklin.ax:
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
     void remove(int) -> a
-com.pavkoo.franklin.SettingWelcomeFragment$2 -> com.pavkoo.franklin.az:
+com.pavkoo.franklin.SettingWelcomeFragment$2 -> com.pavkoo.franklin.ay:
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.SettingWelcomeFragment$3 -> com.pavkoo.franklin.ba:
+com.pavkoo.franklin.SettingWelcomeFragment$3 -> com.pavkoo.franklin.az:
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.pavkoo.franklin.SettingWelcomeFragment$4 -> com.pavkoo.franklin.bb:
+com.pavkoo.franklin.SettingWelcomeFragment$4 -> com.pavkoo.franklin.ba:
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.pavkoo.franklin.SettingWelcomeFragment$5 -> com.pavkoo.franklin.bc:
+com.pavkoo.franklin.SettingWelcomeFragment$5 -> com.pavkoo.franklin.bb:
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.pavkoo.franklin.SettingWelcomeFragment$MoralAdapter -> com.pavkoo.franklin.bd:
+com.pavkoo.franklin.SettingWelcomeFragment$MoralAdapter -> com.pavkoo.franklin.bc:
     android.content.Context context -> b
     java.util.List welcomes -> c
     com.pavkoo.franklin.SettingWelcomeFragment this$0 -> a
@@ -3081,18 +3964,18 @@ com.pavkoo.franklin.SplashActivity -> com.pavkoo.franklin.SplashActivity:
     boolean access$2(com.pavkoo.franklin.SplashActivity) -> c
     void access$3(com.pavkoo.franklin.SplashActivity,boolean) -> a
     void access$4(com.pavkoo.franklin.SplashActivity) -> d
-com.pavkoo.franklin.SplashActivity$1 -> com.pavkoo.franklin.be:
+com.pavkoo.franklin.SplashActivity$1 -> com.pavkoo.franklin.bd:
     com.pavkoo.franklin.SplashActivity this$0 -> a
     void run() -> run
-com.pavkoo.franklin.SplashActivity$2 -> com.pavkoo.franklin.bf:
+com.pavkoo.franklin.SplashActivity$2 -> com.pavkoo.franklin.be:
     com.pavkoo.franklin.SplashActivity this$0 -> a
     void onPageSelected(int) -> a
     void onPageScrolled(int,float,int) -> a
     void onPageScrollStateChanged(int) -> b
-com.pavkoo.franklin.SplashActivity$3 -> com.pavkoo.franklin.bg:
+com.pavkoo.franklin.SplashActivity$3 -> com.pavkoo.franklin.bf:
     com.pavkoo.franklin.SplashActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.SplashActivity$WelcomesAdapter -> com.pavkoo.franklin.bh:
+com.pavkoo.franklin.SplashActivity$WelcomesAdapter -> com.pavkoo.franklin.bg:
     java.util.List welcomeList -> b
     com.pavkoo.franklin.SplashActivity this$0 -> a
     android.support.v4.app.Fragment getItem(int) -> a
@@ -3109,16 +3992,16 @@ com.pavkoo.franklin.TutorialsActivity -> com.pavkoo.franklin.TutorialsActivity:
     android.widget.TextView access$0(com.pavkoo.franklin.TutorialsActivity) -> a
     android.widget.LinearLayout access$1(com.pavkoo.franklin.TutorialsActivity) -> b
     com.pavkoo.franklin.controls.SettingSystemHelpDialog access$2(com.pavkoo.franklin.TutorialsActivity) -> c
-com.pavkoo.franklin.TutorialsActivity$1 -> com.pavkoo.franklin.bi:
+com.pavkoo.franklin.TutorialsActivity$1 -> com.pavkoo.franklin.bh:
     com.pavkoo.franklin.TutorialsActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.TutorialsActivity$2 -> com.pavkoo.franklin.bj:
+com.pavkoo.franklin.TutorialsActivity$2 -> com.pavkoo.franklin.bi:
     com.pavkoo.franklin.TutorialsActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.TutorialsActivity$3 -> com.pavkoo.franklin.bk:
+com.pavkoo.franklin.TutorialsActivity$3 -> com.pavkoo.franklin.bj:
     com.pavkoo.franklin.TutorialsActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pavkoo.franklin.TutorialsActivity$4 -> com.pavkoo.franklin.bl:
+com.pavkoo.franklin.TutorialsActivity$4 -> com.pavkoo.franklin.bk:
     com.pavkoo.franklin.TutorialsActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.pavkoo.franklin.common.ApplicationConfig -> com.pavkoo.franklin.common.a:
@@ -3284,6 +4167,7 @@ com.pavkoo.franklin.common.SharePreferenceService -> com.pavkoo.franklin.common.
     void saveFile(java.lang.Object,java.lang.String) -> a
     java.lang.Object loadFile(java.lang.String) -> a
 com.pavkoo.franklin.common.UtilsClass -> com.pavkoo.franklin.common.l:
+    boolean isEng() -> a
     java.lang.String dateToString(java.util.Date) -> a
     java.util.Date stringToDate(java.lang.String) -> a
     long dayCount(java.util.Date,java.util.Date) -> a
@@ -3292,11 +4176,11 @@ com.pavkoo.franklin.common.UtilsClass -> com.pavkoo.franklin.common.l:
     void shareMsg(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
     void shareMsg(android.content.Context,java.lang.String,java.lang.String,android.view.View) -> a
     java.lang.String GetandSaveCurrentImage(android.view.View) -> a
-    java.lang.String getSDCardPath() -> b
-    java.lang.String getBingImagesInfo() -> c
+    java.lang.String getSDCardPath() -> c
+    java.lang.String getBingImagesInfo() -> d
     java.lang.String getImageURL(java.lang.String) -> b
     android.graphics.Bitmap downLoadImg(java.lang.String) -> c
-    android.graphics.Bitmap downloadBingImage() -> a
+    android.graphics.Bitmap downloadBingImage() -> b
 com.pavkoo.franklin.controls.AnimMessage -> com.pavkoo.franklin.controls.AnimMessage:
     android.widget.LinearLayout llMessageBg -> a
     android.widget.TextView tvMessage -> b
@@ -3498,6 +4382,9 @@ com.pavkoo.franklin.controls.CyclePager$FlipAnimationHandler -> com.pavkoo.frank
     com.pavkoo.franklin.controls.CyclePager this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
     void sleep(long) -> a
+com.pavkoo.franklin.controls.DateChangeReceiver -> com.pavkoo.franklin.controls.DateChangeReceiver:
+    android.content.Context context -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.pavkoo.franklin.controls.Flipper -> com.pavkoo.franklin.controls.p:
     android.widget.LinearLayout view1 -> g
     android.widget.LinearLayout view2 -> h
@@ -4531,6 +5418,7 @@ com.umeng.update.UpdateResponse -> com.umeng.update.p:
     java.lang.String target_size -> h
     boolean delta -> i
     java.lang.String patch_md5 -> j
+    void a(org.json.JSONObject) -> a
     java.lang.String a(android.content.Context,boolean) -> a
 com.umeng.update.b -> com.umeng.update.q:
     android.content.Context a -> a
