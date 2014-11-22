@@ -75,7 +75,7 @@ public class TrendAdapter extends BaseAdapter {
 		int color = Color.parseColor(CommonConst.colors[position % CommonConst.colors.length]);
 		String title = morals.get(position).getTitle();
 		if (UtilsClass.isEng()){
-			title = title.substring(0, 3)+"."; 
+			title = UtilsClass.shortString(title);
 		}
 		cycleHistoryReportTrendTitle.setText(title);
 		GradientDrawable gd = (GradientDrawable) cycleHistoryReportTrendTitle.getBackground();

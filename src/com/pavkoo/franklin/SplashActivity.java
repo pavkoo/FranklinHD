@@ -194,7 +194,14 @@ public class SplashActivity extends FragmentActivity {
 		splashPager.setOnPageChangeListener(new OnPageChangeListener() {
 
 			@Override
-			public void onPageSelected(int arg0) {
+			public void onPageSelected(int position) {
+//				if ( position < 0) { //首位之前，跳转到末尾（N）  
+//                    position = showWelcomes.size()-1;   
+//                    splashPager.setCurrentItem(position,false);  
+//                } else if ( position > showWelcomes.size()-1) { //末位之后，跳转到首位（1）  
+//                	splashPager.setCurrentItem(1,false); //false:不显示跳转过程的动画  
+//                    position = 1;  
+//                }  
 			}
 
 			@Override

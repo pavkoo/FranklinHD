@@ -26,7 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/statistics"
-                android:gravity="bottom"
+                android:drawablePadding="@dimen/appBorderPadding"
+                android:gravity="center_vertical"
                 android:text="@string/reportTitle" />
         </LinearLayout>
 

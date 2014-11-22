@@ -4,29 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:layout_margin="@dimen/appBorderPadding"
     android:gravity="center_vertical"
-    android:orientation="vertical"
-    android:padding="@dimen/appBorderPadding" >
+    android:orientation="vertical" >
 
-    <ScrollView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/appBorderPadding"
         tools:ignore="UselessParent" >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginBottom="@dimen/textPadding"
+            android:background="@drawable/texttop"
+            android:contentDescription="@string/devTemp" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/textPadding"
-                android:background="@drawable/texttop"
-                android:contentDescription="@string/devTemp" />
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/tvSplash"
@@ -35,13 +34,13 @@
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.3"
                 android:textColor="@color/white_app_txt_black" />
+        </ScrollView>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/textbottom"
-                android:contentDescription="@string/devTemp" />
-        </LinearLayout>
-    </ScrollView>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textbottom"
+            android:contentDescription="@string/devTemp" />
+    </LinearLayout>
 
 </LinearLayout>

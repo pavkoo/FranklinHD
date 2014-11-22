@@ -4,6 +4,7 @@ import java.util.List;
 import com.pavkoo.franklin.common.CheckState;
 import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.Moral;
+import com.pavkoo.franklin.common.UtilsClass;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -92,7 +93,11 @@ public class BlemishReport extends View {
 		float maxwidth = 0;
 		float temp = 0;
 		for (int i = 0; i < morals.size(); i++) {
-			temp = mPaint.measureText(morals.get(i).getTitle());
+			String title = morals.get(i).getTitle(); 
+			if (UtilsClass.isEng()){
+				title = UtilsClass.shortString(title);
+			}
+			temp = mPaint.measureText(title);
 			if (maxwidth < temp) {
 				maxwidth = temp;
 			}
@@ -153,7 +158,11 @@ public class BlemishReport extends View {
 		for (int i = 0; i < mRow; i++) {
 			top = mCellHeight * i;
 			mPaint.setColor(Color.parseColor(CommonConst.colors[i % CommonConst.colors.length]));
-			canvas.drawText(morals.get(i).getTitle(), left, top + mCellHeight + ColTitleSpace + 10 * density, mPaint);
+			String title = morals.get(i).getTitle();
+			if (UtilsClass.isEng()){
+				title = UtilsClass.shortString(title);
+			}
+			canvas.drawText(title, left, top + mCellHeight + ColTitleSpace + 10 * density, mPaint);
 		}
 
 		// draw Col Title

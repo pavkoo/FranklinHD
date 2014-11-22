@@ -3,8 +3,8 @@ package com.pavkoo.franklin.controls;
 import java.util.Date;
 import java.util.List;
 
-import com.pavkoo.franklin.MainActivity;
 import com.pavkoo.franklin.R;
+import com.pavkoo.franklin.SplashActivity;
 import com.pavkoo.franklin.common.Moral;
 import com.pavkoo.franklin.common.SharePreferenceService;
 import com.pavkoo.franklin.common.UtilsClass;
@@ -51,7 +51,7 @@ public class DateChangeReceiver extends BroadcastReceiver {
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
 				context);
 		PendingIntent pIntent = PendingIntent.getActivity(context, 0,
-				new Intent(context, MainActivity.class), 0);
+				new Intent(context, SplashActivity.class), 0);
 		mBuilder.setSmallIcon(R.drawable.ic_launcher)
 				.setTicker(context.getString(R.string.doyoudotaday))
 				.setContentTitle(

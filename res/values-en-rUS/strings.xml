@@ -23,7 +23,7 @@
     <string name="titleTenperanceDes">Eat not to dullness\nDrink not to elevation</string>
     <string name="titleTenperanceMotto">Practice self-control when consuming food and alcoholic beverages</string>
     <string name="titleSilence">SILENCE</string>
-    <string name="titleSilenceDes">Speak not but what may benefit others or yourself\nAavoid trifling conversation</string>
+    <string name="titleSilenceDes">Speak not but what may benefit others or yourself\nAvoid trifling conversation</string>
     <string name="titleSilenceMotto">Be mindful of what you say to others.  Hurtful words can last and sometimes for a lifetime.  Silence is often better than trivial conversation</string>
     <string name="titleOrder">ORDER</string>
     <string name="titleOrderDes">Let all your things have their places\nLet each part of your business have its time</string>
@@ -58,12 +58,12 @@
     <string name="titleHumility">HUMILITY</string>
     <string name="titleHumilityDes">Imitate Jesus and Socrates</string>
     <string name="titleHumilityMotto">I made it a rule to forbear all direct contradiction to the sentiments of others, and all positive assertion of my own</string>
-    <string name="welcome11">If you think you can\n Uou can</string>
-    <string name="welcome12">If you want something you never had \n Then you have to do something you have never done</string>
+    <string name="welcome11">If you think you can\n You can</string>
+    <string name="welcome12">If you want something you never had \n ,you have to do something you have never done</string>
     <string name="welcome13">YESTERDAY\nYOU SAID\nTOMORROW\n——JUST DO IT</string>
     <string name="welcome14">You make millions of decisions that mean nothing \nAnd then one day \nYour order takes out and it changes your life</string>
-    <string name="welcome15">Now \nOr\n Never</string>
-    <string name="welcome16">And like him who\nHaving a garden to weed\nDoes not attempt to eradicate all the bad herbs at once\nWhich would exceed his reachand his strength\nBut works on one of the beds at a time \nAnd, having accomplish\'d the first\nProceeds to a second</string>
+    <string name="welcome15">Now\nOr\nNever</string>
+    <string name="welcome16">And like him who\nHaving a garden to weed\nDoes not attempt to eradicate all the bad herbs at once\nWhich would exceed his reach and his strength\nBut works on one of the beds at a time \nAnd, having accomplish\'d the first\nProceeds to a second</string>
     <string name="welcome1">Here will I hold\nIf there\'s a power above us\n(And that there is all nature cries aloud Thro\' all her works)\nHe must delight in virtue\nAnd that which he delights in must be happy\n---Addison\'s Cato</string>
     <string name="welcome2">O vitae Philosophia dux\nO virtutum indagatrix expultrixque vitiorum\nUnus dies, bene et ex praeceptistuis actus\nPeccanti immortalitati est anteponendus\n---Cicero</string>
     <string name="welcome3">Length of days is in her right hand\nAnd in her left hand riches and honour\nHer ways are ways of pleasantness\nAnd all her paths are peace\niii. 16, 17.</string>
@@ -75,6 +75,7 @@
     <string name="moralItem">VIRTUES</string>
     <string name="cycle">PERIOD</string>
     <string name="welcome">MOTTOS</string>
+    <string name="mainMotto">Mottos</string>
     <string name="done">Done</string>
     <string name="settingProjectItemDescript">I included under thirteen names of virtues all that at that time occur\'d to me as necessary or desirable, and annexed to each a short precept, which fully express\'d the extent I gave to its meaning</string>
     <string name="settingWelcomeDescrpit">This my little book had for its motto these lines from Addison\'s Cato</string>
@@ -104,10 +105,10 @@
     <string name="restartToBegin">Delete successful</string>
     <string name="moveMoral"> %1$s move from %2$d to %3$d</string>
     <string name="noMoreNeed">No more need for %1$d.%2$s"</string>
-    <string name="day"> days</string>
+    <string name="day">Days</string>
     <string name="minCycleInfo">I judg\'d it would be well not to distract my attention by attempting the whole at once, but to fix it on one ofthem at a time</string>
     <string name="maxCycleWarning">Training virtue period should not be too long,otherwise you will give up easily</string>
-    <string name="addNew">ADD NEW</string>
+    <string name="addNew">ADD NEW </string>
     <string name="modifyMoralitem">MODIFY %1$s</string>
     <string name="system">System</string>
     <string name="reStart">Restart</string>
@@ -223,10 +224,10 @@
     <string name="tutorials6">Read 13 Virtues</string>
     <string name="tutorials7">Custom my Virtues(Please read the 13 Virtues)</string>
     <string name="tutorials2">Hello!
-\nBefore you start,I think we should reach some agreement
+\nI think we should reach some agreement for using this app:
 \n(Click To Continue)</string>
     <string name="tutorials3">We should determine some prerequisite:
-\n\nYou are not completely satisfied with your current state , want to improve your own virtue, and you are willing to devote your time and action to improve your self!
+\n\n1.You are not completely satisfied with your current state , and want to improve your own morality,  you are willing to devote your time and action to improve yourself!
 \n\nYou wish\'d to live without committing any fault at any time; You would conquer all that either natural inclination, custom, or company might lead you into. As you knew, or thought you knew, what was right and wrong</string>
     <string name="tutorials4">You want to improve your self beacause you know:
 \n
@@ -235,13 +236,13 @@
 \nvicious actions are not hurtful because they are forbidden, but forbidden because they are hurtful, the nature of man alone considered; that it was, therefore, every one\'s interest to be virtuous who wish\'d to be happy even in this world</string>
     <string name="tutorials8">Great,\nThank you for your cooperation.
 \n
-\n13 Virtues are from The Autobiography of Benjamin Franklin 
+\n13 Virtues is from The Autobiography of Benjamin Franklin 
 \nYou can</string>
     <string name="hlepCycle">when I should be master of a virtue at a time, then to proceed to another, and so on</string>
     <string name="helpwelcome">Added some memorable sentences or storys which cheer you up</string>
     <string name="finishDone">Wow,brave!\nYou really done!!!</string>
     <string name="store">Save,Restart</string>
-    <string name="or">OR</string>
+    <string name="or">Or</string>
     <string name="Finishmodify">Adjust Virtues</string>
     <string name="finishOneTime"></string>
     <string name="todayhavepassed">Time seems passed over,Please Restore the default settings</string>
@@ -250,7 +251,7 @@
     <string name="mailto">mailto:pavkoo@live.com?subject=13 VIRTURES feedback&amp;body=Hi Pavkoo:\n</string>
     <string name="chooseEmail">Choose Email</string>
     <string name="or2">OR</string>
-    <string name="bye">Bye Bye</string>
+    <string name="bye">Byebye</string>
     <string name="comfirmDelete">Can not be recovered after deletion, sure to delete it?</string>
     <string name="strComfirmDelete">Comfirm Delete </string>
 	<string name="Mainshare">Share</string>
@@ -262,7 +263,7 @@
     <string name="errortorestore">Something happeds,please restore at setting!</string>
     <string name="checknew">Check update</string>
     <string name="gotoMain">Go</string>
-    <string name="seeMore"><![CDATA[ < Swap left or right to see more>]]></string>
+    <string name="seeMore"><![CDATA[ < Swap left or right to see more >]]></string>
     <string name="jump">Skip</string>
     <string name="helper1">Now,Try to click the rotating Icon</string>
     <string name="thisisMenu">This is Menu</string>
@@ -280,5 +281,5 @@
     <string name="thisisfranklin">This is 13 Virtues</string>
     <string name="doyoudotaday">How about your Virtues?</string>
     <string name="todaySubject">Today:</string>
-    <string name="todo">Done:</string>
+    <string name="todo">To do List:</string>
 </resources>

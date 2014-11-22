@@ -40,6 +40,7 @@ public class SettingWelcomeFragment extends Fragment {
 	private AnimMessage amMessage;
 	private ComfirmDialog comfirmDialog;
 	private int deleteWhich;
+	private int modifyWhich;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,6 +63,7 @@ public class SettingWelcomeFragment extends Fragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		modifyWhich = -1;
 		dslvWelcome = (DragSortListView) self.findViewById(R.id.dslvWelcome);
 		ivSettingWelcomeAdd = (ImageView) self
 				.findViewById(R.id.ivSettingWelcomeAdd);
@@ -89,6 +91,7 @@ public class SettingWelcomeFragment extends Fragment {
 					int position, long id) {
 				dialog.setEditMode(EditMode.Modify);
 				dialog.setExtraObject(welcomes.get(position));
+				modifyWhich = position;
 				dialog.show();
 			}
 		});
@@ -104,6 +107,8 @@ public class SettingWelcomeFragment extends Fragment {
 				if (dialog.isUserChanged()) {
 					if (dialog.getEditMode() == EditMode.Add) {
 						welcomes.add(dialog.getExtraObject());
+					}else{
+						welcomes.set(modifyWhich, dialog.getExtraObject());
 					}
 					adapter.notifyDataSetChanged();
 				}

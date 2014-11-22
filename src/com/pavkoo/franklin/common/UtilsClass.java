@@ -33,6 +33,7 @@ import org.json.JSONObject;
 @SuppressLint("SimpleDateFormat")
 public class UtilsClass {
 	private static final String DATEFORMAT = "yyyy-MM-dd";
+	private static final int ShortSizeLen = 3;
 
 	public static boolean isEng() {
 		Locale l = Locale.getDefault();
@@ -43,6 +44,19 @@ public class UtilsClass {
 		return false;
 	}
 
+	public static String shortString(String org){
+		if (org == null){
+			return "";
+		}
+		if (org==""){
+			return "";
+		}
+		if (org.length()<ShortSizeLen){
+			return org;
+		}
+		return org.substring(0,ShortSizeLen)+".";
+	}
+	
 	public static String dateToString(Date date) {
 		String s = "";
 		SimpleDateFormat sdf = new SimpleDateFormat(DATEFORMAT);
@@ -276,7 +290,6 @@ public class UtilsClass {
 	}
 
 	// 缓存规则：默认每天下载一次，每天如果下了一次，就将文件保存为 今天的日期.jpg 下次打开先看有没有今天的图片，如果有就直接从缓存中取
-	// TODO:这样一来，文件夹将会变得非常大。以后再说了
 	public static Bitmap downloadBingImage() {
 		Bitmap bmp = null;
 		Date today = new Date();

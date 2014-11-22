@@ -10,6 +10,7 @@ public class Comment implements Comparable<Comment>, Serializable {
 	private String content;
 	private int count;
 	private boolean removed;
+	private long timestamp;
 
 	public boolean isRemoved() {
 		return removed;
@@ -21,6 +22,7 @@ public class Comment implements Comparable<Comment>, Serializable {
 
 	public Comment() {
 		this.count = 1;
+		timestamp = System.currentTimeMillis();
 		removed = false;
 	}
 
@@ -48,7 +50,8 @@ public class Comment implements Comparable<Comment>, Serializable {
 			if (this.count == another.count) {
 				if (this.getContent().length() > another.getContent().length()) {
 					return 1;
-				} else if (this.getContent().length() < another.getContent().length()) {
+				} else if (this.getContent().length() < another.getContent()
+						.length()) {
 					return -1;
 				} else {
 					return 0;
@@ -65,7 +68,9 @@ public class Comment implements Comparable<Comment>, Serializable {
 	public boolean equals(Object o) {
 		if (o.getClass() == this.getClass()) {
 			Comment target = (Comment) o;
-			return target.content.equals(this.content);
+			if (target.timestamp == this.timestamp) {
+				return target.content.equals(this.content);
+			}
 		}
 		return false;
 	}

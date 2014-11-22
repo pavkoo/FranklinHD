@@ -55,6 +55,7 @@ import com.pavkoo.franklin.controls.BlemishReportTotalDialog;
 import com.pavkoo.franklin.controls.BlemishReportTrendDialog;
 import com.pavkoo.franklin.controls.CommentAdapter;
 import com.pavkoo.franklin.controls.CyclePager;
+import com.pavkoo.franklin.controls.IRemoveComment;
 import com.pavkoo.franklin.controls.IUpdateMoralSelectState;
 import com.pavkoo.franklin.controls.IUpdateTextCallBack;
 import com.pavkoo.franklin.controls.IUpdateViewCallback;
@@ -66,7 +67,8 @@ import com.pavkoo.franklin.controls.TodayDialog.DialogState;
 import com.umeng.fb.FeedbackAgent;
 
 public class MainActivity extends ParentActivity implements
-		IUpdateTextCallBack, IUpdateViewCallback, IUpdateMoralSelectState {
+		IUpdateTextCallBack, IUpdateViewCallback, IUpdateMoralSelectState,
+		IRemoveComment {
 
 	private enum ViewState {
 		HOME, // ึ๗าณ
@@ -88,6 +90,7 @@ public class MainActivity extends ParentActivity implements
 	private View viewIndicatiorCenter;
 	private View viewIndicatiorRight;
 	private ViewState viewState;
+	private TextView txtMainShare;
 	private TableRow trHomeToolBar;
 	private ImageView ivHome;
 	private ImageView ivCommentNomore;
@@ -107,11 +110,10 @@ public class MainActivity extends ParentActivity implements
 	private TextView txtSetting;
 	private TextView txtContactMe;
 	private TextView txtMotto;
-	private TextView txtMainShare;
 	private Animation indicatorAnim;
 	private Animation shakeAnim;
 
-	private Boolean mMenuExpanded = false;
+	private Boolean mMenuExpanded = true;
 	private TodayDialog dialog;
 	private Today today;
 	private List<Moral> morals;
@@ -472,20 +474,25 @@ public class MainActivity extends ParentActivity implements
 		iniReport();
 		initGroupReview(todayMoral.getCurrentDayInCycle() - 1);
 		initComment();
+		updateCommentDate();
 	}
 
 	private void notifyToday(boolean cancel) {
 		if (cancel) {
 			notifyMgr.cancel(FranklinNotifyId);
-			return ;
+			return;
 		}
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
 				this);
-		PendingIntent pIntent = PendingIntent.getActivity(this, 0,
-				this.getIntent(), 0);
-		mBuilder.setSmallIcon(R.drawable.ic_launcher).setTicker(getString(R.string.doyoudotaday))
-				.setContentTitle(getString(R.string.todaySubject)+todayMoral.getTitle())
-				.setContentText(getString(R.string.todo)+todayMoral.getTitleDes())
+		PendingIntent pIntent = PendingIntent.getActivity(this, 0, new Intent(
+				this, SplashActivity.class), 0);
+		mBuilder.setSmallIcon(R.drawable.ic_launcher)
+				.setTicker(getString(R.string.doyoudotaday))
+				.setContentTitle(
+						getString(R.string.todaySubject)
+								+ todayMoral.getTitle())
+				.setContentText(
+						getString(R.string.todo) + todayMoral.getTitleDes())
 				.setContentIntent(pIntent);
 		Notification notify = mBuilder.build();
 		notify.icon = R.drawable.ic_launcher;
@@ -619,6 +626,7 @@ public class MainActivity extends ParentActivity implements
 		return true;
 	}
 
+	@SuppressLint("NewApi")
 	@SuppressWarnings("deprecation")
 	private void initGroupReview(int selectedIndex) {
 		olderList = new ArrayList<TextView>();
@@ -640,8 +648,8 @@ public class MainActivity extends ParentActivity implements
 				rb.setBackgroundDrawable(sd);
 			}
 			String title = morals.get(i).getTitle();
-			if (UtilsClass.isEng()){
-				title = title.substring(0, 3)+"."; 
+			if (UtilsClass.isEng()) {
+				title = UtilsClass.shortString(title);
 			}
 			rb.setText(title);
 			rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
@@ -678,7 +686,7 @@ public class MainActivity extends ParentActivity implements
 			olderList.add(rb);
 		}
 	}
-	
+
 	private CheckState updateCheckState(TextView tv, CheckState cs,
 			boolean reverse) {
 		switch (cs) {
@@ -742,36 +750,18 @@ public class MainActivity extends ParentActivity implements
 	}
 
 	private void initComment() {
+		cadapter = new CommentAdapter(this.getApplicationContext(), mainColor);
+		cadapter.setOnRemoveComment(MainActivity.this);
+		lvComment.setAdapter(cadapter);
+	}
+
+	private void updateCommentDate() {
 		Collections.sort(comments, Collections.reverseOrder());
-		List<Comment> top15Comms = null;
-		if (comments.size() >= 15) {
-			top15Comms = new ArrayList<Comment>();
-			for (int i = 0; i < 15; i++) {
-				top15Comms.add(comments.get(i));
-			}
-			if (cadapter == null) {
-				cadapter = new CommentAdapter(this.getApplicationContext(),
-						top15Comms, mainColor);
-			} else {
-				cadapter.setComments(top15Comms);
-				cadapter.notifyDataSetChanged();
-			}
+		cadapter.setComments(comments);
+		if (cadapter.getComments().size() == 0) {
+			ivCommentNomore.setVisibility(View.VISIBLE);
 		} else {
-			if (cadapter == null) {
-				cadapter = new CommentAdapter(this.getApplicationContext(),
-						comments, mainColor);
-			} else {
-				cadapter.setComments(comments);
-				cadapter.notifyDataSetChanged();
-			}
-			if (comments.size() == 0) {
-				ivCommentNomore.setVisibility(View.VISIBLE);
-			} else {
-				ivCommentNomore.setVisibility(View.GONE);
-			}
-		}
-		if (lvComment.getAdapter() == null) {
-			lvComment.setAdapter(cadapter);
+			ivCommentNomore.setVisibility(View.GONE);
 		}
 	}
 
@@ -811,7 +801,7 @@ public class MainActivity extends ParentActivity implements
 
 		vfMainFlopper.showNext();
 		updateOlderList(position);
-		initComment();
+		updateCommentDate();
 	}
 
 	private void updateOlderList(int selectedDay) {
@@ -834,7 +824,7 @@ public class MainActivity extends ParentActivity implements
 		blemishReport.invalidate();
 		totalDialog.setMorals(morals, mainColor);
 		trendDialog.setMorals(morals);
-		initComment();
+		updateCommentDate();
 		tvCycleReprotAppCount.setText(String.valueOf(getApp().getAppCon()
 				.getUseAppCount()));
 		tvCycleReportUserCheckedCount.setText(String
@@ -854,6 +844,7 @@ public class MainActivity extends ParentActivity implements
 		}
 	}
 
+	@SuppressLint("NewApi")
 	@SuppressWarnings("deprecation")
 	private void updateUIByMoral(int index) {
 		mainColor = Color.parseColor(CommonConst.colors[index
@@ -974,5 +965,16 @@ public class MainActivity extends ParentActivity implements
 			res = R.drawable.toolbar;
 		}
 		return res;
+	}
+
+	@Override
+	public void onRemoveComment(int index) {
+		Comment com = cadapter.getComments().get(index);
+		int removeIndex = comments.indexOf(com);
+		if (removeIndex != -1) {
+			comments.get(removeIndex).setRemoved(true);
+		}
+		getApp().saveComments(comments);
+		updateCommentDate();
 	}
 }

@@ -26,20 +26,20 @@
 # view AndroidManifest.xml #generated:18
 -keep class com.pavkoo.franklin.common.FranklinApplication { <init>(...); }
 
-# view res/layout/activity_main.xml #generated:260
+# view res/layout/activity_main.xml #generated:259
 # view res/layout/activity_setting.xml #generated:138
-# view res/layout/setting_projectitem_popup.xml #generated:106
+# view res/layout/setting_projectitem_popup.xml #generated:87
 # view res/layout/settting_system_popup_me.xml #generated:56
-# view res/layout/settting_welcome_popup.xml #generated:27
+# view res/layout/settting_welcome_popup.xml #generated:32
 -keep class com.pavkoo.franklin.controls.AnimMessage { <init>(...); }
 
-# view res/layout/cycle_history_report.xml #generated:106
+# view res/layout/cycle_history_report.xml #generated:107
 -keep class com.pavkoo.franklin.controls.BlemishReport { <init>(...); }
 
 # view res/layout/today_control.xml #generated:8
 -keep class com.pavkoo.franklin.controls.CircleImageView { <init>(...); }
 
-# view res/layout/activity_main.xml #generated:215
+# view res/layout/activity_main.xml #generated:214
 -keep class com.pavkoo.franklin.controls.CyclePager { <init>(...); }
 
 # view AndroidManifest.xml #generated:79
@@ -48,7 +48,7 @@
 # view res/layout/cycle_today_selector.xml #generated:21
 -keep class com.pavkoo.franklin.controls.PredicateLayout { <init>(...); }
 
-# view res/layout/activity_main.xml #generated:193
+# view res/layout/activity_main.xml #generated:192
 -keep class com.pavkoo.franklin.controls.ScrollingTextView { <init>(...); }
 
 # view res/layout/cycle_today_selector.xml #generated:36

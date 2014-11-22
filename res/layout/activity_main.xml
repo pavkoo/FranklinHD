@@ -14,7 +14,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:gravity="center_vertical"
-            android:layoutAnimation="@anim/home_button"
             android:orientation="horizontal" >
 
             <TableRow
@@ -26,7 +25,6 @@
                 android:layout_toRightOf="@+id/ivHome"
                 android:background="@drawable/toolbarcolor1"
                 android:paddingLeft="3dp"
-                android:scaleX="0"
                 android:transformPivotX="0dp" >
 
                 <TextView
@@ -54,7 +52,7 @@
                     android:clickable="true"
                     android:drawableLeft="@drawable/mainmotto"
                     android:gravity="center"
-                    android:text="@string/welcome" />
+                    android:text="@string/mainMotto" />
 
                 <TextView
                     android:id="@+id/txtMainShare"
@@ -89,6 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/devTemp"
+                android:rotation="315"
                 android:src="@drawable/homecolor1" />
         </RelativeLayout>
 
@@ -224,7 +223,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white_app_txt_white"
+                    android:background="@color/white_app_bg_secondary"
                     android:gravity="center"
                     tools:ignore="UselessParent" >
 

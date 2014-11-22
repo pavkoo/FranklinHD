@@ -12,8 +12,7 @@
         android:contentDescription="@string/devTemp"
         android:scaleType="centerCrop"
         app:border_width = "1dp"
-        app:border_color = "@color/white_app_bg_secondary"
-        android:src="@drawable/bingimage" >
+        app:border_color = "@color/white_app_bg_secondary" >
     </com.pavkoo.franklin.controls.CircleImageView>
 
     <LinearLayout

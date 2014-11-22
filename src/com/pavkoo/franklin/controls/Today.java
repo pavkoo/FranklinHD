@@ -6,9 +6,7 @@ import java.util.List;
 import com.nineoldandroids.view.ViewHelper;
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.CheckState;
-import com.pavkoo.franklin.common.Comment;
 import com.pavkoo.franklin.common.CommonConst;
-import com.pavkoo.franklin.common.FranklinApplication;
 import com.pavkoo.franklin.common.Moral;
 import com.pavkoo.franklin.common.UtilsClass;
 import com.pavkoo.franklin.controls.TodayDialog.DialogState;
@@ -52,8 +50,6 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 	private Bitmap bmpSmale;
 	private Bitmap bmpSad;
 	private String todayDialogTitle;
-	private FranklinApplication app;
-
 	private static final int IMAGEDOWNLOADED = 1;
 	@SuppressLint("HandlerLeak")
 	private Handler myHandle = new Handler() {
@@ -150,14 +146,6 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 				LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.MATCH_PARENT);
 		llBackground.addView(arcBackground, lp);
-		// llBackground.setImageResource(R.drawable.treebig);
-		// llBackground.setBackground(arcBackground);
-		// if (Build.VERSION.SDK_INT >= 16) {
-		// llBackground.setBackground(arcBackground);
-		// } else {
-		// llBackground.setBackgroundDrawable(arcBackground);
-		// }
-		// llBackground.invalidateDrawable(arcBackground);
 		FlipperNumber.setCurrentValue(0);
 		FlipperNumber.setTargetValue(moral.getCurrentDayInCycle());
 		FlipperNumber.startAnimationText();
@@ -190,7 +178,6 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 				LayoutParams.MATCH_PARENT);
 		llContent.addView(FlipperNumber, params);
 		FlipperNumber.setUpdateText(arcBackground);
-		app = (FranklinApplication) this.getContext().getApplicationContext();
 		ivBg = (CircleImageView) findViewById(R.id.ivBg);
 		new Thread(new Runnable() {
 
@@ -201,7 +188,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 								Context.CONNECTIVITY_SERVICE);
 				NetworkInfo mWifi = connManager
 						.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-				if (mWifi.isConnected()) {
+				if (mWifi.isConnected() && !UtilsClass.isEng()) {
 					Bitmap bmp = UtilsClass.downloadBingImage();
 					if (bmp != null) {
 						Message msg = new Message();
@@ -267,13 +254,13 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 								mDialog.getCheckState(),
 								mDialog.getNewCommentIndex());
 					} else {
-						int commentIndex = moral
-								.getCommentIndex(getCurrentShowing());
-						if (commentIndex != -1) {
-							Comment c = app.getComments().get(commentIndex);
-							c.setRemoved(true);
-							app.saveComments(app.getComments());
-						}
+//						int commentIndex = moral
+//								.getCommentIndex(getCurrentShowing());
+//						if (commentIndex != -1) {
+//							Comment c = app.getComments().get(commentIndex);
+//							c.setRemoved(true);
+//							app.saveComments(app.getComments());
+//						}
 						moral.setHistorySelected(getCurrentShowing(),
 								mDialog.getCheckState());
 					}

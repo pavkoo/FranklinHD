@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="version">Version 0.9.6.2</string>
+    <string name="version">Version 0.9.7</string>
     <string name="app_name">自我修养</string>
     <string name="appnameabout">自我修养 beta版</string>
     <string name="book">《富兰克林自传》</string>
@@ -126,7 +126,7 @@
     <string name="restoretinfo">恢复默认会删除你所有的配置数据，软件恢复初始状态！\n你需要重新配置训练计划\n你确定要恢复默认吗？</string>
     <string name="benjaminfranklininfo">本杰明·富兰克林（Benjamin Franklin，1706年1月17日－1790年4月17日），出生于美国麻省波士顿，是美国著名政治家、科学家，同时亦是出版商、印刷商、记者、作家、慈善家；更是杰出的外交家及发明家。他是美国革命时重要的领导人之一，参与了多项重要文件的草拟，并曾出任美国驻法国大使，成功取得法国支持美国独立。本杰明·富兰克林曾经进行多项关于电的实验，并且发明了避雷针。他还发明了双焦点眼镜，蛙鞋等等。本杰明·富兰克林是共济会的成员，被选为英国皇家学会院士。他亦是美国首位邮政局长。\n由于1928年以后每张百元美钞上都印有本杰明·富兰克林的肖像，再加上美元身为世界主要流通货币的重要性，导致本杰明·富兰克林的长相广为世界各地不少人所熟悉。
 美国在线曾于2005年举办了票选活动《最伟大的美国人》，当中富兰克林获选为美国最伟大人物的第五位。</string>
-    <string name="enjoylife">版权与说明\nCopyright ©2014 Pavkoo,All Rights Reserved.\n如果你在使用过程中有任何问题，可以联系我：\nPavkoo@live.com</string>
+    <string name="enjoylife">版权与说明\nCopyright ©2014 Pavkoo,All Rights Reserved.\n\n如果你在使用过程中有任何问题，可以联系我：Pavkoo@live.com\n或者加入到我们的QQ群一起讨论：175367237</string>
     <string name="bookcontenttitle1">人要发财，就得请教妻子</string>
     <string name="bookcontent">
 <![CDATA[ 

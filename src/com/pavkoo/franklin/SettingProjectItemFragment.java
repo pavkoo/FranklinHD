@@ -111,7 +111,7 @@ public class SettingProjectItemFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				itemDialog.setEditMode(EditMode.Add);
-				String title = getActivity().getString(R.string.addNew) + getActivity().getString(R.string.moralItem);
+				String title = getActivity().getString(R.string.addNew) +" "+ getActivity().getString(R.string.moralItem);
 				itemDialog.SetDialogTitle(title);
 				Moral m = new Moral();
 				if (morals.size() > 0) {

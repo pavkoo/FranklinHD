@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:drawableLeft="@drawable/comments"
-        android:gravity="bottom"
+        android:drawablePadding="@dimen/appBorderPadding"
+        android:gravity="center_vertical"
         android:text="@string/commentTitle" />
 
     <ListView

@@ -55,9 +55,10 @@ public class TodayDialog extends ParentDialog {
 	public void setDialogTitle(String dialogTitle) {
 		title.setText(dialogTitle);
 	}
-	
-	public void updateUIByMoral(int index){
-		int mainColor =Color.parseColor(CommonConst.colors[index % CommonConst.colors.length]);
+
+	public void updateUIByMoral(int index) {
+		int mainColor = Color.parseColor(CommonConst.colors[index
+				% CommonConst.colors.length]);
 		GradientDrawable gd = (GradientDrawable) title.getBackground();
 		gd.setColor(mainColor);
 	}
@@ -100,9 +101,11 @@ public class TodayDialog extends ParentDialog {
 		resultChanged = false;
 		newComment = false;
 		String infService = Context.LAYOUT_INFLATER_SERVICE;
-		LayoutInflater li = (LayoutInflater) getContext().getSystemService(infService);
+		LayoutInflater li = (LayoutInflater) getContext().getSystemService(
+				infService);
 		View dialogView = li.inflate(R.layout.today_control_popup, null);
-		setContentView(dialogView, new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		setContentView(dialogView, new ViewGroup.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 
 		rgpToday = (RadioGroup) findViewById(R.id.rgpToday);
 		gpbTodayYes = (RadioButton) findViewById(R.id.gpbTodayYes);
@@ -162,7 +165,8 @@ public class TodayDialog extends ParentDialog {
 		txtComment.setOnEditorActionListener(new OnEditorActionListener() {
 
 			@Override
-			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+			public boolean onEditorAction(TextView v, int actionId,
+					KeyEvent event) {
 
 				if (actionId == EditorInfo.IME_ACTION_DONE) {
 					addComment();
@@ -178,7 +182,7 @@ public class TodayDialog extends ParentDialog {
 				llprogressLine.invalidate();
 			}
 		});
-		
+
 		closePopAnim.addListener(new AnimatorListener() {
 			private boolean isCancel;
 
@@ -248,9 +252,12 @@ public class TodayDialog extends ParentDialog {
 	private void iniAutoComplemet() {
 		List<String> commstrs = new ArrayList<String>();
 		for (int i = 0; i < app.getComments().size(); i++) {
-			commstrs.add(app.getComments().get(i).getContent());
+			if (!app.getComments().get(i).isRemoved()) {
+				commstrs.add(app.getComments().get(i).getContent());
+			}
 		}
-		MyAdapter<String> adapter = new MyAdapter<String>(this.getContext(), android.R.layout.simple_dropdown_item_1line, commstrs);
+		MyAdapter<String> adapter = new MyAdapter<String>(this.getContext(),
+				android.R.layout.simple_dropdown_item_1line, commstrs);
 		txtComment.setAdapter(adapter);
 		txtComment.setText("");
 	}
@@ -292,7 +299,8 @@ public class TodayDialog extends ParentDialog {
 		private List<T> mOriginalValues;
 		private List<T> mObjects;
 
-		public MyAdapter(Context context, int textViewResourceId, List<T> objects) {
+		public MyAdapter(Context context, int textViewResourceId,
+				List<T> objects) {
 			super(context, textViewResourceId, objects);
 			mObjects = objects;
 			mFilter = new MyFilter();
@@ -321,7 +329,8 @@ public class TodayDialog extends ParentDialog {
 				for (int i = 0; i < count; i++) {
 					T value = mOriginalValues.get(i);
 					String valueText = value.toString();
-					if (!valueText.equals("") && !content.equals("") && valueText.indexOf(content) >= 0) {
+					if (!valueText.equals("") && !content.equals("")
+							&& valueText.indexOf(content) >= 0) {
 						values.add(value);
 					}
 				}
@@ -332,11 +341,13 @@ public class TodayDialog extends ParentDialog {
 
 			@SuppressWarnings("unchecked")
 			@Override
-			protected void publishResults(CharSequence constraint, FilterResults results) {
+			protected void publishResults(CharSequence constraint,
+					FilterResults results) {
 				if (results != null && results.count > 0) {
 					// 有过滤结果，显示自动完成列表
 					MyAdapter.this.clear(); // 清空旧列表
-					MyAdapter.this.addAll((Collection<? extends T>) results.values);
+					MyAdapter.this
+							.addAll((Collection<? extends T>) results.values);
 					notifyDataSetChanged();
 				} else {
 					// 无过滤结果，关闭列表

@@ -7,6 +7,7 @@ import java.util.List;
 import com.nineoldandroids.view.ViewHelper;
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.Moral;
+import com.pavkoo.franklin.common.UtilsClass;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -26,7 +27,7 @@ public class TotalAdapter extends BaseAdapter {
 	public List<Moral> getMorals() {
 		return morals;
 	}
-	
+
 	private int mainColor;
 
 	public void setMorals(List<Moral> morals) {
@@ -47,9 +48,9 @@ public class TotalAdapter extends BaseAdapter {
 
 	private Context context;
 
-	public TotalAdapter(Context context, List<Moral> morals,int mainColor) {
+	public TotalAdapter(Context context, List<Moral> morals, int mainColor) {
 		this.context = context;
-		this.mainColor = mainColor; 
+		this.mainColor = mainColor;
 		this.setMorals(morals);
 	}
 
@@ -71,22 +72,31 @@ public class TotalAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (convertView == null) {
-			convertView = LayoutInflater.from(context).inflate(R.layout.cycle_history_comments_item, null);
+			convertView = LayoutInflater.from(context).inflate(
+					R.layout.cycle_history_comments_item, null);
 		}
-		llCommentItemBg = (LinearLayout) convertView.findViewById(R.id.llCommentItemBg);
+		llCommentItemBg = (LinearLayout) convertView
+				.findViewById(R.id.llCommentItemBg);
 		llCommentItemBg.setBackgroundColor(mainColor);
-		txtCommentItemNumber = (TextView) convertView.findViewById(R.id.txtCommentItemNumber);
-		txtCommentItemText = (TextView) convertView.findViewById(R.id.txtCommentItemText);
-		txtCommentItemNumber.setText(String.valueOf(morals.get(position).getTitle()));
-
+		txtCommentItemNumber = (TextView) convertView
+				.findViewById(R.id.txtCommentItemNumber);
+		txtCommentItemText = (TextView) convertView
+				.findViewById(R.id.txtCommentItemText);
+		String title = morals.get(position).getTitle();
+		if (UtilsClass.isEng()) {
+			title = UtilsClass.shortString(title);
+		}
+		txtCommentItemNumber.setText(String.valueOf(title));
 		int total = morals.get(position).getTotalCheckCount();
 		int checked = morals.get(position).getTotalCheckedSize();
 		float doneRate = 0.0f;
 		if (total != 0) {
-			doneRate = (float)checked / total;
+			doneRate = (float) checked / total;
 		}
 		DecimalFormat df = new DecimalFormat("00.00%");
-		txtCommentItemText.setText(df.format(doneRate)+" ("+String.valueOf(checked)+" / "+String.valueOf(total)+")");
+		txtCommentItemText
+				.setText(df.format(doneRate) + " (" + String.valueOf(checked)
+						+ " / " + String.valueOf(total) + ")");
 		ViewHelper.setScaleX(llCommentItemBg, doneRate);
 		return convertView;
 	}

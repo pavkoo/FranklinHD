@@ -2,11 +2,8 @@ package com.pavkoo.franklin.controls;
 
 import com.pavkoo.franklin.R;
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -14,13 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.nineoldandroids.animation.AnimatorSet;
+import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.view.ViewHelper;
 
-@SuppressLint("NewApi")
 public class AnimMessage extends LinearLayout {
 	private LinearLayout llMessageBg;
 	private TextView tvMessage;
-	private Object inAnimation;
+	private AnimatorSet inAnim;
+	private AnimatorSet outAnim;
 	private boolean showing;
 	private final int CLOSEMESSAGE = 0;
 	private final int INIMESSAGE = 1;
@@ -38,11 +38,7 @@ public class AnimMessage extends LinearLayout {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case CLOSEMESSAGE:
-				if (Build.VERSION.SDK_INT >= 11) {
-					((ValueAnimator) inAnimation).reverse();
-				} else {
-					ViewHelper.setAlpha(llMessageBg, 0);
-				}
+				outAnim.start();
 				showing = false;
 				break;
 			case INIMESSAGE:
@@ -79,11 +75,17 @@ public class AnimMessage extends LinearLayout {
 		tvMessage = (TextView) findViewById(R.id.tvMeeesage);
 		llMessageBg = (LinearLayout) findViewById(R.id.llMessageBg);
 		tvMessage.setText("");
-		if (Build.VERSION.SDK_INT > 11) {
-			inAnimation = ObjectAnimator.ofFloat(llMessageBg, "alpha", 0, 0.9f);
-		} else {
-			inAnimation = null;
-		}
+		ObjectAnimator alphaani = ObjectAnimator.ofFloat(llMessageBg, "alpha", 0, 1f);
+		ObjectAnimator scaleX = ObjectAnimator.ofFloat(llMessageBg, "scaleX", 0, 1f);
+		ObjectAnimator rotate = ObjectAnimator.ofFloat(llMessageBg, "rotationX", -90, 0);
+		inAnim = new AnimatorSet();
+		inAnim.playTogether(alphaani,scaleX,rotate);
+		
+		ObjectAnimator alphaaniRes = ObjectAnimator.ofFloat(llMessageBg, "alpha", 1, 0f);
+		ObjectAnimator scaleXRes = ObjectAnimator.ofFloat(llMessageBg, "scaleX", 1, 0f);
+		ObjectAnimator rotateRes = ObjectAnimator.ofFloat(llMessageBg, "rotationX", 0, -90);
+		outAnim = new AnimatorSet();
+		outAnim.playTogether(alphaaniRes,scaleXRes,rotateRes);
 		llMessageBg.setBackgroundColor(getContext().getResources().getColor(
 				R.color.white_app_bg_secondary));
 		showing = false;
@@ -153,11 +155,7 @@ public class AnimMessage extends LinearLayout {
 		}
 		llMessageBg.setBackgroundColor(endColor);
 		if (!showing) {
-			if (Build.VERSION.SDK_INT >= 11) {
-				((ValueAnimator) inAnimation).start();
-			} else {
-				ViewHelper.setAlpha(llMessageBg, 1);
-			}
+			inAnim.start();
 		}
 		showing = true;
 	}

@@ -56,7 +56,7 @@ public class SettingCycleFragment extends Fragment {
 				ViewHelper.setScaleX(tvSettingCycleBg, saclesize);
 				ViewHelper.setScaleY(tvSettingCycleBg, saclesize);
 				int value = progress + 7;
-				tvSettingCycleText.setText(String.valueOf(value)+ getActivity().getString(R.string.day));
+				tvSettingCycleText.setText(String.valueOf(value)+" "+ getActivity().getString(R.string.day));
 				if (value == 7){
 					amMessage.showMessage(getActivity().getString(R.string.minCycleInfo));
 				}else if (value==14){
