@@ -1,9 +1,7 @@
 package com.pavkoo.franklin.common;
 
+import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import android.app.Application;
 import android.util.Log;
 
@@ -13,12 +11,11 @@ public class FranklinApplication extends Application {
 	public static int AnimationDuration = 500;
 	public static int AnimationDurationShort = 400;
 
+	private DBManager mgr;
 	private ApplicationConfig appCon;
 	private List<Moral> morals;
 	private List<Comment> comments;
 	private List<String> welcomes;
-
-	private ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
 
 	public List<String> getWelcomes() {
 		return welcomes;
@@ -29,8 +26,8 @@ public class FranklinApplication extends Application {
 	public ApplicationConfig getAppCon() {
 		return appCon;
 	}
-	
-	public ApplicationConfig forceCreateAppCon(){
+
+	public ApplicationConfig forceCreateAppCon() {
 		appCon = mPreference.loadAppconfig();
 		return appCon;
 	}
@@ -60,69 +57,75 @@ public class FranklinApplication extends Application {
 		super.onCreate();
 		singleton = this;
 		mPreference = new SharePreferenceService(this);
+		mgr = new DBManager(this);
 	}
 
 	public void loadData() {
-		appCon = mPreference.loadAppconfig();
+		// old version use morals saved in SharePreference ,new version use
+		// SQLite DB
 		morals = mPreference.loadMorals();
-		comments = mPreference.loadComments();
-		welcomes = mPreference.loadWelcomes();
-	}
-
-	public void saveData(boolean async) {
-		if (async) {
-			fixedThreadPool.execute(new Runnable() {
-				@Override
-				public void run() {
-					appCon = mPreference.saveAppConfig(appCon);
-					morals = mPreference.saveMorals(morals);
-					comments = mPreference.saveComments(comments);
-					welcomes = mPreference.saveWelcomes(welcomes);
-				}
-			});
-		} else {
-			appCon = mPreference.saveAppConfig(appCon);
-			morals = mPreference.saveMorals(morals);
-			comments = mPreference.saveComments(comments);
-			welcomes = mPreference.saveWelcomes(welcomes);
+		if (morals != null) {
+			appCon = mPreference.loadAppconfig();
+			morals = mPreference.loadMorals();
+			comments = mPreference.loadComments();
+			welcomes = mPreference.loadWelcomes();
+			mgr.importAppCon(appCon);
+			mgr.importMottos(welcomes);
+			mgr.importComms(comments);
+			mgr.importMorals(morals);
+			mgr.importSign(morals);
+			mPreference.deleteAllFile();
 		}
-	}
-
-	public void saveData() {
-		saveData(false);
-	}
-
-	public void saveMorals(final List<Moral> moralList, boolean async) {
-		if (async) {
-			fixedThreadPool.execute(new Runnable() {
-
-				@Override
-				public void run() {
-					morals = mPreference.saveMorals(moralList);
-				}
-			});
-		} else {
-			morals = mPreference.saveMorals(moralList);
+		if (mgr.needIniApp()) {
+			appCon = new ApplicationConfig();
+			appCon.setFrist(true);
+			appCon.setIsselfConfiged(false);
+			appCon.setProjectStarted(false);
+			appCon.setDefaultSaved(false);
+			appCon.setFirstUse(new Date());
+			appCon.setLastUse(new Date());
+			appCon.setHistoryCount(0);
+			mgr.importAppCon(appCon);
 		}
+		loadDataFromDb();
 	}
 
-	public void saveMorals(final List<Moral> moralList) {
-		saveMorals(moralList, false);
+	private void loadDataFromDb() {
+		appCon = mgr.loadConfig();
+	}
+
+	public void initData() {
+		saveAppConfig(appCon,true);
+		saveComments(comments,true);
+		saveMorals(morals,true);
+		saveWelcomes(welcomes,true);
 	}
 	
-	//重新开始新的周期
-	public void markMailStone(){
+	public void updateMorals(){
+		mgr.updateMorals(morals);
+		morals = mgr.loadMorals();
+	}
+	
+	public void updateMottos(){
+		mgr.updateMottos(welcomes);
+		welcomes =  mgr.loadMottos();
+	}
+
+	// 重新开始新的周期
+	public void markMailStone() {
 		int appHistoryCount = appCon.getHistoryCount();
-		mPreference.saveHistoryMorals(morals,appHistoryCount);
+		mPreference.saveHistoryMorals(morals, appHistoryCount);
 		appHistoryCount++;
 		appCon.setHistoryCount(appHistoryCount);
 		appCon.setProjectStarted(false);
 		saveAppConfig(appCon);
 
 		UtilsClass.reArrangeDate(morals);
-		for(int i =0;i<morals.size();i++){
+		for (int i = 0; i < morals.size(); i++) {
 			morals.get(i).reSet();
-			Log.i("Day", "Start:"+morals.get(i).getStartDate().toString() + "------------ End:"+morals.get(i).getEndDate().toString());
+			Log.i("Day", "Start:" + morals.get(i).getStartDate().toString()
+					+ "------------ End:"
+					+ morals.get(i).getEndDate().toString());
 		}
 		saveMorals(morals);
 		mPreference.saveHistoryComments(comments, appHistoryCount);
@@ -130,57 +133,49 @@ public class FranklinApplication extends Application {
 		saveComments(comments);
 	}
 
-	public void saveComments(final List<Comment> commentList, boolean async) {
-		if (async) {
-			fixedThreadPool.execute(new Runnable() {
-
-				@Override
-				public void run() {
-					comments = mPreference.saveComments(commentList);
-				}
-			});
-		} else {
-			comments = mPreference.saveComments(commentList);
-		}
-	}
-
-	public void saveComments(final List<Comment> commentList) {
+	public void saveComments(List<Comment> commentList) {
 		saveComments(commentList, false);
 	}
 
-	public void saveWelcomes(final List<String> welcomeList, boolean async) {
-		if (async) {
-			fixedThreadPool.execute(new Runnable() {
-
-				@Override
-				public void run() {
-					welcomes = mPreference.saveWelcomes(welcomeList);
-				}
-			});
-		} else {
-			welcomes = mPreference.saveWelcomes(welcomeList);
+	public void saveComments(List<Comment> commentList, boolean toDB) {
+		if (toDB) {
+			mgr.importComms(commentList);
+			commentList = mgr.loadComment();
 		}
+		comments = commentList;
 	}
 
 	public void saveWelcomes(final List<String> welcomeList) {
 		saveWelcomes(welcomeList, false);
 	}
 
-	public void saveAppConfig(final ApplicationConfig appConfig, boolean async) {
-		if (async) {
-			fixedThreadPool.execute(new Runnable() {
-
-				@Override
-				public void run() {
-					appCon = mPreference.saveAppConfig(appConfig);
-				}
-			});
-		} else {
-			appCon = mPreference.saveAppConfig(appConfig);
+	public void saveWelcomes(final List<String> welcomeList, boolean toDB) {
+		if (toDB) {
+			mgr.importMottos(welcomeList);
 		}
+		welcomes = welcomeList;
 	}
 
 	public void saveAppConfig(final ApplicationConfig appConfig) {
 		saveAppConfig(appConfig, false);
+	}
+
+	public void saveAppConfig(final ApplicationConfig appConfig, boolean toDB) {
+		if (toDB) {
+			mgr.updateConfig(appConfig);
+		}
+		appCon = appConfig;
+	}
+
+	public void saveMorals(List<Moral> moralList) {
+		saveMorals(moralList, false);
+	}
+
+	public void saveMorals(List<Moral> moralList, boolean toDB) {
+		if (toDB) {
+			mgr.importMorals(moralList);
+			moralList = mgr.loadMorals();
+		}
+		morals = moralList;
 	}
 }

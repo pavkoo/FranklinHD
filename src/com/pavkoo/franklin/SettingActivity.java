@@ -264,8 +264,7 @@ public class SettingActivity extends FragmentActivity {
 					}
 					getApp().saveAppConfig(config);
 					buildAllCycleDate();
-					getApp().saveData();
-
+					getApp().initData();
 					Intent helperIntent = new Intent(SettingActivity.this,
 							HelperActivity.class);
 					startActivity(helperIntent);
@@ -273,8 +272,14 @@ public class SettingActivity extends FragmentActivity {
 					overridePendingTransition(R.anim.in_from_right,
 							R.anim.out_to_left);
 				} else {
-					buildAllCycleDateNew();
-					getApp().saveData();
+					switch (rgSetting.getCheckedRadioButtonId()) {
+					case R.id.rbSettingProjectItem:
+						getApp().updateMorals();
+						break;
+					case R.id.rbSettingWelcome:
+						getApp().updateMottos();
+						break;
+					}
 					Intent mainIntent = new Intent(SettingActivity.this,
 							MainActivity.class);
 					SettingActivity.this.startActivity(mainIntent);
@@ -301,11 +306,6 @@ public class SettingActivity extends FragmentActivity {
 	}
 
 	private void initAppWithDefaultData(boolean force) {
-		if (config == null) {
-			// when update app by different proguard-project stragy will cause
-			// config to null
-			config = app.forceCreateAppCon();
-		}
 		if (config.isDefaultSaved() && !force)
 			return;
 		List<Moral> morals = new ArrayList<Moral>();
@@ -410,5 +410,4 @@ public class SettingActivity extends FragmentActivity {
 		super.onResume();
 		MobclickAgent.onResume(this);
 	}
-
 }

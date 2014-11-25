@@ -16,6 +16,7 @@ public class Moral implements Serializable {
 		commentIndex = new ArrayList<Integer>();
 		finished = false;
 		currentDayInCycle = 0;
+		version = 1;
 	};
 
 	private String title;
@@ -26,6 +27,16 @@ public class Moral implements Serializable {
 	private List<CheckState> stateList; // 始终保持最新一周的记录
 	private int cycle;
 	private int currentDayInCycle;
+	private int version;
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public int getCurrentDayInCycle() {
 		return currentDayInCycle;
@@ -226,5 +237,13 @@ public class Moral implements Serializable {
 		commentIndex.clear();
 		finished = false;
 		currentDayInCycle = 0;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 }

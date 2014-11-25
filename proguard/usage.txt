@@ -1533,23 +1533,33 @@ com.nineoldandroids.animation.Animator:
     public abstract com.nineoldandroids.animation.Animator setDuration(long)
     public abstract long getDuration()
     public abstract void setInterpolator(android.view.animation.Interpolator)
-    public abstract boolean isRunning()
-    135:135:public boolean isStarted()
-    158:165:public void removeListener(com.nineoldandroids.animation.Animator$AnimatorListener)
-    174:174:public java.util.ArrayList getListeners()
     183:187:public void removeAllListeners()
     217:217:public void setupStartValues()
     229:229:public void setupEndValues()
     240:240:public void setTarget(java.lang.Object)
 com.nineoldandroids.animation.AnimatorInflater
-com.nineoldandroids.animation.AnimatorListenerAdapter
-com.nineoldandroids.animation.AnimatorSet
-com.nineoldandroids.animation.AnimatorSet$1
-com.nineoldandroids.animation.AnimatorSet$AnimatorSetListener
-com.nineoldandroids.animation.AnimatorSet$Builder
-com.nineoldandroids.animation.AnimatorSet$Dependency
-com.nineoldandroids.animation.AnimatorSet$DependencyListener
-com.nineoldandroids.animation.AnimatorSet$Node
+com.nineoldandroids.animation.AnimatorSet:
+    140:151:public void playTogether(java.util.Collection)
+    160:170:public varargs void playSequentially(com.nineoldandroids.animation.Animator[])
+    179:189:public void playSequentially(java.util.List)
+    200:204:public java.util.ArrayList getChildAnimations()
+    216:224:public void setTarget(java.lang.Object)
+    234:237:public void setInterpolator(android.view.animation.Interpolator)
+    319:348:public void end()
+    378:378:public long getStartDelay()
+    389:390:public void setStartDelay(long)
+    402:402:public long getDuration()
+    415:424:public com.nineoldandroids.animation.AnimatorSet setDuration(long)
+    429:432:public void setupStartValues()
+    436:439:public void setupEndValues()
+    45:45:public bridge synthetic com.nineoldandroids.animation.Animator setDuration(long)
+com.nineoldandroids.animation.AnimatorSet$Builder:
+    1064:1072:public com.nineoldandroids.animation.AnimatorSet$Builder before(com.nineoldandroids.animation.Animator)
+    1084:1092:public com.nineoldandroids.animation.AnimatorSet$Builder after(com.nineoldandroids.animation.Animator)
+    1105:1108:public com.nineoldandroids.animation.AnimatorSet$Builder after(long)
+com.nineoldandroids.animation.AnimatorSet$Dependency:
+    static final int WITH
+    static final int AFTER
 com.nineoldandroids.animation.ArgbEvaluator
 com.nineoldandroids.animation.IntKeyframeSet
 com.nineoldandroids.animation.Keyframe:
@@ -1621,7 +1631,6 @@ com.nineoldandroids.animation.ValueAnimator:
     public static final int REVERSE
     public static final int INFINITE
     298:300:public static varargs com.nineoldandroids.animation.ValueAnimator ofInt(int[])
-    315:317:public static varargs com.nineoldandroids.animation.ValueAnimator ofFloat(float[])
     329:331:public static varargs com.nineoldandroids.animation.ValueAnimator ofPropertyValuesHolder(com.nineoldandroids.animation.PropertyValuesHolder[])
     352:355:public static varargs com.nineoldandroids.animation.ValueAnimator ofObject(com.nineoldandroids.animation.TypeEvaluator,java.lang.Object[])
     373:384:public varargs void setIntValues(int[])
@@ -1643,8 +1652,6 @@ com.nineoldandroids.animation.ValueAnimator:
     878:878:public android.view.animation.Interpolator getInterpolator()
     898:901:public void setEvaluator(com.nineoldandroids.animation.TypeEvaluator)
     974:989:public void end()
-    993:993:public boolean isRunning()
-    998:998:public boolean isStarted()
     1009:1018:public void reverse()
     1153:1153:public float getAnimatedFraction()
     1239:1239:public static int getCurrentAnimationsCount()
@@ -1742,9 +1749,11 @@ com.pavkoo.franklin.common.FranklinApplication:
 com.pavkoo.franklin.common.Moral:
     private static final long serialVersionUID
     35:36:private void clearTodayComment()
+    131:139:public int getCommentIndex(int)
     144:149:public void setTodaySelected(com.pavkoo.franklin.common.CheckState)
 com.pavkoo.franklin.common.UtilsClass:
     private static final java.lang.String DATEFORMAT
+    private static final int ShortSizeLen
     private static final java.lang.String MyFolder
     private static final java.lang.String MyTemp
     private static final java.lang.String BingUrl
@@ -1761,7 +1770,8 @@ com.pavkoo.franklin.controls.CircleImageView:
     private static final int DEFAULT_BORDER_WIDTH
     private static final int DEFAULT_BORDER_COLOR
 com.pavkoo.franklin.controls.CommentAdapter:
-    28:28:public java.util.List getComments()
+    35:35:public com.pavkoo.franklin.controls.IRemoveComment getOnRemoveComment()
+    67:71:public CommentAdapter(android.content.Context,java.util.List,int)
 com.pavkoo.franklin.controls.CyclePager:
     private static final int SNAP_VELOCITY
     private static final int TOUCH_STATE_REST
@@ -1786,10 +1796,10 @@ com.pavkoo.franklin.controls.SettingSystemRestartDialog:
 com.pavkoo.franklin.controls.Today:
     private static final int IMAGEDOWNLOADED
 com.pavkoo.franklin.controls.Today$ArcDrawable:
-    325:327:public Today$ArcDrawable(android.content.Context,android.util.AttributeSet)
-    421:421:public java.util.List getHistoryCheckList()
+    312:314:public Today$ArcDrawable(android.content.Context,android.util.AttributeSet)
+    408:408:public java.util.List getHistoryCheckList()
 com.pavkoo.franklin.controls.TotalAdapter:
-    27:27:public java.util.List getMorals()
+    28:28:public java.util.List getMorals()
 com.pavkoo.franklin.controls.TrendAdapter:
     25:25:public java.util.List getMorals()
 com.umeng.analytics.AnalyticsConfig:

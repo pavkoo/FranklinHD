@@ -714,12 +714,12 @@ containing a value of this type.
         public static final int umeng_update_dialog=0x7f030025;
     }
     public static final class string {
-        public static final int Finishmodify=0x7f0800a5;
-        public static final int ImGetBetter=0x7f0800b1;
-        public static final int Mainshare=0x7f0800b0;
-        public static final int OK=0x7f080053;
-        public static final int SettingCycleDescription=0x7f08004e;
-        public static final int SettingCycleSeekbar=0x7f08004f;
+        public static final int Finishmodify=0x7f0800a6;
+        public static final int ImGetBetter=0x7f0800b2;
+        public static final int Mainshare=0x7f0800b1;
+        public static final int OK=0x7f080054;
+        public static final int SettingCycleDescription=0x7f08004f;
+        public static final int SettingCycleSeekbar=0x7f080050;
         public static final int UMAppUpdate=0x7f0800e4;
         public static final int UMBreak_Network=0x7f0800dc;
         public static final int UMDialog_InstallAPK=0x7f0800e8;
@@ -734,189 +734,189 @@ containing a value of this type.
         public static final int UMUpdateNow=0x7f0800e3;
         public static final int UMUpdateSize=0x7f0800e0;
         public static final int UMUpdateTitle=0x7f0800dd;
-        public static final int aboutApp=0x7f080074;
-        public static final int aboutFranklin=0x7f080073;
-        public static final int addNew=0x7f08006b;
+        public static final int aboutApp=0x7f080075;
+        public static final int aboutFranklin=0x7f080074;
+        public static final int addNew=0x7f08006c;
         public static final int app_name=0x7f080001;
         public static final int appnameabout=0x7f080002;
-        public static final int beginMoral=0x7f08005f;
-        public static final int benjaminfranklininfo=0x7f08007b;
+        public static final int beginMoral=0x7f080060;
+        public static final int benjaminfranklininfo=0x7f08007c;
         public static final int book=0x7f080003;
-        public static final int bookcontent=0x7f08007e;
-        public static final int bookcontent2=0x7f080080;
-        public static final int bookcontent3=0x7f080082;
-        public static final int bookcontenttitle1=0x7f08007d;
-        public static final int bookcontenttitle2=0x7f08007f;
-        public static final int bookcontenttitle3=0x7f080081;
-        public static final int bye=0x7f0800ad;
-        public static final int cancel=0x7f080052;
-        public static final int cannotchange4=0x7f0800a9;
-        public static final int cantArrange=0x7f08008e;
-        public static final int cantDelete=0x7f08008f;
-        public static final int cantFindBrowse=0x7f080091;
-        public static final int cantFindMarket=0x7f080092;
-        public static final int cantSendEmail=0x7f080089;
-        public static final int caustion=0x7f0800c6;
-        public static final int checknew=0x7f0800b7;
-        public static final int chooseEmail=0x7f0800ab;
-        public static final int chosebad=0x7f0800c1;
-        public static final int clickInput=0x7f0800c5;
-        public static final int close=0x7f080086;
-        public static final int comfirmDelete=0x7f0800ae;
+        public static final int bookcontent=0x7f08007f;
+        public static final int bookcontent2=0x7f080081;
+        public static final int bookcontent3=0x7f080083;
+        public static final int bookcontenttitle1=0x7f08007e;
+        public static final int bookcontenttitle2=0x7f080080;
+        public static final int bookcontenttitle3=0x7f080082;
+        public static final int bye=0x7f0800ae;
+        public static final int cancel=0x7f080053;
+        public static final int cannotchange4=0x7f0800aa;
+        public static final int cantArrange=0x7f08008f;
+        public static final int cantDelete=0x7f080090;
+        public static final int cantFindBrowse=0x7f080092;
+        public static final int cantFindMarket=0x7f080093;
+        public static final int cantSendEmail=0x7f08008a;
+        public static final int caustion=0x7f0800c7;
+        public static final int checknew=0x7f0800b8;
+        public static final int chooseEmail=0x7f0800ac;
+        public static final int chosebad=0x7f0800c2;
+        public static final int clickInput=0x7f0800c6;
+        public static final int close=0x7f080087;
+        public static final int comfirmDelete=0x7f0800af;
         public static final int comment=0x7f08000c;
         public static final int commentTitle=0x7f080012;
-        public static final int cycle=0x7f080049;
-        public static final int day=0x7f080068;
-        public static final int dayBeforeYesterday=0x7f08005b;
-        public static final int deleteHistoryComment=0x7f080051;
-        public static final int deleteHistoryCommentInfo=0x7f080079;
-        public static final int deleteHistoryCommentSuccess=0x7f080090;
-        public static final int description=0x7f080055;
+        public static final int cycle=0x7f08004a;
+        public static final int day=0x7f080069;
+        public static final int dayBeforeYesterday=0x7f08005c;
+        public static final int deleteHistoryComment=0x7f080052;
+        public static final int deleteHistoryCommentInfo=0x7f08007a;
+        public static final int deleteHistoryCommentSuccess=0x7f080091;
+        public static final int description=0x7f080056;
         public static final int devTemp=0x7f080004;
-        public static final int done=0x7f08004b;
-        public static final int doyoudotaday=0x7f0800c9;
-        public static final int dragToChangeCycle=0x7f08008d;
-        public static final int enjoylife=0x7f08007c;
-        public static final int errorAddContent=0x7f080098;
-        public static final int errorAddDes=0x7f080095;
-        public static final int errorAddTitle=0x7f080093;
-        public static final int errorMotto=0x7f080097;
-        public static final int errorTooMuchCh=0x7f080094;
-        public static final int errorTooMuchLines=0x7f080096;
-        public static final int errortorestore=0x7f0800b6;
-        public static final int finishDone=0x7f0800a2;
-        public static final int finishOneTime=0x7f0800a6;
-        public static final int finishRate=0x7f080085;
-        public static final int franklin=0x7f080077;
-        public static final int getBlackSpot=0x7f0800c3;
-        public static final int gotoMain=0x7f0800b8;
-        public static final int havenoitem=0x7f0800a8;
-        public static final int help=0x7f080075;
-        public static final int helpBook=0x7f080076;
-        public static final int helpReport=0x7f08008c;
-        public static final int helper1=0x7f0800bb;
-        public static final int helper2=0x7f0800bd;
-        public static final int helper3=0x7f0800bf;
-        public static final int helper4=0x7f0800c0;
-        public static final int helpwelcome=0x7f0800a1;
+        public static final int done=0x7f08004c;
+        public static final int doyoudotaday=0x7f0800ca;
+        public static final int dragToChangeCycle=0x7f08008e;
+        public static final int enjoylife=0x7f08007d;
+        public static final int errorAddContent=0x7f080099;
+        public static final int errorAddDes=0x7f080096;
+        public static final int errorAddTitle=0x7f080094;
+        public static final int errorMotto=0x7f080098;
+        public static final int errorTooMuchCh=0x7f080095;
+        public static final int errorTooMuchLines=0x7f080097;
+        public static final int errortorestore=0x7f0800b7;
+        public static final int finishDone=0x7f0800a3;
+        public static final int finishOneTime=0x7f0800a7;
+        public static final int finishRate=0x7f080086;
+        public static final int franklin=0x7f080078;
+        public static final int getBlackSpot=0x7f0800c4;
+        public static final int gotoMain=0x7f0800b9;
+        public static final int havenoitem=0x7f0800a9;
+        public static final int help=0x7f080076;
+        public static final int helpBook=0x7f080077;
+        public static final int helpReport=0x7f08008d;
+        public static final int helper1=0x7f0800bc;
+        public static final int helper2=0x7f0800be;
+        public static final int helper3=0x7f0800c0;
+        public static final int helper4=0x7f0800c1;
+        public static final int helpwelcome=0x7f0800a2;
         public static final int hintComment=0x7f08000d;
-        public static final int hintSettingDes=0x7f080058;
-        public static final int hintSettingMotto=0x7f080059;
-        public static final int hintSettingTitle=0x7f080057;
-        public static final int hlepCycle=0x7f0800a0;
-        public static final int igotit=0x7f080083;
-        public static final int inputReflection=0x7f0800c4;
-        public static final int jump=0x7f0800ba;
-        public static final int language=0x7f08006f;
-        public static final int mailto=0x7f0800aa;
-        public static final int mainMotto=0x7f0800cc;
+        public static final int hintSettingDes=0x7f080059;
+        public static final int hintSettingMotto=0x7f08005a;
+        public static final int hintSettingTitle=0x7f080058;
+        public static final int hlepCycle=0x7f0800a1;
+        public static final int igotit=0x7f080084;
+        public static final int inputReflection=0x7f0800c5;
+        public static final int jump=0x7f0800bb;
+        public static final int language=0x7f080070;
+        public static final int mailto=0x7f0800ab;
+        public static final int mainMotto=0x7f080013;
         public static final int main_toolbar_contactme=0x7f080007;
         public static final int main_toolbar_help=0x7f080006;
         public static final int main_toolbar_setting=0x7f080005;
-        public static final int manyDaynotuse=0x7f080060;
-        public static final int maxCycleWarning=0x7f08006a;
-        public static final int minCycleInfo=0x7f080069;
-        public static final int modifyMoralitem=0x7f08006c;
-        public static final int moralItem=0x7f080048;
-        public static final int moreDay=0x7f08005c;
-        public static final int motto=0x7f080056;
-        public static final int moveMoral=0x7f080066;
-        public static final int next=0x7f080061;
-        public static final int nextPage1=0x7f080062;
-        public static final int nextPage2=0x7f080063;
-        public static final int noMoreNeed=0x7f080067;
-        public static final int or=0x7f0800a4;
-        public static final int or2=0x7f0800ac;
-        public static final int pressToExit=0x7f080084;
+        public static final int manyDaynotuse=0x7f080061;
+        public static final int maxCycleWarning=0x7f08006b;
+        public static final int minCycleInfo=0x7f08006a;
+        public static final int modifyMoralitem=0x7f08006d;
+        public static final int moralItem=0x7f080049;
+        public static final int moreDay=0x7f08005d;
+        public static final int motto=0x7f080057;
+        public static final int moveMoral=0x7f080067;
+        public static final int next=0x7f080062;
+        public static final int nextPage1=0x7f080063;
+        public static final int nextPage2=0x7f080064;
+        public static final int noMoreNeed=0x7f080068;
+        public static final int or=0x7f0800a5;
+        public static final int or2=0x7f0800ad;
+        public static final int pressToExit=0x7f080085;
         public static final int pupupAddComment=0x7f08000e;
         public static final int quotesBegin=0x7f08000f;
         public static final int quotesEnd=0x7f080010;
-        public static final int rate=0x7f080072;
-        public static final int reStart=0x7f08006e;
-        public static final int reflectioneveryday=0x7f0800be;
-        public static final int reflectioning=0x7f0800c2;
+        public static final int rate=0x7f080073;
+        public static final int reStart=0x7f08006f;
+        public static final int reflectioneveryday=0x7f0800bf;
+        public static final int reflectioning=0x7f0800c3;
         public static final int reportTitle=0x7f080011;
-        public static final int restartToBegin=0x7f080065;
-        public static final int restartinfo=0x7f080078;
-        public static final int restoreToDefault=0x7f080064;
-        public static final int restoretinfo=0x7f08007a;
-        public static final int seeMore=0x7f0800b9;
-        public static final int send=0x7f080088;
-        public static final int settingProjectItemDescript=0x7f08004c;
-        public static final int settingRestore=0x7f080050;
-        public static final int settingWelcomeDescrpit=0x7f08004d;
-        public static final int settingtitle=0x7f080047;
-        public static final int share=0x7f080070;
-        public static final int shareReflections=0x7f0800b3;
-        public static final int shareReport=0x7f0800b2;
-        public static final int sharetotal=0x7f0800b4;
-        public static final int sina=0x7f080071;
-        public static final int startNewMoralInfo=0x7f08005d;
-        public static final int startNewMoralInfo2=0x7f08005e;
-        public static final int store=0x7f0800a3;
-        public static final int strComfirmDelete=0x7f0800af;
-        public static final int system=0x7f08006d;
-        public static final int tabToChoose=0x7f08008b;
-        public static final int thisisMenu=0x7f0800bc;
-        public static final int thisisfranklin=0x7f0800c8;
-        public static final int title=0x7f080054;
-        public static final int titleChastity=0x7f080034;
-        public static final int titleChastityDes=0x7f080035;
-        public static final int titleChastityMotto=0x7f080036;
-        public static final int titleCleanliness=0x7f08002e;
-        public static final int titleCleanlinessDes=0x7f08002f;
-        public static final int titleCleanlinessMotto=0x7f080030;
-        public static final int titleFrugality=0x7f08001f;
-        public static final int titleFrugalityDes=0x7f080020;
-        public static final int titleFrugalityMotto=0x7f080021;
-        public static final int titleHumility=0x7f080037;
-        public static final int titleHumilityDes=0x7f080038;
-        public static final int titleHumilityMotto=0x7f080039;
-        public static final int titleIndustry=0x7f080022;
-        public static final int titleIndustryDes=0x7f080023;
-        public static final int titleIndustryMotto=0x7f080024;
-        public static final int titleJustice=0x7f080028;
-        public static final int titleJusticeDes=0x7f080029;
-        public static final int titleJusticeMotto=0x7f08002a;
-        public static final int titleModeration=0x7f08002b;
-        public static final int titleModerationDes=0x7f08002c;
-        public static final int titleModerationMotto=0x7f08002d;
-        public static final int titleOrder=0x7f080019;
-        public static final int titleOrderDes=0x7f08001a;
-        public static final int titleOrderMotto=0x7f08001b;
-        public static final int titleResolution=0x7f08001c;
-        public static final int titleResolutionDes=0x7f08001d;
-        public static final int titleResolutionMotto=0x7f08001e;
-        public static final int titleSilence=0x7f080016;
-        public static final int titleSilenceDes=0x7f080017;
-        public static final int titleSilenceMotto=0x7f080018;
-        public static final int titleSincerity=0x7f080025;
-        public static final int titleSincerityDes=0x7f080026;
-        public static final int titleSincerityMotto=0x7f080027;
-        public static final int titleTenperance=0x7f080013;
-        public static final int titleTenperanceDes=0x7f080014;
-        public static final int titleTenperanceMotto=0x7f080015;
-        public static final int titleTranquillity=0x7f080031;
-        public static final int titleTranquillityDes=0x7f080032;
-        public static final int titleTranquillityMotto=0x7f080033;
+        public static final int restartToBegin=0x7f080066;
+        public static final int restartinfo=0x7f080079;
+        public static final int restoreToDefault=0x7f080065;
+        public static final int restoretinfo=0x7f08007b;
+        public static final int seeMore=0x7f0800ba;
+        public static final int send=0x7f080089;
+        public static final int settingProjectItemDescript=0x7f08004d;
+        public static final int settingRestore=0x7f080051;
+        public static final int settingWelcomeDescrpit=0x7f08004e;
+        public static final int settingtitle=0x7f080048;
+        public static final int share=0x7f080071;
+        public static final int shareReflections=0x7f0800b4;
+        public static final int shareReport=0x7f0800b3;
+        public static final int sharetotal=0x7f0800b5;
+        public static final int sina=0x7f080072;
+        public static final int startNewMoralInfo=0x7f08005e;
+        public static final int startNewMoralInfo2=0x7f08005f;
+        public static final int store=0x7f0800a4;
+        public static final int strComfirmDelete=0x7f0800b0;
+        public static final int system=0x7f08006e;
+        public static final int tabToChoose=0x7f08008c;
+        public static final int thisisMenu=0x7f0800bd;
+        public static final int thisisfranklin=0x7f0800c9;
+        public static final int title=0x7f080055;
+        public static final int titleChastity=0x7f080035;
+        public static final int titleChastityDes=0x7f080036;
+        public static final int titleChastityMotto=0x7f080037;
+        public static final int titleCleanliness=0x7f08002f;
+        public static final int titleCleanlinessDes=0x7f080030;
+        public static final int titleCleanlinessMotto=0x7f080031;
+        public static final int titleFrugality=0x7f080020;
+        public static final int titleFrugalityDes=0x7f080021;
+        public static final int titleFrugalityMotto=0x7f080022;
+        public static final int titleHumility=0x7f080038;
+        public static final int titleHumilityDes=0x7f080039;
+        public static final int titleHumilityMotto=0x7f08003a;
+        public static final int titleIndustry=0x7f080023;
+        public static final int titleIndustryDes=0x7f080024;
+        public static final int titleIndustryMotto=0x7f080025;
+        public static final int titleJustice=0x7f080029;
+        public static final int titleJusticeDes=0x7f08002a;
+        public static final int titleJusticeMotto=0x7f08002b;
+        public static final int titleModeration=0x7f08002c;
+        public static final int titleModerationDes=0x7f08002d;
+        public static final int titleModerationMotto=0x7f08002e;
+        public static final int titleOrder=0x7f08001a;
+        public static final int titleOrderDes=0x7f08001b;
+        public static final int titleOrderMotto=0x7f08001c;
+        public static final int titleResolution=0x7f08001d;
+        public static final int titleResolutionDes=0x7f08001e;
+        public static final int titleResolutionMotto=0x7f08001f;
+        public static final int titleSilence=0x7f080017;
+        public static final int titleSilenceDes=0x7f080018;
+        public static final int titleSilenceMotto=0x7f080019;
+        public static final int titleSincerity=0x7f080026;
+        public static final int titleSincerityDes=0x7f080027;
+        public static final int titleSincerityMotto=0x7f080028;
+        public static final int titleTenperance=0x7f080014;
+        public static final int titleTenperanceDes=0x7f080015;
+        public static final int titleTenperanceMotto=0x7f080016;
+        public static final int titleTranquillity=0x7f080032;
+        public static final int titleTranquillityDes=0x7f080033;
+        public static final int titleTranquillityMotto=0x7f080034;
         public static final int todayControlPopupTitleFormat=0x7f080009;
-        public static final int todaySubject=0x7f0800ca;
+        public static final int todaySubject=0x7f0800cb;
         public static final int today_control_popup_bad=0x7f08000b;
         public static final int today_control_popup_good=0x7f08000a;
         public static final int today_control_popup_title=0x7f080008;
-        public static final int todayhavepassed=0x7f0800a7;
-        public static final int todo=0x7f0800cb;
-        public static final int totalReflectiveCount=0x7f080046;
-        public static final int totalUsedCount=0x7f080045;
-        public static final int trend=0x7f080087;
-        public static final int tutorials2=0x7f08009c;
-        public static final int tutorials3=0x7f08009d;
-        public static final int tutorials4=0x7f08009e;
-        public static final int tutorials5=0x7f080099;
-        public static final int tutorials6=0x7f08009a;
-        public static final int tutorials7=0x7f08009b;
-        public static final int tutorials8=0x7f08009f;
-        public static final int typeCouse=0x7f08008a;
+        public static final int todayhavepassed=0x7f0800a8;
+        public static final int todo=0x7f0800cc;
+        public static final int totalReflectiveCount=0x7f080047;
+        public static final int totalUsedCount=0x7f080046;
+        public static final int trend=0x7f080088;
+        public static final int tutorials2=0x7f08009d;
+        public static final int tutorials3=0x7f08009e;
+        public static final int tutorials4=0x7f08009f;
+        public static final int tutorials5=0x7f08009a;
+        public static final int tutorials6=0x7f08009b;
+        public static final int tutorials7=0x7f08009c;
+        public static final int tutorials8=0x7f0800a0;
+        public static final int typeCouse=0x7f08008b;
         public static final int umeng_common_action_cancel=0x7f0800d1;
         public static final int umeng_common_action_continue=0x7f0800d0;
         public static final int umeng_common_action_info_exist=0x7f0800cd;
@@ -947,21 +947,21 @@ containing a value of this type.
         public static final int umeng_fb_send=0x7f0800f6;
         public static final int umeng_fb_title=0x7f0800f7;
         public static final int version=0x7f080000;
-        public static final int virtueDone=0x7f0800b5;
-        public static final int welcome=0x7f08004a;
-        public static final int welcome1=0x7f080040;
-        public static final int welcome11=0x7f08003a;
-        public static final int welcome12=0x7f08003b;
-        public static final int welcome13=0x7f08003c;
-        public static final int welcome14=0x7f08003d;
-        public static final int welcome15=0x7f08003e;
-        public static final int welcome16=0x7f08003f;
-        public static final int welcome2=0x7f080041;
-        public static final int welcome3=0x7f080042;
-        public static final int welcome4=0x7f080043;
-        public static final int welcome5=0x7f080044;
-        public static final int yesterday=0x7f08005a;
-        public static final int yourgole=0x7f0800c7;
+        public static final int virtueDone=0x7f0800b6;
+        public static final int welcome=0x7f08004b;
+        public static final int welcome1=0x7f080041;
+        public static final int welcome11=0x7f08003b;
+        public static final int welcome12=0x7f08003c;
+        public static final int welcome13=0x7f08003d;
+        public static final int welcome14=0x7f08003e;
+        public static final int welcome15=0x7f08003f;
+        public static final int welcome16=0x7f080040;
+        public static final int welcome2=0x7f080042;
+        public static final int welcome3=0x7f080043;
+        public static final int welcome4=0x7f080044;
+        public static final int welcome5=0x7f080045;
+        public static final int yesterday=0x7f08005b;
+        public static final int yourgole=0x7f0800c8;
     }
     public static final class style {
         /** 
@@ -1050,7 +1050,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:border_color
+          @attr name android:border_color
         */
         public static final int CircleImageView_border_color = 1;
         /**
@@ -1066,7 +1066,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:border_width
+          @attr name android:border_width
         */
         public static final int CircleImageView_border_width = 0;
         /** Attributes that can be used with a DragSortListView.
@@ -1131,7 +1131,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:click_remove_id
+          @attr name android:click_remove_id
         */
         public static final int DragSortListView_click_remove_id = 16;
         /**
@@ -1147,7 +1147,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:collapsed_height
+          @attr name android:collapsed_height
         */
         public static final int DragSortListView_collapsed_height = 0;
         /**
@@ -1161,7 +1161,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:drag_enabled
+          @attr name android:drag_enabled
         */
         public static final int DragSortListView_drag_enabled = 10;
         /**
@@ -1175,7 +1175,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:drag_handle_id
+          @attr name android:drag_handle_id
         */
         public static final int DragSortListView_drag_handle_id = 14;
         /**
@@ -1189,7 +1189,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:drag_scroll_start
+          @attr name android:drag_scroll_start
         */
         public static final int DragSortListView_drag_scroll_start = 1;
         /**
@@ -1207,7 +1207,7 @@ containing a value of this type.
 <tr><td><code>onMove</code></td><td>1</td><td></td></tr>
 <tr><td><code>onLongPress</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.pavkoo.franklin:drag_start_mode
+          @attr name android:drag_start_mode
         */
         public static final int DragSortListView_drag_start_mode = 13;
         /**
@@ -1221,7 +1221,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:drop_animation_duration
+          @attr name android:drop_animation_duration
         */
         public static final int DragSortListView_drop_animation_duration = 9;
         /**
@@ -1235,7 +1235,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:fling_handle_id
+          @attr name android:fling_handle_id
         */
         public static final int DragSortListView_fling_handle_id = 15;
         /**
@@ -1249,7 +1249,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:float_alpha
+          @attr name android:float_alpha
         */
         public static final int DragSortListView_float_alpha = 6;
         /**
@@ -1264,7 +1264,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:float_background_color
+          @attr name android:float_background_color
         */
         public static final int DragSortListView_float_background_color = 3;
         /**
@@ -1278,7 +1278,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:max_drag_scroll_speed
+          @attr name android:max_drag_scroll_speed
         */
         public static final int DragSortListView_max_drag_scroll_speed = 2;
         /**
@@ -1292,7 +1292,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:remove_animation_duration
+          @attr name android:remove_animation_duration
         */
         public static final int DragSortListView_remove_animation_duration = 8;
         /**
@@ -1306,7 +1306,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:remove_enabled
+          @attr name android:remove_enabled
         */
         public static final int DragSortListView_remove_enabled = 12;
         /**
@@ -1323,7 +1323,7 @@ containing a value of this type.
 <tr><td><code>clickRemove</code></td><td>0</td><td></td></tr>
 <tr><td><code>flingRemove</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.pavkoo.franklin:remove_mode
+          @attr name android:remove_mode
         */
         public static final int DragSortListView_remove_mode = 4;
         /**
@@ -1337,7 +1337,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:slide_shuffle_speed
+          @attr name android:slide_shuffle_speed
         */
         public static final int DragSortListView_slide_shuffle_speed = 7;
         /**
@@ -1351,7 +1351,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:sort_enabled
+          @attr name android:sort_enabled
         */
         public static final int DragSortListView_sort_enabled = 11;
         /**
@@ -1365,7 +1365,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:track_drag_sort
+          @attr name android:track_drag_sort
         */
         public static final int DragSortListView_track_drag_sort = 5;
         /**
@@ -1379,7 +1379,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.pavkoo.franklin:use_default_controller
+          @attr name android:use_default_controller
         */
         public static final int DragSortListView_use_default_controller = 17;
     };

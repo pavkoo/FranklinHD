@@ -240,7 +240,6 @@ com.pavkoo.franklin.R$drawable: int aboutpavkooanim
 com.pavkoo.franklin.R$drawable: int addmoras
 com.pavkoo.franklin.R$drawable: int addmorasshade
 com.pavkoo.franklin.R$drawable: int appsetting
-com.pavkoo.franklin.R$drawable: int bingimage
 com.pavkoo.franklin.R$drawable: int bookcover
 com.pavkoo.franklin.R$drawable: int cloud
 com.pavkoo.franklin.R$drawable: int comments
@@ -286,6 +285,9 @@ com.pavkoo.franklin.R$drawable: int nomore
 com.pavkoo.franklin.R$drawable: int popup_background
 com.pavkoo.franklin.R$drawable: int popup_today_background
 com.pavkoo.franklin.R$drawable: int rate
+com.pavkoo.franklin.R$drawable: int removefel
+com.pavkoo.franklin.R$drawable: int removefel2
+com.pavkoo.franklin.R$drawable: int removerefl
 com.pavkoo.franklin.R$drawable: int report
 com.pavkoo.franklin.R$drawable: int reportexample
 com.pavkoo.franklin.R$drawable: int restart
@@ -594,6 +596,7 @@ com.pavkoo.franklin.R$id: int tvsettingSystemHelpContentTitle2
 com.pavkoo.franklin.R$id: int tvsettingSystemHelpContentTitle3
 com.pavkoo.franklin.R$id: int txtComment
 com.pavkoo.franklin.R$id: int txtCommentItemNumber
+com.pavkoo.franklin.R$id: int txtCommentItemRemove
 com.pavkoo.franklin.R$id: int txtCommentItemText
 com.pavkoo.franklin.R$id: int txtContactMe
 com.pavkoo.franklin.R$id: int txtHelperComment
@@ -773,6 +776,7 @@ com.pavkoo.franklin.R$string: int inputReflection
 com.pavkoo.franklin.R$string: int jump
 com.pavkoo.franklin.R$string: int language
 com.pavkoo.franklin.R$string: int mailto
+com.pavkoo.franklin.R$string: int mainMotto
 com.pavkoo.franklin.R$string: int main_toolbar_contactme
 com.pavkoo.franklin.R$string: int main_toolbar_help
 com.pavkoo.franklin.R$string: int main_toolbar_setting

@@ -31,27 +31,32 @@ public class SharePreferenceService {
 
 	@SuppressLint("SimpleDateFormat")
 	public ApplicationConfig loadAppconfig() {
-		SharedPreferences sp = context.getSharedPreferences("APPCONFIG", Context.MODE_PRIVATE);
+		SharedPreferences sp = context.getSharedPreferences("APPCONFIG",
+				Context.MODE_PRIVATE);
 		ApplicationConfig appCon = new ApplicationConfig();
 		appCon.setFrist(sp.getBoolean("IsFirst", true));
 		appCon.setIsselfConfiged(sp.getBoolean("ISSelfConfiged", false));
 		appCon.setProjectStarted(sp.getBoolean("ProjectStarted", false));
 		appCon.setDefaultSaved(sp.getBoolean("DefaultSaved", false));
-		appCon.setFirstUse(UtilsClass.stringToDate(sp.getString("FistUseDate", UtilsClass.dateToString(new Date()))));
-		appCon.setLastUse(UtilsClass.stringToDate(sp.getString("LastUseDate", UtilsClass.dateToString(new Date()))));
+		appCon.setFirstUse(UtilsClass.stringToDate(sp.getString("FistUseDate",
+				UtilsClass.dateToString(new Date()))));
+		appCon.setLastUse(UtilsClass.stringToDate(sp.getString("LastUseDate",
+				UtilsClass.dateToString(new Date()))));
 		appCon.setHistoryCount(sp.getInt("HistoryCount", 0));
 		return appCon;
 	}
 
 	@SuppressLint("SimpleDateFormat")
 	public ApplicationConfig saveAppConfig(ApplicationConfig appCon) {
-		SharedPreferences sp = context.getSharedPreferences("APPCONFIG", Context.MODE_PRIVATE);
+		SharedPreferences sp = context.getSharedPreferences("APPCONFIG",
+				Context.MODE_PRIVATE);
 		Editor edit = sp.edit();
 		edit.putBoolean("IsFirst", appCon.isFrist());
 		edit.putBoolean("ISSelfConfiged", appCon.isIsselfConfiged());
 		edit.putBoolean("ProjectStarted", appCon.isProjectStarted());
 		edit.putBoolean("DefaultSaved", appCon.isDefaultSaved());
-		edit.putString("FistUseDate", UtilsClass.dateToString(appCon.getFirstUse()));
+		edit.putString("FistUseDate",
+				UtilsClass.dateToString(appCon.getFirstUse()));
 		edit.putString("LastUseDate", UtilsClass.dateToString(new Date()));
 		edit.putInt("HistoryCount", appCon.getHistoryCount());
 		edit.commit();
@@ -67,15 +72,18 @@ public class SharePreferenceService {
 		saveFile(comments, COMMENT_FILE);
 		return comments;
 	}
-	
-	public List<Comment> saveHistoryComments(List<Comment> comments,int historyCount) {
-		String historyFileName = HISTORY_COMMENT_FILE+String.valueOf(historyCount);
+
+	public List<Comment> saveHistoryComments(List<Comment> comments,
+			int historyCount) {
+		String historyFileName = HISTORY_COMMENT_FILE
+				+ String.valueOf(historyCount);
 		saveFile(comments, historyFileName);
 		return comments;
 	}
-	
-	public List<Moral> saveHistoryMorals(List<Moral> morals,int historyCount){
-		String historyFileName = HISTORY_MORAL_FILE+String.valueOf(historyCount);
+
+	public List<Moral> saveHistoryMorals(List<Moral> morals, int historyCount) {
+		String historyFileName = HISTORY_MORAL_FILE
+				+ String.valueOf(historyCount);
 		saveFile(morals, historyFileName);
 		return morals;
 	}
@@ -106,7 +114,8 @@ public class SharePreferenceService {
 			objectFile.delete();
 		ObjectOutputStream oos = null;
 		try {
-			oos = new ObjectOutputStream(new FileOutputStream(objectFile, false));
+			oos = new ObjectOutputStream(
+					new FileOutputStream(objectFile, false));
 			oos.writeObject(object);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -120,6 +129,22 @@ public class SharePreferenceService {
 					e.printStackTrace();
 				}
 			oos = null;
+		}
+	}
+
+	public void deleteAllFile() {
+		File objectFile = new File(context.getFilesDir(), MORAL_FILE);
+		if (objectFile.exists()) {
+			objectFile.delete();
+		}
+		File commFile = new File(context.getFilesDir(), COMMENT_FILE);
+		if (commFile.exists()) {
+			commFile.delete();
+		}
+
+		File mottoFile = new File(context.getFilesDir(), WELCOME_FILE);
+		if (mottoFile.exists()) {
+			mottoFile.delete();
 		}
 	}
 
