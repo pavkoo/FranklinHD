@@ -122,19 +122,17 @@ public class DBManager {
 			db.endTransaction();
 		}
 	}
-	
-	
-	public void updateMorals(List<Moral> morals){
+
+	public void updateMorals(List<Moral> morals) {
 		db.delete("moral", null, null);
 		importMorals(morals);
 	}
 
-	public void updateMottos(List<String> mottos){
+	public void updateMottos(List<String> mottos) {
 		db.delete("mottos", null, null);
 		importMottos(mottos);
 	}
-	
-	
+
 	public void importMorals(List<Moral> morals) {
 		if (morals == null) {
 			return;
@@ -235,7 +233,7 @@ public class DBManager {
 		return comms;
 	}
 
-	public List<Moral> loadMorals(){
+	public List<Moral> loadMorals() {
 		String sql = "SELECT * FROM moral";
 		Cursor cr = db.rawQuery(sql, null);
 		ArrayList<Moral> morals = new ArrayList<Moral>();
@@ -245,17 +243,17 @@ public class DBManager {
 			m.setTitleDes(cr.getString(cr.getColumnIndex("titleDes")));
 			m.setTitleMotto(cr.getString(cr.getColumnIndex("titleMotto")));
 			m.setCycle(cr.getInt(cr.getColumnIndex("cycle")));
-			m.setStartDate(UtilsClass.stringToDate(cr.getString(cr.getColumnIndex("startDate"))));
-			m.setEndDate(UtilsClass.stringToDate(cr.getString(cr.getColumnIndex("endDate"))));
+			m.setStartDate(UtilsClass.stringToDate(cr.getString(cr
+					.getColumnIndex("startDate"))));
+			m.setEndDate(UtilsClass.stringToDate(cr.getString(cr
+					.getColumnIndex("endDate"))));
 			m.setVersion(cr.getInt(cr.getColumnIndex("version")));
 			morals.add(m);
 		}
 		cr.close();
 		return morals;
 	}
-	
-	
-	
+
 	public List<String> loadMottos() {
 		String sql = "SELECT * FROM mottos";
 		Cursor cr = db.rawQuery(sql, null);
@@ -267,8 +265,72 @@ public class DBManager {
 		return mottos;
 	}
 
-	
-	
-	
-}
+	public List<SignRecords> loadSignRecord() {
+		ArrayList<SignRecords> slist = new ArrayList<SignRecords>();
+		String sql = "SELECT * FROM signrecord order by inputdate";
+		Cursor cr = db.rawQuery(sql, null);
+		while (cr.moveToNext()) {
+			SignRecords sr = new SignRecords();
+			sr.setId(cr.getInt(cr.getColumnIndex("_id")));
+			sr.setCommentIndex(cr.getInt(cr.getColumnIndex("refCommentIndex")));
+			sr.setMoarlIndex(cr.getInt(cr.getColumnIndex("refMoralindex")));
+			sr.setCs(CheckState.values()[cr.getInt(cr
+					.getColumnIndex("checkstate"))]);
+			sr.setInputDate(UtilsClass.stringToDate(cr.getString(cr
+					.getColumnIndex("inputdate"))));
+			slist.add(sr);
+		}
+		return slist;
+	}
 
+	// ÒµÎñÇø
+	public int getCurrentMoralId() {
+		String sql = "SELECT _id FROM moral where date('now')>=startDate and date('now')<=endDate";
+		Cursor cr = db.rawQuery(sql, null);
+		int id = -1;
+		while (cr.moveToNext()) {
+			id = cr.getInt(cr.getColumnIndex("_id"));
+		}
+		cr.close();
+		return id;
+	}
+
+	public boolean isBeforeTraining() {
+		String sql = "SELECT * FROM moral where date('now')<startDate";
+		Cursor cr = db.rawQuery(sql, null);
+		if (cr.getCount() == 0) {
+			return false;
+		}
+		return true;
+	}
+
+	public boolean isAfterTraning() {
+		String sql = "SELECT * FROM moral where date('now')>endDate";
+		Cursor cr = db.rawQuery(sql, null);
+		if (cr.getCount() == 0) {
+			return false;
+		}
+		return true;
+	}
+
+	public int lastReflectDate() {
+		String sql = "SELECT MAX(inputdate) FROM signrecord";
+		Cursor cr = db.rawQuery(sql, null);
+		int dayCount = -1;
+		if (cr.getCount() == 0) {
+			return dayCount;
+		} else {
+
+			while (cr.moveToNext()) {
+				Date lastDate = UtilsClass.stringToDate(cr.getString(cr
+						.getColumnIndex("inputdate")));
+				dayCount = (int) (UtilsClass.dayCount(lastDate, new Date()) + 1);
+				break;
+			}
+			cr.close();
+		}
+		return dayCount;
+	}
+	
+
+}

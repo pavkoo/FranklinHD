@@ -7,7 +7,7 @@ public class SignRecords {
 	private int commentIndex;
 	private CheckState cs;
 	private Date inputDate;
-	
+	private int id;
 	public SignRecords(){
 		moarlIndex = -1;
 		commentIndex = -1;
@@ -46,5 +46,15 @@ public class SignRecords {
 
 	public void setInputDate(Date inputDate) {
 		this.inputDate = inputDate;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

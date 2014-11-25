@@ -21,7 +21,6 @@ import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +46,7 @@ import com.pavkoo.franklin.common.Comment;
 import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.FranklinApplication;
 import com.pavkoo.franklin.common.Moral;
+import com.pavkoo.franklin.common.SignRecords;
 import com.pavkoo.franklin.common.UtilsClass;
 import com.pavkoo.franklin.controls.AnimMessage;
 import com.pavkoo.franklin.controls.AnimMessage.AnimMessageType;
@@ -118,6 +118,7 @@ public class MainActivity extends ParentActivity implements
 	private Today today;
 	private List<Moral> morals;
 	private List<Comment> comments;
+	private List<SignRecords> srList;
 	private CommentAdapter cadapter;
 	private Moral todayMoral;
 	private BlemishReport blemishReport;
@@ -126,7 +127,6 @@ public class MainActivity extends ParentActivity implements
 	private String todayDialogTitle;
 	private BlemishReportTotalDialog totalDialog;
 	private BlemishReportTrendDialog trendDialog;
-	private boolean needSave;
 
 	private long touchTime;
 	private final int WaitTime = 4000;
@@ -154,7 +154,6 @@ public class MainActivity extends ParentActivity implements
 		tvMainDate = (TextView) findViewById(R.id.tvMainDate);
 		txtMotto = (TextView) findViewById(R.id.txtMotto);
 		txtMainShare = (TextView) findViewById(R.id.txtMainShare);
-		needSave = false;
 		indicatorAnim = AnimationUtils.loadAnimation(this,
 				R.anim.indicator_scale);
 		amMessage = (AnimMessage) findViewById(R.id.amMainMessage);
@@ -462,6 +461,7 @@ public class MainActivity extends ParentActivity implements
 	protected void initViewData() {
 		morals = getApp().getMorals();
 		comments = getApp().getComments();
+		srList = getApp().getSignRecordList();
 		if (!initMorals()) {
 			return;
 		}
@@ -504,64 +504,13 @@ public class MainActivity extends ParentActivity implements
 
 	@SuppressLint("NewApi")
 	private boolean initMorals() {
-		needSave = false;
-		if (morals == null) {
-			amMessage.showMessage(getString(R.string.errortorestore),
+		if (getApp().getMgr().isBeforeTraining()) {
+			amMessage.showMessage(getString(R.string.todayhavepassed),
 					AnimMessageType.ERROR);
 			return false;
 		}
-		for (int i = 0; i < morals.size(); i++) {
-			Moral m = morals.get(i);
-			Log.i("Day", "Start:" + m.getStartDate().toString()
-					+ "------------ End:" + m.getEndDate().toString());
-		}
-		Date now = new Date(System.currentTimeMillis());
-		int unsetStateDay = 0;
-		boolean dayPassed = false;
-		for (int i = 0; i < morals.size(); i++) {
-			Moral m = morals.get(i);
-			int enddaycount = (int) UtilsClass.dayCount(m.getEndDate(), now);
-			int startoffset = (int) UtilsClass.dayCount(m.getStartDate(), now) + 1;// 1
-																					// means
-			// today
 
-			if (enddaycount <= 0) {
-				todayMoral = m;
-				m.setCurrentDayInCycle(startoffset);
-				m.setFinished(false);
-				if (startoffset < 0) {
-					dayPassed = true;
-					break;
-				}
-				for (int j = i + 1; j < morals.size(); j++) {
-					morals.get(j).setFinished(false);
-					morals.get(j).setCurrentDayInCycle(0);
-				}
-			} else {
-				m.setFinished(true);
-				m.setCurrentDayInCycle(0);
-			}
-			unsetStateDay = startoffset - m.getStateList().size();
-			if (unsetStateDay > 0) {
-				needSave = true;
-				for (int j = 0; j < unsetStateDay; j++) {
-					m.getStateList().add(CheckState.UNKNOW);
-					m.getComments().add(-1);
-				}
-			} else if (unsetStateDay < 0) {
-				needSave = true;
-				int delCount = Math.abs(unsetStateDay);
-				while (delCount > 0) {
-					m.getStateList().remove(m.getStateList().size() - 1);
-					m.getComments().remove(m.getComments().size() - 1);
-					delCount--;
-				}
-			}
-			if (enddaycount <= 0) {
-				break;
-			}
-		}
-		if (todayMoral == null) {
+		if (getApp().getMgr().isAfterTraning()) {
 			Intent finishIntent = new Intent(MainActivity.this,
 					FinishActivity.class);
 			startActivity(finishIntent);
@@ -569,11 +518,23 @@ public class MainActivity extends ParentActivity implements
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			return false;
 		}
-		if (dayPassed) {
-			amMessage.showMessage(getString(R.string.todayhavepassed),
-					AnimMessageType.ERROR);
-			return false;
+
+		int id = getApp().getMgr().getCurrentMoralId();
+		for (int i = 0; i < morals.size(); i++) {
+			Moral m = morals.get(i);
+			m.setFinished(true);
+			m.setCurrentDayInCycle(0);
+			if (morals.get(i).getId() == id) {
+				todayMoral = m;
+				Date now = new Date(System.currentTimeMillis());
+				int startoffset = (int) UtilsClass.dayCount(m.getStartDate(),
+						now) + 1;
+				todayMoral.setCurrentDayInCycle(startoffset);
+				todayMoral.setFinished(false);
+				break;
+			}
 		}
+		
 		if (todayMoral.getCurrentDayInCycle() == 1) {
 			int finishedindex = morals.indexOf(todayMoral);
 			if (finishedindex == 0) {
@@ -595,6 +556,7 @@ public class MainActivity extends ParentActivity implements
 					todayMoral.getTitle(), todayMoral.getCurrentDayInCycle()),
 					3000);
 		}
+		int unsetStateDay = getApp().getMgr().lastReflectDate();
 		if (unsetStateDay > 3) {
 			amMessage.showMessage(String.format(
 					getResources().getString(R.string.manyDaynotuse),
@@ -615,10 +577,8 @@ public class MainActivity extends ParentActivity implements
 				colorAnim.start();
 			}
 		}
-		if (needSave) {
-			this.getApp().saveMorals(morals);
-		}
-		if (todayMoral.getTodaySelected() == CheckState.UNKNOW) {
+
+		if (unsetStateDay != 1) {
 			notifyToday(false);
 		}
 		updateUIByMoral(morals.indexOf(todayMoral));

@@ -12,10 +12,15 @@ public class FranklinApplication extends Application {
 	public static int AnimationDurationShort = 400;
 
 	private DBManager mgr;
+	public DBManager getMgr() {
+		return mgr;
+	}
+
 	private ApplicationConfig appCon;
 	private List<Moral> morals;
 	private List<Comment> comments;
 	private List<String> welcomes;
+	private List<SignRecords> signRecordList;
 
 	public List<String> getWelcomes() {
 		return welcomes;
@@ -94,11 +99,12 @@ public class FranklinApplication extends Application {
 		appCon = mgr.loadConfig();
 	}
 
-	public void initData() {
+	public void initSaveData() {
 		saveAppConfig(appCon,true);
 		saveComments(comments,true);
 		saveMorals(morals,true);
 		saveWelcomes(welcomes,true);
+		setSignRecordList(mgr.loadSignRecord());
 	}
 	
 	public void updateMorals(){
@@ -177,5 +183,13 @@ public class FranklinApplication extends Application {
 			moralList = mgr.loadMorals();
 		}
 		morals = moralList;
+	}
+
+	public List<SignRecords> getSignRecordList() {
+		return signRecordList;
+	}
+
+	public void setSignRecordList(List<SignRecords> signRecordList) {
+		this.signRecordList = signRecordList;
 	}
 }

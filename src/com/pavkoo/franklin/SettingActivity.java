@@ -264,7 +264,7 @@ public class SettingActivity extends FragmentActivity {
 					}
 					getApp().saveAppConfig(config);
 					buildAllCycleDate();
-					getApp().initData();
+					getApp().initSaveData();
 					Intent helperIntent = new Intent(SettingActivity.this,
 							HelperActivity.class);
 					startActivity(helperIntent);
