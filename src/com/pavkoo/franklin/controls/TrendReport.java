@@ -3,9 +3,6 @@ package com.pavkoo.franklin.controls;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pavkoo.franklin.common.CommonConst;
-import com.pavkoo.franklin.common.Moral;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -15,6 +12,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import com.pavkoo.franklin.common.CommonConst;
+import com.pavkoo.franklin.common.Moral;
+
 public class TrendReport extends View {
 	private Paint mPaint;
 	private Path path;
@@ -22,24 +22,13 @@ public class TrendReport extends View {
 	private float spacey;
 	private List<Double> points;
 	private int mainColor;
-	
-	private Moral moral;
 
-	public Moral getMoral() {
-		return moral;
-	}
-
-	public void setMoral(Moral moral,int colorPosition) {
-		this.moral = moral;
-		mainColor = Color.parseColor(CommonConst.colors[colorPosition % CommonConst.colors.length]);
-		this.invalidate();
-		points.clear();
+	public void setMoralandRate(Moral moral, int colorPosition, List<Double> points) {
 		if (moral == null)
 			return;
-		int cycleCount = moral.getCycleCount();
-		for (int i = 0; i < cycleCount; i++) {
-			points.add((double) moral.getCheckRate(i));
-		}
+		mainColor = Color.parseColor(CommonConst.colors[colorPosition % CommonConst.colors.length]);
+		this.invalidate();
+		this.points = points;
 	}
 
 	public TrendReport(Context context) {
@@ -72,13 +61,13 @@ public class TrendReport extends View {
 		float currentx = 0;
 		float currenty = spacey;
 		mPaint.setColor(Color.parseColor("#7d8187"));
-		canvas.drawLine(0, 0,getMeasuredWidth(), 0, mPaint);
-		canvas.drawLine(0, getMeasuredHeight(),getMeasuredWidth(), getMeasuredHeight(), mPaint);
+		canvas.drawLine(0, 0, getMeasuredWidth(), 0, mPaint);
+		canvas.drawLine(0, getMeasuredHeight(), getMeasuredWidth(), getMeasuredHeight(), mPaint);
 		mPaint.setColor(Color.parseColor("#3a4456"));
 		for (int i = 0; i < points.size(); i++) {
 			path.moveTo(currentx, currenty);
 			targetx = spacex * (i + 1);
-			targety =spacey - (float) (spacey * points.get(i));
+			targety = spacey - (float) (spacey * points.get(i));
 			path.quadTo((currentx + targetx) / 2, (currenty + targety) / 2, targetx, targety);
 			currentx = targetx;
 			currenty = targety;
@@ -91,8 +80,8 @@ public class TrendReport extends View {
 		mPaint.setColor(mainColor);
 		for (int i = 0; i < points.size(); i++) {
 			targetx = spacex * (i + 1);
-			targety =spacey - (float) (spacey * points.get(i));
-			canvas.drawCircle(targetx, targety,4, mPaint);
+			targety = spacey - (float) (spacey * points.get(i));
+			canvas.drawCircle(targetx, targety, 4, mPaint);
 			currentx = targetx;
 			currenty = targety;
 		}
@@ -109,12 +98,11 @@ public class TrendReport extends View {
 			spacex = this.getMeasuredWidth();
 		} else {
 			spacex = this.getMeasuredWidth() / (points.size()); // begin
-																	// from 0
+																// from 0
 		}
-		spacey = this.getMeasuredHeight() - 4 ;
-		Log.i("TrendReport", "width:"+String.valueOf(spacex));
-		Log.i("TrendReport", "heigh:"+String.valueOf(spacey));
+		spacey = this.getMeasuredHeight() - 4;
+		Log.i("TrendReport", "width:" + String.valueOf(spacex));
+		Log.i("TrendReport", "heigh:" + String.valueOf(spacey));
 	}
 
 }
-

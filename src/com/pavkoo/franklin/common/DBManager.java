@@ -277,9 +277,9 @@ public class DBManager {
 		return mottos;
 	}
 
-	public List<SignRecords> loadSignRecord() {
+	public List<SignRecords> loadSignedRecord() {
 		ArrayList<SignRecords> slist = new ArrayList<SignRecords>();
-		String sql = "SELECT * FROM signrecord order by inputdate";
+		String sql = "SELECT * FROM signrecord WHERE checkstate=1 order by inputdate";
 		Cursor cr = db.rawQuery(sql, null);
 		while (cr.moveToNext()) {
 			SignRecords sr = new SignRecords();
@@ -451,5 +451,17 @@ public class DBManager {
 			sparseArray.put(cr.getInt(1), cr.getInt(0));
 		}
 		return sparseArray;
+	}
+
+	public void clearComment() {
+		db.delete("signrecord", "refMoralindex=?", new String[]{String.valueOf(-1)});
+		db.delete("comment", null, null);
+	}
+
+	public void restoretodefault() {
+		db.delete("comment", null, null);
+		db.delete("signrecord", null, null);
+		db.delete("mottos", null, null);
+		db.delete("moral", null, null);
 	}
 }

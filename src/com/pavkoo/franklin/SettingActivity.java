@@ -5,16 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import com.pavkoo.franklin.common.ApplicationConfig;
-import com.pavkoo.franklin.common.Comment;
-import com.pavkoo.franklin.common.FranklinApplication;
-import com.pavkoo.franklin.common.Moral;
-import com.pavkoo.franklin.common.UtilsClass;
-import com.pavkoo.franklin.controls.AnimMessage;
-import com.pavkoo.franklin.controls.SettingSystemHelpDialog;
-import com.pavkoo.franklin.controls.AnimMessage.AnimMessageType;
-import com.umeng.analytics.MobclickAgent;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -28,32 +18,30 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
+import com.pavkoo.franklin.common.ApplicationConfig;
+import com.pavkoo.franklin.common.Comment;
+import com.pavkoo.franklin.common.FranklinApplication;
+import com.pavkoo.franklin.common.Moral;
+import com.pavkoo.franklin.common.UtilsClass;
+import com.pavkoo.franklin.controls.AnimMessage;
+import com.pavkoo.franklin.controls.AnimMessage.AnimMessageType;
+import com.pavkoo.franklin.controls.SettingSystemHelpDialog;
+import com.umeng.analytics.MobclickAgent;
+
 public class SettingActivity extends FragmentActivity {
-	private int[] titleList = { R.string.titleTenperance,
-			R.string.titleSilence, R.string.titleOrder,
-			R.string.titleResolution, R.string.titleFrugality,
-			R.string.titleIndustry, R.string.titleSincerity,
-			R.string.titleJustice, R.string.titleModeration,
-			R.string.titleCleanliness, R.string.titleTranquillity,
-			R.string.titleChastity, R.string.titleHumility };
-	private int[] decriptionList = { R.string.titleTenperanceDes,
-			R.string.titleSilenceDes, R.string.titleOrderDes,
-			R.string.titleResolutionDes, R.string.titleFrugalityDes,
-			R.string.titleIndustryDes, R.string.titleSincerityDes,
-			R.string.titleJusticeDes, R.string.titleModerationDes,
-			R.string.titleCleanlinessDes, R.string.titleTranquillityDes,
-			R.string.titleChastityDes, R.string.titleHumilityDes };
-	private int[] mottoList = { R.string.titleTenperanceMotto,
-			R.string.titleSilenceMotto, R.string.titleOrderMotto,
-			R.string.titleResolutionMotto, R.string.titleFrugalityMotto,
-			R.string.titleIndustryMotto, R.string.titleSincerityMotto,
-			R.string.titleJusticeMotto, R.string.titleModerationMotto,
-			R.string.titleCleanlinessMotto, R.string.titleTranquillityMotto,
-			R.string.titleChastityMotto, R.string.titleHumilityMotto };
-	private int[] welcomeList = { R.string.welcome1, R.string.welcome2,
-			R.string.welcome3, R.string.welcome4, R.string.welcome5,
-			R.string.welcome11, R.string.welcome12, R.string.welcome13,
-			R.string.welcome14, R.string.welcome15, R.string.welcome16 };
+	private int[] titleList = {R.string.titleTenperance, R.string.titleSilence, R.string.titleOrder, R.string.titleResolution,
+			R.string.titleFrugality, R.string.titleIndustry, R.string.titleSincerity, R.string.titleJustice, R.string.titleModeration,
+			R.string.titleCleanliness, R.string.titleTranquillity, R.string.titleChastity, R.string.titleHumility};
+	private int[] decriptionList = {R.string.titleTenperanceDes, R.string.titleSilenceDes, R.string.titleOrderDes,
+			R.string.titleResolutionDes, R.string.titleFrugalityDes, R.string.titleIndustryDes, R.string.titleSincerityDes,
+			R.string.titleJusticeDes, R.string.titleModerationDes, R.string.titleCleanlinessDes, R.string.titleTranquillityDes,
+			R.string.titleChastityDes, R.string.titleHumilityDes};
+	private int[] mottoList = {R.string.titleTenperanceMotto, R.string.titleSilenceMotto, R.string.titleOrderMotto,
+			R.string.titleResolutionMotto, R.string.titleFrugalityMotto, R.string.titleIndustryMotto, R.string.titleSincerityMotto,
+			R.string.titleJusticeMotto, R.string.titleModerationMotto, R.string.titleCleanlinessMotto, R.string.titleTranquillityMotto,
+			R.string.titleChastityMotto, R.string.titleHumilityMotto};
+	private int[] welcomeList = {R.string.welcome1, R.string.welcome2, R.string.welcome3, R.string.welcome4, R.string.welcome5,
+			R.string.welcome11, R.string.welcome12, R.string.welcome13, R.string.welcome14, R.string.welcome15, R.string.welcome16};
 
 	private RadioGroup rgSetting;
 	private FragmentManager fmManager;
@@ -93,8 +81,7 @@ public class SettingActivity extends FragmentActivity {
 		 */
 		int startMode = R.id.rbSettingProjectItem;
 		if (intent != null) {
-			startMode = intent.getIntExtra("STARTMODE",
-					R.id.rbSettingProjectItem);
+			startMode = intent.getIntExtra("STARTMODE", R.id.rbSettingProjectItem);
 		}
 		config = getApp().getAppCon();
 		initAppWithDefaultData(false);
@@ -107,15 +94,13 @@ public class SettingActivity extends FragmentActivity {
 		rbSettingCycle = (RadioButton) findViewById(R.id.rbSettingCycle);
 		rbSettingWelcome = (RadioButton) findViewById(R.id.rbSettingWelcome);
 		rbAppSetting = (RadioButton) findViewById(R.id.rbAppSetting);
-		new SettingSystemHelpDialog(this,
-				android.R.style.Theme_Translucent_NoTitleBar);
+		new SettingSystemHelpDialog(this, android.R.style.Theme_Translucent_NoTitleBar);
 		rgSetting.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				amMessage.reset();
-				Fragment fragment = FragmentFactory
-						.getInstanceByIndex(checkedId);
+				Fragment fragment = FragmentFactory.getInstanceByIndex(checkedId);
 				changeFragment(fragment);
 			}
 		});
@@ -131,16 +116,15 @@ public class SettingActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				switch (rgSetting.getCheckedRadioButtonId()) {
-				case R.id.rbSettingProjectItem:
-					amMessage
-							.showMessage(getString(R.string.dragToChangeCycle));
-					break;
-				case R.id.rbSettingCycle:
-					amMessage.showMessage(getString(R.string.hlepCycle));
-					break;
-				case R.id.rbSettingWelcome:
-					amMessage.showMessage(getString(R.string.helpwelcome));
-					break;
+					case R.id.rbSettingProjectItem :
+						amMessage.showMessage(getString(R.string.dragToChangeCycle));
+						break;
+					case R.id.rbSettingCycle :
+						amMessage.showMessage(getString(R.string.hlepCycle));
+						break;
+					case R.id.rbSettingWelcome :
+						amMessage.showMessage(getString(R.string.helpwelcome));
+						break;
 				}
 			}
 		});
@@ -155,8 +139,7 @@ public class SettingActivity extends FragmentActivity {
 			return;
 		}
 		FragmentTransaction transaction = fmManager.beginTransaction();
-		transaction.setCustomAnimations(R.anim.slide_in_right,
-				R.anim.slide_out_left);
+		transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
 		transaction.replace(R.id.flSettingContent, fragment);
 		transaction.commit();
 		fmManager.executePendingTransactions();
@@ -167,18 +150,18 @@ public class SettingActivity extends FragmentActivity {
 		public static Fragment getInstanceByIndex(int index) {
 			Fragment fragment = null;
 			switch (index) {
-			case R.id.rbSettingProjectItem:
-				fragment = new SettingProjectItemFragment();
-				break;
-			case R.id.rbSettingCycle:
-				fragment = new SettingCycleFragment();
-				break;
-			case R.id.rbSettingWelcome:
-				fragment = new SettingWelcomeFragment();
-				break;
-			case R.id.rbAppSetting:
-				fragment = new SettingSystemFragment();
-				break;
+				case R.id.rbSettingProjectItem :
+					fragment = new SettingProjectItemFragment();
+					break;
+				case R.id.rbSettingCycle :
+					fragment = new SettingCycleFragment();
+					break;
+				case R.id.rbSettingWelcome :
+					fragment = new SettingWelcomeFragment();
+					break;
+				case R.id.rbAppSetting :
+					fragment = new SettingSystemFragment();
+					break;
 			}
 			return fragment;
 		}
@@ -188,62 +171,60 @@ public class SettingActivity extends FragmentActivity {
 		if (config.isFrist() && !config.isProjectStarted()) {
 			rbAppSetting.setVisibility(View.GONE);
 			switch (rgSetting.getCheckedRadioButtonId()) {
-			case R.id.rbSettingProjectItem:
-				tvSettingDone.setText(R.string.next);
-				tvSettingDone.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						if (app.getMorals().size() < 1) {
-							amMessage
-									.showMessage(getString(R.string.havenoitem));
-							return;
+				case R.id.rbSettingProjectItem :
+					tvSettingDone.setText(R.string.next);
+					tvSettingDone.setOnClickListener(new OnClickListener() {
+						@Override
+						public void onClick(View v) {
+							if (app.getMorals().size() < 1) {
+								amMessage.showMessage(getString(R.string.havenoitem));
+								return;
+							}
+							rbSettingCycle.setChecked(true);
 						}
-						rbSettingCycle.setChecked(true);
-					}
-				});
-				break;
-			case R.id.rbSettingCycle:
-				tvSettingDone.setText(R.string.next);
-				tvSettingDone.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						if (!cycleClicked) {
-							amMessage
-									.showMessage(getString(R.string.cannotchange4));
-							cycleClicked = true;
-							return;
+					});
+					break;
+				case R.id.rbSettingCycle :
+					tvSettingDone.setText(R.string.next);
+					tvSettingDone.setOnClickListener(new OnClickListener() {
+						@Override
+						public void onClick(View v) {
+							if (!cycleClicked) {
+								amMessage.showMessage(getString(R.string.cannotchange4));
+								cycleClicked = true;
+								return;
+							}
+							rbSettingWelcome.setChecked(true);
 						}
-						rbSettingWelcome.setChecked(true);
-					}
-				});
-				break;
-			case R.id.rbSettingWelcome:
-				finishSetting();
-				break;
+					});
+					break;
+				case R.id.rbSettingWelcome :
+					finishSetting();
+					break;
 			}
 		} else {
 			tvSettingRestore.setVisibility(View.GONE);
 			finishSetting();
 			switch (rgSetting.getCheckedRadioButtonId()) {
-			case R.id.rbSettingProjectItem:
-				rbSettingWelcome.setVisibility(View.GONE);
-				rbAppSetting.setVisibility(View.GONE);
-				rbSettingCycle.setVisibility(View.GONE);
-				rbSettingProjectItem.setVisibility(View.VISIBLE);
-				break;
-			case R.id.rbSettingWelcome:
-				rbSettingProjectItem.setVisibility(View.GONE);
-				rbAppSetting.setVisibility(View.GONE);
-				rbSettingCycle.setVisibility(View.GONE);
-				rbSettingWelcome.setVisibility(View.VISIBLE);
-				break;
-			case R.id.rbAppSetting:
-				rbSettingProjectItem.setVisibility(View.GONE);
-				rbSettingWelcome.setVisibility(View.GONE);
-				rbSettingCycle.setVisibility(View.GONE);
-				tvSettingHelp.setVisibility(View.GONE);
-				rbAppSetting.setVisibility(View.VISIBLE);
-				break;
+				case R.id.rbSettingProjectItem :
+					rbSettingWelcome.setVisibility(View.GONE);
+					rbAppSetting.setVisibility(View.GONE);
+					rbSettingCycle.setVisibility(View.GONE);
+					rbSettingProjectItem.setVisibility(View.VISIBLE);
+					break;
+				case R.id.rbSettingWelcome :
+					rbSettingProjectItem.setVisibility(View.GONE);
+					rbAppSetting.setVisibility(View.GONE);
+					rbSettingCycle.setVisibility(View.GONE);
+					rbSettingWelcome.setVisibility(View.VISIBLE);
+					break;
+				case R.id.rbAppSetting :
+					rbSettingProjectItem.setVisibility(View.GONE);
+					rbSettingWelcome.setVisibility(View.GONE);
+					rbSettingCycle.setVisibility(View.GONE);
+					tvSettingHelp.setVisibility(View.GONE);
+					rbAppSetting.setVisibility(View.VISIBLE);
+					break;
 			}
 		}
 	}
@@ -265,46 +246,39 @@ public class SettingActivity extends FragmentActivity {
 					getApp().saveAppConfig(config);
 					buildAllCycleDate();
 					getApp().initSaveData();
-					Intent helperIntent = new Intent(SettingActivity.this,
-							HelperActivity.class);
+					Intent helperIntent = new Intent(SettingActivity.this, HelperActivity.class);
 					startActivity(helperIntent);
 					finish();
-					overridePendingTransition(R.anim.in_from_right,
-							R.anim.out_to_left);
+					overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 				} else {
 					switch (rgSetting.getCheckedRadioButtonId()) {
-					case R.id.rbSettingProjectItem:
-						getApp().updateMorals();
-						break;
-					case R.id.rbSettingWelcome:
-						getApp().updateMottos();
-						break;
+						case R.id.rbSettingProjectItem :
+							getApp().updateMorals();
+							break;
+						case R.id.rbSettingWelcome :
+							getApp().updateMottos();
+							break;
 					}
-					Intent mainIntent = new Intent(SettingActivity.this,
-							MainActivity.class);
+					Intent mainIntent = new Intent(SettingActivity.this, MainActivity.class);
 					SettingActivity.this.startActivity(mainIntent);
 					SettingActivity.this.finish();
-					overridePendingTransition(R.anim.in_from_right,
-							R.anim.out_to_left);
+					overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 				}
 			}
 		});
 	}
 
 	public void restoreDefault() {
+		getApp().getMgr().restoretodefault();
 		initAppWithDefaultData(true);
 		buildAllCycleDate();
-		((RadioButton) findViewById(R.id.rbSettingProjectItem))
-				.setChecked(true);
-		SettingProjectItemFragment setfgm = (SettingProjectItemFragment) fmManager
-				.findFragmentById(R.id.flSettingContent);
+		((RadioButton) findViewById(R.id.rbSettingProjectItem)).setChecked(true);
+		SettingProjectItemFragment setfgm = (SettingProjectItemFragment) fmManager.findFragmentById(R.id.flSettingContent);
 		if (setfgm != null) {
 			setfgm.ReStore();
 		}
-		amMessage.showMessage(getString(R.string.restoreToDefault),
-				AnimMessage.AnimMessageType.WARNING);
+		amMessage.showMessage(getString(R.string.restoreToDefault), AnimMessage.AnimMessageType.WARNING);
 	}
-
 	private void initAppWithDefaultData(boolean force) {
 		if (config.isDefaultSaved() && !force)
 			return;
@@ -391,8 +365,7 @@ public class SettingActivity extends FragmentActivity {
 	public void onBackPressed() {
 		long currentPressed = System.currentTimeMillis();
 		if ((currentPressed - touchTime) >= WaitTime) {
-			amMessage.showMessage(getString(R.string.pressToExit),
-					AnimMessageType.Hint);
+			amMessage.showMessage(getString(R.string.pressToExit), AnimMessageType.Hint);
 			touchTime = currentPressed;
 		} else {
 			super.onBackPressed();

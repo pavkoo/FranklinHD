@@ -117,6 +117,7 @@ public class MainActivity extends ParentActivity
 	private List<Moral> morals;
 	private List<Comment> comments;
 	private HashMap<String, List<SignRecords>> newWeek;
+	private List<SignRecords> signlist;
 	private CommentAdapter cadapter;
 	private Moral todayMoral;
 	private BlemishReport blemishReport;
@@ -358,11 +359,13 @@ public class MainActivity extends ParentActivity
 		blemishReport.setMorals(morals);
 		blemishReport.setNewWeekData(newWeek);
 		blemishReport.setCurrent(todayMoral.getStartDate());
-		tvCycleReprotAppCount.setText(String.valueOf(getApp().getAppCon().getUseAppCount()));
-		tvCycleReportUserCheckedCount.setText(String.valueOf(getApp().getMgr().getTotoalSignCount()));
+		int allUse = getApp().getAppCon().getUseAppCount();
+		int allSign = getApp().getMgr().getTotoalSignCount();
+		tvCycleReprotAppCount.setText(String.valueOf(allUse));
+		tvCycleReportUserCheckedCount.setText(String.valueOf(allSign));
 		tvCycleReportUserCheckedCount.setClickable(false);
 		if (morals.size() > 0) {
-			int cycleSize = morals.get(0).getStateList().size() / morals.get(0).getCycle();
+			int cycleSize = allUse / morals.get(0).getCycle();
 			if (cycleSize >= 1) {
 				tvCycleReportUserCheckedCount.setClickable(true);
 				tvCycleReportUserCheckedCount.startAnimation(shakeAnim);
@@ -370,20 +373,13 @@ public class MainActivity extends ParentActivity
 
 					@Override
 					public void onClick(View v) {
-						trendDialog.setMorals(morals);
+						signlist = getApp().getMgr().loadSignedRecord();
+						trendDialog.setData(morals, signlist);
 						trendDialog.show();
 					}
 				});
 			}
 		}
-	}
-
-	private int getTotalCheckted() {
-		int total = 0;
-		for (int i = 0; i < morals.size(); i++) {
-			total += morals.get(i).getCheckedCount();
-		}
-		return total;
 	}
 
 	@Override
@@ -488,6 +484,8 @@ public class MainActivity extends ParentActivity
 
 		return true;
 	}
+
+	@SuppressLint("NewApi")
 	@SuppressWarnings("deprecation")
 	private void initGroupReview(int selectedIndex) {
 		olderList = new ArrayList<TextView>();
