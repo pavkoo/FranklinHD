@@ -10,6 +10,7 @@ import com.pavkoo.franklin.common.UtilsClass;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.util.SparseIntArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
@@ -22,20 +23,23 @@ public class BlemishReportTotalDialog extends ParentDialog {
 	private ListView lvTotal;
 	private TotalAdapter totalAdapter;
 	private List<Moral> morals;
+	private SparseIntArray doneRate;
 	View dialogView;
 
 	public List<Moral> getMorals() {
 		return morals;
 	}
 
-	public void setMorals(List<Moral> morals, int mainColor) {
+	public void iniTotalData(List<Moral> morals, int mainColor,SparseIntArray doneRate) {
 		this.morals = morals;
+		this.doneRate = doneRate;
 		if (totalAdapter == null) {
 			totalAdapter = new TotalAdapter(this.getContext(), morals,
-					mainColor);
+					mainColor,doneRate);
 			lvTotal.setAdapter(totalAdapter);
 		} else {
 			totalAdapter.setMorals(morals);
+			totalAdapter.setDoneRate(this.doneRate);
 		}
 	}
 

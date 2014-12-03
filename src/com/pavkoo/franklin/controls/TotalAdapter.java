@@ -2,6 +2,7 @@ package com.pavkoo.franklin.controls;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.nineoldandroids.view.ViewHelper;
@@ -10,6 +11,7 @@ import com.pavkoo.franklin.common.Moral;
 import com.pavkoo.franklin.common.UtilsClass;
 
 import android.content.Context;
+import android.util.SparseIntArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,16 @@ public class TotalAdapter extends BaseAdapter {
 	private LinearLayout llCommentItemBg;
 	private TextView txtCommentItemNumber;
 	private TextView txtCommentItemText;
+	
+	private SparseIntArray doneRate;
+	
+	public SparseIntArray getDoneRate() {
+		return doneRate;
+	}
+
+	public void setDoneRate(SparseIntArray doneRate) {
+		this.doneRate = doneRate;
+	}
 
 	private List<Moral> morals;
 
@@ -48,10 +60,11 @@ public class TotalAdapter extends BaseAdapter {
 
 	private Context context;
 
-	public TotalAdapter(Context context, List<Moral> morals, int mainColor) {
+	public TotalAdapter(Context context, List<Moral> morals, int mainColor,SparseIntArray doneRate) {
 		this.context = context;
 		this.mainColor = mainColor;
 		this.setMorals(morals);
+		this.doneRate = doneRate;
 	}
 
 	@Override
@@ -87,8 +100,9 @@ public class TotalAdapter extends BaseAdapter {
 			title = UtilsClass.shortString(title);
 		}
 		txtCommentItemNumber.setText(String.valueOf(title));
-		int total = morals.get(position).getTotalCheckCount();
-		int checked = morals.get(position).getTotalCheckedSize();
+		Date current = new Date(System.currentTimeMillis());
+		int total = (int) UtilsClass.dayCount(morals.get(position).getStartDate(), current) +1;
+		int checked =doneRate.get(morals.get(position).getId());
 		float doneRate = 0.0f;
 		if (total != 0) {
 			doneRate = (float) checked / total;

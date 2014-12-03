@@ -1,7 +1,9 @@
 package com.pavkoo.franklin.common;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+
 import android.app.Application;
 import android.util.Log;
 
@@ -12,6 +14,7 @@ public class FranklinApplication extends Application {
 	public static int AnimationDurationShort = 400;
 
 	private DBManager mgr;
+
 	public DBManager getMgr() {
 		return mgr;
 	}
@@ -20,8 +23,11 @@ public class FranklinApplication extends Application {
 	private List<Moral> morals;
 	private List<Comment> comments;
 	private List<String> welcomes;
-	private List<SignRecords> signRecordList;
+	private HashMap<String, List<SignRecords>> newWeek;
 
+	public HashMap<String, List<SignRecords>> getNewWeek() {
+		return newWeek;
+	}
 	public List<String> getWelcomes() {
 		return welcomes;
 	}
@@ -97,24 +103,30 @@ public class FranklinApplication extends Application {
 
 	private void loadDataFromDb() {
 		appCon = mgr.loadConfig();
+		morals = mgr.loadMorals();
+		comments = mgr.loadComment();
+		welcomes = mgr.loadMottos();
 	}
 
 	public void initSaveData() {
-		saveAppConfig(appCon,true);
-		saveComments(comments,true);
-		saveMorals(morals,true);
-		saveWelcomes(welcomes,true);
-		setSignRecordList(mgr.loadSignRecord());
+		saveAppConfig(appCon, true);
+		saveComments(comments, true);
+		saveMorals(morals, true);
+		saveWelcomes(welcomes, true);
 	}
-	
-	public void updateMorals(){
+
+	public void updateMorals() {
 		mgr.updateMorals(morals);
 		morals = mgr.loadMorals();
 	}
-	
-	public void updateMottos(){
+
+	public void updateMottos() {
 		mgr.updateMottos(welcomes);
-		welcomes =  mgr.loadMottos();
+		welcomes = mgr.loadMottos();
+	}
+
+	public void loadThisWeek(Date startDate, Date endDate) {
+		newWeek = mgr.getNewWeekSing(startDate, endDate);
 	}
 
 	// 重新开始新的周期
@@ -129,9 +141,7 @@ public class FranklinApplication extends Application {
 		UtilsClass.reArrangeDate(morals);
 		for (int i = 0; i < morals.size(); i++) {
 			morals.get(i).reSet();
-			Log.i("Day", "Start:" + morals.get(i).getStartDate().toString()
-					+ "------------ End:"
-					+ morals.get(i).getEndDate().toString());
+			Log.i("Day", "Start:" + morals.get(i).getStartDate().toString() + "------------ End:" + morals.get(i).getEndDate().toString());
 		}
 		saveMorals(morals);
 		mPreference.saveHistoryComments(comments, appHistoryCount);
@@ -146,7 +156,8 @@ public class FranklinApplication extends Application {
 	public void saveComments(List<Comment> commentList, boolean toDB) {
 		if (toDB) {
 			mgr.importComms(commentList);
-			commentList = mgr.loadComment();
+			comments = mgr.loadComment();
+			return;
 		}
 		comments = commentList;
 	}
@@ -180,16 +191,10 @@ public class FranklinApplication extends Application {
 	public void saveMorals(List<Moral> moralList, boolean toDB) {
 		if (toDB) {
 			mgr.importMorals(moralList);
-			moralList = mgr.loadMorals();
+			morals = mgr.loadMorals();
+			return;
 		}
 		morals = moralList;
 	}
 
-	public List<SignRecords> getSignRecordList() {
-		return signRecordList;
-	}
-
-	public void setSignRecordList(List<SignRecords> signRecordList) {
-		this.signRecordList = signRecordList;
-	}
 }

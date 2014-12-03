@@ -95,8 +95,8 @@
     <string name="yesterday">昨天</string>
     <string name="dayBeforeYesterday">前天</string>
     <string name="moreDay">天前</string>
-    <string name="startNewMoralInfo">开始进行为期 %1$d 天的 %2$s 训练计划</string>
-    <string name="startNewMoralInfo2">已经完成训练  %1$s\n开始进行为期 %2$d 天的 %3$s 训练计划</string>
+    <string name="startNewMoralInfo">开始进行为期 %1$d 天的 %2$s 训练计划,密切预防关于  %2$s 的任何极细微的过失</string>
+    <string name="startNewMoralInfo2">已经完成训练  %1$s ，以后只是记下有关的过失\n开始进行为期 %2$d 天的 %3$s 训练计划;密切预防关于  %2$d 的任何极细微的过失</string>
     <string name="beginMoral">"%1$s 训练已经进行到第  %2$d 天"</string>
     <string name="manyDaynotuse">你已经超过 %1$d 天没有反省，加油</string>
     <string name="next">下一步</string>
@@ -252,7 +252,7 @@
     <string name="or">或者</string>
     <string name="Finishmodify">调整美德项目</string>
     <string name="finishOneTime">一轮训练已经完成，你可以</string>
-    <string name="todayhavepassed">时间似乎已经过去很久了，请在设置中恢复默认！</string>
+    <string name="todayhavepassed">训练时间已经过去了，请在设置中恢复默认！</string>
     <string name="havenoitem">一项美德都没有？请至少添加一项</string>
     <string name="cannotchange4">一旦训练周期确定，在使用中就不能改变。请仔细思考你将要为每一项美德花费的训练天数</string>
     <string name="mailto">mailto:pavkoo@live.com?subject=自我修养反馈&amp;body=感谢我吧，我要提一个意见：\n我认为</string>

@@ -3,6 +3,7 @@ package com.pavkoo.franklin;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import android.animation.ArgbEvaluator;
@@ -12,8 +13,6 @@ import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -21,12 +20,12 @@ import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.DisplayMetrics;
+import android.util.SparseIntArray;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLayoutChangeListener;
-import android.view.View.OnLongClickListener;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -62,13 +61,14 @@ import com.pavkoo.franklin.controls.IUpdateViewCallback;
 import com.pavkoo.franklin.controls.PredicateLayout;
 import com.pavkoo.franklin.controls.ScrollingTextView;
 import com.pavkoo.franklin.controls.Today;
-import com.pavkoo.franklin.controls.TodayDialog;
-import com.pavkoo.franklin.controls.TodayDialog.DialogState;
 import com.umeng.fb.FeedbackAgent;
 
-public class MainActivity extends ParentActivity implements
-		IUpdateTextCallBack, IUpdateViewCallback, IUpdateMoralSelectState,
-		IRemoveComment {
+public class MainActivity extends ParentActivity
+		implements
+			IUpdateTextCallBack,
+			IUpdateViewCallback,
+			IUpdateMoralSelectState,
+			IRemoveComment {
 
 	private enum ViewState {
 		HOME, // 主页
@@ -77,9 +77,8 @@ public class MainActivity extends ParentActivity implements
 		CONTACTME // 联系我界面
 	};
 
-	private String[] colors = { "#61ca63", "#61c7ca", "#7561ca", "#9861ca",
-			"#bb61ca", "#ca61b5", "#ca6193", "#ca6171", "#ca7561", "#ca9861",
-			"#cabb61", "#b5ca61" };
+	private String[] colors = {"#61ca63", "#61c7ca", "#7561ca", "#9861ca", "#bb61ca", "#ca61b5", "#ca6193", "#ca6171", "#ca7561",
+			"#ca9861", "#cabb61", "#b5ca61"};
 
 	private CyclePager cycleContent;
 	private LinearLayout llCycleToday;
@@ -114,11 +113,10 @@ public class MainActivity extends ParentActivity implements
 	private Animation shakeAnim;
 
 	private Boolean mMenuExpanded = true;
-	private TodayDialog dialog;
 	private Today today;
 	private List<Moral> morals;
 	private List<Comment> comments;
-	private List<SignRecords> srList;
+	private HashMap<String, List<SignRecords>> newWeek;
 	private CommentAdapter cadapter;
 	private Moral todayMoral;
 	private BlemishReport blemishReport;
@@ -154,45 +152,35 @@ public class MainActivity extends ParentActivity implements
 		tvMainDate = (TextView) findViewById(R.id.tvMainDate);
 		txtMotto = (TextView) findViewById(R.id.txtMotto);
 		txtMainShare = (TextView) findViewById(R.id.txtMainShare);
-		indicatorAnim = AnimationUtils.loadAnimation(this,
-				R.anim.indicator_scale);
+		indicatorAnim = AnimationUtils.loadAnimation(this, R.anim.indicator_scale);
 		amMessage = (AnimMessage) findViewById(R.id.amMainMessage);
 		vfMainFlopper = (ViewFlipper) findViewById(R.id.vfMainFlopper);
 		tvMainTime = (TextView) findViewById(R.id.tvMainTime);
 		tvMainTimeHide = (TextView) findViewById(R.id.tvMainTimeHide);
-		vfMainFlopper.setInAnimation(AnimationUtils.loadAnimation(this,
-				R.anim.push_left_in));
-		vfMainFlopper.setOutAnimation(AnimationUtils.loadAnimation(this,
-				R.anim.push_left_out));
+		vfMainFlopper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_in));
+		vfMainFlopper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_out));
 		shakeAnim = AnimationUtils.loadAnimation(this, R.anim.shake);
 		cycleContent = (CyclePager) findViewById(R.id.clcpagerContent);
 		cycleContent.setUpdateViewCallBack(this);
-		llCycleToday = (LinearLayout) LayoutInflater.from(this).inflate(
-				R.layout.cycle_today_selector, null);
-		llCycleReport = (LinearLayout) LayoutInflater.from(this).inflate(
-				R.layout.cycle_history_report, null);
-		llCycleComments = (LinearLayout) LayoutInflater.from(this).inflate(
-				R.layout.cycle_history_comments, null);
-		ivCommentNomore = (ImageView) llCycleComments
-				.findViewById(R.id.ivCommentNomore);
-		blemishReport = (BlemishReport) llCycleReport
-				.findViewById(R.id.blemishReport);
-		tvCycleReprotAppCount = (TextView) llCycleReport
-				.findViewById(R.id.tvCycleReprotAppCount);
-		tvCycleHistoryTitle = (TextView) llCycleReport
-				.findViewById(R.id.tvCycleHistoryTitle);
-		tvCycleCommentTitle = (TextView) llCycleComments
-				.findViewById(R.id.tvCycleCommentTitle);
+		llCycleToday = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.cycle_today_selector, null);
+		llCycleReport = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.cycle_history_report, null);
+		llCycleComments = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.cycle_history_comments, null);
+		ivCommentNomore = (ImageView) llCycleComments.findViewById(R.id.ivCommentNomore);
+		blemishReport = (BlemishReport) llCycleReport.findViewById(R.id.blemishReport);
+		tvCycleReprotAppCount = (TextView) llCycleReport.findViewById(R.id.tvCycleReprotAppCount);
+		tvCycleHistoryTitle = (TextView) llCycleReport.findViewById(R.id.tvCycleHistoryTitle);
+		tvCycleCommentTitle = (TextView) llCycleComments.findViewById(R.id.tvCycleCommentTitle);
 		tvCycleReprotAppCount.startAnimation(shakeAnim);
 		tvCycleReprotAppCount.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
+				SparseIntArray doneRate = getApp().getMgr().getDoneSignCount();
+				totalDialog.iniTotalData(morals, mainColor, doneRate);
 				totalDialog.show();
 			}
 		});
-		tvCycleReportUserCheckedCount = (TextView) llCycleReport
-				.findViewById(R.id.tvCycleReportUserCheckedCount);
+		tvCycleReportUserCheckedCount = (TextView) llCycleReport.findViewById(R.id.tvCycleReportUserCheckedCount);
 		today = (Today) llCycleToday.findViewById(R.id.today);
 		today.setUpdateText(this);
 		today.setUpdateSelectState(this);
@@ -205,13 +193,11 @@ public class MainActivity extends ParentActivity implements
 
 			@Override
 			public void onClick(View v) {
-				Intent setIntent = new Intent(MainActivity.this,
-						SettingActivity.class);
+				Intent setIntent = new Intent(MainActivity.this, SettingActivity.class);
 				setIntent.putExtra("STARTMODE", R.id.rbAppSetting);
 				MainActivity.this.startActivity(setIntent);
 				MainActivity.this.finish();
-				overridePendingTransition(R.anim.in_from_right,
-						R.anim.out_to_left);
+				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			}
 		});
 		txtContactMe.setOnClickListener(new OnClickListener() {
@@ -220,8 +206,7 @@ public class MainActivity extends ParentActivity implements
 			public void onClick(View v) {
 				FeedbackAgent agent = new FeedbackAgent(MainActivity.this);
 				agent.startFeedbackActivity();
-				overridePendingTransition(R.anim.in_from_right,
-						R.anim.out_to_left);
+				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 				// 不再使用邮件反馈
 				// Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
 				// Uri uri = Uri.parse(getString(R.string.mailto));
@@ -239,13 +224,11 @@ public class MainActivity extends ParentActivity implements
 
 			@Override
 			public void onClick(View v) {
-				Intent splashIntent = new Intent(MainActivity.this,
-						SplashActivity.class);
+				Intent splashIntent = new Intent(MainActivity.this, SplashActivity.class);
 				splashIntent.putExtra("flag", true);
 				MainActivity.this.startActivity(splashIntent);
 				MainActivity.this.finish();
-				overridePendingTransition(R.anim.in_from_right,
-						R.anim.out_to_left);
+				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			}
 		});
 		txtMainShare.setOnClickListener(new OnClickListener() {
@@ -254,27 +237,21 @@ public class MainActivity extends ParentActivity implements
 			public void onClick(View arg0) {
 				int pos = cycleContent.getCurrent();
 				switch (pos) {
-				case 0:
-					UtilsClass.shareMsg(MainActivity.this,
-							getString(R.string.Mainshare),
-							getString(R.string.shareReflections),
-							MainActivity.this.getWindow().getDecorView());
-					break;
-				case 1:
-					UtilsClass.shareMsg(MainActivity.this,
-							getString(R.string.Mainshare),
-							getString(R.string.ImGetBetter), MainActivity.this
-									.getWindow().getDecorView());
-					break;
+					case 0 :
+						UtilsClass.shareMsg(MainActivity.this, getString(R.string.Mainshare), getString(R.string.shareReflections),
+								MainActivity.this.getWindow().getDecorView());
+						break;
+					case 1 :
+						UtilsClass.shareMsg(MainActivity.this, getString(R.string.Mainshare), getString(R.string.ImGetBetter),
+								MainActivity.this.getWindow().getDecorView());
+						break;
 
-				case 2:
-					UtilsClass.shareMsg(MainActivity.this,
-							getString(R.string.Mainshare),
-							getString(R.string.shareReport), MainActivity.this
-									.getWindow().getDecorView());
-					break;
-				default:
-					break;
+					case 2 :
+						UtilsClass.shareMsg(MainActivity.this, getString(R.string.Mainshare), getString(R.string.shareReport),
+								MainActivity.this.getWindow().getDecorView());
+						break;
+					default :
+						break;
 				}
 
 			}
@@ -293,74 +270,49 @@ public class MainActivity extends ParentActivity implements
 					trHomeToolBar.getAnimation().cancel();
 				}
 				switch (state) {
-				case HOME:
-					if (mMenuExpanded) {
-						MainActivity.this.getApp();
-						if (Build.VERSION.SDK_INT > 12) {
-							trHomeToolBar
-									.animate()
-									.scaleX(0)
-									.setDuration(
-											FranklinApplication.AnimationDurationShort)
-									.setInterpolator(
-											new AccelerateInterpolator())
-									.start();
-							ivHome.animate()
-									.rotation(0)
-									.setDuration(
-											FranklinApplication.AnimationDurationShort)
-									.setInterpolator(
-											new DecelerateInterpolator())
-									.start();
+					case HOME :
+						if (mMenuExpanded) {
+							MainActivity.this.getApp();
+							if (Build.VERSION.SDK_INT > 12) {
+								trHomeToolBar.animate().scaleX(0).setDuration(FranklinApplication.AnimationDurationShort)
+										.setInterpolator(new AccelerateInterpolator()).start();
+								ivHome.animate().rotation(0).setDuration(FranklinApplication.AnimationDurationShort)
+										.setInterpolator(new DecelerateInterpolator()).start();
+							} else {
+								ViewHelper.setScaleX(trHomeToolBar, 0);
+							}
 						} else {
-							ViewHelper.setScaleX(trHomeToolBar, 0);
-						}
-					} else {
-						if (Build.VERSION.SDK_INT > 12) {
-							trHomeToolBar
-									.animate()
-									.scaleX(1)
-									.setDuration(
-											FranklinApplication.AnimationDurationShort)
-									.setInterpolator(
-											new OvershootInterpolator())
-									.start();
-							ivHome.animate()
-									.rotation(315)
-									.setDuration(
-											FranklinApplication.AnimationDurationShort)
-									.setInterpolator(
-											new DecelerateInterpolator())
-									.start();
-						} else {
-							ViewHelper.setScaleX(trHomeToolBar, 1);
-						}
+							if (Build.VERSION.SDK_INT > 12) {
+								trHomeToolBar.animate().scaleX(1).setDuration(FranklinApplication.AnimationDurationShort)
+										.setInterpolator(new OvershootInterpolator()).start();
+								ivHome.animate().rotation(315).setDuration(FranklinApplication.AnimationDurationShort)
+										.setInterpolator(new DecelerateInterpolator()).start();
+							} else {
+								ViewHelper.setScaleX(trHomeToolBar, 1);
+							}
 
-					}
-					mMenuExpanded = !mMenuExpanded;
-					break;
-				default:
-					break;
+						}
+						mMenuExpanded = !mMenuExpanded;
+						break;
+					default :
+						break;
 				}
 			}
 		});
 		if (Build.VERSION.SDK_INT > 10) {
-			tvMainTitleMotto
-					.addOnLayoutChangeListener(new OnLayoutChangeListener() {
+			tvMainTitleMotto.addOnLayoutChangeListener(new OnLayoutChangeListener() {
 
-						@Override
-						public void onLayoutChange(View v, int left, int top,
-								int right, int bottom, int oldLeft, int oldTop,
-								int oldRight, int oldBottom) {
-							LayoutParams params = (LayoutParams) v
-									.getLayoutParams();
-							params.width = right - left;
-							params.height = bottom - top;
-							params.weight = 0;
-							v.removeOnLayoutChangeListener(this);
-							v.setLayoutParams(params);
-						}
-					});
+				@Override
+				public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight,
+						int oldBottom) {
+					LayoutParams params = (LayoutParams) v.getLayoutParams();
+					params.width = right - left;
+					params.height = bottom - top;
+					params.weight = 0;
+					v.removeOnLayoutChangeListener(this);
+					v.setLayoutParams(params);
+				}
+			});
 		}
 	}
 
@@ -379,72 +331,49 @@ public class MainActivity extends ParentActivity implements
 		}
 		int pos = cycleContent.getCurrent();
 		switch (pos) {
-		case 0:
-			viewIndicatiorLeft.startAnimation(indicatorAnim);
-			ViewHelper.setAlpha(viewIndicatiorLeft, 0.8f);
-			break;
-		case 1:
-			viewIndicatiorCenter.startAnimation(indicatorAnim);
-			ViewHelper.setAlpha(viewIndicatiorCenter, 0.8f);
-			break;
-		case 2:
-			viewIndicatiorRight.startAnimation(indicatorAnim);
-			ViewHelper.setAlpha(viewIndicatiorRight, 0.8f);
-			break;
-		default:
-			break;
+			case 0 :
+				viewIndicatiorLeft.startAnimation(indicatorAnim);
+				ViewHelper.setAlpha(viewIndicatiorLeft, 0.8f);
+				break;
+			case 1 :
+				viewIndicatiorCenter.startAnimation(indicatorAnim);
+				ViewHelper.setAlpha(viewIndicatiorCenter, 0.8f);
+				break;
+			case 2 :
+				viewIndicatiorRight.startAnimation(indicatorAnim);
+				ViewHelper.setAlpha(viewIndicatiorRight, 0.8f);
+				break;
+			default :
+				break;
 		}
 		indicatorAnim.startNow();
 	}
 
 	private void iniDialog() {
-		dialog = new TodayDialog(this,
-				android.R.style.Theme_Translucent_NoTitleBar);
-		dialog.setOnDismissListener(new OnDismissListener() {
-
-			@Override
-			public void onDismiss(DialogInterface dialog) {
-				int dayoffset = today.getCurrentShowing();
-				TextView v = (TextView) MainActivity.this.dialog
-						.getExtraObject();
-				Moral moral = morals.get(v.getId());
-				CheckState cs = updateCheckState((TextView) v,
-						((TodayDialog) dialog).getCheckState(), false);
-				moral.setHistorySelected(dayoffset, cs);
-				if (((TodayDialog) dialog).isNewComment()) {
-					moral.getComments().set(moral.getComments().size() - 1,
-							((TodayDialog) dialog).getNewCommentIndex());
-				}
-				MainActivity.this.getApp().saveMorals(morals);
-			}
-		});
-		totalDialog = new BlemishReportTotalDialog(this,
-				android.R.style.Theme_Translucent_NoTitleBar);
-		trendDialog = new BlemishReportTrendDialog(this,
-				android.R.style.Theme_Translucent_NoTitleBar);
+		totalDialog = new BlemishReportTotalDialog(this, android.R.style.Theme_Translucent_NoTitleBar);
+		trendDialog = new BlemishReportTrendDialog(this, android.R.style.Theme_Translucent_NoTitleBar);
 	}
 
 	private void iniReport() {
 		blemishReport.setMorals(morals);
-		tvCycleReprotAppCount.setText(String.valueOf(getApp().getAppCon()
-				.getUseAppCount()));
-		tvCycleReportUserCheckedCount.setText(String
-				.valueOf(getTotalCheckted()));
+		blemishReport.setNewWeekData(newWeek);
+		blemishReport.setCurrent(todayMoral.getStartDate());
+		tvCycleReprotAppCount.setText(String.valueOf(getApp().getAppCon().getUseAppCount()));
+		tvCycleReportUserCheckedCount.setText(String.valueOf(getApp().getMgr().getTotoalSignCount()));
 		tvCycleReportUserCheckedCount.setClickable(false);
 		if (morals.size() > 0) {
-			int cycleSize = morals.get(0).getStateList().size()
-					/ morals.get(0).getCycle();
+			int cycleSize = morals.get(0).getStateList().size() / morals.get(0).getCycle();
 			if (cycleSize >= 1) {
 				tvCycleReportUserCheckedCount.setClickable(true);
 				tvCycleReportUserCheckedCount.startAnimation(shakeAnim);
-				tvCycleReportUserCheckedCount
-						.setOnClickListener(new OnClickListener() {
+				tvCycleReportUserCheckedCount.setOnClickListener(new OnClickListener() {
 
-							@Override
-							public void onClick(View v) {
-								trendDialog.show();
-							}
-						});
+					@Override
+					public void onClick(View v) {
+						trendDialog.setMorals(morals);
+						trendDialog.show();
+					}
+				});
 			}
 		}
 	}
@@ -461,18 +390,17 @@ public class MainActivity extends ParentActivity implements
 	protected void initViewData() {
 		morals = getApp().getMorals();
 		comments = getApp().getComments();
-		srList = getApp().getSignRecordList();
 		if (!initMorals()) {
 			return;
 		}
+		newWeek = getApp().getNewWeek();
 		tvMainTitle.setText(todayMoral.getTitle());
 		tvMainTitleDescrible.setText(todayMoral.getTitleDes());
 		tvMainTitleMotto.setText(todayMoral.getTitleMotto());
-		today.setMoral(todayMoral);
-		totalDialog.setMorals(morals, mainColor);
-		trendDialog.setMorals(morals);
+		today.setNewWeekData(newWeek);
+		today.updateViewByMoral(todayMoral);
 		iniReport();
-		initGroupReview(todayMoral.getCurrentDayInCycle() - 1);
+		initGroupReview(todayMoral.getCurrentDayInCycle());
 		initComment();
 		updateCommentDate();
 	}
@@ -482,18 +410,11 @@ public class MainActivity extends ParentActivity implements
 			notifyMgr.cancel(FranklinNotifyId);
 			return;
 		}
-		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-				this);
-		PendingIntent pIntent = PendingIntent.getActivity(this, 0, new Intent(
-				this, SplashActivity.class), 0);
-		mBuilder.setSmallIcon(R.drawable.ic_launcher)
-				.setTicker(getString(R.string.doyoudotaday))
-				.setContentTitle(
-						getString(R.string.todaySubject)
-								+ todayMoral.getTitle())
-				.setContentText(
-						getString(R.string.todo) + todayMoral.getTitleDes())
-				.setContentIntent(pIntent);
+		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+		PendingIntent pIntent = PendingIntent.getActivity(this, 0, new Intent(this, SplashActivity.class), 0);
+		mBuilder.setSmallIcon(R.drawable.ic_launcher).setTicker(getString(R.string.doyoudotaday))
+				.setContentTitle(getString(R.string.todaySubject) + todayMoral.getTitle())
+				.setContentText(getString(R.string.todo) + todayMoral.getTitleDes()).setContentIntent(pIntent);
 		Notification notify = mBuilder.build();
 		notify.icon = R.drawable.ic_launcher;
 		notify.flags = Notification.FLAG_ONGOING_EVENT;
@@ -505,14 +426,12 @@ public class MainActivity extends ParentActivity implements
 	@SuppressLint("NewApi")
 	private boolean initMorals() {
 		if (getApp().getMgr().isBeforeTraining()) {
-			amMessage.showMessage(getString(R.string.todayhavepassed),
-					AnimMessageType.ERROR);
+			amMessage.showMessage(getString(R.string.todayhavepassed), AnimMessageType.ERROR);
 			return false;
 		}
 
 		if (getApp().getMgr().isAfterTraning()) {
-			Intent finishIntent = new Intent(MainActivity.this,
-					FinishActivity.class);
+			Intent finishIntent = new Intent(MainActivity.this, FinishActivity.class);
 			startActivity(finishIntent);
 			finish();
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
@@ -527,50 +446,37 @@ public class MainActivity extends ParentActivity implements
 			if (morals.get(i).getId() == id) {
 				todayMoral = m;
 				Date now = new Date(System.currentTimeMillis());
-				int startoffset = (int) UtilsClass.dayCount(m.getStartDate(),
-						now) + 1;
+				int startoffset = (int) UtilsClass.dayCount(m.getStartDate(), now) + 1;
 				todayMoral.setCurrentDayInCycle(startoffset);
 				todayMoral.setFinished(false);
+				getApp().loadThisWeek(todayMoral.getStartDate(), todayMoral.getEndDate());
 				break;
 			}
 		}
-		
+
 		if (todayMoral.getCurrentDayInCycle() == 1) {
 			int finishedindex = morals.indexOf(todayMoral);
 			if (finishedindex == 0) {
 				amMessage.showMessage(
-						String.format(
-								getResources().getString(
-										R.string.startNewMoralInfo),
-								todayMoral.getCycle(), todayMoral.getTitle()),
+						String.format(getResources().getString(R.string.startNewMoralInfo), todayMoral.getCycle(), todayMoral.getTitle()),
 						3000);
 			} else {
-				amMessage.showMessage(String.format(
-						getResources().getString(R.string.startNewMoralInfo2),
-						morals.get(finishedindex - 1).getTitle(),
-						todayMoral.getCycle(), todayMoral.getTitle()), 3000);
+				amMessage.showMessage(String.format(getResources().getString(R.string.startNewMoralInfo2), morals.get(finishedindex - 1)
+						.getTitle(), todayMoral.getCycle(), todayMoral.getTitle()), 3000);
 			}
 		} else {
-			amMessage.showMessage(String.format(
-					getResources().getString(R.string.beginMoral),
-					todayMoral.getTitle(), todayMoral.getCurrentDayInCycle()),
+			amMessage.showMessage(
+					String.format(getResources().getString(R.string.beginMoral), todayMoral.getTitle(), todayMoral.getCurrentDayInCycle()),
 					3000);
 		}
 		int unsetStateDay = getApp().getMgr().lastReflectDate();
 		if (unsetStateDay > 3) {
-			amMessage.showMessage(String.format(
-					getResources().getString(R.string.manyDaynotuse),
-					unsetStateDay), AnimMessageType.ERROR, 33000);
+			amMessage.showMessage(String.format(getResources().getString(R.string.manyDaynotuse), unsetStateDay), AnimMessageType.ERROR,
+					33000);
 			if (Build.VERSION.SDK_INT > 11) {
-				ValueAnimator colorAnim = ObjectAnimator
-						.ofInt(today,
-								"backgroundColor",
-								getResources().getColor(
-										R.color.white_app_bg_secondary),
-								getResources().getColor(
-										R.color.white_app_warning),
-								getResources().getColor(
-										R.color.white_app_bg_secondary));
+				ValueAnimator colorAnim = ObjectAnimator.ofInt(today, "backgroundColor",
+						getResources().getColor(R.color.white_app_bg_secondary), getResources().getColor(R.color.white_app_error),
+						getResources().getColor(R.color.white_app_bg_secondary));
 				colorAnim.setDuration(15000);
 				colorAnim.setStartDelay(6000);
 				colorAnim.setEvaluator(new ArgbEvaluator());
@@ -578,15 +484,10 @@ public class MainActivity extends ParentActivity implements
 			}
 		}
 
-		if (unsetStateDay != 1) {
-			notifyToday(false);
-		}
 		updateUIByMoral(morals.indexOf(todayMoral));
 
 		return true;
 	}
-
-	@SuppressLint("NewApi")
 	@SuppressWarnings("deprecation")
 	private void initGroupReview(int selectedIndex) {
 		olderList = new ArrayList<TextView>();
@@ -599,8 +500,7 @@ public class MainActivity extends ParentActivity implements
 			if (!morals.get(i).isFinished())
 				break;
 			TextView rb = new TextView(this);
-			GradientDrawable sd = (GradientDrawable) getResources()
-					.getDrawable(R.drawable.review_background_ring);
+			GradientDrawable sd = (GradientDrawable) getResources().getDrawable(R.drawable.review_background_ring);
 			sd.setColor(Color.parseColor(colors[i % colors.length]));
 			if (Build.VERSION.SDK_INT >= 16) {
 				rb.setBackground(sd);
@@ -614,97 +514,88 @@ public class MainActivity extends ParentActivity implements
 			rb.setText(title);
 			rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
 			rb.setTextColor(txtColor);
-			updateCheckState(rb, morals.get(i).getTodaySelected(), false);
-			rb.setId(i);
+			CheckState cs = UtilsClass.getNewWeekCSByDay(newWeek, morals.get(i), todayMoral.getStartDate(),
+					todayMoral.getCurrentDayInCycle() - 1);
+			updateCheckState(rb, cs, false);
+			rb.setId(morals.get(i).getId());
 			rb.setClickable(true);
 			rb.setPadding(padding, padding, padding, padding);
 			rb.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					CheckState cs = morals.get(v.getId()).getHistorySelected(
-							today.getCurrentShowing());
-					cs = updateCheckState((TextView) v, cs, true);
-					morals.get(v.getId()).setHistorySelected(
-							today.getCurrentShowing(), cs);
-					MainActivity.this.getApp().saveMorals(morals);
+					int index = UtilsClass.getIndexMorals(morals, v.getId());
+					SignRecords sr = UtilsClass.getNewWeekCSByDayCreate(newWeek, morals.get(index), todayMoral.getStartDate(),
+							today.getCurrentShowing() - 1, true);
+					if (sr.getCs() == CheckState.UNKNOW) {
+						sr.setCommentIndex(-1);
+						sr.setCs(updateCheckState((TextView) v, sr.getCs(), true));
+						getApp().getMgr().insertNew(sr);
+						if (getApp().getNewWeek().get(String.valueOf(sr.getMoarlIndex())) == null) {
+							ArrayList<SignRecords> slist = new ArrayList<SignRecords>();
+							slist.add(sr);
+							getApp().getNewWeek().put(String.valueOf(sr.getMoarlIndex()), slist);
+						} else {
+							getApp().getNewWeek().get(String.valueOf(sr.getMoarlIndex())).add(sr);
+						}
+					} else {
+						sr.setCs(updateCheckState((TextView) v, sr.getCs(), true));
+						getApp().getMgr().updateSr(sr);
+					}
 				}
 			});
-			rb.setOnLongClickListener(new OnLongClickListener() {
-
-				@Override
-				public boolean onLongClick(View v) {
-					CheckState cs = CheckState.UNDONE;
-					dialog.setCheckState(cs);
-					dialog.showState(DialogState.DSNote);
-					dialog.setExtraObject(v);
-					return true;
-				}
-			});
-			grpReview.addView(rb,
-					android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+			// TODO:暂时就不提供长按了 setOnLongClickListener
+			grpReview.addView(rb, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
 					android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
 			olderList.add(rb);
 		}
 	}
-
-	private CheckState updateCheckState(TextView tv, CheckState cs,
-			boolean reverse) {
+	private CheckState updateCheckState(TextView tv, CheckState cs, boolean reverse) {
 		switch (cs) {
-		case UNKNOW:
-			if (reverse) {
-				TransitionDrawable tsDrawTop = (TransitionDrawable) tv
-						.getCompoundDrawables()[1];
-				if (tsDrawTop == null) {
-					tsDrawTop = (TransitionDrawable) getResources()
-							.getDrawable(R.drawable.review_select_transition);
-					tsDrawTop.setCrossFadeEnabled(true);
-					tv.setCompoundDrawablesWithIntrinsicBounds(null, tsDrawTop,
-							null, null);
+			case UNKNOW :
+				if (reverse) {
+					TransitionDrawable tsDrawTop = (TransitionDrawable) tv.getCompoundDrawables()[1];
+					if (tsDrawTop == null) {
+						tsDrawTop = (TransitionDrawable) getResources().getDrawable(R.drawable.review_select_transition);
+						tsDrawTop.setCrossFadeEnabled(true);
+						tv.setCompoundDrawablesWithIntrinsicBounds(null, tsDrawTop, null, null);
+					}
+					return CheckState.DONE;
+				} else {
+					tv.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
 				}
-				return CheckState.DONE;
-			} else {
-				tv.setCompoundDrawablesWithIntrinsicBounds(null, null, null,
-						null);
-			}
-			break;
-		case DONE:
-			TransitionDrawable tsDrawTop = (TransitionDrawable) tv
-					.getCompoundDrawables()[1];
-			if (tsDrawTop == null) {
-				tsDrawTop = (TransitionDrawable) getResources().getDrawable(
-						R.drawable.review_select_transition);
-				tsDrawTop.setCrossFadeEnabled(true);
-				tv.setCompoundDrawablesWithIntrinsicBounds(null, tsDrawTop,
-						null, null);
-			} else {
-				tsDrawTop.resetTransition();
-			}
-			if (reverse) {
-				tsDrawTop.startTransition(400);
-				return CheckState.UNDONE;
-			}
-			break;
-		case UNDONE:
-			TransitionDrawable tsDrawTop2 = (TransitionDrawable) tv
-					.getCompoundDrawables()[1];
-			if (tsDrawTop2 == null) {
-				tsDrawTop2 = (TransitionDrawable) getResources().getDrawable(
-						R.drawable.review_select_transition);
-				tsDrawTop2.setCrossFadeEnabled(true);
-				tsDrawTop2.startTransition(0);
-				tv.setCompoundDrawablesWithIntrinsicBounds(null, tsDrawTop2,
-						null, null);
-			} else {
-				tsDrawTop2.resetTransition();
-				tsDrawTop2.startTransition(0);
-			}
-			if (reverse) {
-				tsDrawTop2.reverseTransition(400);
-				return CheckState.DONE;
-			}
-			break;
-		default:
-			break;
+				break;
+			case DONE :
+				TransitionDrawable tsDrawTop = (TransitionDrawable) tv.getCompoundDrawables()[1];
+				if (tsDrawTop == null) {
+					tsDrawTop = (TransitionDrawable) getResources().getDrawable(R.drawable.review_select_transition);
+					tsDrawTop.setCrossFadeEnabled(true);
+					tv.setCompoundDrawablesWithIntrinsicBounds(null, tsDrawTop, null, null);
+				} else {
+					tsDrawTop.resetTransition();
+				}
+				if (reverse) {
+					tsDrawTop.startTransition(400);
+					return CheckState.UNDONE;
+				}
+				break;
+			case UNDONE :
+				TransitionDrawable tsDrawTop2 = (TransitionDrawable) tv.getCompoundDrawables()[1];
+				if (tsDrawTop2 == null) {
+					tsDrawTop2 = (TransitionDrawable) getResources().getDrawable(R.drawable.review_select_transition);
+					tsDrawTop2.setCrossFadeEnabled(true);
+					tsDrawTop2.startTransition(0);
+					tv.setCompoundDrawablesWithIntrinsicBounds(null, tsDrawTop2, null, null);
+				} else {
+					tsDrawTop2.resetTransition();
+					tsDrawTop2.startTransition(0);
+				}
+				if (reverse) {
+					tsDrawTop2.reverseTransition(400);
+					return CheckState.DONE;
+				}
+				break;
+			default :
+				break;
 		}
 		return CheckState.UNKNOW;
 	}
@@ -743,16 +634,11 @@ public class MainActivity extends ParentActivity implements
 		tvMainDate.setText(UtilsClass.dateToString(showDate));
 		tvMainDate.setVisibility(View.VISIBLE);
 		if (time != "") {
-			todayDialogTitle = String.format(
-					getResources().getString(
-							R.string.todayControlPopupTitleFormat), time,
-					todayMoral.getTitle());
+			todayDialogTitle = String.format(getResources().getString(R.string.todayControlPopupTitleFormat), time, todayMoral.getTitle());
 		} else {
-			todayDialogTitle = getResources().getString(
-					R.string.today_control_popup_title);
+			todayDialogTitle = getResources().getString(R.string.today_control_popup_title);
 		}
 		today.setTodayDialogTitle(todayDialogTitle);
-		dialog.setDialogTitle(todayDialogTitle);
 		if (vfMainFlopper.getCurrentView() == tvMainTimeHide) {
 			tvMainTime.setText(time);
 		} else {
@@ -765,13 +651,13 @@ public class MainActivity extends ParentActivity implements
 	}
 
 	private void updateOlderList(int selectedDay) {
-		// olderList 和 morals list 一定是包含与一一对应关系
 		for (int i = 0; i < olderList.size(); i++) {
-			updateCheckState(olderList.get(i), morals.get(i)
-					.getHistorySelected(selectedDay), false);
+			int index = UtilsClass.getIndexMorals(morals, olderList.get(i).getId());
+			CheckState cs = UtilsClass.getNewWeekCSByDay(newWeek, morals.get(index), todayMoral.getStartDate(),
+					today.getCurrentShowing() - 1);
+			updateCheckState(olderList.get(i), cs, false);
 		}
 	}
-
 	@Override
 	public void updateTextCallBack() {
 		MainActivity.this.getApp().saveMorals(morals);
@@ -782,13 +668,9 @@ public class MainActivity extends ParentActivity implements
 	public void callUpdateFontSize() {
 		amMessage.reset();
 		blemishReport.invalidate();
-		totalDialog.setMorals(morals, mainColor);
-		trendDialog.setMorals(morals);
 		updateCommentDate();
-		tvCycleReprotAppCount.setText(String.valueOf(getApp().getAppCon()
-				.getUseAppCount()));
-		tvCycleReportUserCheckedCount.setText(String
-				.valueOf(getTotalCheckted()));
+		tvCycleReprotAppCount.setText(String.valueOf(getApp().getAppCon().getUseAppCount()));
+		tvCycleReportUserCheckedCount.setText(String.valueOf(getApp().getMgr().getTotoalSignCount()));
 		showIndicator();
 	}
 
@@ -796,8 +678,7 @@ public class MainActivity extends ParentActivity implements
 	public void onBackPressed() {
 		long currentPressed = System.currentTimeMillis();
 		if ((currentPressed - touchTime) >= WaitTime) {
-			amMessage.showMessage(getString(R.string.pressToExit),
-					AnimMessageType.Hint);
+			amMessage.showMessage(getString(R.string.pressToExit), AnimMessageType.Hint);
 			touchTime = currentPressed;
 		} else {
 			super.onBackPressed();
@@ -807,16 +688,13 @@ public class MainActivity extends ParentActivity implements
 	@SuppressLint("NewApi")
 	@SuppressWarnings("deprecation")
 	private void updateUIByMoral(int index) {
-		mainColor = Color.parseColor(CommonConst.colors[index
-				% CommonConst.colors.length]);
+		mainColor = Color.parseColor(CommonConst.colors[index % CommonConst.colors.length]);
 		tvMainTitle.setBackgroundColor(mainColor);
 		today.updateUIByMoral(index);
-		dialog.updateUIByMoral(index);
 		totalDialog.updateUIByMoral(index);
 		trendDialog.updateUIByMoral(index);
 		llTitle.setBackgroundColor(mainColor);
-		GradientDrawable gd = (GradientDrawable) getResources().getDrawable(
-				R.drawable.review_ring);
+		GradientDrawable gd = (GradientDrawable) getResources().getDrawable(R.drawable.review_ring);
 		gd.setColor(mainColor);
 		if (Build.VERSION.SDK_INT >= 16) {
 			viewIndicatiorLeft.setBackground(gd);
@@ -839,44 +717,44 @@ public class MainActivity extends ParentActivity implements
 		int outIndex = index + 1;
 		int res = 0;
 		switch (outIndex) {
-		case 1:
-			res = R.drawable.homecolor1;
-			break;
-		case 2:
-			res = R.drawable.homecolor2;
-			break;
-		case 3:
-			res = R.drawable.homecolor3;
-			break;
-		case 4:
-			res = R.drawable.homecolor4;
-			break;
-		case 5:
-			res = R.drawable.homecolor5;
-			break;
-		case 6:
-			res = R.drawable.homecolor6;
-			break;
-		case 7:
-			res = R.drawable.homecolor7;
-			break;
-		case 8:
-			res = R.drawable.homecolor8;
-			break;
-		case 9:
-			res = R.drawable.homecolor9;
-			break;
-		case 10:
-			res = R.drawable.homecolor10;
-			break;
-		case 11:
-			res = R.drawable.homecolor11;
-			break;
-		case 12:
-			res = R.drawable.homecolor12;
-			break;
-		default:
-			res = R.drawable.home2;
+			case 1 :
+				res = R.drawable.homecolor1;
+				break;
+			case 2 :
+				res = R.drawable.homecolor2;
+				break;
+			case 3 :
+				res = R.drawable.homecolor3;
+				break;
+			case 4 :
+				res = R.drawable.homecolor4;
+				break;
+			case 5 :
+				res = R.drawable.homecolor5;
+				break;
+			case 6 :
+				res = R.drawable.homecolor6;
+				break;
+			case 7 :
+				res = R.drawable.homecolor7;
+				break;
+			case 8 :
+				res = R.drawable.homecolor8;
+				break;
+			case 9 :
+				res = R.drawable.homecolor9;
+				break;
+			case 10 :
+				res = R.drawable.homecolor10;
+				break;
+			case 11 :
+				res = R.drawable.homecolor11;
+				break;
+			case 12 :
+				res = R.drawable.homecolor12;
+				break;
+			default :
+				res = R.drawable.home2;
 		}
 		return res;
 	}
@@ -885,44 +763,44 @@ public class MainActivity extends ParentActivity implements
 		int outIndex = index + 1;
 		int res = 0;
 		switch (outIndex) {
-		case 1:
-			res = R.drawable.toolbarcolor1;
-			break;
-		case 2:
-			res = R.drawable.toolbarcolor2;
-			break;
-		case 3:
-			res = R.drawable.toolbarcolor3;
-			break;
-		case 4:
-			res = R.drawable.toolbarcolor4;
-			break;
-		case 5:
-			res = R.drawable.toolbarcolor5;
-			break;
-		case 6:
-			res = R.drawable.toolbarcolor6;
-			break;
-		case 7:
-			res = R.drawable.toolbarcolor7;
-			break;
-		case 8:
-			res = R.drawable.toolbarcolor8;
-			break;
-		case 9:
-			res = R.drawable.toolbarcolor9;
-			break;
-		case 10:
-			res = R.drawable.toolbarcolor10;
-			break;
-		case 11:
-			res = R.drawable.toolbarcolor11;
-			break;
-		case 12:
-			res = R.drawable.toolbarcolor12;
-			break;
-		default:
-			res = R.drawable.toolbar;
+			case 1 :
+				res = R.drawable.toolbarcolor1;
+				break;
+			case 2 :
+				res = R.drawable.toolbarcolor2;
+				break;
+			case 3 :
+				res = R.drawable.toolbarcolor3;
+				break;
+			case 4 :
+				res = R.drawable.toolbarcolor4;
+				break;
+			case 5 :
+				res = R.drawable.toolbarcolor5;
+				break;
+			case 6 :
+				res = R.drawable.toolbarcolor6;
+				break;
+			case 7 :
+				res = R.drawable.toolbarcolor7;
+				break;
+			case 8 :
+				res = R.drawable.toolbarcolor8;
+				break;
+			case 9 :
+				res = R.drawable.toolbarcolor9;
+				break;
+			case 10 :
+				res = R.drawable.toolbarcolor10;
+				break;
+			case 11 :
+				res = R.drawable.toolbarcolor11;
+				break;
+			case 12 :
+				res = R.drawable.toolbarcolor12;
+				break;
+			default :
+				res = R.drawable.toolbar;
 		}
 		return res;
 	}
@@ -934,7 +812,7 @@ public class MainActivity extends ParentActivity implements
 		if (removeIndex != -1) {
 			comments.get(removeIndex).setRemoved(true);
 		}
-		getApp().saveComments(comments);
+		getApp().getMgr().updateComment(com);
 		updateCommentDate();
 	}
 }

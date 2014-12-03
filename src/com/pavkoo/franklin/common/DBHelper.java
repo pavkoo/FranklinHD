@@ -23,7 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
 				+ "lastUse DATETIME DEFAULT CURRENT_TIMESTAMP,"
 				+ "historyCount SMALLINT)";
 		String tableMoral = " CREATE TABLE IF NOT EXISTS moral "
-				+ "(_id INTEGER PRIAMRY KEY AUTOINTECREMENT,"
+				+ "(_id INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ "title VARCHAR," + "titleDes VARCHAR,"
 				+ "titleMotto VARCHAR," + "cycle SMALLINT,"
 				+ "startDate DATETIME DEFAULT CURRENT_TIMESTAMP,"

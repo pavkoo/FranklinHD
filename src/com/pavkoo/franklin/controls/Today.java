@@ -1,6 +1,8 @@
 package com.pavkoo.franklin.controls;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import com.nineoldandroids.view.ViewHelper;
@@ -8,6 +10,7 @@ import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.common.CheckState;
 import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.Moral;
+import com.pavkoo.franklin.common.SignRecords;
 import com.pavkoo.franklin.common.UtilsClass;
 import com.pavkoo.franklin.controls.TodayDialog.DialogState;
 
@@ -78,10 +81,14 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 
 	// private Animation ambmpBgScale;
 
-	private Moral moral;
+	private HashMap<String, List<SignRecords>> newWeekData;
 
-	public Moral getMoral() {
-		return moral;
+	public HashMap<String, List<SignRecords>> getNewWeekData() {
+		return newWeekData;
+	}
+
+	public void setNewWeekData(HashMap<String, List<SignRecords>> newWeekData) {
+		this.newWeekData = newWeekData;
 	}
 
 	public void updateUIByMoral(int index) {
@@ -114,11 +121,6 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		this.updateText = updateText;
 	}
 
-	public void setMoral(Moral moral) {
-		this.moral = moral;
-		updateViewByMoral();
-	}
-
 	public Today(Context context) {
 		super(context);
 		setupEvent();
@@ -134,14 +136,19 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		return arcBackground.getCurrentShowing();
 	}
 
-	private void updateViewByMoral() {
+	public void updateViewByMoral(Moral moral) {
 		arcBackground.setAngleValue(-90);
 		Animation roatate = AnimationUtils.loadAnimation(getContext(),
 				R.anim.today_rotate);
 		llBackground.startAnimation(roatate);
 		ViewHelper.setRotation(llBackground, -90);
-		arcBackground.setCycle(moral.getCycle());
-		arcBackground.setHistoryCheckList(moral.getStateList());
+		arcBackground.setToday(moral);
+		if (newWeekData.get(String.valueOf(moral.getId())) == null) {
+			List<SignRecords> newWeekSignList = new ArrayList<SignRecords>();
+			newWeekData.put(String.valueOf(moral.getId()), newWeekSignList);
+		}
+		arcBackground
+				.setSignlist(newWeekData.get(String.valueOf(moral.getId())));
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
 				LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.MATCH_PARENT);
@@ -199,9 +206,6 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 				}
 			}
 		}).start();
-		// ambmpBgScale = AnimationUtils.loadAnimation(getContext(),
-		// R.anim.today_bg_scale);
-		// ivBg.setAnimation(ambmpBgScale);
 	}
 
 	private static Bitmap RotateBitmap(Bitmap source, float angle) {
@@ -229,8 +233,9 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			@Override
 			public void onClick(View v) {
 				// ivBg.startAnimation(ambmpBgScale);
-				mDialog.setCheckState(moral
-						.getHistorySelected(getCurrentShowing()));
+				SignRecords sr = arcBackground.getShowingSignRecordsCreate(
+						arcBackground.getCurrentShowing() - 1, true);
+				mDialog.setSr(sr);
 				mDialog.showState(DialogState.DSSelection);
 			}
 		});
@@ -238,8 +243,9 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			@Override
 			public void run() {
 				// ivBg.startAnimation(ambmpBgScale);
-				mDialog.setCheckState(moral
-						.getHistorySelected(getCurrentShowing()));
+				SignRecords sr = arcBackground.getShowingSignRecordsCreate(
+						arcBackground.getCurrentShowing() - 1, true);
+				mDialog.setSr(sr);
 				mDialog.showState(DialogState.DSNote);
 			}
 		};
@@ -249,22 +255,9 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			@Override
 			public void onDismiss(DialogInterface dialog) {
 				if (mDialog.isResultChanged()) {
-					if (mDialog.isNewComment()) {
-						moral.setHistorySelected(getCurrentShowing(),
-								mDialog.getCheckState(),
-								mDialog.getNewCommentIndex());
-					} else {
-//						int commentIndex = moral
-//								.getCommentIndex(getCurrentShowing());
-//						if (commentIndex != -1) {
-//							Comment c = app.getComments().get(commentIndex);
-//							c.setRemoved(true);
-//							app.saveComments(app.getComments());
-//						}
-						moral.setHistorySelected(getCurrentShowing(),
-								mDialog.getCheckState());
-					}
-					arcBackground.setHistoryCheckList(moral.getStateList());
+
+					arcBackground.setSignlist(newWeekData.get(String
+							.valueOf(arcBackground.getToday().getId())));
 					arcBackground.invalidate();
 					if (updateSelectState != null) {
 						updateSelectState.updateTextCallBack();
@@ -316,7 +309,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		private void initView() {
 			mOffsetAngle = 0;
 			mCycle = 0;
-			mCurrentShowing = 0;
+			setmCurrentShowing(0);
 			displayValue = "0";
 			mAdapedRect = new RectF();
 			setArcDoneColor(Color.parseColor("#990134"));
@@ -365,6 +358,12 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			this.mBmpSmale = mBmpSmale;
 		}
 
+		private Moral today;
+
+		public Moral getToday() {
+			return today;
+		}
+
 		protected Bitmap getBmpSad() {
 			return mBmpSad;
 		}
@@ -381,10 +380,6 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 
 		private int mCurrentShowing;
 
-		public int getCurrentShowing() {
-			return mCurrentShowing;
-		}
-
 		protected void setArcUnDoneColor(int mArcUnDoneColor) {
 			this.mArcUnDoneColor = mArcUnDoneColor;
 		}
@@ -400,27 +395,12 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			return mCycle;
 		}
 
-		// the last child means today
-		private List<CheckState> mHistoryCheckList;
+		private int arcSize;
 
-		@SuppressWarnings("unused")
-		public List<CheckState> getHistoryCheckList() {
-			return mHistoryCheckList;
-		}
+		private List<SignRecords> newWeekSignList;
 
-		public void setHistoryCheckList(List<CheckState> HistoryCheckList) {
-			if (mHistoryCheckList == null) {
-				this.mHistoryCheckList = new ArrayList<CheckState>();
-			}
-			this.mHistoryCheckList.clear();
-			// int lastIndex = HistoryCheckList.size() % mCycle;
-			// lastIndex = HistoryCheckList.size() - lastIndex;
-			for (int i = 0; i < HistoryCheckList.size(); i++) {
-				this.mHistoryCheckList.add(HistoryCheckList.get(i));
-			}
-			if (mCurrentShowing == 0) {
-				mCurrentShowing = mHistoryCheckList.size();
-			}
+		public void setSignlist(List<SignRecords> signList) {
+			this.newWeekSignList = signList;
 		}
 
 		protected void setCycle(int mCycle) {
@@ -539,16 +519,13 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 
 			if (getCycle() == 0)
 				return;
-			// draw History
-			int size = mHistoryCheckList.size() % mCycle;
-			if (size == 0) {
-				size = mCycle;
-			}
 			float startAngle = mOffsetAngle;
 			float sweepAngle = arcAngle - SPACE_STROKEWIDTH;
 			int color = 0;
-			for (int i = 0; i < size; i++) {
-				color = getArcColor(mHistoryCheckList.get(i));
+
+			for (int i = 0; i < arcSize; i++) {
+				CheckState cs = getCSByStartDay(i);
+				color = getArcColor(cs);
 				paint.setColor(color);
 				canvas.drawArc(oval, startAngle, sweepAngle, false, paint);
 				startAngle += arcAngle;
@@ -584,7 +561,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			// 3.draw bitmap face
 			if (getAdapedRect().isEmpty())
 				return;
-			if (mHistoryCheckList == null)
+			if (newWeekSignList == null)
 				return;
 			paint.setStyle(Paint.Style.STROKE);
 			paint.setStrokeWidth(ARC_STROKEWIDTH);
@@ -611,7 +588,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		private void drawFace(Canvas canvas, Paint paint, RectF oval) {
 			oval.inset(-(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH),
 					-(SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH));
-			CheckState current = mHistoryCheckList.get(mCurrentShowing - 1);
+			CheckState current = getCSByStartDay(getCurrentShowing() - 1);
 			if (current == CheckState.UNKNOW)
 				return;
 			Bitmap bitmap;
@@ -623,7 +600,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			float CycleCenterX = oval.centerX();
 			float CycleCenterY = oval.centerY();
 			float Radius = oval.width() / 2;
-			float angle = (arcAngle * (2 * (mCurrentShowing) - 1)) * 0.5f;
+			float angle = (arcAngle * (2 * (getCurrentShowing()) - 1)) * 0.5f;
 			float arcCenterX = (float) (Radius * Math.cos(PI / 180 * angle))
 					+ CycleCenterX;
 			float arcCenterY = (float) (Radius * Math.sin(PI / 180 * angle))
@@ -664,11 +641,54 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 
 		@Override
 		public void updateTextCallBack(String value, int position) {
-			mCurrentShowing = position;
+			setmCurrentShowing(position);
 			displayValue = value;
 			this.invalidate();
 			if (getUpdateText() != null) {
 				updateText.updateTextCallBack(value, position);
+			}
+		}
+
+		public int getCurrentShowing() {
+			return mCurrentShowing;
+		}
+
+		public void setmCurrentShowing(int mCurrentShowing) {
+			this.mCurrentShowing = mCurrentShowing;
+		}
+
+		public void setToday(Moral today) {
+			this.today = today;
+			this.arcSize = today.getCurrentDayInCycle();
+			this.mCurrentShowing = today.getCurrentDayInCycle();
+			setCycle(today.getCycle());
+		}
+
+		public SignRecords getShowingSignRecordsCreate(int index,
+				boolean createNew) {
+			Date current = today.getStartDate();
+			current = UtilsClass.subDate(current, -index);
+			SignRecords sr = null;
+			for (int i = 0; i < this.newWeekSignList.size(); i++) {
+				if (current.compareTo(newWeekSignList.get(i).getInputDate()) == 0) {
+					sr = newWeekSignList.get(i);
+					break;
+				}
+			}
+			if (createNew && sr == null) {
+				sr = new SignRecords();
+				sr.setMoarlIndex(today.getId());
+				sr.setInputDate(current);
+			}
+			return sr;
+		}
+
+		private CheckState getCSByStartDay(int index) {
+			SignRecords sr = getShowingSignRecordsCreate(index, false);
+			if (sr == null) {
+				return CheckState.UNKNOW;
+			} else {
+				return sr.getCs();
 			}
 		}
 	}

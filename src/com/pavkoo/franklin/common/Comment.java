@@ -79,9 +79,8 @@ public class Comment implements Comparable<Comment>, Serializable {
 	public boolean equals(Object o) {
 		if (o.getClass() == this.getClass()) {
 			Comment target = (Comment) o;
-			if (target.getTimestamp() == this.getTimestamp()) {
-				return target.content.equals(this.content);
-			}
+			if (target.isRemoved() || this.isRemoved()) return false;
+			return target.getContent().equals(this.content);
 		}
 		return false;
 	}

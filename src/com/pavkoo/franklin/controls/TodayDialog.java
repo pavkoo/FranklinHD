@@ -14,7 +14,7 @@ import com.pavkoo.franklin.common.CheckState;
 import com.pavkoo.franklin.common.Comment;
 import com.pavkoo.franklin.common.CommonConst;
 import com.pavkoo.franklin.common.FranklinApplication;
-
+import com.pavkoo.franklin.common.SignRecords;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
@@ -64,27 +64,14 @@ public class TodayDialog extends ParentDialog {
 	}
 
 	private boolean resultChanged = false;
-	private boolean newComment = false;
-	private int newCommentIndex = -1;
 
-	public int getNewCommentIndex() {
-		return newCommentIndex;
+	public boolean isResultChanged() {
+		return resultChanged;
 	}
 
-	public boolean isNewComment() {
-		return newComment;
-	}
+	private SignRecords sr;
 
 	private ObjectAnimator closePopAnim;
-	private CheckState checkState;
-
-	public CheckState getCheckState() {
-		return checkState;
-	}
-
-	public void setCheckState(CheckState checkState) {
-		this.checkState = checkState;
-	}
 
 	private Object extraObject;
 
@@ -99,7 +86,6 @@ public class TodayDialog extends ParentDialog {
 	public TodayDialog(Context context, int theme) {
 		super(context, theme);
 		resultChanged = false;
-		newComment = false;
 		String infService = Context.LAYOUT_INFLATER_SERVICE;
 		LayoutInflater li = (LayoutInflater) getContext().getSystemService(
 				infService);
@@ -133,8 +119,20 @@ public class TodayDialog extends ParentDialog {
 
 			@Override
 			public void onClick(View v) {
-				resultChanged = true;
-				checkState = CheckState.DONE;
+				if (sr.getCs() == CheckState.UNKNOW) {
+					sr.setCommentIndex(-1);
+					sr.setCs(CheckState.DONE);
+					app.getMgr().insertNew(sr);
+					app.getNewWeek().get(String.valueOf(sr.getMoarlIndex()))
+							.add(sr);
+					resultChanged = true;
+				} else if (sr.getCs() == CheckState.UNDONE) {
+					sr.setCs(CheckState.DONE);
+					int cid = removeComment(sr.getCommentIndex());
+					sr.setCommentIndex(cid);
+					app.getMgr().updateSr(sr);
+					resultChanged = true;
+				}
 				TodayDialog.this.dismiss();
 			}
 		});
@@ -143,14 +141,22 @@ public class TodayDialog extends ParentDialog {
 
 			@Override
 			public void onClick(View v) {
-				resultChanged = true;
 				iniAutoComplemet();
-				checkState = CheckState.UNDONE;
 				gpbTodayYes.setVisibility(View.GONE);
-				rgpToday.requestLayout();
 				llappTodayPopupComment.setVisibility(View.VISIBLE);
 				tvTodayPopupYes.setVisibility(View.VISIBLE);
 				closePopAnim.start();
+				if (sr.getCs() == CheckState.UNKNOW) {
+					sr.setCs(CheckState.UNDONE);
+					app.getMgr().insertNew(sr);
+					app.getNewWeek().get(String.valueOf(sr.getMoarlIndex()))
+							.add(sr);
+					resultChanged = true;
+				} else if (sr.getCs() == CheckState.DONE) {
+					sr.setCs(CheckState.UNDONE);
+					app.getMgr().updateSr(sr);
+					resultChanged = true;
+				}
 			}
 		});
 
@@ -219,12 +225,8 @@ public class TodayDialog extends ParentDialog {
 	}
 
 	public void showState(DialogState state) {
-		resultChanged = false;
-		newComment = false;
 		if (state == DialogState.DSNote) {
-			resultChanged = true;
 			iniAutoComplemet();
-			checkState = CheckState.UNDONE;
 			gpbTodayYes.setVisibility(View.GONE);
 			llappTodayPopupComment.setVisibility(View.VISIBLE);
 			closePopAnim.setCurrentPlayTime(0);
@@ -239,10 +241,6 @@ public class TodayDialog extends ParentDialog {
 			tvTodayPopupYes.setVisibility(View.GONE);
 			this.show();
 		}
-	}
-
-	public boolean isResultChanged() {
-		return resultChanged;
 	}
 
 	public static enum DialogState {
@@ -262,10 +260,36 @@ public class TodayDialog extends ParentDialog {
 		txtComment.setText("");
 	}
 
+	private int removeComment(int cid) {
+		if (cid == -1) {
+			return cid;
+		}
+		
+		Comment comObj = null;
+		List<Comment> comments = app.getComments();
+		for (int i = 0; i < comments.size(); i++) {
+			if (comments.get(i).getId() == cid) {
+				comObj = comments.get(i);
+				break;
+			}
+		}
+
+		if (comObj == null) {
+			return cid;
+		}
+
+		if (comObj.getCount() <= 1) {
+			app.getMgr().removeComment(cid);
+			comments.remove(comObj);
+			return -1;
+		} else {
+			comObj.setCount(comObj.getCount() - 1);
+			app.getMgr().updateComment(comObj);
+			return comObj.getId();
+		}
+	}
+
 	private void addComment() {
-		resultChanged = true;
-		newComment = false;
-		checkState = CheckState.UNDONE;
 		String comment = txtComment.getText().toString();
 		if (comment.equals("") || comment == null) {
 			TodayDialog.this.dismiss();
@@ -276,21 +300,30 @@ public class TodayDialog extends ParentDialog {
 		boolean find = false;
 		List<Comment> comments = app.getComments();
 		for (int i = 0; i < comments.size(); i++) {
-			if (comments.get(i).equals(comObj) && !comments.get(i).isRemoved()) {
-				comments.get(i).setCount(comments.get(i).getCount() + 1);
-				newCommentIndex = i;
+			if (comments.get(i).equals(comObj)) {
+				Comment c = comments.get(i);
+				c.setCount(c.getCount() + 1);
+				app.getMgr().updateComment(c);
 				find = true;
 				break;
 			}
 		}
 		if (!find) {
+			app.getMgr().insertNewComment(comObj);
+			sr.setCommentIndex(comObj.getId());
+			app.getMgr().updateSr(sr);
 			comments.add(comObj);
-			newCommentIndex = comments.size() - 1;
 		}
-		app.saveComments(comments);
-		newComment = true;
 		TodayDialog.this.dismiss();
 		return;
+	}
+
+	public SignRecords getSr() {
+		return sr;
+	}
+
+	public void setSr(SignRecords sr) {
+		this.sr = sr;
 	}
 
 	@SuppressLint("DefaultLocale")

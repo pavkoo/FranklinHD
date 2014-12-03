@@ -1,10 +1,8 @@
 package com.pavkoo.franklin.controls;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-import com.pavkoo.franklin.common.CheckState;
-import com.pavkoo.franklin.common.CommonConst;
-import com.pavkoo.franklin.common.Moral;
-import com.pavkoo.franklin.common.UtilsClass;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -16,6 +14,12 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+
+import com.pavkoo.franklin.common.CheckState;
+import com.pavkoo.franklin.common.CommonConst;
+import com.pavkoo.franklin.common.Moral;
+import com.pavkoo.franklin.common.SignRecords;
+import com.pavkoo.franklin.common.UtilsClass;
 
 public class BlemishReport extends View {
 	private static final int ColTitleSpace = 5;
@@ -30,7 +34,18 @@ public class BlemishReport extends View {
 	public void setMorals(List<Moral> morals) {
 		this.morals = morals;
 	}
-	
+
+	private Date current;
+
+	private HashMap<String, List<SignRecords>> newWeekData;
+
+	public HashMap<String, List<SignRecords>> getNewWeekData() {
+		return newWeekData;
+	}
+
+	public void setNewWeekData(HashMap<String, List<SignRecords>> newWeekData) {
+		this.newWeekData = newWeekData;
+	}
 
 	private Paint mPaint;
 
@@ -46,13 +61,12 @@ public class BlemishReport extends View {
 	private float mTitleWidth;
 	private float mTitleHeight;
 
-	private final String dotColor= "#4a5b53";//2a2f36
+	private final String dotColor = "#4a5b53";// 2a2f36
 	private final String futurebg = "#e4e9e2";
-	
-	
 
 	private void calcDrawproperty() {
-		if (!canDraw()) return ;
+		if (!canDraw())
+			return;
 		mRow = getRowCount();
 		mCol = getItemCycle();
 		mTitleWidth = getRowTitleWidth();
@@ -78,7 +92,7 @@ public class BlemishReport extends View {
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
 		calcDrawproperty();
-		Log.i("BlemishReport","onSizeChanged");
+		Log.i("BlemishReport", "onSizeChanged");
 	}
 
 	private int getItemCycle() {
@@ -93,8 +107,8 @@ public class BlemishReport extends View {
 		float maxwidth = 0;
 		float temp = 0;
 		for (int i = 0; i < morals.size(); i++) {
-			String title = morals.get(i).getTitle(); 
-			if (UtilsClass.isEng()){
+			String title = morals.get(i).getTitle();
+			if (UtilsClass.isEng()) {
 				title = UtilsClass.shortString(title);
 			}
 			temp = mPaint.measureText(title);
@@ -146,8 +160,8 @@ public class BlemishReport extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		//TODO:性能修改啊
-		Log.i("ondraw call","blemish");
+		// TODO:性能修改啊
+		Log.i("ondraw call", "blemish");
 		if (morals == null)
 			return;
 		float left = 0;
@@ -159,7 +173,7 @@ public class BlemishReport extends View {
 			top = mCellHeight * i;
 			mPaint.setColor(Color.parseColor(CommonConst.colors[i % CommonConst.colors.length]));
 			String title = morals.get(i).getTitle();
-			if (UtilsClass.isEng()){
+			if (UtilsClass.isEng()) {
 				title = UtilsClass.shortString(title);
 			}
 			canvas.drawText(title, left, top + mCellHeight + ColTitleSpace + 10 * density, mPaint);
@@ -179,10 +193,7 @@ public class BlemishReport extends View {
 		float cellRight = 0;
 		float cellbottom = 0;
 		for (int i = 0; i < mRow; i++) {
-			// if (i == mRow - 1) {
 			jtotal = lastj;
-			// } else
-			// jtotal = mCol;
 			for (int j = 0; j < mCol; j++) {
 				left = mTitleWidth + j * mCellWidth;
 				top = mTitleHeight + i * mCellHeight;
@@ -194,9 +205,12 @@ public class BlemishReport extends View {
 					mPaint.setColor(Color.parseColor(futurebg));
 				}
 				canvas.drawRect(left, top, cellRight, cellbottom, mPaint);
-				if (j < jtotal && morals.get(i).getHistorySelected(j + 1) != CheckState.DONE) {
-					mPaint.setColor(Color.parseColor(dotColor));
-					drawDot(canvas, mPaint, left, top, cellRight, cellbottom);
+				if (j < jtotal) {
+					CheckState cs = UtilsClass.getNewWeekCSByDay(newWeekData, morals.get(i), current, j);
+					if (cs != CheckState.DONE) {
+						mPaint.setColor(Color.parseColor(dotColor));
+						drawDot(canvas, mPaint, left, top, cellRight, cellbottom);
+					}
 				}
 			}
 		}
@@ -214,9 +228,16 @@ public class BlemishReport extends View {
 			canvas.drawCircle((left + right) / 2, (top + bottom) / 2, squre / 2, paint);
 		}
 	}
-	
-	
-	private boolean canDraw(){
-		return morals==null?false:true; 
+
+	private boolean canDraw() {
+		return morals == null ? false : true;
+	}
+
+	public Date getCurrent() {
+		return current;
+	}
+
+	public void setCurrent(Date current) {
+		this.current = current;
 	}
 }

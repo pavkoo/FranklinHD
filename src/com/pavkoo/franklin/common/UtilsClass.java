@@ -1,14 +1,5 @@
 package com.pavkoo.franklin.common;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Environment;
-import android.view.View;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,12 +14,22 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Environment;
+import android.view.View;
 
 @SuppressLint("SimpleDateFormat")
 public class UtilsClass {
@@ -44,19 +45,19 @@ public class UtilsClass {
 		return false;
 	}
 
-	public static String shortString(String org){
-		if (org == null){
+	public static String shortString(String org) {
+		if (org == null) {
 			return "";
 		}
-		if (org==""){
+		if (org == "") {
 			return "";
 		}
-		if (org.length()<ShortSizeLen){
+		if (org.length() < ShortSizeLen) {
 			return org;
 		}
-		return org.substring(0,ShortSizeLen)+".";
+		return org.substring(0, ShortSizeLen) + ".";
 	}
-	
+
 	public static String dateToString(Date date) {
 		String s = "";
 		SimpleDateFormat sdf = new SimpleDateFormat(DATEFORMAT);
@@ -65,6 +66,9 @@ public class UtilsClass {
 	}
 
 	public static Date stringToDate(String date) {
+		if (date == null) {
+			return null;
+		}
 		Date d = null;
 		SimpleDateFormat sdf = new SimpleDateFormat(DATEFORMAT);
 		try {
@@ -76,7 +80,8 @@ public class UtilsClass {
 	}
 
 	public static long dayCount(Date fromDay, Date toDay) {
-		if (fromDay==null || toDay==null) return 0;
+		if (fromDay == null || toDay == null)
+			return 0;
 
 		Calendar fromDayCal = Calendar.getInstance();
 		fromDayCal.setTime(fromDay);
@@ -148,8 +153,7 @@ public class UtilsClass {
 	 * @param imgPath
 	 *            图片路径，不分享图片则传null
 	 */
-	public static void shareMsg(Context context, String activityTitle,
-			String msgTitle, String msgText, String imgPath) {
+	public static void shareMsg(Context context, String activityTitle, String msgTitle, String msgText, String imgPath) {
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		if (imgPath == null || imgPath.equals("")) {
 			intent.setType("text/plain"); // 纯文本
@@ -167,8 +171,7 @@ public class UtilsClass {
 		context.startActivity(Intent.createChooser(intent, activityTitle));
 	}
 
-	public static void shareMsg(Context context, String activityTitle,
-			String msgText, View shareView) {
+	public static void shareMsg(Context context, String activityTitle, String msgText, View shareView) {
 		if (shareView == null) {
 			shareMsg(context, activityTitle, activityTitle, msgText, "");
 		} else {
@@ -216,8 +219,7 @@ public class UtilsClass {
 
 	private static String getSDCardPath() {
 		File sdcardDir = null;
-		boolean sdcardExist = Environment.getExternalStorageState().equals(
-				android.os.Environment.MEDIA_MOUNTED);
+		boolean sdcardExist = Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
 		if (sdcardExist) {
 			sdcardDir = Environment.getExternalStorageDirectory();
 		}
@@ -324,6 +326,49 @@ public class UtilsClass {
 			e.printStackTrace();
 		}
 		return bmp;
+	}
+
+	public static CheckState getNewWeekCSByDay(HashMap<String, List<SignRecords>> newWeedData, Moral moral, Date startDate, int dayIndex) {
+		SignRecords sr = getNewWeekCSByDayCreate(newWeedData, moral, startDate, dayIndex, false);
+		if (sr == null) {
+			return CheckState.UNKNOW;
+		} else {
+			return sr.getCs();
+		}
+	}
+
+	public static SignRecords getNewWeekCSByDayCreate(HashMap<String, List<SignRecords>> newWeedData, Moral moral, Date startDate,
+			int dayIndex, boolean createNew) {
+		SignRecords sr = null;
+		List<SignRecords> slist = newWeedData.get(String.valueOf(moral.getId()));
+		Date current = startDate;
+		current = UtilsClass.subDate(current, -dayIndex);
+		if (slist != null) {
+			for (int i = 0; i < slist.size(); i++) {
+				if (current.compareTo(slist.get(i).getInputDate()) == 0) {
+					sr = slist.get(i);
+					break;
+				}
+			}
+		}
+		if (createNew && sr == null) {
+			sr = new SignRecords();
+			sr.setMoarlIndex(moral.getId());
+			sr.setInputDate(current);
+			sr.setCs(CheckState.UNKNOW);
+		}
+		return sr;
+	}
+	public static int getIndexMorals(List<Moral> morals, int id) {
+		if (morals == null) {
+			return -1;
+		}
+		for (int i = 0; i < morals.size(); i++) {
+			if (morals.get(i).getId() == id) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 }
