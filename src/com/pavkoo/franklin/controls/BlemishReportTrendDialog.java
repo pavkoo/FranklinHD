@@ -39,6 +39,7 @@ public class BlemishReportTrendDialog extends ParentDialog {
 			trandAdapter.setSignlist(signlist);
 		}
 	}
+
 	public void updateUIByMoral(int index) {
 		int mainColor = Color.parseColor(CommonConst.colors[index % CommonConst.colors.length]);
 		GradientDrawable gd = (GradientDrawable) tvReportTrendTitle.getBackground();

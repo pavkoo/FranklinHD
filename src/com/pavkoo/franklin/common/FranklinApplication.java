@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.Application;
-import android.util.Log;
 
 public class FranklinApplication extends Application {
 
@@ -115,9 +114,12 @@ public class FranklinApplication extends Application {
 		saveWelcomes(welcomes, true);
 	}
 
-	public void updateMorals() {
-		mgr.updateMorals(morals);
+	public void updateMorals(boolean deleteAll) {
+		mgr.updateMorals(morals, deleteAll);
 		morals = mgr.loadMorals();
+	}
+	public void updateMorals() {
+		updateMorals(false);
 	}
 
 	public void updateMottos() {
@@ -136,17 +138,16 @@ public class FranklinApplication extends Application {
 		appHistoryCount++;
 		appCon.setHistoryCount(appHistoryCount);
 		appCon.setProjectStarted(false);
-		saveAppConfig(appCon);
+		saveAppConfig(appCon, true);
 
 		UtilsClass.reArrangeDate(morals);
-		for (int i = 0; i < morals.size(); i++) {
-			morals.get(i).reSet();
-			Log.i("Day", "Start:" + morals.get(i).getStartDate().toString() + "------------ End:" + morals.get(i).getEndDate().toString());
-		}
-		saveMorals(morals);
+		updateMorals(true);
 		mPreference.saveHistoryComments(comments, appHistoryCount);
-		comments.clear();
-		saveComments(comments);
+		// mgr.clearComment();
+		// this.comments.clear();
+		List<SignRecords> slist = mgr.loadAllSginRecord();
+		mPreference.saveHistorySignRecords(slist, appHistoryCount);
+		mgr.clearSignrecord();
 	}
 
 	public void saveComments(List<Comment> commentList) {

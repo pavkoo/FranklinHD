@@ -5,11 +5,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import com.pavkoo.franklin.common.ApplicationConfig;
-import com.pavkoo.franklin.common.FranklinApplication;
-import com.pavkoo.franklin.common.UtilsClass;
-import com.pavkoo.franklin.controls.SplashFragment;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +22,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.pavkoo.franklin.common.ApplicationConfig;
+import com.pavkoo.franklin.common.FranklinApplication;
+import com.pavkoo.franklin.common.UtilsClass;
+import com.pavkoo.franklin.controls.SplashFragment;
 
 public class SplashActivity extends FragmentActivity {
 	private ImageView ivSplash;
@@ -74,7 +74,7 @@ public class SplashActivity extends FragmentActivity {
 		if (!fromMain) {
 			getApp().loadData();
 			config = getApp().getAppCon();
-			if (!config.isFrist()) {
+			if (!config.isFrist() && config.isIsselfConfiged() && config.isProjectStarted()) {
 				selectImage();
 				myHandle = new Handler();
 				myRunable = new Runnable() {
@@ -85,8 +85,7 @@ public class SplashActivity extends FragmentActivity {
 				};
 				myHandle.postDelayed(myRunable, START_SPLASH_OFFSET);
 			} else {
-				Intent tutoriIntent = new Intent(SplashActivity.this,
-						TutorialsActivity.class);
+				Intent tutoriIntent = new Intent(SplashActivity.this, TutorialsActivity.class);
 				startActivity(tutoriIntent);
 				finish();
 			}
@@ -101,8 +100,7 @@ public class SplashActivity extends FragmentActivity {
 		if (myHandle != null) {
 			myHandle.removeCallbacks(myRunable);
 		}
-		Animation anim = AnimationUtils.loadAnimation(this,
-				R.anim.fade_bottom_in);
+		Animation anim = AnimationUtils.loadAnimation(this, R.anim.fade_bottom_in);
 		tvSplashGo.setAnimation(anim);
 		tvSplashGo.setVisibility(View.VISIBLE);
 		tvSplashHint.setVisibility(View.GONE);
@@ -112,13 +110,11 @@ public class SplashActivity extends FragmentActivity {
 
 	private void changeActivity() {
 		if (config.isFrist() || !config.isIsselfConfiged()) {
-			Intent setIntent = new Intent(SplashActivity.this,
-					SettingActivity.class);
+			Intent setIntent = new Intent(SplashActivity.this, SettingActivity.class);
 			setIntent.putExtra("STARTMODE", R.id.rbSettingProjectItem);
 			SplashActivity.this.startActivity(setIntent);
 		} else {
-			Intent mainIntent = new Intent(SplashActivity.this,
-					MainActivity.class);
+			Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
 			SplashActivity.this.startActivity(mainIntent);
 		}
 		SplashActivity.this.finish();
@@ -128,7 +124,7 @@ public class SplashActivity extends FragmentActivity {
 	private void selectImage() {
 		showWelcomes = getApp().getWelcomes();
 		if (showWelcomes != null) {
-			//do not save temp R.string.welcome11 to SD cards
+			// do not save temp R.string.welcome11 to SD cards
 			if (showWelcomes.size() == 0) {
 				showWelcomes = new ArrayList<String>();
 			}
@@ -138,11 +134,11 @@ public class SplashActivity extends FragmentActivity {
 		}
 		adapter = new WelcomesAdapter(getSupportFragmentManager(), showWelcomes);
 		splashPager.setAdapter(adapter);
-		if (config==null){
+		if (config == null) {
 			ivSplash.setImageResource(R.drawable.treesmall);
 			return;
 		}
-		if (config.isFrist() || getApp().getMorals() == null) {
+		if (config.isFrist() || getApp().getMorals() == null || getApp().getMorals().size() == 0) {
 			ivSplash.setImageResource(R.drawable.treesmall);
 			return;
 		}
@@ -166,12 +162,10 @@ public class SplashActivity extends FragmentActivity {
 			splashPager.setCurrentItem(initWelcomes);
 		}
 
-		Animation anim = AnimationUtils.loadAnimation(this,
-				R.anim.slide_in_right_repeat);
+		Animation anim = AnimationUtils.loadAnimation(this, R.anim.slide_in_right_repeat);
 		anim.setDuration(30000);
 		ivCloud.startAnimation(anim);
-		Animation anim2 = AnimationUtils.loadAnimation(this,
-				R.anim.slide_in_right_repeat);
+		Animation anim2 = AnimationUtils.loadAnimation(this, R.anim.slide_in_right_repeat);
 		anim2.setDuration(15000);
 		ivCloud2.startAnimation(anim2);
 
@@ -181,8 +175,7 @@ public class SplashActivity extends FragmentActivity {
 			Animation amin = AnimationUtils.loadAnimation(this, R.anim.zoom_in);
 			for (int i = 0; i < awardCount; i++) {
 				ImageView ivAward = new ImageView(this);
-				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 				lp.setMargins(10, 10, 10, 10);
 				ivAward.setLayoutParams(lp);
 				ivAward.setImageResource(R.drawable.victory);
@@ -195,13 +188,14 @@ public class SplashActivity extends FragmentActivity {
 
 			@Override
 			public void onPageSelected(int position) {
-//				if ( position < 0) { //首位之前，跳转到末尾（N）  
-//                    position = showWelcomes.size()-1;   
-//                    splashPager.setCurrentItem(position,false);  
-//                } else if ( position > showWelcomes.size()-1) { //末位之后，跳转到首位（1）  
-//                	splashPager.setCurrentItem(1,false); //false:不显示跳转过程的动画  
-//                    position = 1;  
-//                }  
+				// if ( position < 0) { //首位之前，跳转到末尾（N）
+				// position = showWelcomes.size()-1;
+				// splashPager.setCurrentItem(position,false);
+				// } else if ( position > showWelcomes.size()-1) {
+				// //末位之后，跳转到首位（1）
+				// splashPager.setCurrentItem(1,false); //false:不显示跳转过程的动画
+				// position = 1;
+				// }
 			}
 
 			@Override

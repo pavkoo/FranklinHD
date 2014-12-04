@@ -31,9 +31,16 @@ public class TrendAdapter extends BaseAdapter {
 	}
 
 	public void setMorals(List<Moral> morals) {
-		this.morals = morals;
+		if (this.morals == null) {
+			this.morals = new ArrayList<Moral>();
+		}
+		this.morals.clear();
+		for (int i = 0; i < morals.size(); i++) {
+			if (morals.get(i).isFinished() || morals.get(i).isDoing()) {
+				this.morals.add(morals.get(i));
+			}
+		}
 	}
-
 	private Context context;
 
 	public TrendAdapter(Context context, List<Moral> morals, List<SignRecords> signlist) {
@@ -44,12 +51,12 @@ public class TrendAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return weeklyCount.size();
+		return morals.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return weeklyCount.get(position);
+		return morals.get(position);
 	}
 
 	@Override
@@ -59,6 +66,12 @@ public class TrendAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		List<Double> points = new ArrayList<Double>();
+		int index = morals.get(position).getId();
+		List<Integer> list = weeklyCount.get(index);
+		for (int i = 0; i < list.size(); i++) {
+			points.add((double) (list.get(i)) / cycle);
+		};
 		// if (convertView == null) {
 		convertView = LayoutInflater.from(context).inflate(R.layout.cycle_history_report_popup_trend_item, null);
 		// }
@@ -72,11 +85,6 @@ public class TrendAdapter extends BaseAdapter {
 		GradientDrawable gd = (GradientDrawable) cycleHistoryReportTrendTitle.getBackground();
 		gd.setColor(color);
 		TrendReport trend = (TrendReport) convertView.findViewById(R.id.cycleHistoryReportTrendReport);
-		List<Double> points = new ArrayList<Double>();
-		List<Integer> list = weeklyCount.get(position);
-		for (int i = 0; i < list.size(); i++) {
-			points.add((double) (list.get(i)) / cycle);
-		};
 		trend.setMoralandRate(morals.get(position), position, points);
 		return convertView;
 	}
@@ -90,8 +98,27 @@ public class TrendAdapter extends BaseAdapter {
 		} else {
 			weeklyCount.clear();
 		}
-		this.signlist = signlist;
 		cycle = this.getMorals().get(0).getCycle();
+		Date current = new Date(System.currentTimeMillis());
+		for (int i = 0; i < morals.size(); i++) {
+			Moral m = morals.get(i);
+			Date start = m.getStartDate();
+			int howmanyDay = (int) UtilsClass.dayCount(start, current);
+
+			int howmanyWeek = howmanyDay / cycle + 1;
+			List<Integer> weekList = weeklyCount.get(m.getId());
+			if (weekList == null) {
+				weekList = new ArrayList<Integer>();
+				weeklyCount.put(m.getId(), weekList);
+			}
+			weekList.clear();
+			for (int j = 0; j < howmanyWeek; j++) {
+				weekList.add(0);
+			}
+		}
+
+		this.signlist = signlist;
+
 		for (int i = 0; i < signlist.size(); i++) {
 			SignRecords sr = signlist.get(i);
 			int id = sr.getMoarlIndex();
@@ -101,15 +128,6 @@ public class TrendAdapter extends BaseAdapter {
 			int daycount = (int) UtilsClass.dayCount(start, sr.getInputDate());
 			int weekindex = daycount / cycle;
 			List<Integer> weekList = weeklyCount.get(m.getId());
-			if (weekList == null) {
-				weekList = new ArrayList<Integer>();
-				weeklyCount.put(m.getId(), weekList);
-			}
-			if (weekList.get(weekindex) == -1) {
-				for (int j = 0; j < weekindex; j++) {
-					weekList.add(0);
-				}
-			}
 			int weekPoint = weekList.get(weekindex);
 			weekPoint += 1;
 			weekList.set(weekindex, weekPoint);

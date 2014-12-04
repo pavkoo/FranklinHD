@@ -113,23 +113,31 @@ public class DBManager {
 	}
 
 	public void updateMorals(List<Moral> morals) {
+		updateMorals(morals, false);
+	}
+
+	public void updateMorals(List<Moral> morals, boolean deleteAll) {
 		// охи╬ЁЩ
 		db.beginTransaction();
 		try {
-			String delestr = "";
-			for (int i = 0; i < morals.size(); i++) {
-				if (morals.get(i).isFinished() || morals.get(i).isDoing()) {
-					delestr += morals.get(i).getId() + ",";
+			if (deleteAll) {
+				db.delete("moral", null, null);
+			} else {
+				String delestr = "";
+				for (int i = 0; i < morals.size(); i++) {
+					if (morals.get(i).isFinished() || morals.get(i).isDoing()) {
+						delestr += morals.get(i).getId() + ",";
+					}
+
 				}
-
+				if (delestr != "") {
+					delestr = delestr.substring(0, delestr.length() - 1);
+					String sql = "delete from moral where _id not in (" + delestr + ")";
+					db.execSQL(sql);
+				}
 			}
-			if (delestr != "") {
-				delestr = delestr.substring(0, delestr.length() - 1);
-			}
-			String sql = "delete from moral where _id not in (" + delestr + ")";
-			db.execSQL(sql);
 
-			sql = "INSERT INTO moral VALUES(null,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO moral VALUES(null,?,?,?,?,?,?,?)";
 			for (int i = 0; i < morals.size(); i++) {
 				if (morals.get(i).isFinished() || morals.get(i).isDoing()) {
 					continue;
@@ -280,6 +288,22 @@ public class DBManager {
 	public List<SignRecords> loadSignedRecord() {
 		ArrayList<SignRecords> slist = new ArrayList<SignRecords>();
 		String sql = "SELECT * FROM signrecord WHERE checkstate=1 order by inputdate";
+		Cursor cr = db.rawQuery(sql, null);
+		while (cr.moveToNext()) {
+			SignRecords sr = new SignRecords();
+			sr.setId(cr.getInt(cr.getColumnIndex("_id")));
+			sr.setCommentIndex(cr.getInt(cr.getColumnIndex("refCommentIndex")));
+			sr.setMoarlIndex(cr.getInt(cr.getColumnIndex("refMoralindex")));
+			sr.setCs(CheckState.values()[cr.getInt(cr.getColumnIndex("checkstate"))]);
+			sr.setInputDate(UtilsClass.stringToDate(cr.getString(cr.getColumnIndex("inputdate"))));
+			slist.add(sr);
+		}
+		return slist;
+	}
+
+	public List<SignRecords> loadAllSginRecord() {
+		ArrayList<SignRecords> slist = new ArrayList<SignRecords>();
+		String sql = "SELECT * FROM signrecord";
 		Cursor cr = db.rawQuery(sql, null);
 		while (cr.moveToNext()) {
 			SignRecords sr = new SignRecords();
@@ -456,6 +480,10 @@ public class DBManager {
 	public void clearComment() {
 		db.delete("signrecord", "refMoralindex=?", new String[]{String.valueOf(-1)});
 		db.delete("comment", null, null);
+	}
+
+	public void clearSignrecord() {
+		db.delete("signrecord", null, null);
 	}
 
 	public void restoretodefault() {

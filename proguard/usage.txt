@@ -1735,36 +1735,58 @@ com.pavkoo.franklin.MainActivity:
 com.pavkoo.franklin.R:
     10:10:public R()
 com.pavkoo.franklin.SettingActivity$FragmentFactory:
-    166:166:public SettingActivity$FragmentFactory()
-com.pavkoo.franklin.common.ApplicationConfig:
-    55:55:public java.util.Date getLastUse()
+    151:151:public SettingActivity$FragmentFactory()
 com.pavkoo.franklin.common.Comment:
     private static final long serialVersionUID
+    97:97:public long getTimestamp()
 com.pavkoo.franklin.common.CommonConst:
     3:3:public CommonConst()
+com.pavkoo.franklin.common.DBHelper:
+    private static final java.lang.String DATABASE_NAME
+    private static final int DATABASE_VERSION
+com.pavkoo.franklin.common.DBManager:
+    116:117:public void updateMorals(java.util.List)
 com.pavkoo.franklin.common.FranklinApplication:
-    47:47:public com.pavkoo.franklin.common.SharePreferenceService getmPreference()
-    51:51:public static com.pavkoo.franklin.common.FranklinApplication getInstance()
-    55:55:public com.pavkoo.franklin.common.SharePreferenceService getPreference()
+    41:42:public com.pavkoo.franklin.common.ApplicationConfig forceCreateAppCon()
+    54:54:public com.pavkoo.franklin.common.SharePreferenceService getmPreference()
+    58:58:public static com.pavkoo.franklin.common.FranklinApplication getInstance()
+    62:62:public com.pavkoo.franklin.common.SharePreferenceService getPreference()
 com.pavkoo.franklin.common.Moral:
     private static final long serialVersionUID
-    35:36:private void clearTodayComment()
-    131:139:public int getCommentIndex(int)
-    144:149:public void setTodaySelected(com.pavkoo.franklin.common.CheckState)
+    46:47:private void clearTodayComment()
+    50:53:public void clearHistoryComment()
+    93:93:public java.util.List getComments()
+    105:105:public com.pavkoo.franklin.common.CheckState getTodaySelected()
+    109:117:public com.pavkoo.franklin.common.CheckState getHistorySelected(int)
+    121:122:public void setHistorySelected(int,com.pavkoo.franklin.common.CheckState)
+    125:139:public void setHistorySelected(int,com.pavkoo.franklin.common.CheckState,int)
+    142:150:public int getCommentIndex(int)
+    155:160:public void setTodaySelected(com.pavkoo.franklin.common.CheckState)
+    191:196:public int getCheckedCount()
+    200:200:public int getTotalCheckCount()
+    204:209:public int getTotalCheckedSize()
+    213:213:public int getCycleCount()
+    217:232:public float getCheckRate(int)
+    236:240:public void reSet()
+com.pavkoo.franklin.common.SharePreferenceService:
+    49:59:public com.pavkoo.franklin.common.ApplicationConfig saveAppConfig(com.pavkoo.franklin.common.ApplicationConfig)
+    63:64:public java.util.List saveMorals(java.util.List)
+    68:69:public java.util.List saveComments(java.util.List)
+    89:90:public java.util.List saveWelcomes(java.util.List)
 com.pavkoo.franklin.common.UtilsClass:
     private static final java.lang.String DATEFORMAT
     private static final int ShortSizeLen
     private static final java.lang.String MyFolder
     private static final java.lang.String MyTemp
     private static final java.lang.String BingUrl
-    34:34:public UtilsClass()
+    35:35:public UtilsClass()
 com.pavkoo.franklin.controls.BlemishReport:
     private static final int ColTitleSpace
     private static final int RowTitleSpace
 com.pavkoo.franklin.controls.BlemishReportTotalDialog:
-    28:28:public java.util.List getMorals()
+    30:30:public java.util.List getMorals()
 com.pavkoo.franklin.controls.BlemishReportTrendDialog:
-    28:28:public java.util.List getMorals()
+    29:29:public java.util.List getMorals()
 com.pavkoo.franklin.controls.CircleImageView:
     private static final int COLORDRAWABLE_DIMENSION
     private static final int DEFAULT_BORDER_WIDTH
@@ -1796,12 +1818,17 @@ com.pavkoo.franklin.controls.SettingSystemRestartDialog:
 com.pavkoo.franklin.controls.Today:
     private static final int IMAGEDOWNLOADED
 com.pavkoo.franklin.controls.Today$ArcDrawable:
-    312:314:public Today$ArcDrawable(android.content.Context,android.util.AttributeSet)
-    408:408:public java.util.List getHistoryCheckList()
+    305:307:public Today$ArcDrawable(android.content.Context,android.util.AttributeSet)
+com.pavkoo.franklin.controls.TodayDialog:
+    private java.lang.Object extraObject
+    79:79:public java.lang.Object getExtraObject()
+    83:84:public void setExtraObject(java.lang.Object)
+    322:322:public com.pavkoo.franklin.common.SignRecords getSr()
 com.pavkoo.franklin.controls.TotalAdapter:
-    28:28:public java.util.List getMorals()
+    30:30:public android.util.SparseIntArray getDoneRate()
+    40:40:public java.util.List getMorals()
 com.pavkoo.franklin.controls.TrendAdapter:
-    25:25:public java.util.List getMorals()
+    92:92:public java.util.List getSignlist()
 com.umeng.analytics.AnalyticsConfig:
     7:7:public AnalyticsConfig()
     26:27:public static void setAppkey(java.lang.String)

@@ -56,6 +56,7 @@ public class SettingActivity extends FragmentActivity {
 	private RadioButton rbSettingWelcome;
 	private RadioButton rbAppSetting;
 	private long touchTime;
+	private boolean finishModifyfalg;
 	private final int WaitTime = 4000;
 
 	public AnimMessage getAmMessage() {
@@ -82,6 +83,7 @@ public class SettingActivity extends FragmentActivity {
 		int startMode = R.id.rbSettingProjectItem;
 		if (intent != null) {
 			startMode = intent.getIntExtra("STARTMODE", R.id.rbSettingProjectItem);
+			finishModifyfalg = intent.getBooleanExtra("FinishModify", false);
 		}
 		config = getApp().getAppCon();
 		initAppWithDefaultData(false);
@@ -253,7 +255,16 @@ public class SettingActivity extends FragmentActivity {
 				} else {
 					switch (rgSetting.getCheckedRadioButtonId()) {
 						case R.id.rbSettingProjectItem :
-							getApp().updateMorals();
+							if (app.getMorals().size() < 1) {
+								amMessage.showMessage(getString(R.string.havenoitem));
+								return;
+							}
+							if (finishModifyfalg) {
+								getApp().updateMorals(true);
+							} else {
+								getApp().updateMorals();
+							}
+
 							break;
 						case R.id.rbSettingWelcome :
 							getApp().updateMottos();
