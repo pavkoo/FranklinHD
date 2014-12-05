@@ -20,6 +20,10 @@ public class DBManager {
 		db = helper.getWritableDatabase();
 	}
 
+	public void close() {
+		db.close();
+	}
+
 	public boolean needIniApp() {
 		String sql = "select * from appconfig";
 		Cursor cursor = db.rawQuery(sql, null);

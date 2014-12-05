@@ -1032,18 +1032,10 @@ android.support.v4.view.accessibility.AccessibilityNodeInfoCompatJellybeanMr2:
     21:21:AccessibilityNodeInfoCompatJellybeanMr2()
     24:25:public static void setViewIdResourceName(java.lang.Object,java.lang.String)
 android.support.v4.view.accessibility.AccessibilityNodeInfoCompatKitKat
-android.support.v4.view.accessibility.AccessibilityNodeProviderCompat:
-    246:246:public android.support.v4.view.accessibility.AccessibilityNodeInfoCompat findFocus(int)
-android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl$1:
-    123:127:public java.lang.Object findFocus(int)
 android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean:
     28:29:AccessibilityNodeProviderCompatJellyBean()
 android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat:
     28:29:AccessibilityNodeProviderCompatKitKat()
-android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat$1:
-    61:61:public android.view.accessibility.AccessibilityNodeInfo findFocus(int)
-android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat$AccessibilityNodeInfoBridge:
-    public abstract java.lang.Object findFocus(int)
 android.support.v4.view.accessibility.AccessibilityRecordCompat:
     539:539:public java.lang.Object getImpl()
     550:550:public static android.support.v4.view.accessibility.AccessibilityRecordCompat obtain(android.support.v4.view.accessibility.AccessibilityRecordCompat)
@@ -1745,12 +1737,12 @@ com.pavkoo.franklin.common.DBHelper:
     private static final java.lang.String DATABASE_NAME
     private static final int DATABASE_VERSION
 com.pavkoo.franklin.common.DBManager:
-    116:117:public void updateMorals(java.util.List)
+    120:121:public void updateMorals(java.util.List)
 com.pavkoo.franklin.common.FranklinApplication:
-    41:42:public com.pavkoo.franklin.common.ApplicationConfig forceCreateAppCon()
-    54:54:public com.pavkoo.franklin.common.SharePreferenceService getmPreference()
-    58:58:public static com.pavkoo.franklin.common.FranklinApplication getInstance()
-    62:62:public com.pavkoo.franklin.common.SharePreferenceService getPreference()
+    45:46:public com.pavkoo.franklin.common.ApplicationConfig forceCreateAppCon()
+    58:58:public com.pavkoo.franklin.common.SharePreferenceService getmPreference()
+    62:62:public static com.pavkoo.franklin.common.FranklinApplication getInstance()
+    66:66:public com.pavkoo.franklin.common.SharePreferenceService getPreference()
 com.pavkoo.franklin.common.Moral:
     private static final long serialVersionUID
     46:47:private void clearTodayComment()
@@ -1768,11 +1760,26 @@ com.pavkoo.franklin.common.Moral:
     213:213:public int getCycleCount()
     217:232:public float getCheckRate(int)
     236:240:public void reSet()
+com.pavkoo.franklin.common.MyLog:
+    22:22:public MyLog()
+    33:34:public static void w(java.lang.String,java.lang.Object)
+    37:38:public static void e(java.lang.String,java.lang.Object)
+    41:42:public static void d(java.lang.String,java.lang.Object)
+    45:46:public static void i(java.lang.String,java.lang.Object)
+    49:50:public static void v(java.lang.String,java.lang.Object)
+    53:54:public static void w(java.lang.String,java.lang.String)
+    57:58:public static void e(java.lang.String,java.lang.String)
+    61:62:public static void d(java.lang.String,java.lang.String)
+    69:70:public static void v(java.lang.String,java.lang.String)
+    126:131:public static void delFile()
+    137:141:private static java.util.Date getDateBefore()
 com.pavkoo.franklin.common.SharePreferenceService:
-    49:59:public com.pavkoo.franklin.common.ApplicationConfig saveAppConfig(com.pavkoo.franklin.common.ApplicationConfig)
-    63:64:public java.util.List saveMorals(java.util.List)
-    68:69:public java.util.List saveComments(java.util.List)
-    89:90:public java.util.List saveWelcomes(java.util.List)
+    39:48:public com.pavkoo.franklin.common.ApplicationConfig loadAppconfig()
+    53:63:public com.pavkoo.franklin.common.ApplicationConfig saveAppConfig(com.pavkoo.franklin.common.ApplicationConfig)
+    67:68:public java.util.List saveMorals(java.util.List)
+    72:73:public java.util.List saveComments(java.util.List)
+    93:94:public java.util.List saveWelcomes(java.util.List)
+    137:153:public void deleteAllFile()
 com.pavkoo.franklin.common.UtilsClass:
     private static final java.lang.String DATEFORMAT
     private static final int ShortSizeLen
@@ -1818,17 +1825,50 @@ com.pavkoo.franklin.controls.SettingSystemRestartDialog:
 com.pavkoo.franklin.controls.Today:
     private static final int IMAGEDOWNLOADED
 com.pavkoo.franklin.controls.Today$ArcDrawable:
-    305:307:public Today$ArcDrawable(android.content.Context,android.util.AttributeSet)
+    281:283:public Today$ArcDrawable(android.content.Context,android.util.AttributeSet)
 com.pavkoo.franklin.controls.TodayDialog:
     private java.lang.Object extraObject
     79:79:public java.lang.Object getExtraObject()
     83:84:public void setExtraObject(java.lang.Object)
-    322:322:public com.pavkoo.franklin.common.SignRecords getSr()
+    316:316:public com.pavkoo.franklin.common.SignRecords getSr()
 com.pavkoo.franklin.controls.TotalAdapter:
     30:30:public android.util.SparseIntArray getDoneRate()
     40:40:public java.util.List getMorals()
 com.pavkoo.franklin.controls.TrendAdapter:
     92:92:public java.util.List getSignlist()
+com.pavkoo.franklin.old.Comment:
+    private static final long serialVersionUID
+    20:21:public void setRemoved(boolean)
+    34:35:public void setContent(java.lang.String)
+    42:43:public void setCount(int)
+com.pavkoo.franklin.old.Moral:
+    private static final long serialVersionUID
+    33:33:public int getCurrentDayInCycle()
+    37:38:private void clearTodayComment()
+    41:44:public void clearHistoryComment()
+    47:48:public void setCurrentDayInCycle(int)
+    57:58:public void setStartDate(java.util.Date)
+    65:66:public void setEndDate(java.util.Date)
+    71:71:public boolean isFinished()
+    75:75:public boolean isDoing()
+    79:80:public void setFinished(boolean)
+    84:84:public java.util.List getComments()
+    92:93:public void setTitleMotto(java.lang.String)
+    96:96:public com.pavkoo.franklin.common.CheckState getTodaySelected()
+    100:108:public com.pavkoo.franklin.common.CheckState getHistorySelected(int)
+    112:113:public void setHistorySelected(int,com.pavkoo.franklin.common.CheckState)
+    116:130:public void setHistorySelected(int,com.pavkoo.franklin.common.CheckState,int)
+    133:141:public int getCommentIndex(int)
+    146:151:public void setTodaySelected(com.pavkoo.franklin.common.CheckState)
+    158:159:public void setTitle(java.lang.String)
+    166:167:public void setTitleDes(java.lang.String)
+    178:179:public void setCycle(int)
+    182:187:public int getCheckedCount()
+    191:191:public int getTotalCheckCount()
+    195:200:public int getTotalCheckedSize()
+    204:204:public int getCycleCount()
+    208:223:public float getCheckRate(int)
+    227:231:public void reSet()
 com.umeng.analytics.AnalyticsConfig:
     7:7:public AnalyticsConfig()
     26:27:public static void setAppkey(java.lang.String)

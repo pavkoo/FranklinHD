@@ -4,17 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.Animator.AnimatorListener;
-import com.nineoldandroids.animation.ObjectAnimator;
-import com.nineoldandroids.animation.ValueAnimator;
-import com.nineoldandroids.animation.ValueAnimator.AnimatorUpdateListener;
-import com.pavkoo.franklin.R;
-import com.pavkoo.franklin.common.CheckState;
-import com.pavkoo.franklin.common.Comment;
-import com.pavkoo.franklin.common.CommonConst;
-import com.pavkoo.franklin.common.FranklinApplication;
-import com.pavkoo.franklin.common.SignRecords;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
@@ -23,8 +12,8 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
@@ -38,6 +27,18 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.Animator.AnimatorListener;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.animation.ValueAnimator;
+import com.nineoldandroids.animation.ValueAnimator.AnimatorUpdateListener;
+import com.pavkoo.franklin.R;
+import com.pavkoo.franklin.common.CheckState;
+import com.pavkoo.franklin.common.Comment;
+import com.pavkoo.franklin.common.CommonConst;
+import com.pavkoo.franklin.common.FranklinApplication;
+import com.pavkoo.franklin.common.SignRecords;
 
 public class TodayDialog extends ParentDialog {
 
@@ -57,8 +58,7 @@ public class TodayDialog extends ParentDialog {
 	}
 
 	public void updateUIByMoral(int index) {
-		int mainColor = Color.parseColor(CommonConst.colors[index
-				% CommonConst.colors.length]);
+		int mainColor = Color.parseColor(CommonConst.colors[index % CommonConst.colors.length]);
 		GradientDrawable gd = (GradientDrawable) title.getBackground();
 		gd.setColor(mainColor);
 	}
@@ -87,11 +87,9 @@ public class TodayDialog extends ParentDialog {
 		super(context, theme);
 		resultChanged = false;
 		String infService = Context.LAYOUT_INFLATER_SERVICE;
-		LayoutInflater li = (LayoutInflater) getContext().getSystemService(
-				infService);
+		LayoutInflater li = (LayoutInflater) getContext().getSystemService(infService);
 		View dialogView = li.inflate(R.layout.today_control_popup, null);
-		setContentView(dialogView, new ViewGroup.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		setContentView(dialogView, new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 
 		rgpToday = (RadioGroup) findViewById(R.id.rgpToday);
 		gpbTodayYes = (RadioButton) findViewById(R.id.gpbTodayYes);
@@ -123,8 +121,7 @@ public class TodayDialog extends ParentDialog {
 					sr.setCommentIndex(-1);
 					sr.setCs(CheckState.DONE);
 					app.getMgr().insertNew(sr);
-					app.getNewWeek().get(String.valueOf(sr.getMoarlIndex()))
-							.add(sr);
+					app.getNewWeek().get(String.valueOf(sr.getMoarlIndex())).add(sr);
 					resultChanged = true;
 				} else if (sr.getCs() == CheckState.UNDONE) {
 					sr.setCs(CheckState.DONE);
@@ -149,8 +146,7 @@ public class TodayDialog extends ParentDialog {
 				if (sr.getCs() == CheckState.UNKNOW) {
 					sr.setCs(CheckState.UNDONE);
 					app.getMgr().insertNew(sr);
-					app.getNewWeek().get(String.valueOf(sr.getMoarlIndex()))
-							.add(sr);
+					app.getNewWeek().get(String.valueOf(sr.getMoarlIndex())).add(sr);
 					resultChanged = true;
 				} else if (sr.getCs() == CheckState.DONE) {
 					sr.setCs(CheckState.UNDONE);
@@ -171,8 +167,7 @@ public class TodayDialog extends ParentDialog {
 		txtComment.setOnEditorActionListener(new OnEditorActionListener() {
 
 			@Override
-			public boolean onEditorAction(TextView v, int actionId,
-					KeyEvent event) {
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
 				if (actionId == EditorInfo.IME_ACTION_DONE) {
 					addComment();
@@ -254,8 +249,7 @@ public class TodayDialog extends ParentDialog {
 				commstrs.add(app.getComments().get(i).getContent());
 			}
 		}
-		MyAdapter<String> adapter = new MyAdapter<String>(this.getContext(),
-				android.R.layout.simple_dropdown_item_1line, commstrs);
+		MyAdapter<String> adapter = new MyAdapter<String>(this.getContext(), android.R.layout.simple_dropdown_item_1line, commstrs);
 		txtComment.setAdapter(adapter);
 		txtComment.setText("");
 	}
@@ -264,7 +258,7 @@ public class TodayDialog extends ParentDialog {
 		if (cid == -1) {
 			return cid;
 		}
-		
+
 		Comment comObj = null;
 		List<Comment> comments = app.getComments();
 		for (int i = 0; i < comments.size(); i++) {
@@ -326,14 +320,13 @@ public class TodayDialog extends ParentDialog {
 		this.sr = sr;
 	}
 
-	@SuppressLint("DefaultLocale")
+	@SuppressLint({"DefaultLocale", "NewApi"})
 	private class MyAdapter<T> extends ArrayAdapter<T> implements Filterable {
 		private MyFilter mFilter;
 		private List<T> mOriginalValues;
 		private List<T> mObjects;
 
-		public MyAdapter(Context context, int textViewResourceId,
-				List<T> objects) {
+		public MyAdapter(Context context, int textViewResourceId, List<T> objects) {
 			super(context, textViewResourceId, objects);
 			mObjects = objects;
 			mFilter = new MyFilter();
@@ -362,8 +355,7 @@ public class TodayDialog extends ParentDialog {
 				for (int i = 0; i < count; i++) {
 					T value = mOriginalValues.get(i);
 					String valueText = value.toString();
-					if (!valueText.equals("") && !content.equals("")
-							&& valueText.indexOf(content) >= 0) {
+					if (!valueText.equals("") && !content.equals("") && valueText.indexOf(content) >= 0) {
 						values.add(value);
 					}
 				}
@@ -374,13 +366,11 @@ public class TodayDialog extends ParentDialog {
 
 			@SuppressWarnings("unchecked")
 			@Override
-			protected void publishResults(CharSequence constraint,
-					FilterResults results) {
+			protected void publishResults(CharSequence constraint, FilterResults results) {
 				if (results != null && results.count > 0) {
 					// 有过滤结果，显示自动完成列表
 					MyAdapter.this.clear(); // 清空旧列表
-					MyAdapter.this
-							.addAll((Collection<? extends T>) results.values);
+					MyAdapter.this.addAll((Collection<? extends T>) results.values);
 					notifyDataSetChanged();
 				} else {
 					// 无过滤结果，关闭列表

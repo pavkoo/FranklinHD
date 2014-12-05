@@ -1178,15 +1178,15 @@ android.support.v4.view.ViewPager -> android.support.v4.view.ViewPager:
     boolean mCalledSuper -> U
     int mDecorChildCount -> V
     android.support.v4.view.ViewPager$OnPageChangeListener mOnPageChangeListener -> W
-    android.support.v4.view.ViewPager$OnPageChangeListener mInternalPageChangeListener -> Z
-    android.support.v4.view.ViewPager$OnAdapterChangeListener mAdapterChangeListener -> aa
-    android.support.v4.view.ViewPager$PageTransformer mPageTransformer -> ab
-    java.lang.reflect.Method mSetChildrenDrawingOrderEnabled -> ac
-    int mDrawingOrder -> ad
-    java.util.ArrayList mDrawingOrderedChildren -> ae
-    android.support.v4.view.ViewPager$ViewPositionComparator sPositionComparator -> af
-    java.lang.Runnable mEndScrollRunnable -> ag
-    int mScrollState -> ah
+    android.support.v4.view.ViewPager$OnPageChangeListener mInternalPageChangeListener -> aa
+    android.support.v4.view.ViewPager$OnAdapterChangeListener mAdapterChangeListener -> ab
+    android.support.v4.view.ViewPager$PageTransformer mPageTransformer -> ac
+    java.lang.reflect.Method mSetChildrenDrawingOrderEnabled -> ad
+    int mDrawingOrder -> ae
+    java.util.ArrayList mDrawingOrderedChildren -> af
+    android.support.v4.view.ViewPager$ViewPositionComparator sPositionComparator -> ag
+    java.lang.Runnable mEndScrollRunnable -> ah
+    int mScrollState -> ai
     void initViewPager() -> a
     void onDetachedFromWindow() -> onDetachedFromWindow
     void setScrollState(int) -> setScrollState
@@ -1452,6 +1452,7 @@ android.support.v4.view.accessibility.AccessibilityNodeProviderCompat -> android
     android.support.v4.view.accessibility.AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int) -> a
     boolean performAction(int,int,android.os.Bundle) -> a
     java.util.List findAccessibilityNodeInfosByText(java.lang.String,int) -> a
+    android.support.v4.view.accessibility.AccessibilityNodeInfoCompat findFocus(int) -> b
 android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderImpl -> android.support.v4.view.a.k:
     java.lang.Object newAccessibilityNodeProviderBridge(android.support.v4.view.accessibility.AccessibilityNodeProviderCompat) -> a
 android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderJellyBeanImpl -> android.support.v4.view.a.l:
@@ -1470,6 +1471,7 @@ android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$Accessibil
     boolean performAction(int,int,android.os.Bundle) -> a
     java.util.List findAccessibilityNodeInfosByText(java.lang.String,int) -> a
     java.lang.Object createAccessibilityNodeInfo(int) -> a
+    java.lang.Object findFocus(int) -> b
 android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderStubImpl -> android.support.v4.view.a.p:
     java.lang.Object newAccessibilityNodeProviderBridge(android.support.v4.view.accessibility.AccessibilityNodeProviderCompat) -> a
 android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean -> android.support.v4.view.a.q:
@@ -1490,10 +1492,12 @@ android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat$1 ->
     android.view.accessibility.AccessibilityNodeInfo createAccessibilityNodeInfo(int) -> createAccessibilityNodeInfo
     java.util.List findAccessibilityNodeInfosByText(java.lang.String,int) -> findAccessibilityNodeInfosByText
     boolean performAction(int,int,android.os.Bundle) -> performAction
+    android.view.accessibility.AccessibilityNodeInfo findFocus(int) -> findFocus
 android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat$AccessibilityNodeInfoBridge -> android.support.v4.view.a.v:
     java.lang.Object createAccessibilityNodeInfo(int) -> a
     boolean performAction(int,int,android.os.Bundle) -> a
     java.util.List findAccessibilityNodeInfosByText(java.lang.String,int) -> a
+    java.lang.Object findFocus(int) -> b
 android.support.v4.view.accessibility.AccessibilityRecordCompat -> android.support.v4.view.a.w:
     android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordImpl IMPL -> a
     java.lang.Object mRecord -> b
@@ -2011,21 +2015,21 @@ com.mobeta.android.dslv.DragSortListView -> com.mobeta.android.dslv.DragSortList
     com.mobeta.android.dslv.DragSortListView$FloatViewManager mFloatViewManager -> U
     android.view.MotionEvent mCancelEvent -> V
     int mCancelMethod -> W
-    float mSlideRegionFrac -> Z
-    float mSlideFrac -> aa
-    com.mobeta.android.dslv.DragSortListView$AdapterWrapper mAdapterWrapper -> ab
-    boolean mTrackDragSort -> ac
-    com.mobeta.android.dslv.DragSortListView$DragSortTracker mDragSortTracker -> ad
-    boolean mBlockLayoutRequests -> ae
-    boolean mIgnoreTouchEvent -> af
-    com.mobeta.android.dslv.DragSortListView$HeightCache mChildHeightCache -> ag
-    com.mobeta.android.dslv.DragSortListView$RemoveAnimator mRemoveAnimator -> ah
-    com.mobeta.android.dslv.DragSortListView$LiftAnimator mLiftAnimator -> ai
-    com.mobeta.android.dslv.DragSortListView$DropAnimator mDropAnimator -> aj
-    boolean mUseRemoveVelocity -> ak
-    float mRemoveVelocityX -> al
-    boolean mListViewIntercepted -> am
-    boolean mFloatViewInvalidated -> an
+    float mSlideRegionFrac -> aa
+    float mSlideFrac -> ab
+    com.mobeta.android.dslv.DragSortListView$AdapterWrapper mAdapterWrapper -> ac
+    boolean mTrackDragSort -> ad
+    com.mobeta.android.dslv.DragSortListView$DragSortTracker mDragSortTracker -> ae
+    boolean mBlockLayoutRequests -> af
+    boolean mIgnoreTouchEvent -> ag
+    com.mobeta.android.dslv.DragSortListView$HeightCache mChildHeightCache -> ah
+    com.mobeta.android.dslv.DragSortListView$RemoveAnimator mRemoveAnimator -> ai
+    com.mobeta.android.dslv.DragSortListView$LiftAnimator mLiftAnimator -> aj
+    com.mobeta.android.dslv.DragSortListView$DropAnimator mDropAnimator -> ak
+    boolean mUseRemoveVelocity -> al
+    float mRemoveVelocityX -> am
+    boolean mListViewIntercepted -> an
+    boolean mFloatViewInvalidated -> ao
     void setFloatAlpha(float) -> setFloatAlpha
     float getFloatAlpha() -> getFloatAlpha
     void setMaxScrollSpeed(float) -> setMaxScrollSpeed
@@ -4139,6 +4143,7 @@ com.pavkoo.franklin.common.Comment -> com.pavkoo.franklin.common.c:
     int getVersion() -> e
     void setVersion(int) -> c
     void setTimestamp(long) -> a
+    void copyFromOld(com.pavkoo.franklin.old.Comment) -> a
     int compareTo(java.lang.Object) -> compareTo
 com.pavkoo.franklin.common.CommonConst -> com.pavkoo.franklin.common.d:
     java.lang.String[] colors -> a
@@ -4149,8 +4154,9 @@ com.pavkoo.franklin.common.DBHelper -> com.pavkoo.franklin.common.e:
 com.pavkoo.franklin.common.DBManager -> com.pavkoo.franklin.common.f:
     com.pavkoo.franklin.common.DBHelper helper -> a
     android.database.sqlite.SQLiteDatabase db -> b
-    boolean needIniApp() -> a
-    com.pavkoo.franklin.common.ApplicationConfig loadConfig() -> b
+    void close() -> a
+    boolean needIniApp() -> b
+    com.pavkoo.franklin.common.ApplicationConfig loadConfig() -> c
     void updateConfig(com.pavkoo.franklin.common.ApplicationConfig) -> a
     void importAppCon(com.pavkoo.franklin.common.ApplicationConfig) -> b
     void importMottos(java.util.List) -> a
@@ -4159,26 +4165,26 @@ com.pavkoo.franklin.common.DBManager -> com.pavkoo.franklin.common.f:
     void updateMottos(java.util.List) -> c
     void importMorals(java.util.List) -> d
     void importSign(java.util.List) -> e
-    java.util.List loadComment() -> c
-    java.util.List loadMorals() -> d
-    java.util.List loadMottos() -> e
-    java.util.List loadSignedRecord() -> f
-    java.util.List loadAllSginRecord() -> g
-    int getCurrentMoralId() -> h
-    boolean isBeforeTraining() -> i
-    boolean isAfterTraning() -> j
-    int lastReflectDate() -> k
+    java.util.List loadComment() -> d
+    java.util.List loadMorals() -> e
+    java.util.List loadMottos() -> f
+    java.util.List loadSignedRecord() -> g
+    java.util.List loadAllSginRecord() -> h
+    int getCurrentMoralId() -> i
+    boolean isBeforeTraining() -> j
+    boolean isAfterTraning() -> k
+    int lastReflectDate() -> l
     java.util.HashMap getNewWeekSing(java.util.Date,java.util.Date) -> a
     com.pavkoo.franklin.common.SignRecords insertNew(com.pavkoo.franklin.common.SignRecords) -> a
     com.pavkoo.franklin.common.SignRecords updateSr(com.pavkoo.franklin.common.SignRecords) -> b
     void updateComment(com.pavkoo.franklin.common.Comment) -> a
     void removeComment(int) -> a
     com.pavkoo.franklin.common.Comment insertNewComment(com.pavkoo.franklin.common.Comment) -> b
-    int getTotoalSignCount() -> l
-    android.util.SparseIntArray getDoneSignCount() -> m
-    void clearComment() -> n
-    void clearSignrecord() -> o
-    void restoretodefault() -> p
+    int getTotoalSignCount() -> m
+    android.util.SparseIntArray getDoneSignCount() -> n
+    void clearComment() -> o
+    void clearSignrecord() -> p
+    void restoretodefault() -> q
 com.pavkoo.franklin.common.FranklinApplication -> com.pavkoo.franklin.common.FranklinApplication:
     com.pavkoo.franklin.common.FranklinApplication singleton -> c
     int AnimationDuration -> a
@@ -4248,7 +4254,20 @@ com.pavkoo.franklin.common.Moral -> com.pavkoo.franklin.common.g:
     void setCycle(int) -> c
     int getVersion() -> l
     void setVersion(int) -> d
-com.pavkoo.franklin.common.SharePreferenceService -> com.pavkoo.franklin.common.h:
+    void copyFromOld(com.pavkoo.franklin.old.Moral) -> a
+com.pavkoo.franklin.common.MyLog -> com.pavkoo.franklin.common.h:
+    java.lang.Boolean MYLOG_SWITCH -> a
+    java.lang.Boolean MYLOG_WRITE_TO_FILE -> b
+    char MYLOG_TYPE -> c
+    java.lang.String MYLOG_PATH_SDCARD_DIR -> d
+    int SDCARD_LOG_FILE_SAVE_DAYS -> e
+    java.lang.String MYLOGFILEName -> f
+    java.text.SimpleDateFormat myLogSdf -> g
+    java.text.SimpleDateFormat logfile -> h
+    void i(java.lang.String,java.lang.String) -> a
+    void log(java.lang.String,java.lang.String,char) -> a
+    void writeLogtoFile(java.lang.String,java.lang.String,java.lang.String) -> a
+com.pavkoo.franklin.common.SharePreferenceService -> com.pavkoo.franklin.common.i:
     android.content.Context context -> a
     java.lang.String MORAL_FILE -> b
     java.lang.String HISTORY_MORAL_FILE -> c
@@ -4256,17 +4275,15 @@ com.pavkoo.franklin.common.SharePreferenceService -> com.pavkoo.franklin.common.
     java.lang.String HISTORY_SIGNRECORD_FILE -> e
     java.lang.String COMMENT_FILE -> f
     java.lang.String WELCOME_FILE -> g
-    com.pavkoo.franklin.common.ApplicationConfig loadAppconfig() -> a
     java.util.List saveHistoryComments(java.util.List,int) -> a
     java.util.List saveHistoryMorals(java.util.List,int) -> b
     void saveHistorySignRecords(java.util.List,int) -> c
-    java.util.List loadMorals() -> b
-    java.util.List loadComments() -> c
-    java.util.List loadWelcomes() -> d
+    java.util.List loadMorals() -> a
+    java.util.List loadComments() -> b
+    java.util.List loadWelcomes() -> c
     void saveFile(java.lang.Object,java.lang.String) -> a
-    void deleteAllFile() -> e
     java.lang.Object loadFile(java.lang.String) -> a
-com.pavkoo.franklin.common.SignRecords -> com.pavkoo.franklin.common.i:
+com.pavkoo.franklin.common.SignRecords -> com.pavkoo.franklin.common.j:
     int moarlIndex -> a
     int commentIndex -> b
     com.pavkoo.franklin.common.CheckState cs -> c
@@ -4282,7 +4299,7 @@ com.pavkoo.franklin.common.SignRecords -> com.pavkoo.franklin.common.i:
     void setInputDate(java.util.Date) -> a
     int getId() -> e
     void setId(int) -> c
-com.pavkoo.franklin.common.UtilsClass -> com.pavkoo.franklin.common.j:
+com.pavkoo.franklin.common.UtilsClass -> com.pavkoo.franklin.common.k:
     boolean isEng() -> a
     java.lang.String shortString(java.lang.String) -> a
     java.lang.String dateToString(java.util.Date) -> a
@@ -5039,6 +5056,35 @@ com.pavkoo.franklin.controls.TrendReport -> com.pavkoo.franklin.controls.TrendRe
     void onDraw(android.graphics.Canvas) -> onDraw
     void onSizeChanged(int,int,int,int) -> onSizeChanged
     void getSpace() -> getSpace
+com.pavkoo.franklin.old.Comment -> com.pavkoo.franklin.a.a:
+    java.lang.String content -> a
+    int count -> b
+    boolean removed -> c
+    long timestamp -> d
+    boolean isRemoved() -> a
+    java.lang.String getContent() -> b
+    int getCount() -> c
+    int compareTo(com.pavkoo.franklin.old.Comment) -> a
+    boolean equals(java.lang.Object) -> equals
+    int compareTo(java.lang.Object) -> compareTo
+com.pavkoo.franklin.old.Moral -> com.pavkoo.franklin.a.b:
+    java.lang.String title -> a
+    java.lang.String titleDes -> b
+    java.lang.String titleMotto -> c
+    boolean finished -> d
+    java.util.List commentIndex -> e
+    java.util.List stateList -> f
+    int cycle -> g
+    int currentDayInCycle -> h
+    java.util.Date startDate -> i
+    java.util.Date endDate -> j
+    java.util.Date getStartDate() -> a
+    java.util.Date getEndDate() -> b
+    java.lang.String getTitleMotto() -> c
+    java.lang.String getTitle() -> d
+    java.lang.String getTitleDes() -> e
+    java.util.List getStateList() -> f
+    int getCycle() -> g
 com.umeng.analytics.AnalyticsConfig -> com.umeng.a.a:
     java.lang.String a -> o
     java.lang.String b -> p

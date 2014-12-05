@@ -95,7 +95,7 @@
     <string name="dayBeforeYesterday">ANTEAYER</string>
     <string name="moreDay">Days Ago</string>
     <string name="startNewMoralInfo">Start implementation a %1$d days planning for %2$s</string>
-    <string name="startNewMoralInfo2">%1$s completed\nStart implementation a %1$d days planning for %2$s</string>
+    <string name="startNewMoralInfo2">%1$s completed\nStart implementation a %2$d days plan for %3$s</string>
     <string name="beginMoral"> Today is day  %2$d of planning %1$s</string>
     <string name="manyDaynotuse">You forgot to reflect over %1$d days,Cheer you up</string>
     <string name="next">Next</string>

@@ -61,8 +61,7 @@ public class Comment implements Comparable<Comment>, Serializable {
 			if (this.count == another.count) {
 				if (this.getContent().length() > another.getContent().length()) {
 					return 1;
-				} else if (this.getContent().length() < another.getContent()
-						.length()) {
+				} else if (this.getContent().length() < another.getContent().length()) {
 					return -1;
 				} else {
 					return 0;
@@ -79,7 +78,8 @@ public class Comment implements Comparable<Comment>, Serializable {
 	public boolean equals(Object o) {
 		if (o.getClass() == this.getClass()) {
 			Comment target = (Comment) o;
-			if (target.isRemoved() || this.isRemoved()) return false;
+			if (target.isRemoved() || this.isRemoved())
+				return false;
 			return target.getContent().equals(this.content);
 		}
 		return false;
@@ -100,5 +100,4 @@ public class Comment implements Comparable<Comment>, Serializable {
 	public void setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
 	}
-
 }

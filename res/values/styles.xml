@@ -21,7 +21,6 @@
     <style name="AppTheme.Light" praent="AppTheme">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
     </style>
 
@@ -165,7 +164,7 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="appReportBottomNumber" parent="android:Widget.Holo.Light.TextView">
+    <style name="appReportBottomNumber" >
         <item name="android:textColor">#41bb45</item>
         <item name="android:textSize">@dimen/textSizebig</item>
         <item name="android:textStyle">bold</item>

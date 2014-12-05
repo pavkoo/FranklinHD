@@ -1,7 +1,6 @@
 package com.pavkoo.franklin.controls;
 
-import com.pavkoo.franklin.R;
-
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Point;
@@ -11,6 +10,9 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import com.pavkoo.franklin.R;
+
+@SuppressLint("NewApi")
 public class ParentDialog extends Dialog {
 	@SuppressWarnings("deprecation")
 	public ParentDialog(Context context, int theme) {
@@ -24,8 +26,8 @@ public class ParentDialog extends Dialog {
 		if (Build.VERSION.SDK_INT > 12) {
 			d.getSize(p);
 			lp.width = (int) (p.x * 0.9);
-		}else{
-			lp.width = (int) (d.getWidth()* 0.9);
+		} else {
+			lp.width = (int) (d.getWidth() * 0.9);
 		}
 		lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
 		getWindow().setAttributes(lp);

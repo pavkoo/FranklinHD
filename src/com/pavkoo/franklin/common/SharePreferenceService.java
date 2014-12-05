@@ -16,6 +16,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.util.Log;
 
 public class SharePreferenceService {
 	private Context context;
@@ -69,13 +70,13 @@ public class SharePreferenceService {
 		return comments;
 	}
 
-	public List<Comment> saveHistoryComments(List<Comment> comments, int historyCount) {
+	public List<com.pavkoo.franklin.common.Comment> saveHistoryComments(List<com.pavkoo.franklin.common.Comment> comments, int historyCount) {
 		String historyFileName = HISTORY_COMMENT_FILE + String.valueOf(historyCount);
 		saveFile(comments, historyFileName);
 		return comments;
 	}
 
-	public List<Moral> saveHistoryMorals(List<Moral> morals, int historyCount) {
+	public List<com.pavkoo.franklin.common.Moral> saveHistoryMorals(List<com.pavkoo.franklin.common.Moral> morals, int historyCount) {
 		String historyFileName = HISTORY_MORAL_FILE + String.valueOf(historyCount);
 		saveFile(morals, historyFileName);
 		return morals;
@@ -129,34 +130,40 @@ public class SharePreferenceService {
 	}
 
 	public void deleteAllFile() {
+
 		File objectFile = new File(context.getFilesDir(), MORAL_FILE);
 		if (objectFile.exists()) {
 			objectFile.delete();
+			Log.i("begin deleteAllFile", MORAL_FILE);
 		}
 		File commFile = new File(context.getFilesDir(), COMMENT_FILE);
 		if (commFile.exists()) {
 			commFile.delete();
+			Log.i("begin deleteAllFile", COMMENT_FILE);
 		}
 
 		File mottoFile = new File(context.getFilesDir(), WELCOME_FILE);
 		if (mottoFile.exists()) {
 			mottoFile.delete();
+			Log.i("begin deleteAllFile", WELCOME_FILE);
 		}
 	}
-
 	@SuppressWarnings("unchecked")
 	private Object loadFile(String fileName) {
-		List<Moral> object = null;
+		MyLog.i("FRANKLIN UPDATE", "loadFile " + fileName);
+		List<Object> object = null;
 		File objectFile = new File(context.getFilesDir(), fileName);
 		if (!objectFile.exists()) {
+			MyLog.i("FRANKLIN UPDATE", "loadFile not exists !" + fileName);
 			return object;
 		}
 		ObjectInputStream ois = null;
 		try {
 			ois = new ObjectInputStream(new FileInputStream(objectFile));
 			try {
-				object = (ArrayList<Moral>) ois.readObject();
+				object = (ArrayList<Object>) ois.readObject();
 			} catch (ClassNotFoundException e) {
+				MyLog.i("FRANKLIN UPDATE", "loadFile ClassNotFoundException" + objectFile);
 				e.printStackTrace();
 			}
 		} catch (StreamCorruptedException e) {
@@ -175,7 +182,7 @@ public class SharePreferenceService {
 			}
 			ois = null;
 		}
+		MyLog.i("end load file oldversion", fileName);
 		return object;
 	}
-
 }

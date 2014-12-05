@@ -73,19 +73,7 @@ public class FranklinApplication extends Application {
 	public void loadData() {
 		// old version use morals saved in SharePreference ,new version use
 		// SQLite DB
-		morals = mPreference.loadMorals();
-		if (morals != null) {
-			appCon = mPreference.loadAppconfig();
-			morals = mPreference.loadMorals();
-			comments = mPreference.loadComments();
-			welcomes = mPreference.loadWelcomes();
-			mgr.importAppCon(appCon);
-			mgr.importMottos(welcomes);
-			mgr.importComms(comments);
-			mgr.importMorals(morals);
-			mgr.importSign(morals);
-			mPreference.deleteAllFile();
-		}
+
 		if (mgr.needIniApp()) {
 			appCon = new ApplicationConfig();
 			appCon.setFrist(true);
@@ -99,7 +87,6 @@ public class FranklinApplication extends Application {
 		}
 		loadDataFromDb();
 	}
-
 	private void loadDataFromDb() {
 		appCon = mgr.loadConfig();
 		morals = mgr.loadMorals();

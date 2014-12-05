@@ -138,7 +138,7 @@ public class Moral implements Serializable {
 		}
 	}
 
-	public int getCommentIndex(int pos){
+	public int getCommentIndex(int pos) {
 		int passCycle = stateList.size() / this.cycle;
 		int reminder = stateList.size() % this.cycle;
 		if (reminder == 0) {
@@ -149,7 +149,7 @@ public class Moral implements Serializable {
 			return -1;
 		return commentIndex.get(pos);
 	}
-	
+
 	public void setTodaySelected(CheckState todaySelected) {
 		@SuppressWarnings("unused")
 		CheckState today = stateList.get(stateList.size() - 1);
@@ -162,7 +162,7 @@ public class Moral implements Serializable {
 	public String getTitle() {
 		return title;
 	}
-	
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -217,8 +217,8 @@ public class Moral implements Serializable {
 		if (cycleNo < 0 || cycleNo > getCycleCount())
 			return 0;
 		int beginIndex = cycleNo * cycle;
-		int endIndex = (cycleNo+1) * cycle -1;
-		if (beginIndex>=stateList.size()){
+		int endIndex = (cycleNo + 1) * cycle - 1;
+		if (beginIndex >= stateList.size()) {
 			beginIndex = stateList.size() - 1;
 		}
 		if (endIndex >= stateList.size()) {

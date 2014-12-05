@@ -96,7 +96,7 @@
     <string name="dayBeforeYesterday">前天</string>
     <string name="moreDay">天前</string>
     <string name="startNewMoralInfo">开始进行为期 %1$d 天的 %2$s 训练计划,密切预防关于  %2$s 的任何极细微的过失</string>
-    <string name="startNewMoralInfo2">已经完成训练  %1$s ，以后只是记下有关的过失\n开始进行为期 %2$d 天的 %3$s 训练计划;密切预防关于  %2$d 的任何极细微的过失</string>
+    <string name="startNewMoralInfo2">已经完成训练  %1$s ，以后只是记下有关的过失\n开始进行为期  %2$d 天的 %3$s 训练计划;密切预防关于 %3$s 的任何极细微的过失</string>
     <string name="beginMoral">"%1$s 训练已经进行到第  %2$d 天"</string>
     <string name="manyDaynotuse">你已经超过 %1$d 天没有反省，加油</string>
     <string name="next">下一步</string>

@@ -5,15 +5,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import com.nineoldandroids.view.ViewHelper;
-import com.pavkoo.franklin.R;
-import com.pavkoo.franklin.common.CheckState;
-import com.pavkoo.franklin.common.CommonConst;
-import com.pavkoo.franklin.common.Moral;
-import com.pavkoo.franklin.common.SignRecords;
-import com.pavkoo.franklin.common.UtilsClass;
-import com.pavkoo.franklin.controls.TodayDialog.DialogState;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -37,11 +28,19 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
-//import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-public class Today extends FrameLayout implements IUpdateViewCallback,
-		IUpdateTextCallBack {
+import com.nineoldandroids.view.ViewHelper;
+import com.pavkoo.franklin.R;
+import com.pavkoo.franklin.common.CheckState;
+import com.pavkoo.franklin.common.CommonConst;
+import com.pavkoo.franklin.common.Moral;
+import com.pavkoo.franklin.common.SignRecords;
+import com.pavkoo.franklin.common.UtilsClass;
+import com.pavkoo.franklin.controls.TodayDialog.DialogState;
+//import android.widget.ImageView;
+
+public class Today extends FrameLayout implements IUpdateViewCallback, IUpdateTextCallBack {
 
 	private LinearLayout llBackground;
 	private LinearLayout llContent;
@@ -59,13 +58,13 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
-			case IMAGEDOWNLOADED:
-				Bitmap bmp = (Bitmap) msg.obj;
-				ivBg.setImageBitmap(bmp);
-				arcBackground.changeBackground();
-				break;
-			default:
-				break;
+				case IMAGEDOWNLOADED :
+					Bitmap bmp = (Bitmap) msg.obj;
+					ivBg.setImageBitmap(bmp);
+					arcBackground.changeBackground();
+					break;
+				default :
+					break;
 			}
 		}
 	};
@@ -92,10 +91,8 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 	}
 
 	public void updateUIByMoral(int index) {
-		int mainColor = Color.parseColor(CommonConst.colors[index
-				% CommonConst.colors.length]);
-		int mainColorLight = Color.parseColor(CommonConst.colorBg[index
-				% CommonConst.colorBg.length]);
+		int mainColor = Color.parseColor(CommonConst.colors[index % CommonConst.colors.length]);
+		int mainColorLight = Color.parseColor(CommonConst.colorBg[index % CommonConst.colorBg.length]);
 		arcBackground.setCycleBGColor(mainColorLight);
 		arcBackground.setCycleColor(mainColor);
 		mDialog.updateUIByMoral(index);
@@ -138,8 +135,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 
 	public void updateViewByMoral(Moral moral) {
 		arcBackground.setAngleValue(-90);
-		Animation roatate = AnimationUtils.loadAnimation(getContext(),
-				R.anim.today_rotate);
+		Animation roatate = AnimationUtils.loadAnimation(getContext(), R.anim.today_rotate);
 		llBackground.startAnimation(roatate);
 		ViewHelper.setRotation(llBackground, -90);
 		arcBackground.setToday(moral);
@@ -147,10 +143,8 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			List<SignRecords> newWeekSignList = new ArrayList<SignRecords>();
 			newWeekData.put(String.valueOf(moral.getId()), newWeekSignList);
 		}
-		arcBackground
-				.setSignlist(newWeekData.get(String.valueOf(moral.getId())));
-		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT,
+		arcBackground.setSignlist(newWeekData.get(String.valueOf(moral.getId())));
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.MATCH_PARENT);
 		llBackground.addView(arcBackground, lp);
 		FlipperNumber.setCurrentValue(0);
@@ -161,17 +155,14 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 	private void initView() {
 
 		String infService = Context.LAYOUT_INFLATER_SERVICE;
-		LayoutInflater li = (LayoutInflater) getContext().getSystemService(
-				infService);
+		LayoutInflater li = (LayoutInflater) getContext().getSystemService(infService);
 
 		li.inflate(R.layout.today_control, this, true);
 		iniPopupWindow(li);
 
-		bmpSmale = BitmapFactory.decodeResource(getResources(),
-				R.drawable.minsmiley);
+		bmpSmale = BitmapFactory.decodeResource(getResources(), R.drawable.minsmiley);
 		bmpSmale = RotateBitmap(bmpSmale, 90);
-		bmpSad = BitmapFactory
-				.decodeResource(getResources(), R.drawable.minsad);
+		bmpSad = BitmapFactory.decodeResource(getResources(), R.drawable.minsad);
 		bmpSad = RotateBitmap(bmpSad, 90);
 		llBackground = (LinearLayout) findViewById(R.id.llBackground);
 		arcBackground = new ArcDrawable(getContext());
@@ -181,8 +172,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		arcBackground.setUpdateText(this);
 		llContent = (LinearLayout) findViewById(R.id.llContent);
 		FlipperNumber = new Flipper(getContext());
-		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,
-				LayoutParams.MATCH_PARENT);
+		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		llContent.addView(FlipperNumber, params);
 		FlipperNumber.setUpdateText(arcBackground);
 		ivBg = (CircleImageView) findViewById(R.id.ivBg);
@@ -190,11 +180,9 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 
 			@Override
 			public void run() {
-				ConnectivityManager connManager = (ConnectivityManager) Today.this
-						.getContext().getSystemService(
-								Context.CONNECTIVITY_SERVICE);
-				NetworkInfo mWifi = connManager
-						.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+				ConnectivityManager connManager = (ConnectivityManager) Today.this.getContext().getSystemService(
+						Context.CONNECTIVITY_SERVICE);
+				NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 				if (mWifi.isConnected() && !UtilsClass.isEng()) {
 					Bitmap bmp = UtilsClass.downloadBingImage();
 					if (bmp != null) {
@@ -211,13 +199,11 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 	private static Bitmap RotateBitmap(Bitmap source, float angle) {
 		Matrix matrix = new Matrix();
 		matrix.postRotate(angle);
-		return Bitmap.createBitmap(source, 0, 0, source.getWidth(),
-				source.getHeight(), matrix, true);
+		return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
 	}
 
 	private void iniPopupWindow(LayoutInflater li) {
-		mDialog = new TodayDialog(getContext(),
-				android.R.style.Theme_Translucent_NoTitleBar);
+		mDialog = new TodayDialog(getContext(), android.R.style.Theme_Translucent_NoTitleBar);
 	}
 
 	@Override
@@ -233,8 +219,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			@Override
 			public void onClick(View v) {
 				// ivBg.startAnimation(ambmpBgScale);
-				SignRecords sr = arcBackground.getShowingSignRecordsCreate(
-						arcBackground.getCurrentShowing() - 1, true);
+				SignRecords sr = arcBackground.getShowingSignRecordsCreate(arcBackground.getCurrentShowing() - 1, true);
 				mDialog.setSr(sr);
 				mDialog.showState(DialogState.DSSelection);
 			}
@@ -243,8 +228,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			@Override
 			public void run() {
 				// ivBg.startAnimation(ambmpBgScale);
-				SignRecords sr = arcBackground.getShowingSignRecordsCreate(
-						arcBackground.getCurrentShowing() - 1, true);
+				SignRecords sr = arcBackground.getShowingSignRecordsCreate(arcBackground.getCurrentShowing() - 1, true);
 				mDialog.setSr(sr);
 				mDialog.showState(DialogState.DSNote);
 			}
@@ -256,8 +240,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			public void onDismiss(DialogInterface dialog) {
 				if (mDialog.isResultChanged()) {
 
-					arcBackground.setSignlist(newWeekData.get(String
-							.valueOf(arcBackground.getToday().getId())));
+					arcBackground.setSignlist(newWeekData.get(String.valueOf(arcBackground.getToday().getId())));
 					arcBackground.invalidate();
 					if (updateSelectState != null) {
 						updateSelectState.updateTextCallBack();
@@ -271,22 +254,16 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 	public void callUpdateFontSize() {
 		if (llContent == null)
 			return;
-		float marginRight = this.getWidth()
-				- arcBackground.getCircleRect().right;
-		float marginBottom = this.getHeight()
-				- arcBackground.getCircleRect().bottom;
+		float marginRight = this.getWidth() - arcBackground.getCircleRect().right;
+		float marginBottom = this.getHeight() - arcBackground.getCircleRect().bottom;
 		LayoutParams lp = (LayoutParams) llContent.getLayoutParams();
-		lp.setMargins((int) arcBackground.getCircleRect().left,
-				(int) arcBackground.getCircleRect().top, (int) marginRight,
+		lp.setMargins((int) arcBackground.getCircleRect().left, (int) arcBackground.getCircleRect().top, (int) marginRight,
 				(int) marginBottom);
 		llContent.requestLayout();
 		FlipperNumber.updateTextSize(arcBackground.getAdaptedFontSize());
-		Log.i("llBackground width",
-				String.valueOf(Today.this.llBackground.getWidth()));
-		Log.i("llBackground height",
-				String.valueOf(Today.this.llBackground.getHeight()));
-		Animation roatate = AnimationUtils.loadAnimation(getContext(),
-				R.anim.today_rotate);
+		Log.i("llBackground width", String.valueOf(Today.this.llBackground.getWidth()));
+		Log.i("llBackground height", String.valueOf(Today.this.llBackground.getHeight()));
+		Animation roatate = AnimationUtils.loadAnimation(getContext(), R.anim.today_rotate);
 		llBackground.startAnimation(roatate);
 		if (ivBg != null) {
 			ivBg.setLayoutParams(lp);
@@ -294,8 +271,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		}
 	}
 
-	private static class ArcDrawable extends View implements
-			IUpdateTextCallBack {
+	private static class ArcDrawable extends View implements IUpdateTextCallBack {
 		public ArcDrawable(Context context) {
 			super(context);
 			initView();
@@ -486,8 +462,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		@Override
 		protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 			super.onSizeChanged(w, h, oldw, oldh);
-			RectF oval = new RectF(this.getLeft(), getTop(), getRight(),
-					getBottom());
+			RectF oval = new RectF(this.getLeft(), getTop(), getRight(), getBottom());
 			if (oval.isEmpty()) {
 				if (mAdapedRect == null) {
 					mAdapedRect = new RectF(oval);
@@ -505,11 +480,9 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 				oval.bottom = oval.top + oval.width();
 			}
 			mAdapedRect = new RectF(oval);
-			mAdapedRect.inset(ArcDrawable.INNERPADDING,
-					ArcDrawable.INNERPADDING);
+			mAdapedRect.inset(ArcDrawable.INNERPADDING, ArcDrawable.INNERPADDING);
 			mCircleRect = new RectF(mAdapedRect);
-			mCircleRect.inset(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH,
-					SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH);
+			mCircleRect.inset(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH, SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH);
 			adaptFontSize();
 			Log.i("cycle width", String.valueOf(oval.width()));
 			Log.i("cycle height", String.valueOf(oval.height()));
@@ -535,17 +508,17 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 		private int getArcColor(CheckState check) {
 			int color = 0;
 			switch (check) {
-			case DONE:
-				color = getArcDoneColor();
-				break;
-			case UNDONE:
-				color = getArcUnDoneColor();
-				break;
-			case UNKNOW:
-				color = getCycleBGColor();
-				break;
-			default:
-				break;
+				case DONE :
+					color = getArcDoneColor();
+					break;
+				case UNDONE :
+					color = getArcUnDoneColor();
+					break;
+				case UNKNOW :
+					color = getCycleBGColor();
+					break;
+				default :
+					break;
 			}
 			return color;
 		}
@@ -569,8 +542,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			oval.set(getAdapedRect());
 			// 1.draw angle
 			drawArc(canvas, paint, oval);
-			oval.inset(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH,
-					SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH);
+			oval.inset(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH, SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH);
 			paint.setStrokeWidth(CYCLE_STROKEWIDTH);
 			paint.setColor(getCycleColor());
 			paint.setStyle(Paint.Style.FILL);
@@ -578,16 +550,14 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			if (animastarted) {
 				paint.setAlpha(cyclealpha);
 			}
-			canvas.drawCircle(oval.centerX(), oval.centerY(), oval.width() / 2,
-					paint);
+			canvas.drawCircle(oval.centerX(), oval.centerY(), oval.width() / 2, paint);
 			paint.setAlpha(255);
 			// 3.draw bitmap face
 			drawFace(canvas, paint, oval);
 		}
 
 		private void drawFace(Canvas canvas, Paint paint, RectF oval) {
-			oval.inset(-(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH),
-					-(SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH));
+			oval.inset(-(CYCLE_STROKEWIDTH + SPACE_CYCLE_STROKEWIDTH), -(SPACE_CYCLE_STROKEWIDTH + CYCLE_STROKEWIDTH));
 			CheckState current = getCSByStartDay(getCurrentShowing() - 1);
 			if (current == CheckState.UNKNOW)
 				return;
@@ -601,10 +571,8 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			float CycleCenterY = oval.centerY();
 			float Radius = oval.width() / 2;
 			float angle = (arcAngle * (2 * (getCurrentShowing()) - 1)) * 0.5f;
-			float arcCenterX = (float) (Radius * Math.cos(PI / 180 * angle))
-					+ CycleCenterX;
-			float arcCenterY = (float) (Radius * Math.sin(PI / 180 * angle))
-					+ CycleCenterY;
+			float arcCenterX = (float) (Radius * Math.cos(PI / 180 * angle)) + CycleCenterX;
+			float arcCenterY = (float) (Radius * Math.sin(PI / 180 * angle)) + CycleCenterY;
 
 			if (arcCenterX < CycleCenterX) {
 				arcCenterX = arcCenterX - bitmap.getWidth();
@@ -664,8 +632,7 @@ public class Today extends FrameLayout implements IUpdateViewCallback,
 			setCycle(today.getCycle());
 		}
 
-		public SignRecords getShowingSignRecordsCreate(int index,
-				boolean createNew) {
+		public SignRecords getShowingSignRecordsCreate(int index, boolean createNew) {
 			Date current = today.getStartDate();
 			current = UtilsClass.subDate(current, -index);
 			SignRecords sr = null;
