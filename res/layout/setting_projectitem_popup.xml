@@ -1,126 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/appBorderPadding"
-    android:background="@drawable/popup_background"
-    android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/tvSettingPopupTitle"
-        style="@style/appTotayPopupTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/moralItem" />
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/appBorderPadding"
-        android:layout_marginRight="@dimen/appBorderPadding"
-        android:layout_marginTop="@dimen/appBorderPadding"
-        android:background="@color/white_app_bg_secondary"
-        android:padding="@dimen/textPadding"
-        android:shrinkColumns="1"
-        android:stretchColumns="1" >
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/tvSettingProjectItemPopupTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title"
-                android:textColor="@color/white_app_txt_black" />
-
-            <EditText
-                android:id="@+id/txtSettingProjectItemPopupTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hintSettingTitle"
-                android:imeOptions="actionNext"
-                android:inputType="text" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/tvSettingProjectItemPopupTitleDes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/description"
-                android:textColor="@color/white_app_txt_black" />
-
-            <EditText
-                android:id="@+id/txtSettingProjectItemPopupTitleDes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left|top"
-                android:hint="@string/hintSettingDes"
-                android:imeOptions="actionNext"
-                android:inputType="textMultiLine"
-                android:maxLines="4"
-                android:minLines="2" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/tvSettingProjectItemPopupTitleMotto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/motto"
-                android:textColor="@color/white_app_txt_black" />
-
-            <EditText
-                android:id="@+id/txtSettingProjectItemPopupTitleMotto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hintSettingMotto"
-                android:imeOptions="actionDone"
-                android:inputType="textMultiLine"
-                android:maxLines="3" />
-        </TableRow>
-    </TableLayout>
-
-    <com.pavkoo.franklin.controls.AnimMessage
-        android:id="@+id/amSettingProjectItemPupMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/appBorderPadding"
-        android:layout_marginLeft="@dimen/appBorderPadding"
-        android:layout_marginRight="@dimen/appBorderPadding" >
+        android:layout_margin="@dimen/appBorderPadding"
+        android:background="@drawable/popup_background"
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/tvSettingProjectItemPopupCancel"
-            android:layout_width="0dp"
+            android:id="@+id/tvSettingPopupTitle"
+            style="@style/appTotayPopupTitle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/textPadding"
-            android:layout_weight="1"
-            android:background="@drawable/setting_roundrect_selector"
-            android:clickable="true"
             android:gravity="center"
-            android:padding="@dimen/textPadding"
-            android:text="@string/cancel"
-            android:textColor="@color/white_app_txt_white" />
+            android:text="@string/moralItem" />
 
-        <TextView
-            android:id="@+id/tvSettingProjectItemPopupYes"
-            android:layout_width="0dp"
+        <TableLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/textPadding"
-            android:layout_weight="1"
-            android:background="@drawable/setting_roundrect_warning_selector"
-            android:clickable="true"
-            android:gravity="center"
+            android:layout_marginLeft="@dimen/appBorderPadding"
+            android:layout_marginRight="@dimen/appBorderPadding"
+            android:layout_marginTop="@dimen/appBorderPadding"
+            android:background="@color/white_app_bg_secondary"
             android:padding="@dimen/textPadding"
-            android:text="@string/OK"
-            android:textColor="@color/white_app_txt_white" />
+            android:shrinkColumns="1"
+            android:stretchColumns="1" >
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvSettingProjectItemPopupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title"
+                    android:textColor="@color/white_app_txt_black" />
+
+                <EditText
+                    android:id="@+id/txtSettingProjectItemPopupTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hintSettingTitle"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvSettingProjectItemPopupTitleDes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:textColor="@color/white_app_txt_black" />
+
+                <EditText
+                    android:id="@+id/txtSettingProjectItemPopupTitleDes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|top"
+                    android:hint="@string/hintSettingDes"
+                    android:imeOptions="actionNext"
+                    android:inputType="textMultiLine"
+                    android:maxLines="4"
+                    android:minLines="2" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvSettingProjectItemPopupTitleMotto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/motto"
+                    android:textColor="@color/white_app_txt_black" />
+
+                <EditText
+                    android:id="@+id/txtSettingProjectItemPopupTitleMotto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hintSettingMotto"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:maxLines="3" />
+            </TableRow>
+        </TableLayout>
+
+        <com.pavkoo.franklin.controls.AnimMessage
+            android:id="@+id/amSettingProjectItemPupMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/appBorderPadding"
+            android:layout_marginLeft="@dimen/appBorderPadding"
+            android:layout_marginRight="@dimen/appBorderPadding" >
+
+            <TextView
+                android:id="@+id/tvSettingProjectItemPopupCancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/textPadding"
+                android:layout_weight="1"
+                android:background="@drawable/setting_roundrect_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="@dimen/textPadding"
+                android:text="@string/cancel"
+                android:textColor="@color/white_app_txt_white" />
+
+            <TextView
+                android:id="@+id/tvSettingProjectItemPopupYes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/textPadding"
+                android:layout_weight="1"
+                android:background="@drawable/setting_roundrect_warning_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="@dimen/textPadding"
+                android:text="@string/OK"
+                android:textColor="@color/white_app_txt_white" />
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

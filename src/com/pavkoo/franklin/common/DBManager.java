@@ -131,8 +131,8 @@ public class DBManager {
 				for (int i = 0; i < morals.size(); i++) {
 					if (morals.get(i).isFinished() || morals.get(i).isDoing()) {
 						delestr += morals.get(i).getId() + ",";
+						updateOneMoral(morals.get(i));
 					}
-
 				}
 				if (delestr != "") {
 					delestr = delestr.substring(0, delestr.length() - 1);
@@ -435,6 +435,14 @@ public class DBManager {
 		cs.put("timestamp", UtilsClass.dateToString(new Date()));
 		cs.put("version", c.getVersion());
 		db.update("comment", cs, "_id=?", new String[]{String.valueOf(c.getId())});
+	}
+
+	public void updateOneMoral(Moral m) {
+		ContentValues cs = new ContentValues();
+		cs.put("title", m.getTitle());
+		cs.put("titleDes", m.getTitleDes());
+		cs.put("titleMotto", m.getTitleMotto());
+		db.update("moral", cs, "_id=?", new String[]{String.valueOf(m.getId())});
 	}
 
 	public void removeComment(int id) {

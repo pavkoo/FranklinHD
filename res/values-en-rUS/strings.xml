@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="version">Version 0.9.8</string>
     <string name="app_name">13 Virtues</string>
     <string name="appnameabout">13 Virtues</string>
@@ -254,7 +255,7 @@
     <string name="bye">Byebye</string>
     <string name="comfirmDelete">Can not be recovered after deletion, sure to delete it?</string>
     <string name="strComfirmDelete">Comfirm Delete </string>
-	<string name="Mainshare">Share</string>
+    <string name="Mainshare">Share</string>
     <string name="ImGetBetter">13 Virtues</string>
     <string name="shareReport">13 Virtues</string>
     <string name="shareReflections">13 Virtues</string>
@@ -282,4 +283,7 @@
     <string name="doyoudotaday">How about your Virtues?</string>
     <string name="todaySubject">Today:</string>
     <string name="todo">To do List:</string>
+    <string name="reportclickhaveno">%1$s\nYou fotgot to reflect %2$s!</string>
+    <string name="reportclickabout">%1$s,%2$s,Your Reflection id:\n%3$s</string>
+
 </resources>

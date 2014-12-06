@@ -289,5 +289,7 @@
     <string name="doyoudotaday">今天自我修养你做到了吗？</string>
     <string name="todaySubject">今天要：</string>
     <string name="todo">做到：</string>
+    <string name="reportclickhaveno">%1$s\n你忘记反省%2$s！</string>
+    <string name="reportclickabout">%1$s 关于%2$s的反省内容：\n%3$s</string>
 
 </resources>

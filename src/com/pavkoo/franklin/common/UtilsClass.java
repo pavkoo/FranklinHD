@@ -371,4 +371,16 @@ public class UtilsClass {
 		return -1;
 	}
 
+	public static int getIndexComments(List<Comment> comms, int id) {
+		if (comms == null) {
+			return -1;
+		}
+		for (int i = 0; i < comms.size(); i++) {
+			if (comms.get(i).getId() == id) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
 }

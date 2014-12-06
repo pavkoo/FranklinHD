@@ -1,112 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/popup_background"
-    android:gravity="center"
-    android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/tvTodayTitle"
-        style="@style/appTotayPopupTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/today_control_popup_title" />
-
-    <RadioGroup
-        android:id="@+id/rgpToday"
-        style="@style/appTotayPopupContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:gravity="center"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:id="@+id/gpbTodayYes"
-            android:button="@null"
-            android:drawableTop="@drawable/today_control_popup_selected"
-            android:gravity="center"
-            android:padding="@dimen/textPadding"
-            android:text="@string/today_control_popup_good"
-            android:textColor="@color/white_app_text_smail" />
-
-        <RadioButton
-            android:id="@+id/gpbTodayNo"
-            android:button="@null"
-            android:drawableTop="@drawable/today_control_popup_unselected"
-            android:gravity="center"
-            android:padding="@dimen/textPadding"
-            android:text="@string/today_control_popup_bad"
-            android:textColor="@color/white_app_txt_black" />
-    </RadioGroup>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/white_app_bg_primary"
-        android:orientation="horizontal" >
-
-        <LinearLayout
-            android:id="@+id/llprogressLine"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white_app_bg_secondary"
-            android:orientation="horizontal" />
-    </FrameLayout>
-
-    <RelativeLayout
-        android:id="@+id/llappTodayPopupComment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/appBorderPadding"
-        android:layout_marginRight="@dimen/appBorderPadding"
-        android:background="@color/white_app_bg_secondary"
-        android:padding="@dimen/textPadding" >
-
-        <TextView
-            android:id="@+id/tvPopupComment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="@string/comment"
-            android:textColor="@color/white_app_txt_black" />
-
-        <AutoCompleteTextView
-            android:id="@+id/txtComment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/tvPopupComment"
-            android:hint="@string/hintComment"
-            android:imeOptions="actionDone"
-            android:inputType="textMultiLine"
-            android:minLines="1"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-    </RelativeLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/appBorderPadding"
-        android:layout_marginLeft="@dimen/appBorderPadding"
-        android:layout_marginRight="@dimen/appBorderPadding" >
+        android:background="@drawable/popup_background"
+        android:gravity="center"
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/tvTodayPopupYes"
-            android:layout_width="0dp"
+            android:id="@+id/tvTodayTitle"
+            style="@style/appTotayPopupTitle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/textPadding"
-            android:layout_weight="1"
-            android:background="@drawable/setting_roundrect_warning_selector"
+            android:gravity="center"
+            android:text="@string/today_control_popup_title" />
+
+        <RadioGroup
+            android:id="@+id/rgpToday"
+            style="@style/appTotayPopupContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:gravity="center"
-            android:padding="@dimen/textPadding"
-            android:text="@string/OK"
-            android:visibility="gone"
-            android:textColor="@color/white_app_txt_white" />
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/gpbTodayYes"
+                android:button="@null"
+                android:drawableTop="@drawable/today_control_popup_selected"
+                android:gravity="center"
+                android:padding="@dimen/textPadding"
+                android:text="@string/today_control_popup_good"
+                android:textColor="@color/white_app_text_smail" />
+
+            <RadioButton
+                android:id="@+id/gpbTodayNo"
+                android:button="@null"
+                android:drawableTop="@drawable/today_control_popup_unselected"
+                android:gravity="center"
+                android:padding="@dimen/textPadding"
+                android:text="@string/today_control_popup_bad"
+                android:textColor="@color/white_app_txt_black" />
+        </RadioGroup>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white_app_bg_primary"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/llprogressLine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white_app_bg_secondary"
+                android:orientation="horizontal" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/llappTodayPopupComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/appBorderPadding"
+            android:layout_marginRight="@dimen/appBorderPadding"
+            android:background="@color/white_app_bg_secondary"
+            android:padding="@dimen/textPadding" >
+
+            <TextView
+                android:id="@+id/tvPopupComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="@string/comment"
+                android:textColor="@color/white_app_txt_black" />
+
+            <AutoCompleteTextView
+                android:id="@+id/txtComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tvPopupComment"
+                android:hint="@string/hintComment"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:minLines="1"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/appBorderPadding"
+            android:layout_marginLeft="@dimen/appBorderPadding"
+            android:layout_marginRight="@dimen/appBorderPadding" >
+
+            <TextView
+                android:id="@+id/tvTodayPopupYes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/textPadding"
+                android:layout_weight="1"
+                android:background="@drawable/setting_roundrect_warning_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="@dimen/textPadding"
+                android:text="@string/OK"
+                android:textColor="@color/white_app_txt_white"
+                android:visibility="gone" />
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

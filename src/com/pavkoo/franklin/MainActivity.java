@@ -50,6 +50,7 @@ import com.pavkoo.franklin.common.UtilsClass;
 import com.pavkoo.franklin.controls.AnimMessage;
 import com.pavkoo.franklin.controls.AnimMessage.AnimMessageType;
 import com.pavkoo.franklin.controls.BlemishReport;
+import com.pavkoo.franklin.controls.BlemishReport.OnBlackSpotClicked;
 import com.pavkoo.franklin.controls.BlemishReportTotalDialog;
 import com.pavkoo.franklin.controls.BlemishReportTrendDialog;
 import com.pavkoo.franklin.controls.CommentAdapter;
@@ -359,6 +360,26 @@ public class MainActivity extends ParentActivity
 		blemishReport.setMorals(morals);
 		blemishReport.setNewWeekData(newWeek);
 		blemishReport.setCurrent(todayMoral.getStartDate());
+		blemishReport.setOnBlackSpotClicked(new OnBlackSpotClicked() {
+
+			@Override
+			public void OnBlackSpotClickedCallBack(SignRecords sr) {
+				String msg = "";
+				String date = UtilsClass.dateToString(sr.getInputDate());
+				int moralid = sr.getMoarlIndex();
+				int index = UtilsClass.getIndexMorals(morals, moralid);
+				String moraltitle = morals.get(index).getTitle();
+
+				if (sr.getCommentIndex() == -1) {
+					msg = String.format(getString(R.string.reportclickhaveno), date, moraltitle);
+				} else {
+					int CommentIndex = UtilsClass.getIndexComments(comments, sr.getCommentIndex());
+					String content = comments.get(CommentIndex).getContent();
+					msg = String.format(getString(R.string.reportclickabout), date, moraltitle, content);
+				}
+				amMessage.showMessage(msg, AnimMessageType.LONGINFO);
+			}
+		});
 		int allUse = getApp().getAppCon().getUseAppCount();
 		int allSign = getApp().getMgr().getTotoalSignCount();
 		tvCycleReprotAppCount.setText(String.valueOf(allUse));
@@ -381,7 +402,6 @@ public class MainActivity extends ParentActivity
 			}
 		}
 	}
-
 	@Override
 	protected void initViewData() {
 		morals = getApp().getMorals();
