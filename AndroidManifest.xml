@@ -82,6 +82,13 @@
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".FranklinAppWidgetProvider">
+            <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            <action android:name="com.pavkoo.franklin.click"/>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/franklin_appwidget_provider"/>
+        </receiver>
     </application>
 
 </manifest>
