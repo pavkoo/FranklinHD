@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="version">Version 0.9.8</string>
+    <string name="version">Version 1.0</string>
     <string name="app_name">13 Virtues</string>
     <string name="appnameabout">13 Virtues</string>
     <string name="book">The Autobiography of Benjamin Franklin</string>
@@ -209,7 +209,7 @@
     <string name="typeCouse">Please add some reflections</string>
     <string name="tabToChoose">Agreeably to the advice of Pythagoras in his Golden Verses, daily examination would be necessary(Click the number in the cycle)</string>
     <string name="helpReport">I might mark, by a little black spot,every fault I found upon examination to have been committed respecting that virtue upon that day。(there will still have a black spot if you forget)</string>
-    <string name="dragToChangeCycle">Drag the number to adjust time,or delete virtues you do not need by swapping left or right</string>
+    <string name="dragToChangeCycle">Long press the number and drag to adjust time,or delete virtues you do not need by swapping left or right</string>
     <string name="cantArrange">Can not adjust those virtue which aleady passed</string>
     <string name="cantDelete">Can not delete those virtue which aleady passed</string>
     <string name="deleteHistoryCommentSuccess">Clear Reflections successfully</string>
@@ -285,5 +285,15 @@
     <string name="todo">To do List:</string>
     <string name="reportclickhaveno">%1$s\nYou fotgot to reflect %2$s!</string>
     <string name="reportclickabout">%1$s,%2$s,Your Reflection id:\n%3$s</string>
-
+	<string name="backupRestore">Backup And Restore</string>
+	<string name="backupnow">BACKUP</string>
+    <string name="restorenow">RESTORE</string>
+    <string name="csvsdfrankinbackup">Export CSV to SD card,or restore data from older backup data(Restore data will erase the current database data, please be careful) \n the file store at :</string>
+    <string name="csvfranklinbackupfile">SD Card Path/Frankin/backUp/\nconfig.csv --- Config file\nmorals.csv --- Your morals\ncomments.csv --- Reflections\nmottos.csv --- Mottos\nsigns.csv --- Your Sign Records</string>
+    <string name="exporting">Exporting CSV......</string>
+    <string name="exportSuccess">Back up Successful</string>
+    <string name="errorbackup">Error when back up</string>
+    <string name="startRestore">Restoring......</string>
+    <string name="restoreSuccess">Restore Successful</string>
+    <string name="backupDataError">Can not restore,may be some CSV files lost</string>
 </resources>

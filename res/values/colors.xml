@@ -7,14 +7,11 @@
     <color name="white_app_bg_secondary">#ecf0f6</color>
     <color name="white_app_bg_white">#ffffff</color>
     <color name="white_app_bg_division_line">#dedede</color>
-    <color name="white_app_bg_popup_title">#036735</color>
-    <color name="white_app_bg_popup_content">#2bb24c</color>
     <color name="white_app_txt_white">#ffffff</color>
     <color name="white_app_txt_black">#343e50</color>
     <color name="white_app_text_smail">#990134</color>
     <color name="white_app_txt_green">#5cc55f</color>
     <color name="white_app_txt_gray">#5c616a</color>
-    <color name="white_app_txt_gray_light">#7d8187</color>
     <color name="white_app_txt_gray_light_light">#adb7c6</color>
     <color name="white_app_txt_reportTitle">#3bb93f</color>
 	<color name="white_app_warning">#fdcb0a</color>

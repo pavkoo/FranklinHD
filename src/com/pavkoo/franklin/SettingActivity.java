@@ -192,7 +192,7 @@ public class SettingActivity extends FragmentActivity {
 						@Override
 						public void onClick(View v) {
 							if (!cycleClicked) {
-								amMessage.showMessage(getString(R.string.cannotchange4));
+								amMessage.showMessage(getString(R.string.cannotchange4), AnimMessageType.WARNING);
 								cycleClicked = true;
 								return;
 							}
@@ -291,6 +291,9 @@ public class SettingActivity extends FragmentActivity {
 		amMessage.showMessage(getString(R.string.restoreToDefault), AnimMessage.AnimMessageType.WARNING);
 	}
 	private void initAppWithDefaultData(boolean force) {
+		if (config == null) {
+			config = getApp().forceCreateAppCon();
+		}
 		if (config.isDefaultSaved() && !force)
 			return;
 		List<Moral> morals = new ArrayList<Moral>();

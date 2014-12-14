@@ -113,7 +113,7 @@ public class MainActivity extends ParentActivity
 	private Animation indicatorAnim;
 	private Animation shakeAnim;
 
-	private Boolean mMenuExpanded = true;
+	private Boolean mMenuExpanded = false;
 	private Today today;
 	private List<Moral> morals;
 	private List<Comment> comments;
@@ -625,6 +625,9 @@ public class MainActivity extends ParentActivity
 	}
 
 	private void updateCommentDate() {
+		if (comments == null) {
+			return;
+		}
 		Collections.sort(comments, Collections.reverseOrder());
 		cadapter.setComments(comments);
 		if (cadapter.getComments().size() == 0) {

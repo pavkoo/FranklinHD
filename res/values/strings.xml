@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="version">Version 0.9.8</string>
+    <string name="version">Version 1.0</string>
     <string name="app_name">自我修养</string>
-    <string name="appnameabout">自我修养 beta版</string>
+    <string name="appnameabout">自我修养 正式版</string>
     <string name="book">《富兰克林自传》</string>
     <string name="devTemp">.</string>
     <string name="main_toolbar_setting">设置</string>
@@ -23,7 +23,7 @@
     <string name="mainMotto">题句</string>
     <string name="titleTenperance">节制</string>
     <string name="titleTenperanceDes">食不过饱\n饮酒不醉</string>
-    <string name="titleTenperanceMotto">饮食自倍,肠胃乃伤；饮食以时，饥饱得中；不欲极饥而食，食不过饱。不欲极渴而饮，饮不过多；以酒为浆，故半百而衰也</string>
+    <string name="titleTenperanceMotto">饮食自倍，肠胃乃伤；饮食以时，饥饱得中；不欲极饥而食，食不过饱。不欲极渴而饮，饮不过多；以酒为浆，故半百而衰也</string>
     <string name="titleSilence">缄默</string>
     <string name="titleSilenceDes">言必于人于己有益\n避免无益的聊天</string>
     <string name="titleSilenceMotto">切莫交浅言深；不要尝试说服别人。当你试着说服别人的时候，其实你在关闭你的心门，你的说服，往往建立对别人的否定之上，或者到最后，你干脆把对方的不接受，归结为他的愚蠢。</string>
@@ -220,7 +220,7 @@
     <string name="typeCouse">每次发现过失时，不妨记录一些感想\n（在点击数字反省时，选择"糟糕"的时候才可以写感想哦）</string>
     <string name="tabToChoose">按照毕达哥拉斯在他的“金诗篇”里所提出的意见，我认为每日必须检查反省（点击数字）</string>
     <string name="helpReport">反省时选择了“糟糕”就会得到一个小小的黑点，代表在检查当天该项美德时所发现的过失。（如果你该天忘记反省，也会有一个黑点）</string>
-    <string name="dragToChangeCycle">你可以拖动数字调整训练时间、左右滑动删除你不需要训练的美德</string>
+    <string name="dragToChangeCycle">你可以长按数字并拖动来调整训练时间、左右滑动删除你不需要训练的美德</string>
     <string name="cantArrange">已经完成或者正在进行的项目就不能再安排时间顺序了</string>
     <string name="cantDelete">已经完成或者正在进行的项目就不能删除了</string>
     <string name="deleteHistoryCommentSuccess">成功清空历史感想信息</string>
@@ -291,5 +291,16 @@
     <string name="todo">做到：</string>
     <string name="reportclickhaveno">%1$s\n你忘记反省%2$s！</string>
     <string name="reportclickabout">%1$s 关于%2$s的反省内容：\n%3$s</string>
+    <string name="backupRestore">备份与恢复</string>
+    <string name="backupnow">立即备份</string>
+    <string name="restorenow">恢复</string>
+    <string name="csvsdfrankinbackup">导出CSV格式的数据到SD中，或者恢复以前备份的数据（恢复数据将删除本地数据，请谨慎）。具体的位置在：</string>
+    <string name="csvfranklinbackupfile">SD卡/Frankin/backUp/\nconfig.csv --- 系统配置文件\nmorals.csv --- 美德项目文件\ncomments.csv --- 感想记录文件\nmottos.csv --- 题句文件\nsigns.csv --- 反省记录文件</string>
+    <string name="exporting">正在备份并导出CSV数据......</string>
+    <string name="exportSuccess">备份成功！</string>
+    <string name="errorbackup">出现异常，备份失败！</string>
+    <string name="startRestore">开始恢复数据......</string>
+    <string name="restoreSuccess">恢复数据成功！</string>
+    <string name="backupDataError">备份数据有问题，无法恢复！可能没有备份的CSV文件</string>
 
 </resources>

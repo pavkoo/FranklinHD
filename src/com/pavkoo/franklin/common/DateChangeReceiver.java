@@ -1,4 +1,4 @@
-package com.pavkoo.franklin.controls;
+package com.pavkoo.franklin.common;
 
 import java.util.List;
 
@@ -12,9 +12,6 @@ import android.support.v4.app.NotificationCompat;
 
 import com.pavkoo.franklin.R;
 import com.pavkoo.franklin.SplashActivity;
-import com.pavkoo.franklin.common.DBManager;
-import com.pavkoo.franklin.common.Moral;
-import com.pavkoo.franklin.common.UtilsClass;
 
 public class DateChangeReceiver extends BroadcastReceiver {
 	@SuppressWarnings("unused")

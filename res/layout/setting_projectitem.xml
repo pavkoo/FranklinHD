@@ -53,7 +53,7 @@
         dslv:drag_handle_id="@id/drag_handle"
         dslv:fling_handle_id="@+id/remove_handle"
         dslv:drag_scroll_start="0.99"
-        dslv:drag_start_mode="onDown"
+        dslv:drag_start_mode="onLongPress"
         dslv:float_alpha="0.6"
         dslv:max_drag_scroll_speed="0.6"
         dslv:remove_enabled="true"

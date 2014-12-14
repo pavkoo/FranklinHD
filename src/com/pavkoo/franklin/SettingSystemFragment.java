@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.pavkoo.franklin.controls.AnimMessage;
 import com.pavkoo.franklin.controls.AnimMessage.AnimMessageType;
 import com.pavkoo.franklin.controls.IDialogOKCallBack;
+import com.pavkoo.franklin.controls.SettingSystemBackUpDialog;
 import com.pavkoo.franklin.controls.SettingSystemFranklinDialog;
 import com.pavkoo.franklin.controls.SettingSystemHelpDialog;
 import com.pavkoo.franklin.controls.SettingSystemMeDialog;
@@ -29,10 +30,10 @@ import com.pavkoo.franklin.controls.SettingSystemRestartDialog.ViewState;
 public class SettingSystemFragment extends Fragment {
 	private View self;
 	private int[] heads = {R.drawable.showhelp, R.drawable.moralslist, R.drawable.motto, R.drawable.delete, R.drawable.restart,
-			R.drawable.sina, R.drawable.tencent, R.drawable.rate, R.drawable.head, R.drawable.help2, R.drawable.info};
+			R.drawable.sina, R.drawable.tencent, R.drawable.rate, R.drawable.head, R.drawable.help2, R.drawable.csv, R.drawable.info};
 	private int[] headStrs = {R.string.main_toolbar_help, R.string.moralItem, R.string.welcome, R.string.settingRestore,
 			R.string.deleteHistoryComment, R.string.sina, R.string.share, R.string.rate, R.string.aboutFranklin, R.string.helpBook,
-			R.string.aboutApp};
+			R.string.backupRestore, R.string.aboutApp};
 	private SettingSystemAdapter adapter;
 	private ListView lvSettingSystem;
 	private AnimMessage amMessage;
@@ -41,6 +42,7 @@ public class SettingSystemFragment extends Fragment {
 	private SettingSystemFranklinDialog franklinDialog;
 	private SettingSystemMeDialog meDialog;
 	private SettingSystemHelpDialog helpDialog;
+	private SettingSystemBackUpDialog backUPDialog;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -52,8 +54,8 @@ public class SettingSystemFragment extends Fragment {
 		franklinDialog = new SettingSystemFranklinDialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
 		meDialog = new SettingSystemMeDialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
 		helpDialog = new SettingSystemHelpDialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
-
 		restoreDialog = new SettingSystemRestartDialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
+		backUPDialog = new SettingSystemBackUpDialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
 		restoreDialog.setVs(ViewState.SETTINSYSTEMRESTORE);
 		restoreDialog.setOnOKCallBack(new IDialogOKCallBack() {
 
@@ -66,6 +68,14 @@ public class SettingSystemFragment extends Fragment {
 				setIntent.putExtra("STARTMODE", R.id.rbSettingProjectItem);
 				SettingSystemFragment.this.getActivity().startActivity(setIntent);
 				SettingSystemFragment.this.getActivity().finish();
+			}
+		});
+
+		backUPDialog.setOnOKCallBack(new IDialogOKCallBack() {
+
+			@Override
+			public void UpdateUI(Object object) {
+				((SettingActivity) getActivity()).getApp().loadData();
 			}
 		});
 
@@ -141,6 +151,9 @@ public class SettingSystemFragment extends Fragment {
 						break;
 					case R.string.helpBook :
 						helpDialog.show();
+						break;
+					case R.string.backupRestore :
+						backUPDialog.show();
 						break;
 					case R.string.main_toolbar_help :
 						Intent helperIntent = new Intent(SettingSystemFragment.this.getActivity(), HelperActivity.class);

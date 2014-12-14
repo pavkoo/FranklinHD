@@ -60,6 +60,8 @@ public class UtilsClass {
 
 	public static String dateToString(Date date) {
 		String s = "";
+		if (date == null)
+			return s;
 		SimpleDateFormat sdf = new SimpleDateFormat(DATEFORMAT);
 		s = sdf.format(date);
 		return s;
@@ -182,6 +184,7 @@ public class UtilsClass {
 
 	// 存储文件夹
 	private static final String MyFolder = "/Frankin";
+	private static final String MyFolderBack = "/Frankin/backUp/";
 	private static final String MyTemp = "/TEMP.png";
 
 	private static String GetandSaveCurrentImage(View drawingView) {
@@ -209,6 +212,28 @@ public class UtilsClass {
 				Bmp.compress(Bitmap.CompressFormat.PNG, 90, fos);
 				fos.flush();
 				fos.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
+		return filepath;
+	}
+
+	public static String GetBackFilePath(String fileName) {
+		String filepath = "";
+		if (fileName == null)
+			return filepath;
+		String SavePath = getSDCardPath() + MyFolderBack;
+		try {
+			File path = new File(SavePath);
+			filepath = SavePath + fileName;
+			File file = new File(filepath);
+			if (!path.exists()) {
+				path.mkdirs();
+			}
+			if (!file.exists()) {
+				file.createNewFile();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

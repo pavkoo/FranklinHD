@@ -1,139 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layoutAnimation="@anim/main_content_item"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <LinearLayout
-        android:id="@+id/llSettingTitle"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/tvSettingTitle"
-            style="@style/appTitlefont"
+        <LinearLayout
+            android:id="@+id/llSettingTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:text="@string/settingtitle" />
+            android:orientation="vertical" >
 
-        <RadioGroup
-            android:id="@+id/rgSetting"
+            <TextView
+                android:id="@+id/tvSettingTitle"
+                style="@style/appTitlefont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:text="@string/settingtitle" />
+
+            <RadioGroup
+                android:id="@+id/rgSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_app_primary"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/textPadding"
+                android:paddingLeft="@dimen/appBorderPadding"
+                android:paddingRight="@dimen/appBorderPadding"
+                android:paddingTop="@dimen/textPadding" >
+
+                <RadioButton
+                    android:id="@+id/rbSettingProjectItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/setting_indictor_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="@dimen/textMinPadding"
+                    android:text="@string/moralItem"
+                    android:textColor="@color/white_app_txt_white" />
+
+                <RadioButton
+                    android:id="@+id/rbSettingCycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/setting_indictor_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="@dimen/textMinPadding"
+                    android:text="@string/cycle"
+                    android:textColor="@color/white_app_txt_white" />
+
+                <RadioButton
+                    android:id="@+id/rbSettingWelcome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/setting_indictor_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="@dimen/textMinPadding"
+                    android:text="@string/welcome"
+                    android:textColor="@color/white_app_txt_white" />
+
+                <RadioButton
+                    android:id="@+id/rbAppSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/setting_indictor_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="@dimen/textMinPadding"
+                    android:text="@string/system"
+                    android:textColor="@color/white_app_txt_white" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSettingIndicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_app_primary"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white_app_bg_secondary"
             android:orientation="horizontal"
             android:paddingBottom="@dimen/textPadding"
             android:paddingLeft="@dimen/appBorderPadding"
             android:paddingRight="@dimen/appBorderPadding"
             android:paddingTop="@dimen/textPadding" >
 
-            <RadioButton
-                android:id="@+id/rbSettingProjectItem"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvSettingHelp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/textPadding"
                 android:layout_weight="1"
-                android:background="@drawable/setting_indictor_selector"
-                android:button="@null"
+                android:background="@drawable/setting_roundrect_selector"
                 android:gravity="center"
-                android:padding="@dimen/textMinPadding"
-                android:text="@string/moralItem"
+                android:padding="@dimen/textPadding"
+                android:text="@string/help"
                 android:textColor="@color/white_app_txt_white" />
 
-            <RadioButton
-                android:id="@+id/rbSettingCycle"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvSettingRestore"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/setting_indictor_selector"
-                android:button="@null"
+                android:background="@drawable/setting_roundrect_selector"
                 android:gravity="center"
-                android:padding="@dimen/textMinPadding"
-                android:text="@string/cycle"
+                android:padding="@dimen/textPadding"
+                android:text="@string/settingRestore"
                 android:textColor="@color/white_app_txt_white" />
 
-            <RadioButton
-                android:id="@+id/rbSettingWelcome"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvSettingDone"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/textPadding"
                 android:layout_weight="1"
-                android:background="@drawable/setting_indictor_selector"
-                android:button="@null"
+                android:background="@drawable/setting_roundrect_warning_selector"
                 android:gravity="center"
-                android:padding="@dimen/textMinPadding"
-                android:text="@string/welcome"
+                android:padding="@dimen/textPadding"
+                android:text="@string/done"
                 android:textColor="@color/white_app_txt_white" />
+        </LinearLayout>
 
-            <RadioButton
-                android:id="@+id/rbAppSetting"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/setting_indictor_selector"
-                android:button="@null"
-                android:gravity="center"
-                android:padding="@dimen/textMinPadding"
-                android:text="@string/system"
-                android:textColor="@color/white_app_txt_white" />
-        </RadioGroup>
-    </LinearLayout>
+        <FrameLayout
+            android:id="@+id/flSettingContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/llSettingIndicator"
+            android:layout_below="@+id/llSettingTitle"
+            android:background="@color/white_app_bg_secondary" >
+        </FrameLayout>
+    </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/llSettingIndicator"
+        android:id="@+id/llAppMessageContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white_app_bg_secondary"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/textPadding"
-        android:paddingLeft="@dimen/appBorderPadding"
-        android:paddingRight="@dimen/appBorderPadding"
-        android:paddingTop="@dimen/textPadding" >
-
-        <TextView
-            android:id="@+id/tvSettingHelp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/setting_roundrect_selector"
-            android:gravity="center"
-            android:layout_marginRight="@dimen/textPadding"
-            android:padding="@dimen/textPadding"
-            android:text="@string/help"
-            android:textColor="@color/white_app_txt_white" />
-
-        <TextView
-            android:id="@+id/tvSettingRestore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/setting_roundrect_selector"
-            android:gravity="center"
-            android:padding="@dimen/textPadding"
-            android:text="@string/settingRestore"
-            android:textColor="@color/white_app_txt_white" />
-
-        <TextView
-            android:id="@+id/tvSettingDone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="@dimen/textPadding"
-            android:background="@drawable/setting_roundrect_warning_selector"
-            android:gravity="center"
-            android:padding="@dimen/textPadding"
-            android:text="@string/done"
-            android:textColor="@color/white_app_txt_white" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llSettingMessageContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/llSettingIndicator"
-        android:background="@color/white_app_bg_secondary" >
+        android:layout_gravity="top"
+        android:background="@android:color/transparent"
+        android:orientation="vertical" >
 
         <com.pavkoo.franklin.controls.AnimMessage
             android:id="@+id/llSettingMessage"
@@ -141,13 +157,4 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/flSettingContent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/llSettingMessageContainer"
-        android:layout_below="@+id/llSettingTitle"
-        android:background="@color/white_app_bg_secondary" >
-    </FrameLayout>
-
-</RelativeLayout>
+</FrameLayout>

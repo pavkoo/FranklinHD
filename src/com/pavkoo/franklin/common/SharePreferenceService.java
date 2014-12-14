@@ -150,11 +150,9 @@ public class SharePreferenceService {
 	}
 	@SuppressWarnings("unchecked")
 	private Object loadFile(String fileName) {
-		MyLog.i("FRANKLIN UPDATE", "loadFile " + fileName);
 		List<Object> object = null;
 		File objectFile = new File(context.getFilesDir(), fileName);
 		if (!objectFile.exists()) {
-			MyLog.i("FRANKLIN UPDATE", "loadFile not exists !" + fileName);
 			return object;
 		}
 		ObjectInputStream ois = null;
@@ -163,7 +161,6 @@ public class SharePreferenceService {
 			try {
 				object = (ArrayList<Object>) ois.readObject();
 			} catch (ClassNotFoundException e) {
-				MyLog.i("FRANKLIN UPDATE", "loadFile ClassNotFoundException" + objectFile);
 				e.printStackTrace();
 			}
 		} catch (StreamCorruptedException e) {
@@ -182,7 +179,6 @@ public class SharePreferenceService {
 			}
 			ois = null;
 		}
-		MyLog.i("end load file oldversion", fileName);
 		return object;
 	}
 }

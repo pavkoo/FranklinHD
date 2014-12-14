@@ -1,5 +1,13 @@
 package com.pavkoo.franklin.common;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -14,6 +22,13 @@ import android.util.SparseIntArray;
 public class DBManager {
 	private DBHelper helper;
 	private SQLiteDatabase db;
+	private static final String BACKUPAPPCONFIG = "config.csv";
+	private static final String BACKUPMORALS = "morals.csv";
+	private static final String BACKUPCOMMENT = "comments.csv";
+	private static final String BACKUPMOTTOS = "mottos.csv";
+	private static final String BACKUPSIGNS = "signs.csv";
+	private static final String REPLACEBREAKLINE = "@!@";
+	private static final String REPLACESPLITE = "~%~";
 
 	public DBManager(Context context) {
 		helper = new DBHelper(context);
@@ -323,7 +338,7 @@ public class DBManager {
 
 	// 业务区
 	public int getCurrentMoralId() {
-		String sql = "SELECT * FROM moral where (julianday(date('now'))>=julianday(startDate)) and (julianday(date('now'))<=julianday(endDate))";
+		String sql = "SELECT * FROM moral where (julianday(datetime('now','localtime'))>=julianday(date(startDate,'localtime'))) and (julianday(datetime('now','localtime'))-julianday(date(endDate,'localtime'))<1)";
 		Cursor cr = db.rawQuery(sql, null);
 		int id = -1;
 		while (cr.moveToNext()) {
@@ -334,7 +349,7 @@ public class DBManager {
 	}
 
 	public boolean isBeforeTraining() {
-		String sql = "SELECT * FROM moral where date('now')>=startDate";
+		String sql = "SELECT * FROM moral where date('now','localtime')>=startDate";
 		Cursor cr = db.rawQuery(sql, null);
 		if (cr.getCount() == 0) {
 			return true;
@@ -343,7 +358,7 @@ public class DBManager {
 	}
 
 	public boolean isAfterTraning() {
-		String sql = "SELECT * FROM moral WHERE date('now')<=endDate";
+		String sql = "SELECT * FROM moral WHERE date('now','localtime')<=endDate";
 		Cursor cr = db.rawQuery(sql, null);
 		if (cr.getCount() == 0) {
 			return true;
@@ -374,7 +389,7 @@ public class DBManager {
 	public HashMap<String, List<SignRecords>> getNewWeekSing(Date weekstartDate, Date weekEndDate) {
 		HashMap<String, List<SignRecords>> newWeekData = new HashMap<String, List<SignRecords>>();
 
-		String sql = "SELECT _id,refMoralindex,refCommentIndex,checkstate,inputdate FROM signrecord  WHERE (julianday(inputdate)>=julianday(date(?)) AND julianday(inputdate)<=julianday(date(?)))  order by inputdate";
+		String sql = "SELECT _id,refMoralindex,refCommentIndex,checkstate,inputdate FROM signrecord  WHERE (julianday(inputdate)>=julianday(date(?,'localtime')) AND julianday(inputdate)<=julianday(date(?,'localtime')))  order by inputdate";
 		Cursor cr = db.rawQuery(sql, new String[]{UtilsClass.dateToString(weekstartDate), UtilsClass.dateToString(weekEndDate)});
 		while (cr.moveToNext()) {
 			int moralid = cr.getInt(cr.getColumnIndex("refMoralindex"));
@@ -504,4 +519,174 @@ public class DBManager {
 		db.delete("mottos", null, null);
 		db.delete("moral", null, null);
 	}
+
+	public void ExportToCSV(Cursor c, String fileName) {
+
+		fileName = UtilsClass.GetBackFilePath(fileName);
+
+		int rowCount = 0;
+		int colCount = 0;
+		FileWriter fw;
+		BufferedWriter bfw;
+		File saveFile = new File(fileName);
+		try {
+			rowCount = c.getCount();
+			colCount = c.getColumnCount();
+			fw = new FileWriter(saveFile);
+			bfw = new BufferedWriter(fw);
+			bfw.write("\uFEFF");
+			if (rowCount > 0) {
+				c.moveToFirst();
+				// 写入表头
+				for (int i = 0; i < colCount; i++) {
+					if (i != colCount - 1)
+						bfw.write(c.getColumnName(i) + ',');
+					else
+						bfw.write(c.getColumnName(i));
+				}
+				// 写好表头后换行
+				bfw.newLine();
+				// 写入数据
+				String temp = "";
+				for (int i = 0; i < rowCount; i++) {
+					c.moveToPosition(i);
+					for (int j = 0; j < colCount; j++) {
+						temp = c.getString(j);
+						temp = temp.replaceAll("\\n", REPLACEBREAKLINE);
+						temp = temp.replaceAll(",", REPLACESPLITE);
+						if (j != colCount - 1)
+							bfw.write(temp + ',');
+						else
+							bfw.write(temp);
+					}
+					bfw.newLine();
+				}
+			}
+			bfw.flush();
+			bfw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			c.close();
+		}
+	}
+
+	public void ImportToSqlite(String fileName) {
+		String tableName = "";
+		if (fileName == BACKUPAPPCONFIG) {
+			tableName = "appconfig";
+		} else if (fileName == BACKUPMORALS) {
+			tableName = "moral";
+		} else if (fileName == BACKUPCOMMENT) {
+			tableName = "comment";
+		} else if (fileName == BACKUPMOTTOS) {
+			tableName = "mottos";
+		} else if (fileName == BACKUPSIGNS) {
+			tableName = "signrecord";
+		} else {
+			return;
+		}
+
+		fileName = UtilsClass.GetBackFilePath(fileName);
+		File csvFile = new File(fileName);
+		if (!csvFile.exists()) {
+			return;
+		}
+		FileInputStream fIn;
+		try {
+			fIn = new FileInputStream(csvFile);
+			InputStreamReader isr = new InputStreamReader(fIn);
+			BufferedReader buffer = new BufferedReader(isr);
+
+			String line = null;
+
+			try {
+				line = buffer.readLine();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+				try {
+					isr.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				return;
+			}
+			String[] colums = line.split(",");
+			db.beginTransaction();
+			db.delete(tableName, null, null);
+			try {
+				while ((line = buffer.readLine()) != null) {
+					String sql = "INSERT INTO " + tableName + " VALUES(";
+					String[] values = line.split(",");
+					String temp = "";
+					for (int i = 0; i < colums.length; i++) {
+						temp = values[i].trim();
+						temp = temp.replaceAll(REPLACEBREAKLINE, "\n");
+						temp = temp.replace("\\\\n", "\n");
+						temp = temp.replaceAll(REPLACESPLITE, ",");
+						temp = "'" + temp + "'";
+						if (i != colums.length - 1) {
+							sql = sql + temp + ",";
+						} else {
+							sql = sql + temp;
+						}
+
+					}
+					sql += ")";
+					db.execSQL(sql);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			db.setTransactionSuccessful();
+			db.endTransaction();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	public boolean ImportCSVTOSql() {
+		boolean result = false;
+		try {
+			ImportToSqlite(DBManager.BACKUPAPPCONFIG);
+			ImportToSqlite(DBManager.BACKUPMORALS);
+			ImportToSqlite(DBManager.BACKUPCOMMENT);
+			ImportToSqlite(DBManager.BACKUPMOTTOS);
+			ImportToSqlite(DBManager.BACKUPSIGNS);
+			result = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean ExportTOCSV() {
+		boolean result = false;
+		try {
+			String sql = "select * from appconfig";
+			Cursor cr = db.rawQuery(sql, null);
+			ExportToCSV(cr, DBManager.BACKUPAPPCONFIG);
+
+			sql = "SELECT * FROM moral";
+			cr = db.rawQuery(sql, null);
+			ExportToCSV(cr, DBManager.BACKUPMORALS);
+
+			sql = "SELECT * FROM comment";
+			cr = db.rawQuery(sql, null);
+			ExportToCSV(cr, DBManager.BACKUPCOMMENT);
+
+			sql = "SELECT * FROM mottos";
+			cr = db.rawQuery(sql, null);
+			ExportToCSV(cr, DBManager.BACKUPMOTTOS);
+
+			sql = "SELECT * FROM signrecord";
+			cr = db.rawQuery(sql, null);
+			ExportToCSV(cr, DBManager.BACKUPSIGNS);
+			result = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

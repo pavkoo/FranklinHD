@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/appBorderPadding"
+    android:background="@drawable/popup_background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvSettingSystemBackUPTitle"
+        style="@style/appTotayPopupTitleWarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/backupRestore" />
+
+    <TextView
+        android:id="@+id/tvSettingSystemBackUPInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="@dimen/appBorderPadding"
+        android:textColor="@color/white_app_txt_black"
+        android:text="@string/csvsdfrankinbackup" />
+    
+    <TextView
+        android:id="@+id/tvSettingSystemBackUPInfo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/appBorderPadding"
+        android:textColor="@android:color/black"
+        android:text="@string/csvfranklinbackupfile" />
+
+    <com.pavkoo.franklin.controls.AnimMessage
+        android:id="@+id/amSettingsystemMebackupMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/appBorderPadding"
+        android:layout_marginLeft="@dimen/appBorderPadding"
+        android:layout_marginRight="@dimen/appBorderPadding" >
+        
+        <TextView
+            android:id="@+id/tvSettingSystemPopupRestoreCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/textPadding"
+            android:layout_marginRight="@dimen/textPadding"
+            android:layout_marginTop="@dimen/textPadding"
+            android:layout_weight="1"
+            android:background="@drawable/setting_roundrect_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="@dimen/textPadding"
+            android:text="@string/cancel"
+            android:textColor="@color/white_app_txt_white" />
+
+        <TextView
+            android:id="@+id/tvSettingSystemPopupRestore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/textPadding"
+            android:layout_marginTop="@dimen/textPadding"
+            android:layout_weight="1"
+            android:background="@drawable/setting_roundrect_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="@dimen/textPadding"
+            android:text="@string/restorenow"
+            android:textColor="@color/white_app_txt_white" />
+
+        <TextView
+            android:id="@+id/tvSettingSystemPopupBackUP"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/textPadding"
+            android:layout_marginLeft="@dimen/textPadding"
+            android:layout_marginTop="@dimen/textPadding"
+            android:layout_weight="1"
+            android:background="@drawable/setting_roundrect_error_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="@dimen/textPadding"
+            android:text="@string/backupnow"
+            android:textColor="@color/white_app_txt_white" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,30 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/franklinWidget"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    android:orientation="vertical" >
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:alpha="0.8"
+    android:layout_margin="@dimen/textPadding" >
 
     <TextView
         android:id="@+id/tvWidgetTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="left|center_vertical" 
-        android:textColor="@color/white_app_txt_white"/>
+        android:layout_height="match_parent"
+        android:gravity="center_vertical" 
+        android:shadowColor="@color/white_app_bg_primary"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="0.5"
+        android:textSize="@dimen/textSizeBiggest"
+        android:padding="@dimen/textMinestPadding"
+        android:layout_marginRight="@dimen/textPadding"
+        android:textColor="@color/white_app_bg_secondary"/>
 
     <TextView
         android:id="@+id/tvWidgetTitleDescrible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="left|center_vertical" 
-        android:textColor="@color/white_app_txt_white"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:maxLines="2"
+        android:shadowColor="@color/white_app_bg_primary"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="0.5"
+        android:layout_toRightOf="@+id/tvWidgetTitle"
+        android:textColor="@color/white_app_bg_secondary"/>
 
     <TextView
         android:id="@+id/tvWidgetTitleMotto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="left|center_vertical"
-        android:textColor="@color/white_app_txt_white" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:shadowColor="@color/white_app_bg_primary"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="0.6"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:layout_toRightOf="@+id/tvWidgetTitle"
+        android:textColor="@color/white_app_bg_secondary" />
 
-</LinearLayout>
+</RelativeLayout>

@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -320,7 +321,6 @@ public class TodayDialog extends ParentDialog {
 		this.sr = sr;
 	}
 
-	@SuppressLint({"DefaultLocale", "NewApi"})
 	private class MyAdapter<T> extends ArrayAdapter<T> implements Filterable {
 		private MyFilter mFilter;
 		private List<T> mOriginalValues;
@@ -370,7 +370,9 @@ public class TodayDialog extends ParentDialog {
 				if (results != null && results.count > 0) {
 					// 有过滤结果，显示自动完成列表
 					MyAdapter.this.clear(); // 清空旧列表
-					MyAdapter.this.addAll((Collection<? extends T>) results.values);
+					if (Build.VERSION.SDK_INT >= 11) {
+						MyAdapter.this.addAll((Collection<? extends T>) results.values);
+					}
 					notifyDataSetChanged();
 				} else {
 					// 无过滤结果，关闭列表

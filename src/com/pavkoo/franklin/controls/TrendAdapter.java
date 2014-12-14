@@ -123,11 +123,17 @@ public class TrendAdapter extends BaseAdapter {
 			SignRecords sr = signlist.get(i);
 			int id = sr.getMoarlIndex();
 			int index = UtilsClass.getIndexMorals(morals, id);
+			if (index < 0 || index >= morals.size()) {
+				return;
+			}
 			Moral m = morals.get(index);
 			Date start = m.getStartDate();
 			int daycount = (int) UtilsClass.dayCount(start, sr.getInputDate());
 			int weekindex = daycount / cycle;
 			List<Integer> weekList = weeklyCount.get(m.getId());
+			if (weekindex < 0 || weekindex >= weekList.size()) {
+				continue;
+			}
 			int weekPoint = weekList.get(weekindex);
 			weekPoint += 1;
 			weekList.set(weekindex, weekPoint);
