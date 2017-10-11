@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <issue id="MissingTranslation" severity="warning" />
+    <issue id="Registered">
+        <ignore path="src/com/pavkoo/franklin/ParentActivity.java" />
+    </issue>
+    <issue id="SimpleDateFormat">
+        <ignore path="src/com/pavkoo/franklin/common/MyLog.java" />
+    </issue>
+</lint>

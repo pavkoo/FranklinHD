@@ -1,0 +1,296 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Manifest Merging:
+-----------------
+Your project uses libraries that provide manifests, and your Eclipse
+project did not explicitly turn on manifest merging. In Android Gradle
+projects, manifests are always merged (meaning that contents from your
+libraries' manifests will be merged into the app manifest. If you had
+manually copied contents from library manifests into your app manifest
+you may need to remove these for the app to build correctly.
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+From FranklinHD:
+* .gitattributes
+* .gitignore
+* doc\
+* doc\GIF\
+* doc\GIF\20061211151957!Memoirs_of_Franklin.jpg
+* doc\GIF\20121222234158_VGyU8.thumb.600_0.jpeg
+* doc\GIF\234px-Benjamin_Franklin_Signature.svg.png
+* doc\GIF\2_fs_swipe_up.png
+* doc\GIF\30.png
+* doc\GIF\800.gif
+* doc\GIF\Benjamin_Franklin_by_Joseph_Siffrein_Duplessis.jpg
+* doc\GIF\QQ截图20140704092524.png
+* doc\GIF\QQ截图20140813104918.png
+* doc\GIF\aaa08d8d7c23e26284ccc7891ff2297578b1c8f4bdd49-KhIXPQ_fw658.gif
+* doc\GIF\arrow277.png
+* doc\GIF\arrow339.png
+* doc\GIF\arrow349.png
+* doc\GIF\cancel2.png
+* doc\GIF\chart5.png
+* doc\GIF\checkmark2.png
+* doc\GIF\csv.png
+* doc\GIF\f18a.png
+* doc\GIF\fav.png
+* doc\GIF\fiche.gif
+* doc\GIF\font-355.png
+* doc\GIF\gif_animaton.gif
+* doc\GIF\globe_2.png
+* doc\GIF\help.png
+* doc\GIF\iconfont-liebiao.png
+* doc\GIF\info.png
+* doc\GIF\logo.psd
+* doc\GIF\medal-icon-614x460.png
+* doc\GIF\moralslist.png
+* doc\GIF\one_finger.png
+* doc\GIF\plus.png
+* doc\GIF\restart.png
+* doc\GIF\restart.psd
+* doc\GIF\sad.png
+* doc\GIF\search-responsive.gif
+* doc\GIF\share_alt_2.png
+* doc\GIF\shot-gif.gif
+* doc\GIF\sina.png
+* doc\GIF\small129.png
+* doc\GIF\smiley.png
+* doc\GIF\smiley2.png
+* doc\GIF\speech_bubble.png
+* doc\GIF\speedcam.gif
+* doc\GIF\statistics.png
+* doc\GIF\stats-animated.gif
+* doc\GIF\swipe-to-edit-time.gif
+* doc\GIF\tencent.png
+* doc\GIF\victory.psd
+* doc\GIF\work_page.gif
+* doc\GIF\workflowpay.gif
+* doc\GIF\滑动.gif
+* doc\GIF\自传.psd
+* doc\Georgia.ttf
+* doc\aboutpavkoo11.png
+* doc\aboutpavkoo22.png
+* doc\aboutpavkoo33.png
+* doc\add.psd
+* doc\addMoras.9.png
+* doc\addMoras.png
+* doc\addmorasshade.png
+* doc\appsetting.9.png
+* doc\bookcover.9.png
+* doc\bookcover.png
+* doc\cloud.png
+* doc\comments.9.png
+* doc\comments.png
+* doc\contectme.9.png
+* doc\contectme.png
+* doc\csv.png
+* doc\delete.9.png
+* doc\delete.png
+* doc\drag-sort-listview.rar
+* doc\franklin.jpg
+* doc\franklin.png
+* doc\franklin.psd
+* doc\franklin2.png
+* doc\franklinIcon.png
+* doc\franklinsignature.9.png
+* doc\head.9.png
+* doc\head2.png
+* doc\head3.png
+* doc\headmin.9.png
+* doc\help.9.png
+* doc\help.png
+* doc\help2.9.png
+* doc\help2.png
+* doc\helpermain.png
+* doc\helpermain.psd
+* doc\home.png
+* doc\home2.9.png
+* doc\homecolor1.png
+* doc\homecolor10.png
+* doc\homecolor11.png
+* doc\homecolor12.png
+* doc\homecolor2.png
+* doc\homecolor3.png
+* doc\homecolor4.png
+* doc\homecolor5.png
+* doc\homecolor6.png
+* doc\homecolor7.png
+* doc\homecolor8.png
+* doc\homecolor9.png
+* doc\iconmonstr-help-3-icon.png
+* doc\info.9.png
+* doc\info.png
+* doc\language.9.png
+* doc\language.png
+* doc\logo.9.png
+* doc\main.9.png
+* doc\main.png
+* doc\main.psd
+* doc\mainButtom.psd
+* doc\mainbuttombig.png
+* doc\mainexample.png
+* doc\mainmotto.png
+* doc\minsad.9.png
+* doc\minsad.png
+* doc\minselected.9.png
+* doc\minselected.png
+* doc\minsmiley.9.png
+* doc\minsmiley.png
+* doc\minunselected.9.png
+* doc\minunselected.png
+* doc\moralslist.9.png
+* doc\moralslist.png
+* doc\motto.9.png
+* doc\motto.png
+* doc\nomore.9.png
+* doc\nomore.png
+* doc\nomore.psd
+* doc\rate.9.png
+* doc\rate.png
+* doc\reate.png
+* doc\removefel.png
+* doc\removefel2.png
+* doc\report.9.png
+* doc\report.png
+* doc\reportexample.png
+* doc\restart.9.png
+* doc\restart.png
+* doc\sad.9.png
+* doc\sad.png
+* doc\sayno.mp3
+* doc\selected.9.png
+* doc\selected.png
+* doc\settting.png
+* doc\share.9.png
+* doc\share.png
+* doc\showhelp.png
+* doc\smiley.9.png
+* doc\smiley.png
+* doc\sort.9.png
+* doc\sort.png
+* doc\sortpressed.9.png
+* doc\sortpressed.png
+* doc\statistics.9.png
+* doc\statistics.png
+* doc\systemfranklin.png
+* doc\systemhead.png
+* doc\systemheadblur.png
+* doc\textbottom.9.png
+* doc\textbottom.png
+* doc\textbottomwhite.png
+* doc\texttop.9.png
+* doc\texttop.png
+* doc\title.png
+* doc\toolbar.9.png
+* doc\toolbar.psd
+* doc\toolbarcolor1.9.png
+* doc\toolbarcolor1.png
+* doc\toolbarcolor10.9.png
+* doc\toolbarcolor10.png
+* doc\toolbarcolor11.9.png
+* doc\toolbarcolor11.png
+* doc\toolbarcolor12.9.png
+* doc\toolbarcolor12.png
+* doc\toolbarcolor2.9.png
+* doc\toolbarcolor2.png
+* doc\toolbarcolor3.9.png
+* doc\toolbarcolor3.png
+* doc\toolbarcolor4.9.png
+* doc\toolbarcolor4.png
+* doc\toolbarcolor5.9.png
+* doc\toolbarcolor5.png
+* doc\toolbarcolor6.9.png
+* doc\toolbarcolor6.png
+* doc\toolbarcolor7.9.png
+* doc\toolbarcolor7.png
+* doc\toolbarcolor8.9.png
+* doc\toolbarcolor8.png
+* doc\toolbarcolor9.9.png
+* doc\toolbarcolor9.png
+* doc\toolbarhelper.png
+* doc\toolbarhelper.psd
+* doc\tree.psd
+* doc\treebig.png
+* doc\treecenter.png
+* doc\treesmall.png
+* doc\umeng_sdk_201408311644_analytics.zip
+* doc\unselected.9.png
+* doc\unselected.png
+* doc\victory.9.png
+* doc\victory.png
+* doc\使用流程图.vsd
+* doc\图标.psd
+* doc\宣传.png
+* doc\宣传.psd
+* doc\富兰克林十三项美德修炼方法及表格.doc
+* doc\最小的勾选.psd
+* doc\胜利.mp3
+* doc\表情.psd
+* doc\鸟.psd
+* ic_launcher-web.png
+* proguard-project.txt
+* proguard\
+* proguard\dump.txt
+* proguard\mapping.txt
+* proguard\seeds.txt
+* proguard\usage.txt
+From library:
+* .gitignore
+* ant.properties
+* build.xml
+* pom.xml
+* proguard-project.txt
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:18.0.0
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+In library:
+* AndroidManifest.xml => library\src\main\AndroidManifest.xml
+* res\ => library\src\main\res\
+* src\ => library\src\main\java\
+In FranklinHD:
+* AndroidManifest.xml => franklinHD\src\main\AndroidManifest.xml
+* assets\ => franklinHD\src\main\assets\
+* libs\armeabi\libbspatch.so => franklinHD\src\main\jniLibs\armeabi\libbspatch.so
+* libs\nineoldandroids-2.4.0.jar => franklinHD\libs\nineoldandroids-2.4.0.jar
+* libs\umeng-analytics-v5.2.4.jar => franklinHD\libs\umeng-analytics-v5.2.4.jar
+* libs\umeng-feedback-v4.3.jar => franklinHD\libs\umeng-feedback-v4.3.jar
+* libs\umeng-update-v2.4.2.jar => franklinHD\libs\umeng-update-v2.4.2.jar
+* lint.xml => franklinHD\lint.xml
+* res\ => franklinHD\src\main\res\
+* src\ => franklinHD\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

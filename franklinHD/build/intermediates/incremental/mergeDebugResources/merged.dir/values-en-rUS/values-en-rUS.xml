@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Finishmodify">Adjust Virtues</string>
+    <string name="ImGetBetter">13 Virtues</string>
+    <string name="Mainshare">Share</string>
+    <string name="OK">Yes</string>
+    <string name="SettingCycleDescription">I determined to give a week\'s strict attention to each of the virtues successively</string>
+    <string name="SettingCycleSeekbar">Drag to adjust period:</string>
+    <string name="aboutApp">About</string>
+    <string name="aboutFranklin">About Benjamin Franklin</string>
+    <string name="addNew">ADD NEW </string>
+    <string name="app_name">13 Virtues</string>
+    <string name="appnameabout">13 Virtues</string>
+    <string name="backupDataError">Can not restore,may be some CSV files lost</string>
+    <string name="backupRestore">Backup And Restore</string>
+    <string name="backupnow">BACKUP</string>
+    <string name="beginMoral"> Today is day  %2$d of planning %1$s</string>
+    <string name="benjaminfranklininfo">        Benjamin Franklin FRS (January 17, 1706 [O.S. January 6, 1705]– April 17, 1790) was one of the Founding Fathers of the United States and in many ways was "the First American".A renowned polymath, Franklin was a leading author, printer, political theorist, politician, postmaster, scientist, inventor, civic activist, statesman, and diplomat. As a scientist, he was a major figure in the American Enlightenment and the history of physics for his discoveries and theories regarding electricity. As an inventor, he is known for the lightning rod, bifocals, and the Franklin stove, among other inventions.He facilitated many civic organizations, including Philadelphia\'s fire department and a university.\n
+        Franklin, always proud of his working class roots, became a successful newspaper editor and printer in Philadelphia, the leading city in the colonies. With two partners he published the Pennsylvania Chronicle, a newspaper that was known for its revolutionary sentiments and criticisms of the British policies. He became wealthy publishing Poor Richard\'s Almanack and The Pennsylvania Gazette. Franklin was also the printer of books for the Moravians of Bethlehem, Pennsylvania (1742 on). Franklin\'s printed Moravian books (printed in German) are preserved, and can be viewed, at the Moravian Archives located in Bethlehem. Franklin visited Bethlehem many times and stayed at the Moravian Sun Inn.\n
+        Franklin earned the title of "The First American" for his early and indefatigable campaigning for colonial unity; as an author and spokesman in London for several colonies, then as the first United States Ambassador to France, he exemplified the emerging American nation.Franklin was foundational in defining the American ethos as a marriage of the practical values of thrift, hard work, education, community spirit, self-governing institutions, and opposition to authoritarianism both political and religious, with the scientific and tolerant values of the Enlightenment. In the words of historian Henry Steele Commager, "In a Franklin could be merged the virtues of Puritanism without its defects, the illumination of the Enlightenment without its heat."To Walter Isaacson, this makes Franklin "the most accomplished American of his age and the most influential in inventing the type of society America would become."\n
+        He played a major role in establishing the University of Pennsylvania and was elected the first president of the American Philosophical Society. Franklin became a national hero in America when as agent for several colonies he spearheaded the effort to have Parliament in London repeal the unpopular Stamp Act. An accomplished diplomat, he was widely admired among the French as American minister to Paris and was a major figure in the development of positive Franco-American relations. His efforts to secure support for the American Revolution by shipments of crucial munitions proved vital for the American war effort.\n
+        For many years he was the British postmaster for the colonies, which enabled him to set up the first national communications network. He was active in community affairs, colonial and state politics, as well as national and international affairs. From 1785 to 1788, he served as governor of Pennsylvania. Toward the end of his life, he freed his own slaves and became one of the most prominent abolitionists.\n
+		His colorful life and legacy of scientific and political achievement, and status as one of America\'s most influential Founding Fathers, have seen Franklin honored on coinage and the $100 bill; warships, the names of many towns, counties, educational institutions, namesakes, and companies, and, more than two centuries after his death, countless cultural references.
+	</string>
+    <string name="book">The Autobiography of Benjamin Franklin</string>
+    <string name="bookcontent">
+<![CDATA[ 
+<p>I had been religiously educated as a Presbyterian; and tho\' some of the dogmas of that persuasion, such as the eternal decrees of God, election, reprobation, etc., appeared to me unintelligible, others doubtful, and I early absented myself from the public assemblies of the sect, Sunday being my studying day, I never was without some religious principles. I never doubted, for instance, the existence of the Deity; that he made the world, and govern\'d it by his Providence; that the most acceptable service of God was the doing good to man; that our souls are immortal; and that all crime will be punished, and virtue rewarded, either here or hereafter. These I esteem\'d the essentials of every religion; and, being to be found in all the religions we had in our country, I respected them all, tho\' with different degrees of respect, as I found them more or less mix\'d with other articles, which, without any tendency to inspire, promote, or confirm morality, serv\'d principally to divide us, and make us unfriendly to one another. This respect to all, with an opinion that the worst had some good effects, induc\'d me to avoid all discourse that might tend to lessen the good opinion another might have of his own religion; and as our province increas\'d in people, and new places of worship were continually wanted, and generally erected by voluntary contributions, my mite for such purpose, whatever might be the sect, was never refused.</p> 
+<p>Tho\' I seldom attended any public worship, I had still an opinion of its propriety, and of its utility when rightly conducted, and I regularly paid my annual subscription for the support of the only Presbyterian minister or meeting we had in Philadelphia. He us\'d to visit me sometimes as a friend, and admonish me to attend his administrations, and I was now and then prevail\'d on to do so, once for five Sundays successively. Had he been in my opinion a good preacher, perhaps I might have continued, notwithstanding the occasion I had for the Sunday\'s leisure in my course of study; but his discourses were chiefly either polemic arguments, or explications of the peculiar doctrines of our sect, and were all to me very dry, uninteresting, and unedifying, since not a single moral principle was inculcated or enforc\'d, their aim seeming to be rather to make us Presbyterians than good citizens.</p> 
+<p>At length he took for his text that verse of the fourth chapter of Philippians, “Finally, brethren, whatsoever things are true, honest, just, pure, lovely, or of good report, if there be any virtue, or any praise, think on these things.” And I imagin\'d, in a sermon on such a text, we could not miss of having some morality. But he confin\'d himself to five points only, as meant by the apostle, viz.: 1. Keeping holy the Sabbath day. 2. Being diligent in reading the holy Scriptures. 3. Attending duly the publick worship. 4. Partaking of the Sacrament. 5. Paying a due respect to God\'s ministers. These might be all good things; but, as they were not the kind of good things that I expected from that text, I despaired of ever meeting with them from any other, was disgusted, and attended his preaching no more. I had some years before compos\'d a little Liturgy, or form of prayer, for my own private use (viz., in 1728), entitled, Articles of Belief and Acts of Religion. I return\'d to the use of this, and went no more to the public assemblies. My conduct might be blameable, but I leave it, without attempting further to excuse it; my present purpose being to relate facts, and not to make apologies for them.</p> 
+<p>It was about this time I conceiv\'d the bold and arduous project of arriving at moral perfection. I wish\'d to live without committing any fault at any time; I would conquer all that either natural inclination, custom, or company might lead me into. As I knew, or thought I knew, what was right and wrong, I did not see why I might not always do the one and avoid the other. But I soon found I had undertaken a task of more difficulty than I bad imagined. While my carewas employ\'d in guarding against one fault, I was often surprised by another; habit took the advantage of inattention;inclination was sometimes too strong for reason. I concluded, at length, that the mere speculative conviction that it was our interest to be completely virtuous, was not sufficient to prevent our slipping; and that the contrary habits must be broken, and good ones acquired and established, before we can have any dependence on a steady, uniform rectitude of conduct. For this purpose I therefore contrived the following method.</p>
+<p>In the various enumerations of the moral virtues I had met with in my reading, I found the catalogue more or less numerous, as different writers included more or fewer ideas under the same name. Temperance, for example, was by some confined to eating and drinking, while by others it was extended to mean the moderating every other pleasure, appetite, inclination, or passion, bodily or mental, even to our avarice and ambition. I propos\'d to myself, for the sake of clearness, to use rather more names, with fewer ideas annex\'d to each, than a few names with more ideas; and I included under thirteen names of virtues all that at that time occurr\'d to me as necessary or desirable, and annexed to each a short precept, which fully express\'d the extent I gave to its meaning.</p> 
+<p>\tThese names of virtues, with their precepts, were:</p>
+<p><b><font color="#c84141">1. TEMPERANCE. Eat not to dullness; drink not to elevation. </font></b></p>
+<p><b><font color="#c84141">2. SILENCE. Speak not but what may benefit others or yourself; avoid trifling conversation.</font></b></p>
+<p><b><font color="#c84141">3. ORDER. Let all your things have their places; let each part of your business have its time.</font></b></p>
+<p><b><font color="#c84141">4. RESOLUTION. Resolve to perform what you ought; perform without fail what you resolve.</font></b> </p>
+<p><b><font color="#c84141">5. FRUGALITY. Make no expense but to do good to others or yourself; i.e., waste nothing.</font></b></p> 
+<p><b><font color="#c84141">6. INDUSTRY. Lose no time; be always employ\'d in something useful; cut off all unnecessary actions.</font></b></p> 
+<p><b><font color="#c84141">7. SINCERITY. Use no hurtful deceit; think innocently and justly, and, if you speak, speak accordingly.</font></b></p> 
+<p><b><font color="#c84141">8. JUSTICE. Wrong none by doing injuries, or omitting the benefits that are your duty.</font></b></p> 
+<p><b><font color="#c84141">9. MODERATION. Avoid extreams; forbear resenting injuries so much as you think they deserve.</font></b></p> 
+<p><b><font color="#c84141">10. CLEANLINESS. Tolerate no uncleanliness in body, cloaths, or habitation.</font></b></p> 
+<p><b><font color="#c84141">11. TRANQUILLITY. Be not disturbed at trifles, or at accidents common or unavoidable.</font></b></p> 
+<p><b><font color="#c84141">12. CHASTITY. Rarely use venery but for health or offspring,never to dulness, weakness, or the injury of your own or another\'s peace or reputation.</font></b></p> 
+<p><b><font color="#c84141">13. HUMILITY. Imitate Jesus and Socrates.</font></b></p>
+]]>
+    </string>
+    <string name="bookcontent2">
+<![CDATA[ 
+<p>My intention being to acquire the habitude of all these virtues, I judg\'d it would be well not to distract my attention by attempting the whole at once, but to fix it on one of them at a time; and, when I should be master of that, then to proceed to another, and so on, till I should have gone thro\' the thirteen; and, as the previous acquisition of some might facilitate the acquisition of certain others, I arrang\'d them with that view, as they stand above. Temperance first, as it tends to procure that coolness and clearness of head, which is so necessary where constant vigilance was to be kept up, and guard maintained against the unremitting attraction of ancient habits, and the force of perpetual temptations. This being acquir\'d and establish\'d, Silence would be more easy; and my desire being to gain knowledge at the same time that I improv\'d in virtue, and considering that in conversation it was obtain\'d rather by the use of the ears than of the tongue, and therefore wishing to break a habit I was getting into of prattling, punning, and joking, which only made me acceptable to trifling company, I gave Silence the second place. This and the next, Order, I expected would allow me more time for attending to my project and my studies. Resolution, once become habitual, would keep me firm in my endeavors to obtain all the subsequent virtues; Frugality and Industry freeing me from my remaining debt, and producing affluence and independence, would make more easy the practice of Sincerity and Justice, etc., etc. Conceiving then, that, agreeably to the advice of Pythagoras in his Golden Verses, daily examination would be necessary, I contrived the following method for conducting that examination. </p>
+<p>I made a little book, in which I allotted a page for each of the virtues. I rul\'d each page with red ink, so as to have seven columns, one for each day of the week, marking each column with a letter for the day. I cross\'d these columns with thirteen red lines, marking the beginning of each line with the first letter of one of the virtues, on which line, and in its proper column, I might mark, by a little black spot, every fault I found upon examination to have been committed respecting that virtue upon that day.</p>
+<p>I determined to give a week\'s strict attention to each of the virtues successively. Thus, in the first week, my great guard was to avoid every the least offence against Temperance, leaving the other virtues to their ordinary chance, only marking every evening the faults of the day. Thus, if in the first week I could keep my first line, marked T, clear of spots, I suppos\'d the habit of that virtue so much strengthen\'d and its opposite weaken\'d, that I might venture extending my attention to include the next, and for the following week keep both lines clear of spots. Proceeding thus to the last, I could go thro\' a course compleat in thirteen weeks, and four courses in a year. And like him who, having a garden to weed, does not attempt to eradi cate all the bad herbs at once, which would exceed his reach and his strength, but works on one of the beds at a time, and, having accomplish\'d the first, proceeds to a second, so I should have, I hoped, the encouraging pleasure of seeing on my pages the progress I made in virtue, by clearing successively my lines of their spots, till in the end, by a number of courses, I should he happy in viewing a clean book, after a thirteen weeks\' daily examination.</p>
+<p>This my little book had for its motto these lines from Addison\'s Cato:</p>
+<p>“Here will I hold. If there\'s a power above us     (And that there is all nature cries aloud     Thro\' all her works), He must delight in virtue;     And that which he delights in must be happy.”</p>
+<p>Another from Cicero,</p>
+<p> “O vitae Philosophia dux! O virtutum indagatrix     expultrixque vitiorum! Unus dies, bene et ex praeceptis     tuis actus, peccanti immortalitati est anteponendus.”</p>
+<p>Another from the Proverbs of Solomon, speaking of wisdom or virtue:</p>
+<p> “Length of days is in her right hand, and in her left hand     riches and honour. Her ways are ways of pleasantness,     and all her paths are peace.” iii. 16, 17.</p>
+<p>And conceiving God to be the fountain of wisdom, I thought it right and necessary to solicit his assistance for obtaining it; to this end I formed the following little prayer,which was prefix\'d to my tables of examination, for daily use.</p>
+<p>“O powerful Goodness! bountiful Father! merciful Guide! increase in me that wisdom which discovers my truest interest. Strengthen my resolutions to perform what that wisdom dictates. Accept my kind offices to thy other children as the only return in my power for thy continual favors to me.”</p>
+<p>I used also sometimes a little prayer which I took from Thomson\'s Poems, viz.:</p>
+<p>“Father of light and life, thou Good Supreme!    O teach me what is good; teach me Thyself!     Save me from folly, vanity, and vice,     From every low pursuit; and fill my soul     With knowledge, conscious peace, and virtue pure;     Sacred, substantial, never-fading bliss!”</p>
+]]>
+    </string>
+    <string name="bookcontent3">
+<![CDATA[         
+<p>\tThe precept of Order requiring that every part of my business should have its allotted time, one page in my little book contain\'d the following scheme of employment for the twenty- four hours of a natural day: </p>
+<p>(5,6)The Morning.What good shall I do this day? </p>
+<p>(7)Rise, wash, and address Powerful Goodness! Contrive day\'s business and take the resolution of the day;prosecute the present study, and breakfast.</p> 
+<p>(8,9,10,11)Work.</p>
+<p>(12)Noon.</p>
+<p>(1)Read, or overlook my accounts, and dine.</p> 
+<p>(2,3,4,5)Work.</p>
+<p>(6,7,8)Evenining.Question. What good have I done today?</p>
+<p>(9)Put things in their places. Supper. Music or diversion, or conversation.Examination of the day.</p>
+<p>(10,11,12,1,2,3,4)Night.Sleep.</p>	
+<p>I enter\'d upon the execution of this plan for self-examination, and continu\'d it with occasional intermissions for some time. I was surpris\'d to find myself so much fuller of faults than I had imagined; but I had the satisfaction of seeing them diminish. To avoid the trouble of renewing now and then my little book, which, by scraping out the marks on the paper of old faults to make room for new ones in a new course, became full of holes, I transferr\'d my tables and precepts to the ivory leaves of a memorandum book, on which the lines were drawn with red ink, that made a durable stain, and on those lines I mark\'d my faults with a black-lead pencil, which marks I could easily wipe out with a wet sponge.After a while I went thro\' one course only in a year, and afterward only one in several years, till at length I omitted them entirely, being employ\'d in voyages and business abroad,with a multiplicity of affairs that interfered; but I always carried my little book with me.</p> 
+<p>My scheme of ORDER gave me the most trouble; and I found that, tho\' it might be practicable where a man\'s business was such as to leave him the disposition of his time,that of a journeyman printer, for instance, it was not possible to be exactly observed by a master, who must mix with the world, and often receive people of business at their own hours. Order, too, with regard to places for things, papers,etc., I found extreamly difficult to acquire. I had not been early accustomed to it, and, having an exceeding good memory, I was not so sensible of the inconvenience attending want of method. This article, therefore, cost me so much painful attention, and my faults in it vexed me so much,and I made so little progress in amendment, and had such frequent relapses, that I was almost ready to give up the attempt, and content myself with a faulty character in that respect,the man who, in buying an ax of a smith, my neighbour, desired to have the whole of its surface as bright as the edge. The smith consented to grind it bright for him if he would turn the wheel; he turn\'d, while the smith press\'d the broad face of the ax hard and heavily on the stone, which made the turning of it very fatiguing. The man came every now and then from the wheel to see how the work went on, and at length would take his ax as it was, withoutfarther grinding. “No,” said the smith, “turn on, turn on;we shall have it bright by-and-by; as yet, it is only speckled.” “Yes,” said the man, “but I think I like a speckled axbest.” And I believe this may have been the case with many,who, having, for want of some such means as I employ\'d, found the difficulty of obtaining good and breaking bad habits in other points of vice and virtue, have given up the struggle, and concluded that “a speckled ax was best”; for something, that pretended to be reason, was every now and then suggesting to me that such extream nicety as I exacted of myself might be a kind of foppery in morals, which,if it were known, would make me ridiculous; that a perfect character might be attended with the inconvenience of being envied and hated; and that a benevolent man should allow a few faults in himself, to keep his friends in countenance.</p>
+<p>In truth, I found myself incorrigible with respect to Or-der; and now I am grown old, and my memory bad, I feel very sensibly the want of it. But, on the whole, tho\' I never arrived at the perfection I had been so ambitious of obtaining, but fell far short of it, yet I was, by the endeavour, abetter and a happier man than I otherwise should have been if I had not attempted it; as those who aim at perfect writing by imitating the engraved copies, tho\' they never reach the wish\'d-for excellence of those copies, their hand is mended by the endeavor, and is tolerable while it continues fair and legible.citizen, and obtained for him some degree of reputation among the learned; to Sincerity and Justice, the confidence of his country, and the honorable employs it conferred upon him; and to the joint influence of the whole mass of the virtues, even in the imperfect state he was able to acquire them, all that evenness of temper, and that cheerfulness in conversation, which makes his company still sought for, and agreeable even to his younger acquaintance. I hope, therefore, that some of my descendants may follow the example and reap the benefit.</p> 
+<p>It will be remark\'d that, tho\' my scheme was not wholly without religion, there was in it no mark of any of the distingishing tenets of any particular sect. I had purposely avoided them; for, being fully persuaded of the utility and excellency of my method, and that it might be serviceable to people in all religions, and intending some time or other to publish it, I would not have any thing in it that should prejudice any one, of any sect, against it. I purposed writing a little comment on each virtue, in which I would have shown the advantages of possessing it, and the mischiefs attending its opposite vice; and I should have called my book The Art of Virtue,* because it would have shown the means and manner of obtaining virtue, which would have distinguished it from the mere exhortation to be good, that does not instruct and indicate the means, but is like the apostle\'s man of verbal charity, who only without showing to the naked and hungry how or where they might get clothes or victuals, exhorted them to be fed and clothed.—James ii. 15, 16.</p>
+<p>But it so happened that my intention of writing and publishing this comment was never fulfilled. I did, indeed, from time to time, put down short hints of the sentiments, reasonings, etc., to be made use of in it, some of which I have still by me; but the necessary close attention to private business in the earlier part of thy life, and public business since, have occasioned my postponing it; for, it being connected in my mind with a great and extensive project, that required the whole man to execute, and which an unforeseen succession of employs prevented my attending to, it has hitherto remain\'d unfinish\'d.</p>
+<p>In this piece it was my design to explain and enforce this doctrine, that vicious actions are not hurtful because they are forbidden, but forbidden because they are hurtful, the nature of man alone considered; that it was, therefore, every one\'s interest to be virtuous who wish\'d to be happy even in this world; and I should, from this circumstance (there being always in the world a number of rich merchants,nobility, states, and princes, who have need of honest in struments for the management of their affairs, and such being so rare), have endeavored to convince young persons that no qualities were so likely to make a poor man\'s fortune as those of probity and integrity.</p>
+<p>My list of virtues contain\'d at first but twelve; but a Quaker friend having kindly informed me that I was generally thought proud; that my pride show\'d itself frequently in conversation; that I was not content with being in the right when discussing any point, but was overbearing, and rather insolent, of which he convinc\'d me by mentioning several instances; I determined endeavouring to cure myself, if I could, of this vice or folly among the rest, and I added Humility to my list) giving an extensive meaning to the word.</p>
+<p>I cannot boast of much success in acquiring the reality of this virtue, but I had a good deal with regard to the appearance of it. I made it a rule to forbear all direct contradiction to the sentiments of others, and all positive assertion of my own. I even forbid myself, agreeably to the old laws of our Junto, the use of every word or expression in the language that imported a fix\'d opinion, such as certainly, undoubtedly, etc., and I adopted, instead of them, I conceive, I apprehend, or I imagine a thing to be so or so; or it so appears to me at present. When another asserted something that I thought an error, I deny\'d myself the pleasure of contradicting him abruptly, and of showing immediately some absurdity in his proposition; and in answering I began by observing that in certain cases or circumstances his opinion would be right, but in the present case there appear\'d or seem\'d to me some difference, etc. I soon found the advantage of this change in my manner; the conversations I engag\'d in went on more pleasantly. The modest way in which I propos\'d my opinions procur\'d them a readier recep tion and less contra diction; I had less mortification when I was found to be in the wrong, and I more easily prevail\'d with others to give up their mistakes and join with me when I happened to be in the right.</p>
+<p>And this mode, which I at first put on with some violence to natural inclination, became at length so easy, and so habitual to me, that perhaps for these fifty years past no one has ever heard a dogmatical expression escape me. And to this habit (after my character of integrity) I think it principally owing that I had early so much weight with my fellow- citizens when I proposed new institutions, or alterations in the old, and so much influence in public councils when I became a member; for I was but a bad speaker, never eloquent, subject to much hesitation in my choice of words,hardly correct in language, and yet I generally carried my points.</p>
+<p>In reality, there is, perhaps, no one of our natural passions so hard to subdue as pride. Disguise it, struggle with it, beat it down, stifle it, mortify it as much as one pleases, it is still alive, and will every now and then peep out and show itself; you will see it, perhaps, often in this history; for, even if I could conceive that I had compleatly overcome it, I should probably be proud of my humility.</p>
+<p>[Thus far written at Passy, 1741.]</p>
+]]>
+    </string>
+    <string name="bookcontenttitle1">My Dogmas</string>
+    <string name="bookcontenttitle2">motto</string>
+    <string name="bookcontenttitle3">The precept of Order</string>
+    <string name="bye">Byebye</string>
+    <string name="cancel">Cancel</string>
+    <string name="cannotchange4">Can not be changed after you set a peroid,Please consider again</string>
+    <string name="cantArrange">Can not adjust those virtue which aleady passed</string>
+    <string name="cantDelete">Can not delete those virtue which aleady passed</string>
+    <string name="cantFindBrowse">Can not find a browser</string>
+    <string name="cantFindMarket">Can not find a market to do this</string>
+    <string name="cantSendEmail">\nPlease Contact me:pavkoo@live.com</string>
+    <string name="caustion">NOTE:Add Reflection can only be done in the choice of Oops</string>
+    <string name="checknew">Check update</string>
+    <string name="chooseEmail">Choose Email</string>
+    <string name="chosebad">Thanks,please select Oops</string>
+    <string name="clickInput">Fantastic,try to input somthing</string>
+    <string name="close">Close</string>
+    <string name="comfirmDelete">Can not be recovered after deletion, sure to delete it?</string>
+    <string name="comment">Reflection:</string>
+    <string name="commentTitle">TOP15 Reflections</string>
+    <string name="csvfranklinbackupfile">SD Card Path/Frankin/backUp/\nconfig.csv --- Config file\nmorals.csv --- Your morals\ncomments.csv --- Reflections\nmottos.csv --- Mottos\nsigns.csv --- Your Sign Records</string>
+    <string name="csvsdfrankinbackup">Export CSV to SD card,or restore data from older backup data(Restore data will erase the current database data, please be careful) \n the file store at :</string>
+    <string name="cycle">PERIOD</string>
+    <string name="day">Days</string>
+    <string name="dayBeforeYesterday">ANTEAYER</string>
+    <string name="deleteHistoryComment">Clear Reflections</string>
+    <string name="deleteHistoryCommentInfo">Delete all your reflections\nReflections are great asset for you\nAre you sure you want to delete them?</string>
+    <string name="deleteHistoryCommentSuccess">Clear Reflections successfully</string>
+    <string name="description">Descriptions:</string>
+    <string name="devTemp">.</string>
+    <string name="done">Done</string>
+    <string name="doyoudotaday">How about your Virtues?</string>
+    <string name="dragToChangeCycle">Long press the number and drag to adjust time,or delete virtues you do not need by swapping left or right</string>
+    <string name="enjoylife">Thank you for your use\n\nContact me:Pavkoo@live.com</string>
+    <string name="errorAddContent">Please add some conetent</string>
+    <string name="errorAddDes">Please add description,to indicate the exetention</string>
+    <string name="errorAddTitle">Please add virtue</string>
+    <string name="errorMotto">Add motto</string>
+    <string name="errorTooMuchCh">Better just use one wrod</string>
+    <string name="errorTooMuchLines">Annexed to each a short precept, which fully express\'d the extent I gave to its meaning</string>
+    <string name="errorbackup">Error when back up</string>
+    <string name="errortorestore">Something happeds,please restore at setting!</string>
+    <string name="exportSuccess">Back up Successful</string>
+    <string name="exporting">Exporting CSV......</string>
+    <string name="finishDone">Wow,brave!\nYou really done!!!</string>
+    <string name="finishOneTime"/>
+    <string name="finishRate">Virtue Completion Rate</string>
+    <string name="franklin">Benjamin Franklin</string>
+    <string name="getBlackSpot">Clear Away Black Spot</string>
+    <string name="gotoMain">Go</string>
+    <string name="havenoitem">No Virtue?\n Comeon,Add one at least</string>
+    <string name="help">Help</string>
+    <string name="helpBook">Benjamin Franklin\'s 13 virtues</string>
+    <string name="helpReport">I might mark, by a little black spot,every fault I found upon examination to have been committed respecting that virtue upon that day。(there will still have a black spot if you forget)</string>
+    <string name="helper1">Now,Try to click the rotating Icon</string>
+    <string name="helper2">Well,click menu item to see more</string>
+    <string name="helper3">Brilliant,Click the number to reflect</string>
+    <string name="helper4">It\'s importent for us to reflect everday</string>
+    <string name="helpwelcome">Added some memorable sentences or storys which cheer you up</string>
+    <string name="hintComment">Hi,what\'s the matter?</string>
+    <string name="hintSettingDes">desirable virtue meaning</string>
+    <string name="hintSettingMotto">input motto for the virtue</string>
+    <string name="hintSettingTitle">input virtue here</string>
+    <string name="hlepCycle">when I should be master of a virtue at a time, then to proceed to another, and so on</string>
+    <string name="igotit">I get it</string>
+    <string name="inputReflection">Add Reflection</string>
+    <string name="jump">Skip</string>
+    <string name="language">Language</string>
+    <string name="mailto">mailto:pavkoo@live.com?subject=13 VIRTURES feedback&amp;body=Hi Pavkoo:\n</string>
+    <string name="mainMotto">Mottos</string>
+    <string name="main_toolbar_contactme">Contact Me</string>
+    <string name="main_toolbar_help">Help</string>
+    <string name="main_toolbar_setting">Settings</string>
+    <string name="manyDaynotuse">You forgot to reflect over %1$d days,Cheer you up</string>
+    <string name="maxCycleWarning">Training virtue period should not be too long,otherwise you will give up easily</string>
+    <string name="minCycleInfo">I judg\'d it would be well not to distract my attention by attempting the whole at once, but to fix it on one ofthem at a time</string>
+    <string name="modifyMoralitem">MODIFY %1$s</string>
+    <string name="moralItem">VIRTUES</string>
+    <string name="moreDay">Days Ago</string>
+    <string name="motto">Mottos:</string>
+    <string name="moveMoral"> %1$s move from %2$d to %3$d</string>
+    <string name="next">Next</string>
+    <string name="nextPage1">Next Page(⅓)</string>
+    <string name="nextPage2">Next Page(⅔)</string>
+    <string name="noMoreNeed">No more need for %1$d.%2$s"</string>
+    <string name="or">Or</string>
+    <string name="or2">OR</string>
+    <string name="pressToExit">Press again</string>
+    <string name="pupupAddComment">Yes</string>
+    <string name="quotesBegin">"</string>
+    <string name="quotesEnd">"</string>
+    <string name="rate">Rate</string>
+    <string name="reStart">Restart</string>
+    <string name="reflectioneveryday">Reflect every day</string>
+    <string name="reflectioning">Reflecting</string>
+    <string name="reportTitle">The Latest Period Black Spot</string>
+    <string name="reportclickabout">%1$s,%2$s,Your Reflection id:\n%3$s</string>
+    <string name="reportclickhaveno">%1$s\nYou fotgot to reflect %2$s!</string>
+    <string name="restartToBegin">Delete successful</string>
+    <string name="restartinfo">Restart\nYou are going to give up your plan which started or completed,and start all over\nAre you sure about this?</string>
+    <string name="restoreSuccess">Restore Successful</string>
+    <string name="restoreToDefault">Restore successful</string>
+    <string name="restorenow">RESTORE</string>
+    <string name="restoretinfo">Restore default will delete all your custom virtues\nAnd reset your training to begin\nAnd delete all your reflections\n Are you sure?</string>
+    <string name="seeMore"><![CDATA[ < Swap left or right to see more >]]></string>
+    <string name="settingProjectItemDescript">I included under thirteen names of virtues all that at that time occur\'d to me as necessary or desirable, and annexed to each a short precept, which fully express\'d the extent I gave to its meaning</string>
+    <string name="settingRestore">Restore To Default</string>
+    <string name="settingWelcomeDescrpit">This my little book had for its motto these lines from Addison\'s Cato</string>
+    <string name="settingtitle">Settings</string>
+    <string name="share">Follow me on TT weibo</string>
+    <string name="shareReflections">13 Virtues</string>
+    <string name="shareReport">13 Virtues</string>
+    <string name="sharetotal">13 Virtues</string>
+    <string name="sina">Follow me on sina weibo</string>
+    <string name="startNewMoralInfo">Start implementation a %1$d days planning for %2$s</string>
+    <string name="startNewMoralInfo2">%1$s completed\nStart implementation a %2$d days plan for %3$s</string>
+    <string name="startRestore">Restoring......</string>
+    <string name="store">Save,Restart</string>
+    <string name="strComfirmDelete">Comfirm Delete </string>
+    <string name="system">System</string>
+    <string name="tabToChoose">Agreeably to the advice of Pythagoras in his Golden Verses, daily examination would be necessary(Click the number in the cycle)</string>
+    <string name="thisisMenu">This is Menu</string>
+    <string name="thisisfranklin">This is 13 Virtues</string>
+    <string name="title">Virtue:</string>
+    <string name="titleChastity">CHASTITY</string>
+    <string name="titleChastityDes">Rarely use venery but for health or offspring\nNever to dulness, weakness, or the injury of your own or another\'s peace or reputation</string>
+    <string name="titleChastityMotto">Remain true to your highest values and respect others</string>
+    <string name="titleCleanliness">CLEANLINESS</string>
+    <string name="titleCleanlinessDes">Tolerate no uncleanliness in body, cloaths,or habitation</string>
+    <string name="titleCleanlinessMotto">Cleanliness is a form of self-respect.  There is value in neatness</string>
+    <string name="titleFrugality">FRUGALITY</string>
+    <string name="titleFrugalityDes">Make no expense but to do good to others or yourself\n I.e., waste nothing.</string>
+    <string name="titleFrugalityMotto">The next thing you need to understand about money is this: all of the things you picture buying, they are only worthwhile to you because you cannot afford them (or have to work really hard to acquire them). Maybe you have your eye on a new Audi — once you can easily afford it, it just doesn\'t mean as much to you anymore</string>
+    <string name="titleHumility">HUMILITY</string>
+    <string name="titleHumilityDes">Imitate Jesus and Socrates</string>
+    <string name="titleHumilityMotto">I made it a rule to forbear all direct contradiction to the sentiments of others, and all positive assertion of my own</string>
+    <string name="titleIndustry">INDUSTRY</string>
+    <string name="titleIndustryDes">Lose no time\nBe always employ\'d in something useful\nCut off all unnecessary actions</string>
+    <string name="titleIndustryMotto">Become mindful of your priorities in life.  Strive not to waste time on what doesn\'t matter</string>
+    <string name="titleJustice">JUSTICE</string>
+    <string name="titleJusticeDes">Wrong none by doing injuries\nOmitting the benefits that are your duty</string>
+    <string name="titleJusticeMotto">Follow the rules to keep life simple.  Serve others gladly</string>
+    <string name="titleModeration">MODERATION</string>
+    <string name="titleModerationDes">Avoid extreams\nForbear resenting injuries so much as you think they deserve</string>
+    <string name="titleModerationMotto">Practice self-restraint in arguments with others.  Think before you react</string>
+    <string name="titleOrder">ORDER</string>
+    <string name="titleOrderDes">Let all your things have their places\nLet each part of your business have its time</string>
+    <string name="titleOrderMotto">Bring order to every area of your life.  Attend to each part of your business to succeed</string>
+    <string name="titleResolution">RESOLUTION</string>
+    <string name="titleResolutionDes">Resolve to perform what you ought\nPerform without fail what you resolve</string>
+    <string name="titleResolutionMotto">Commit to the important things.  Persevere in spite of obstacles.  Honor your word</string>
+    <string name="titleSilence">SILENCE</string>
+    <string name="titleSilenceDes">Speak not but what may benefit others or yourself\nAvoid trifling conversation</string>
+    <string name="titleSilenceMotto">Be mindful of what you say to others.  Hurtful words can last and sometimes for a lifetime.  Silence is often better than trivial conversation</string>
+    <string name="titleSincerity">SINCERITY</string>
+    <string name="titleSincerityDes">Use no hurtful deceit\nThink innocently and justly\nAnd if you speak, speak accordingly</string>
+    <string name="titleSincerityMotto">Be authentic in your communication with others.  Say kind and encouraging words to others from the heart</string>
+    <string name="titleTenperance">TEMPERANCE</string>
+    <string name="titleTenperanceDes">Eat not to dullness\nDrink not to elevation</string>
+    <string name="titleTenperanceMotto">Practice self-control when consuming food and alcoholic beverages</string>
+    <string name="titleTranquillity">TRANQUILLITY</string>
+    <string name="titleTranquillityDes">Be not disturbed at trifles, or at accidents common or unavoidable</string>
+    <string name="titleTranquillityMotto">Be as peaceful as possible in unpleasant situations. Forgive the little things</string>
+    <string name="todayControlPopupTitleFormat">Are you %1$s,%2$s?</string>
+    <string name="todaySubject">Today:</string>
+    <string name="today_control_popup_bad">\nOops</string>
+    <string name="today_control_popup_good">\nHaha</string>
+    <string name="today_control_popup_title">How Are You Doing Today?</string>
+    <string name="todayhavepassed">Time seems passed over,Please Restore the default settings</string>
+    <string name="todo">To do List:</string>
+    <string name="totalReflectiveCount">Days of Reflection</string>
+    <string name="totalUsedCount">Days of Used</string>
+    <string name="trend">Virtue Completion Trend</string>
+    <string name="tutorials2">Hello!
+\nI think we should reach some agreement for using this app:
+\n(Click To Continue)</string>
+    <string name="tutorials3">We should determine some prerequisite:
+\n\n1.You are not completely satisfied with your current state , and want to improve your own morality,  you are willing to devote your time and action to improve yourself!
+\n\nYou wish\'d to live without committing any fault at any time; You would conquer all that either natural inclination, custom, or company might lead you into. As you knew, or thought you knew, what was right and wrong</string>
+    <string name="tutorials4">You want to improve your self beacause you know:
+\n
+\nthat the mere speculative conviction that it was our interest to be completely virtuous, was not sufficient to prevent our slipping; and that the contrary habits must be broken, and good ones acquired and established
+\n
+\nvicious actions are not hurtful because they are forbidden, but forbidden because they are hurtful, the nature of man alone considered; that it was, therefore, every one\'s interest to be virtuous who wish\'d to be happy even in this world</string>
+    <string name="tutorials5">Or Skip</string>
+    <string name="tutorials6">Read 13 Virtues</string>
+    <string name="tutorials7">Custom my Virtues(Please read the 13 Virtues)</string>
+    <string name="tutorials8">Great,\nThank you for your cooperation.
+\n
+\n13 Virtues is from The Autobiography of Benjamin Franklin 
+\nYou can</string>
+    <string name="typeCouse">Please add some reflections</string>
+    <string name="version">Version 1.0</string>
+    <string name="virtueDone">13 Virtues</string>
+    <string name="welcome">MOTTOS</string>
+    <string name="welcome1">Here will I hold\nIf there\'s a power above us\n(And that there is all nature cries aloud Thro\' all her works)\nHe must delight in virtue\nAnd that which he delights in must be happy\n---Addison\'s Cato</string>
+    <string name="welcome11">If you think you can\n You can</string>
+    <string name="welcome12">If you want something you never had \n ,you have to do something you have never done</string>
+    <string name="welcome13">YESTERDAY\nYOU SAID\nTOMORROW\n——JUST DO IT</string>
+    <string name="welcome14">You make millions of decisions that mean nothing \nAnd then one day \nYour order takes out and it changes your life</string>
+    <string name="welcome15">Now\nOr\nNever</string>
+    <string name="welcome16">And like him who\nHaving a garden to weed\nDoes not attempt to eradicate all the bad herbs at once\nWhich would exceed his reach and his strength\nBut works on one of the beds at a time \nAnd, having accomplish\'d the first\nProceeds to a second</string>
+    <string name="welcome2">O vitae Philosophia dux\nO virtutum indagatrix expultrixque vitiorum\nUnus dies, bene et ex praeceptistuis actus\nPeccanti immortalitati est anteponendus\n---Cicero</string>
+    <string name="welcome3">Length of days is in her right hand\nAnd in her left hand riches and honour\nHer ways are ways of pleasantness\nAnd all her paths are peace\niii. 16, 17.</string>
+    <string name="welcome4">O powerful Goodness\nBountiful Father! merciful Guide!Increase in me that wisdom which discovers my truest interest\nStrengthen my resolutions to perform what that wisdom dictates\nAccept my kind offices to thy other children as the only return in my power for thy continual favors to me</string>
+    <string name="welcome5">Father of light and life, thou Good Supreme\nO teach me what is good; teach me Thyself\nSave me from folly, vanity, and vice\nFrom every low pursuit\nAnd fill my soul With knowledge, conscious peace, and virtue pure \nSacred, substantial, never-fading bliss</string>
+    <string name="yesterday">YESTERDAY</string>
+    <string name="yourgole">Please forget this app,when you have no more black spot</string>
+</resources>
